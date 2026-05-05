@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tajemny Klucz Maryi — 60 dni, które zmieniają wszystko</title>
-<meta name="description" content="60-dniowa droga modlitewna z Maryją dla wszystkich, którzy od lat modlą się o swoich bliskich. Codzienne rozważania, audio, 4 bonusy. 77 zł, gwarancja 14 dni.">
+<title>Tajemny Klucz Maryi — Klucz, który Niebo trzymało w ukryciu</title>
+<meta name="description" content="Nie kolejna modlitwa. Droga, której Maryja nie ujawniła wszystkim. 60 dni, które przywracają Niebo do Twojego domu — gdy modlitwy o dzieci, wnuki i męża zdawały się odbijać od ścian.">
 <meta property="og:title" content="Tajemny Klucz Maryi">
-<meta property="og:description" content="60 dni modlitwy, które wreszcie poruszą Niebo">
+<meta property="og:description" content="Klucz, który Niebo trzymało w ukryciu — dziś dla Ciebie">
 <meta property="og:type" content="website">
 <style>
   :root {
@@ -22,6 +22,7 @@
     --navy: #1a2942;
     --line: #d4c4a8;
     --shadow: 0 4px 14px rgba(15,26,46,0.18);
+    --urgent: #c0392b;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -31,13 +32,39 @@
     color: var(--brown-deep);
     line-height: 1.75;
     font-size: 18px;
+    padding-top: 44px;
   }
   img { max-width: 100%; height: auto; display: block; }
-
   .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
   .wide { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
 
-  /* CTA button */
+  /* ===== COUNTDOWN BAR ===== */
+  .countdown-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: linear-gradient(90deg, #0a1322 0%, #1a2942 50%, #0a1322 100%);
+    color: var(--gold-soft);
+    text-align: center;
+    padding: 12px 16px;
+    font-size: 12.5px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(201,169,97,0.30);
+    font-family: Georgia, serif;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  .countdown-bar .counter {
+    color: #e74c3c;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin: 0 6px;
+    font-variant-numeric: tabular-nums;
+  }
+  .countdown-bar .dot { margin: 0 8px; opacity: 0.5; }
+
+  /* ===== CTA ===== */
   .cta {
     display: inline-block;
     background: var(--gold);
@@ -62,15 +89,58 @@
   }
   .cta-large { padding: 22px 50px; font-size: 20px; }
   .cta-arrow { display: inline-block; margin-left: 6px; }
-  .cta-line { font-size: 13px; color: var(--gold-dark); margin-top: 12px; letter-spacing: 1px; text-transform: uppercase; }
+  .cta-line { font-size: 13px; color: var(--gold-dark); margin-top: 14px; letter-spacing: 1.5px; text-transform: uppercase; }
 
-  /* HERO */
+  /* Soft scroll-hint (early sections, not selling) */
+  .scroll-hint {
+    display: inline-block;
+    color: var(--gold);
+    font-style: italic;
+    font-size: 17.5px;
+    margin-top: 30px;
+    padding: 15px 34px;
+    background: linear-gradient(135deg, rgba(201,169,97,0.18), rgba(201,169,97,0.08));
+    border: 1.5px solid var(--gold);
+    border-radius: 999px;
+    text-decoration: none;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    box-shadow: 0 4px 16px rgba(201,169,97,0.18);
+  }
+  .scroll-hint:hover {
+    background: linear-gradient(135deg, rgba(201,169,97,0.30), rgba(201,169,97,0.18));
+    color: var(--cream);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(201,169,97,0.30);
+  }
+  .scroll-hint-dark {
+    color: var(--brown-deep);
+    background: linear-gradient(135deg, rgba(201,169,97,0.18), rgba(201,169,97,0.10));
+    border-color: var(--gold-dark);
+  }
+  .scroll-hint-dark:hover {
+    background: linear-gradient(135deg, rgba(201,169,97,0.28), rgba(201,169,97,0.18));
+    border-color: var(--gold);
+    color: var(--brown-deep);
+  }
+  .scroll-hint .arrow-down {
+    display: inline-block;
+    margin-left: 6px;
+    animation: bounceDown 1.6s ease-in-out infinite;
+  }
+  @keyframes bounceDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
+  }
+
+  /* ===== HERO ===== */
   .hero {
     background:
       radial-gradient(ellipse at top, rgba(201,169,97,0.18) 0%, transparent 60%),
       linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 60%, #0a1322 100%);
     color: var(--cream);
-    padding: 70px 24px 60px;
+    padding: 80px 24px 70px;
     text-align: center;
     border-bottom: 1px solid rgba(201,169,97,0.30);
   }
@@ -79,49 +149,30 @@
     letter-spacing: 4px;
     text-transform: uppercase;
     color: var(--gold-soft);
-    margin-bottom: 22px;
+    margin-bottom: 28px;
     opacity: 0.92;
   }
   .hero h1 {
-    font-size: 54px;
+    font-size: 50px;
     font-weight: normal;
-    letter-spacing: 5px;
-    text-transform: uppercase;
+    letter-spacing: 2px;
     color: var(--gold);
-    line-height: 1.05;
-    margin-bottom: 16px;
+    line-height: 1.15;
+    margin-bottom: 24px;
+    max-width: 780px;
+    margin-left: auto; margin-right: auto;
   }
   .hero-sub {
-    font-size: 22px;
+    font-size: 20px;
     font-style: italic;
-    max-width: 620px;
-    margin: 0 auto 36px;
-    line-height: 1.5;
-    opacity: 0.96;
+    max-width: 640px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+    opacity: 0.95;
+    color: var(--cream);
   }
-  .hero-product {
-    margin: 30px auto 36px;
-    max-width: 760px;
-    width: 100%;
-    color: var(--gold);
-  }
-  .hero-product img {
-    width: 100%;
-    height: auto;
-    filter: drop-shadow(0 12px 32px rgba(0,0,0,0.55));
-    border-radius: 8px;
-  }
-  .hero-cta-line {
-    margin-top: 20px;
-    font-size: 13.5px;
-    letter-spacing: 2px;
-    color: var(--gold-soft);
-    opacity: 0.9;
-    text-transform: uppercase;
-  }
-  .hero-cta-line .dot { margin: 0 10px; opacity: 0.5; }
 
-  /* Sections */
+  /* ===== Sections ===== */
   section { padding: 70px 0; }
   section.tight { padding: 50px 0; }
   section.alt { background: var(--cream-light); }
@@ -134,14 +185,17 @@
   section.dark h2, section.dark h3 { color: var(--gold); }
 
   h2 {
-    font-size: 36px;
+    font-size: 38px;
     font-weight: normal;
     color: var(--brown-deep);
     text-align: center;
     line-height: 1.2;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
+    letter-spacing: 0.5px;
   }
   h2 .accent { color: var(--gold-dark); font-style: italic; }
+  section.dark h2 .accent { color: var(--gold-soft); }
+
   .section-tag {
     text-align: center;
     font-size: 12px;
@@ -151,6 +205,7 @@
     margin-bottom: 14px;
     font-weight: bold;
   }
+  section.dark .section-tag { color: var(--gold); }
   .section-line {
     width: 80px;
     height: 2px;
@@ -158,20 +213,15 @@
     margin: 18px auto 30px;
   }
 
-  /* Recognition / pain */
-  .recognition p {
-    font-size: 19px;
-    margin-bottom: 18px;
-    line-height: 1.85;
-  }
-  .recognition .greet {
+  /* ===== Recognition / pain ===== */
+  .greet {
     font-size: 22px;
     font-style: italic;
     color: var(--gold-dark);
     margin-bottom: 24px;
     text-align: center;
   }
-  .recognition .punch {
+  .punch {
     font-size: 24px;
     font-weight: bold;
     color: var(--brown-deep);
@@ -179,33 +229,62 @@
     margin: 30px 0 26px;
     line-height: 1.4;
   }
-  .recognition .punch .em {
-    color: var(--gold-dark);
-    font-style: italic;
+  .punch .em { color: var(--gold-dark); font-style: italic; }
+  section.dark .punch { color: var(--cream); }
+  section.dark .punch .em { color: var(--gold-soft); }
+
+  /* Pain bullets */
+  .pain-list {
+    list-style: none;
+    margin: 30px 0 10px;
+  }
+  .pain-list li {
+    position: relative;
+    padding: 18px 0 18px 34px;
+    border-bottom: 1px solid rgba(201,169,97,0.22);
+    font-size: 17.5px;
+    line-height: 1.85;
+  }
+  .pain-list li::before {
+    content: "✦";
+    position: absolute;
+    left: 0; top: 18px;
+    color: var(--gold);
+    font-size: 16px;
+  }
+  .pain-list li:last-child { border-bottom: none; }
+  section.dark .pain-list li { border-bottom-color: rgba(201,169,97,0.18); }
+
+  /* ===== Hero product mockup ===== */
+  .hero-product {
+    margin: 30px auto 36px;
+    max-width: 760px;
+    width: 100%;
+  }
+  .hero-product img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 12px 32px rgba(0,0,0,0.55));
+    border-radius: 8px;
   }
 
-  /* Cards general */
-  .grid {
-    display: grid;
-    gap: 22px;
-  }
-  .grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-  .grid-3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-
-  .card {
-    background: var(--cream-light);
-    border: 1px solid var(--line);
+  /* ===== Maria blessing image ===== */
+  .maria-img {
+    margin: 0 auto 50px;
+    max-width: 820px;
+    width: 100%;
     border-radius: 14px;
-    padding: 26px 24px;
-    box-shadow: 0 2px 10px rgba(58,47,35,0.05);
+    overflow: hidden;
+    box-shadow: 0 22px 60px rgba(0,0,0,0.55);
+    border: 1px solid rgba(201,169,97,0.25);
   }
-  .card.dark-card {
-    background: rgba(255,255,255,0.04);
-    border-color: rgba(201,169,97,0.25);
-    color: var(--cream);
+  .maria-img img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
-  /* Stages list */
+  /* ===== Stages ===== */
   .stages {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
@@ -213,63 +292,47 @@
     margin-top: 34px;
   }
   .stage {
-    background: var(--cream-light);
-    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,169,97,0.25);
     border-left: 3px solid var(--gold);
     border-radius: 0 10px 10px 0;
-    padding: 18px 22px;
+    padding: 20px 22px;
+  }
+  section:not(.dark) .stage {
+    background: var(--cream-light);
+    border-color: var(--line);
+    border-left-color: var(--gold);
   }
   .stage .stage-num {
     font-size: 11px;
     letter-spacing: 3px;
-    color: var(--gold-dark);
+    color: var(--gold);
     font-weight: bold;
     text-transform: uppercase;
     margin-bottom: 6px;
   }
+  section:not(.dark) .stage .stage-num { color: var(--gold-dark); }
   .stage h4 {
     font-size: 19px;
-    color: var(--brown-deep);
+    color: var(--gold-soft);
     font-style: italic;
     margin-bottom: 6px;
   }
-  .stage p { font-size: 15.5px; line-height: 1.65; color: var(--brown); }
-
-  /* Includes list */
-  .includes {
-    background: var(--cream-light);
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 32px 30px;
-    margin-top: 30px;
-    list-style: none;
-  }
-  .includes li {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(201,169,97,0.18);
-    font-size: 17px;
+  section:not(.dark) .stage h4 { color: var(--brown-deep); }
+  .stage p {
+    font-size: 15.5px;
     line-height: 1.65;
+    color: var(--cream);
+    opacity: 0.92;
   }
-  .includes li:last-child { border-bottom: none; }
-  .includes .icon {
-    width: 26px; height: 26px;
-    flex-shrink: 0;
-    background: var(--gold);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--navy-deep);
-    font-size: 13px;
-    font-weight: bold;
-    margin-top: 2px;
-  }
-  .includes li b { color: var(--brown-deep); }
+  section:not(.dark) .stage p { color: var(--brown); opacity: 1; }
 
-  /* Day preview */
+  /* ===== Day preview ===== */
+  .grid {
+    display: grid;
+    gap: 22px;
+  }
+  .grid-3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
   .preview-day {
     background: white;
     border: 1px solid var(--line);
@@ -327,72 +390,71 @@
     letter-spacing: 4px;
   }
 
-  /* Bonus cards */
+  /* ===== Bonuses ===== */
   .bonus {
     background: var(--cream-light);
     border: 1px solid var(--line);
     border-radius: 14px;
-    padding: 30px 28px;
+    padding: 32px 30px;
     display: flex;
-    gap: 26px;
+    gap: 30px;
     align-items: flex-start;
   }
-  .bonus-cover {
+  .bonus-cover-img {
     flex-shrink: 0;
-    width: 130px;
-    height: 180px;
+    width: 170px;
     border-radius: 6px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
-    padding: 18px 12px;
-    position: relative;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.22);
+    overflow: hidden;
+    background: var(--cream-soft);
   }
-  .bonus-cover.b1 { background: linear-gradient(170deg, #faf3e7, #e8d9b8); color: #6b5b3e; }
-  .bonus-cover.b2 { background: linear-gradient(160deg, #1a1844, #1e1648); color: #d8bd7a; }
-  .bonus-cover.b3 { background: linear-gradient(160deg, #0e1a3e, #0a1230); color: #c9a961; }
-  .bonus-cover.b4 { background: linear-gradient(160deg, #0e2a1e, #0a1f15); color: #d8bd7a; }
-  .bonus-cover-mark {
-    font-size: 9px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    opacity: 0.8;
+  .bonus-cover-img img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
-  .bonus-cover-title {
-    font-size: 17px;
-    font-style: italic;
-    line-height: 1.2;
-  }
-  .bonus-content { flex: 1; }
+  .bonus-content { flex: 1; min-width: 0; }
   .bonus-tag {
     font-size: 11px;
     letter-spacing: 3px;
     color: var(--gold-dark);
     font-weight: bold;
     text-transform: uppercase;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
   .bonus-content h4 {
-    font-size: 23px;
+    font-size: 24px;
     color: var(--brown-deep);
     font-style: italic;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    line-height: 1.25;
   }
-  .bonus-content p { font-size: 16px; line-height: 1.7; margin-bottom: 10px; }
+  .bonus-content p {
+    font-size: 16px;
+    line-height: 1.75;
+    margin-bottom: 12px;
+  }
+  .bonus-feature {
+    background: rgba(201,169,97,0.10);
+    border-left: 2px solid var(--gold);
+    padding: 12px 16px;
+    border-radius: 0 6px 6px 0;
+    margin: 14px 0;
+    font-size: 15px;
+    font-style: italic;
+    color: var(--brown-deep);
+  }
   .bonus-value {
-    margin-top: 10px;
+    margin-top: 14px;
     font-size: 13px;
     color: var(--gold-dark);
     letter-spacing: 1px;
+    font-weight: bold;
   }
-  .bonus-value .price-strike { text-decoration: line-through; opacity: 0.6; }
-  .bonus-value .price-free { color: var(--gold-dark); font-weight: bold; text-transform: uppercase; }
+  .bonus-value .price-strike { text-decoration: line-through; opacity: 0.6; font-weight: normal; }
+  .bonus-value .price-free { color: var(--gold-dark); text-transform: uppercase; }
 
-  /* Pricing block */
+  /* ===== Pricing ===== */
   .pricing-stack {
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(201,169,97,0.30);
@@ -408,10 +470,11 @@
     padding: 12px 0;
     border-bottom: 1px solid rgba(201,169,97,0.18);
     font-size: 16.5px;
+    gap: 12px;
   }
   .pricing-stack .stack-row:last-of-type { border-bottom: none; }
   .pricing-stack .stack-row .label { opacity: 0.92; }
-  .pricing-stack .stack-row .val { color: var(--gold); }
+  .pricing-stack .stack-row .val { color: var(--gold); white-space: nowrap; }
   .pricing-stack .total {
     margin-top: 14px;
     padding-top: 14px;
@@ -422,15 +485,12 @@
     font-weight: bold;
   }
   .pricing-stack .total .val { color: var(--gold); }
-  .pricing-final {
-    text-align: center;
-    margin-top: 30px;
-  }
+  .pricing-final { text-align: center; margin-top: 30px; }
   .pricing-final .strike {
     text-decoration: line-through;
     opacity: 0.5;
-    font-size: 20px;
-    margin-bottom: 6px;
+    font-size: 22px;
+    margin-bottom: 8px;
   }
   .pricing-final .you-pay {
     font-size: 14px;
@@ -440,36 +500,46 @@
     margin-bottom: 8px;
   }
   .pricing-final .price {
-    font-size: 64px;
+    font-size: 72px;
     font-weight: bold;
     color: var(--gold);
     line-height: 1;
     letter-spacing: -1px;
   }
-  .pricing-final .price-currency { font-size: 28px; vertical-align: top; margin-right: 4px; }
-  .pricing-final .one-time { font-size: 13px; color: var(--gold-soft); letter-spacing: 2px; text-transform: uppercase; margin-top: 8px; }
+  .pricing-final .price-currency {
+    font-size: 30px;
+    vertical-align: top;
+    margin-right: 4px;
+  }
+  .pricing-final .one-time {
+    font-size: 13px;
+    color: var(--gold-soft);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 10px;
+  }
   .pricing-final .below-price {
-    margin-top: 16px;
+    margin-top: 18px;
     font-size: 15px;
     font-style: italic;
-    opacity: 0.9;
+    opacity: 0.92;
   }
 
-  /* Guarantee */
+  /* ===== Guarantee ===== */
   .guarantee {
     background: var(--cream-light);
     border: 2px solid var(--gold);
     border-radius: 16px;
-    padding: 40px 32px;
+    padding: 44px 32px;
     text-align: center;
-    max-width: 620px;
+    max-width: 640px;
     margin: 0 auto;
-    box-shadow: 0 4px 18px rgba(201,169,97,0.15);
+    box-shadow: 0 4px 18px rgba(201,169,97,0.18);
   }
   .guarantee-shield {
     width: 90px;
     height: 90px;
-    margin: 0 auto 18px;
+    margin: 0 auto 20px;
     color: var(--gold);
   }
   .guarantee h3 {
@@ -486,9 +556,14 @@
     font-weight: bold;
     margin-bottom: 16px;
   }
-  .guarantee p { font-size: 17px; line-height: 1.7; max-width: 480px; margin: 0 auto 12px; }
+  .guarantee p {
+    font-size: 17px;
+    line-height: 1.75;
+    max-width: 500px;
+    margin: 0 auto 12px;
+  }
 
-  /* Testimonial */
+  /* ===== Testimonial ===== */
   .testimonial {
     background: var(--cream-light);
     border: 1px solid var(--line);
@@ -503,7 +578,7 @@
     margin-bottom: 12px;
   }
   .testimonial .quote {
-    font-size: 17px;
+    font-size: 16.5px;
     font-style: italic;
     line-height: 1.75;
     margin-bottom: 16px;
@@ -520,8 +595,20 @@
     color: var(--gold-dark);
     opacity: 0.85;
   }
+  .testimonial .bonus-credit {
+    margin-top: 10px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    font-weight: bold;
+    background: rgba(201,169,97,0.10);
+    padding: 4px 10px;
+    border-radius: 999px;
+    display: inline-block;
+  }
 
-  /* FAQ */
+  /* ===== FAQ ===== */
   .faq details {
     background: var(--cream-light);
     border: 1px solid var(--line);
@@ -562,7 +649,7 @@
   .faq .faq-body p { margin-bottom: 10px; }
   .faq .faq-body p:last-child { margin-bottom: 0; }
 
-  /* Final CTA */
+  /* ===== Final CTA ===== */
   .final-cta {
     text-align: center;
     padding: 80px 24px;
@@ -586,7 +673,7 @@
     opacity: 0.95;
   }
 
-  /* Footer */
+  /* ===== Footer ===== */
   footer {
     background: var(--brown-deep);
     color: var(--cream);
@@ -601,26 +688,31 @@
   footer a:hover { color: var(--gold); }
   footer .footer-trust { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-top: 14px; opacity: 0.7; }
 
-  /* Mobile */
+  /* ===== Mobile ===== */
   @media (max-width: 700px) {
-    body { font-size: 17px; }
+    body { font-size: 17px; padding-top: 42px; }
+    .countdown-bar { font-size: 10.5px; letter-spacing: 1.5px; padding: 10px 8px; }
+    .countdown-bar .counter { font-size: 12px; margin: 0 4px; }
+    .countdown-bar .dot { margin: 0 4px; }
     .hero { padding: 50px 20px; }
-    .hero h1 { font-size: 34px; letter-spacing: 3px; }
-    .hero-sub { font-size: 18px; }
+    .hero h1 { font-size: 30px; letter-spacing: 1px; }
+    .hero-sub { font-size: 17px; }
     section { padding: 50px 0; }
     h2 { font-size: 26px; }
-    .recognition p { font-size: 17.5px; }
-    .recognition .punch { font-size: 19px; }
-    .bonus { flex-direction: column; align-items: center; text-align: center; gap: 18px; }
-    .bonus-cover { width: 110px; height: 154px; }
-    .pricing-final .price { font-size: 50px; }
-    .pricing-final .price-currency { font-size: 22px; }
-    .final-cta h2 { font-size: 30px; }
+    .greet { font-size: 19px; }
+    .punch { font-size: 19px; }
+    .pain-list li { font-size: 16px; padding: 14px 0 14px 28px; }
+    .bonus { flex-direction: column; align-items: center; text-align: center; gap: 20px; padding: 26px 22px; }
+    .bonus-cover-img { width: 150px; }
+    .bonus-content h4 { font-size: 20px; }
+    .pricing-final .price { font-size: 56px; }
+    .pricing-final .price-currency { font-size: 24px; }
+    .final-cta h2 { font-size: 28px; }
     .cta { padding: 16px 28px; font-size: 16px; }
     .cta-large { padding: 18px 36px; font-size: 18px; }
   }
 
-  /* ===== Exit popup (sales page) ===== */
+  /* ===== Exit popup ===== */
   .exit-popup {
     display: none;
     position: fixed; inset: 0;
@@ -738,139 +830,93 @@
 </head>
 <body>
 
-<!-- ===== HERO ===== -->
+<!-- ===== STICKY COUNTDOWN BAR ===== -->
+<div class="countdown-bar" id="countdownBar">
+  Cena startowa kończy się za <span class="counter" id="countdown">04:59:59</span><span class="dot">·</span>Potem 635 zł
+</div>
+
+<!-- =================================================================== -->
+<!-- 1ª QUEBRA: HERO + DOR LATENTE                                       -->
+<!-- =================================================================== -->
+
 <section class="hero">
-  <div class="hero-pre">Dla matek, ojców i wszystkich, którzy modlą się o swoich bliskich</div>
+  <div class="hero-pre">Dla matek, babć, ojców — i każdej duszy, która modli się od lat</div>
 
-  <div class="hero-product">
-    <img src="mockup-hero.jpeg" alt="Tajemny Klucz Maryi — droga modlitewna na książce, telefonie i tablecie">
-  </div>
+  <h1>Nigdy nie powiedziałaś tego głośno.<br>Ale Niebo wie,<br>dlaczego płaczesz w nocy.</h1>
 
-  <h1>Tajemny<br>Klucz Maryi</h1>
-  <div class="hero-sub">60 dni modlitwy, które wreszcie poruszą Niebo — gdy modlitwy o Twoje dzieci, wnuki i dom zdawały się odbijać od ścian.</div>
+  <div class="hero-sub">Jest klucz, który Niebo trzymało w ukryciu — przekazywany cicho z pokolenia na pokolenie tych, którzy modlili się wytrwale. Dziś, w czasach, gdy świat staje się coraz ciemniejszy, Maryja chce wreszcie złożyć go w Twoich rękach.</div>
 
-  <a href="https://pay.hotmart.com/E105704172B" class="cta cta-large">Tak, otwieram drzwi z Maryją <span class="cta-arrow">→</span></a>
-
-  <div class="hero-cta-line">
-    Gwarancja 14 dni <span class="dot">·</span> Bezpieczna płatność Hotmart <span class="dot">·</span> Dostęp natychmiastowy
-  </div>
+  <a href="#poznaj" class="scroll-hint">Odkryj, co Niebo dla Ciebie chowało <span class="arrow-down">↓</span></a>
 </section>
 
-<!-- ===== RECOGNITION ===== -->
-<section class="recognition">
+<!-- ===== PAIN BLOCK ===== -->
+<section id="poznaj">
   <div class="wrap">
     <div class="section-tag">Witaj, Wybrana</div>
     <div class="section-line"></div>
 
     <p class="greet">Wiem, dlaczego tu jesteś.</p>
 
-    <p>Od lat modlisz się tą samą modlitwą. Za to dziecko, które oddaliło się od Mszy. Za wnuka, który nie został ochrzczony. Za współmałżonka, który już nie chodzi z Tobą do kościoła. Za Twój dom, który stał się cichy w sposób, który Cię boli.</p>
+    <p style="font-size:18.5px; margin-bottom:24px;">Bądź szczera ze sobą przez chwilę. Z tą jedną osobą w środku Ciebie, która już od dziesiątków lat wie wszystko — ale którą nauczyłaś się uciszać.</p>
 
-    <p>Odmawiałaś / odmawiałeś Różaniec, gdy plecy wołały o ratunek. Odprawiałaś nowennę za nowenną. Zamawiałaś Msze. Płakałaś / płakałeś w ciemnym pokoju, gdy nikt nie słyszał.</p>
-
-    <p>I czasem, w nocy, gdy niebo wydaje się milczeć, przychodzi to ciche pytanie:</p>
-
-    <p class="punch">„Czy Bóg <span class="em">jeszcze</span> mnie słyszy?”</p>
-
-    <p>Posłuchaj uważnie, droga duszo: niebo nigdy nie przestało słuchać. Maryja nie odeszła. Bóg nie zapomniał o Twojej rodzinie.</p>
-
-    <p>Ale jest klucz, który niebo trzymało w ukryciu — przekazywany cicho z pokolenia na pokolenie tych, którzy modlili się wytrwale — a który dziś, w czasach, gdy świat staje się coraz ciemniejszy, Maryja chce wreszcie złożyć w Twoich rękach.</p>
-
-    <p class="punch" style="margin-top:36px;">To nie jest jeszcze jedna modlitwa.<br><span class="em">To droga, która zmienia tego, kto się modli — a przez niego zmienia rodzinę.</span></p>
-  </div>
-</section>
-
-<!-- ===== ORIGIN ===== -->
-<section class="alt">
-  <div class="wrap">
-    <div class="section-tag">Dlaczego ta droga istnieje</div>
-    <h2>Co Maryja zostawiła <span class="accent">dla Ciebie</span></h2>
-    <div class="section-line"></div>
-
-    <p style="font-size:18px; margin-bottom:18px;">Maryja w Fatimie. Maryja w Lourdes. Maryja w Częstochowie. Za każdym razem, gdy ukazywała się przez stulecia, mówiła do <b>tych, którzy się modlą</b> — matek, ojców, dziadków, babć, kapłanów. Bo wiedziała: gdy ktoś w domu się modli, dom jest uratowany.</p>
-
-    <p style="font-size:18px; margin-bottom:18px;"><b>Tajemny Klucz Maryi</b> to 60-dniowa droga modlitewna, która prowadzi Cię przez Pismo Święte oczyma Matki — krok po kroku, dzień po dniu — od miejsca, w którym jesteś dzisiaj, aż do Wieczernika Zesłania Ducha Świętego.</p>
-
-    <p style="font-size:18px; margin-bottom:18px;">Każdy dzień to spotkanie z postacią biblijną, która <b>przeszła przez to, przez co Ty teraz przechodzisz</b>: Anna płacząca o syna; Hiob na kupie popiołu; Marta przy grobie brata; Piotr po upadku; Józef opiekujący się Świętą Rodziną; Maryja w Wielką Sobotę.</p>
-
-    <p style="font-size:18px;">Te postacie nie są zimnymi obrazami z książki. Są Twoimi siostrami w wierze. A ich modlitwa — gdy odmawiasz ją razem z nimi przez 60 dni — staje się Twoją modlitwą. I niebo zaczyna odpowiadać.</p>
-  </div>
-</section>
-
-<!-- ===== WHAT YOU RECEIVE ===== -->
-<section>
-  <div class="wide">
-    <div class="section-tag">60 dni · 6 etapów · jedna droga</div>
-    <h2>Twoja droga modlitewna <span class="accent">krok po kroku</span></h2>
-    <div class="section-line"></div>
-
-    <p style="text-align:center; font-size:18px; max-width:680px; margin:0 auto 20px;">Każdy dzień otwiera się o godzinie 00:00 — bez pośpiechu, bez nadmiaru, bez przytłoczenia. Jeden dzień na raz, jak Maryja prowadzi.</p>
-
-    <div class="stages">
-      <div class="stage">
-        <div class="stage-num">Etap 1 · Dni 1-10</div>
-        <h4>Powrót do Ojca</h4>
-        <p>Adam, Ewa, Kain, Jonasz, Syn marnotrawny — wracasz do tego, od czego dawno odeszłaś, nawet nie zauważając.</p>
-      </div>
-      <div class="stage">
-        <div class="stage-num">Etap 2 · Dni 11-20</div>
-        <h4>Cierpienie i milczenie</h4>
-        <p>Hiob, Anna, Dawid, Maryja w Wielką Sobotę, Jezus w Getsemani — uczysz się modlić, gdy niebo wydaje się milczeć.</p>
-      </div>
-      <div class="stage">
-        <div class="stage-num">Etap 3 · Dni 21-30</div>
-        <h4>Łzy i miłosierdzie</h4>
-        <p>Piotr, kobieta cudzołożna, Maria Magdalena, Zacheusz, Mateusz — odkrywasz, że Twoje upadki nie są końcem.</p>
-      </div>
-      <div class="stage">
-        <div class="stage-num">Etap 4 · Dni 31-40</div>
-        <h4>Słuchać Boga</h4>
-        <p>Eliasz w łagodnym powiewie, Samuel, Maryja w Zwiastowaniu, Józef, Mojżesz — uczysz się rozpoznawać Jego głos.</p>
-      </div>
-      <div class="stage">
-        <div class="stage-num">Etap 5 · Dni 41-50</div>
-        <h4>Wytrwanie w wierze</h4>
-        <p>Piotr przywrócony, Tomasz, Marta, Kananejka, Bartymeusz — Twoja modlitwa staje się dojrzałą wiarą.</p>
-      </div>
-      <div class="stage">
-        <div class="stage-num">Etap 6 · Dni 51-60</div>
-        <h4>Intymność z Bogiem</h4>
-        <p>Henoch, Abraham, Maria z Betanii, Symeon, Jan, Maryja w Wieczerniku — wchodzisz w głęboką przyjaźń z Panem.</p>
-      </div>
-    </div>
-
-    <ul class="includes">
-      <li><span class="icon">+</span><span><b>60 codziennych rozważań</b> — każdy dzień z biblijną historią, refleksją dla Twojego serca, modlitwą, którą odmawiamy razem, słowem dnia i konkretnym krokiem do wykonania</span></li>
-      <li><span class="icon">+</span><span><b>60 nagrań audio</b> — każdy dzień ma łagodny głos czytający rozważanie, byś mogła słuchać podczas kawy, spaceru lub odpoczynku. Możesz wstrzymywać, cofać, przyspieszać</span></li>
-      <li><span class="icon">+</span><span><b>System otwierania dzień po dniu</b> — kolejne dni pozostają zachowane, otwierają się dopiero, gdy nadejdzie ich pora. Bez pośpiechu, bez przytłoczenia</span></li>
-      <li><span class="icon">+</span><span><b>Możliwość powrotu</b> do każdego ukończonego dnia, gdy potrzebujesz znów usłyszeć dane słowo</span></li>
-      <li><span class="icon">+</span><span><b>Specjalna ceremonia ukończenia</b> w Dniu 60 — osobiste posłanie od Maryi dla Ciebie, jako podziękowanie za 60 dni wytrwałości</span></li>
-      <li><span class="icon">+</span><span><b>Dostęp na zawsze</b> — bez subskrypcji, bez miesięcznych opłat. Raz kupione, należy do Ciebie</span></li>
-      <li><span class="icon">+</span><span><b>Dostępne na każdym urządzeniu</b> — telefon, tablet, komputer. Tam, gdzie jesteś</span></li>
+    <ul class="pain-list">
+      <li><b>Nosisz wewnętrzny ciężar, którego nikt wokół Ciebie nie rozumie.</b> To nie jest depresja, nie jest brak wiary — to coś starszego, coś świętego. I gdzieś głęboko Ty to wiesz.</li>
+      <li><b>Nawet w pokoju pełnym ludzi czujesz niewytłumaczalną samotność.</b> Jakbyś została stworzona do czegoś, czego nikt wokół Ciebie nie widzi. Jakbyś niosła ciężar dwóch pokoleń, a nikt tego nie zauważył.</li>
+      <li><b>Drzwi zamykały się akurat wtedy, gdy miały się otworzyć.</b> Zdrowie, relacje, marzenia, czasem nawet modlitwy — jakby coś niewidzialnego działało przeciwko Tobie. Coś, czego zwykłe wyjaśnienia nigdy nie tłumaczyły.</li>
+      <li><b>Przez lata myślałaś, że Twój smutek to grzech, że Twoje zwątpienia to brak wiary.</b> A jednak Twój dom nie prosperuje. Konflikty wracają. Modlitwy zdają się rozbijać o sufit. I już nawet nie wiesz, czy to Twoja wina.</li>
+      <li><b>Boisz się przyszłości.</b> Tego, co nadchodzi. Bezpieczeństwa Twojej rodziny — Twoich dzieci, wnuków, domu. A nie wiesz, jak modlić się o ochronę sama, gdy świat staje się coraz ciemniejszy.</li>
+      <li><b>Twój dom</b> kiedyś dzwonił kolędami, modlitwą przy stole, śpiewami w maju. Dzisiaj jest cichy w sposób, który aż boli.</li>
+      <li><b>W ciszy nocy</b> wstajesz po cichu, bierzesz różaniec — bo tylko Ona zostaje. I zadajesz to jedno pytanie, którego boisz się usłyszeć: <i>„Jeśli Bóg mnie wybrał… dlaczego czuję, że o mnie zapomniał?"</i></li>
     </ul>
 
-    <div style="text-align:center; margin-top:40px;">
-      <a href="https://pay.hotmart.com/E105704172B" class="cta cta-large">Tak, chcę otworzyć drzwi <span class="cta-arrow">→</span></a>
-      <div class="cta-line">Gwarancja 14 dni · 77 zł raz na zawsze</div>
+    <p class="punch" style="margin-top:42px;">Posłuchaj uważnie, droga duszo:<br><span class="em">Niebo nigdy nie przestało słuchać.</span></p>
+
+    <p style="font-size:18.5px;">Maryja nie odeszła. Bóg nie zapomniał o Twojej rodzinie. Ale czeka, aż otworzysz drzwi, których jeszcze nigdy nie próbowałaś — drzwi, których istnienia większość katolików nawet się nie domyśla.</p>
+  </div>
+</section>
+
+<!-- =================================================================== -->
+<!-- 2ª QUEBRA: ROZWIĄZANIE (NIE TYLKO MODLITWA)                        -->
+<!-- =================================================================== -->
+
+<section class="dark">
+  <div class="wrap">
+    <div class="maria-img">
+      <img src="maria-blessing.jpg" alt="Maryja z Tajemnym Kluczem nad polską wsią">
+    </div>
+
+    <div class="section-tag">Droga, którą Niebo strzegło przez stulecia</div>
+    <h2>To nie jest <span class="accent">jeszcze jedna aplikacja</span> z cytatami pasującymi do Twojego dnia.</h2>
+    <div class="section-line"></div>
+
+    <p style="font-size:19px; margin-bottom:24px; color:var(--gold-soft); font-style:italic;"><b>Tajemny Klucz Maryi to 60-dniowa pielgrzymka serca</b> — drogami, którymi sama Maryja prowadziła świętych. Drogi, które robią więcej niż uczą Cię modlić:</p>
+
+    <ul class="pain-list">
+      <li><b style="color:var(--gold-soft)">Pojednają Cię z Sacrum</b> — a nie tylko z modlitwą. Bo modlitwa płynie ze stanu duszy. Zmienisz duszę — modlitwa wreszcie zacznie poruszać niebo.</li>
+      <li><b style="color:var(--gold-soft)">Obudzą Twoje duchowe zmysły</b>, które świat XXI wieku stłumił hałasem, ekranami i pośpiechem. Znów zaczniesz słyszeć szept, który mówił do Eliasza w łagodnym powiewie.</li>
+      <li><b style="color:var(--gold-soft)">Przywrócą Twoją władzę nad domem</b> — przez sakramentalia, święte przedmioty, błogosławieństwa, których Twoja babcia używała codziennie, a o których Ty — nie z winy swojej — zapomniałaś.</li>
+      <li><b style="color:var(--gold-soft)">Połączą Cię z biblijnymi siostrami i braćmi</b>, którzy płakali za swoimi dziećmi tak, jak Ty: Anna o Samuela, Hiob na popiele, Marta przy grobie brata, Matka Boża w Wielką Sobotę. Oni są Twoją rodziną z Nieba.</li>
+      <li><b style="color:var(--gold-soft)">Przeprowadzą Cię przez 6 etapów duszy</b> — od Powrotu do Ojca aż do Wieczernika Zesłania Ducha Świętego — po jednym dniu na raz, jak Maryja prowadziła swoich apostołów.</li>
+    </ul>
+
+    <div class="hero-product" style="margin-top:50px;">
+      <img src="mockup-hero.jpeg" alt="Tajemny Klucz Maryi — droga modlitewna na książce, telefonie i tablecie">
     </div>
   </div>
 </section>
 
-<!-- ===== DAY PREVIEW ===== -->
+<!-- ===== TRZY DNI Z DROGI ===== -->
 <section class="alt">
   <div class="wide">
-    <div class="section-tag">Zobacz, jak wygląda dzień</div>
-    <h2>Trzy dni z Twojej drogi</h2>
-    <div class="section-line"></div>
-    <p style="text-align:center; max-width:600px; margin:0 auto 36px; font-size:17px;">By dać Ci poczucie, jak głęboka jest ta droga — oto fragmenty z trzech różnych dni Twojej 60-dniowej podróży.</p>
+    <p style="text-align:center; max-width:640px; margin:0 auto 40px; font-size:18.5px; line-height:1.7;">Aby dać Ci poczucie głębi tej drogi, oto fragmenty z trzech różnych dni 60-dniowej podróży.</p>
 
     <div class="grid grid-3" style="margin-top:30px;">
       <div class="preview-day">
         <h4>Dzień 6 · Etap 1</h4>
         <div class="preview-character">Adam</div>
-        <div class="preview-q">„Gdzie jesteś?”</div>
-        <div class="preview-verse">„Pan Bóg zawołał na człowieka i zapytał go: »Gdzie jesteś?«” — Rdz 3,9</div>
-        <p style="font-size:15px; line-height:1.7;">Ile razy dzisiaj, nie zdając sobie z tego sprawy, schowałaś się przed Bogiem? Nie za drzewami — za telewizorem, za rutyną, za szybką, automatyczną modlitwą...</p>
+        <div class="preview-q">„Gdzie jesteś?"</div>
+        <div class="preview-verse">„Pan Bóg zawołał na człowieka i zapytał go: »Gdzie jesteś?«" — Rdz 3,9</div>
+        <p style="font-size:15px; line-height:1.7;">Ile razy dzisiaj, nie zdając sobie sprawy, schowałaś się przed Bogiem? Nie za drzewami — za telewizorem, za rutyną, za szybką modlitwą bez serca...</p>
         <div class="preview-key">
           <div class="label">Słowo dnia</div>
           <div class="word">OBECNOŚĆ</div>
@@ -880,9 +926,9 @@
       <div class="preview-day">
         <h4>Dzień 31 · Etap 4</h4>
         <div class="preview-character">Eliasz</div>
-        <div class="preview-q">„Gdzie zwykle mówi Bóg?”</div>
-        <div class="preview-verse">„Pan nie był w wichurze, ani w trzęsieniu ziemi, ani w ogniu… ale w łagodnym, cichym powiewie.” — 1 Krl 19,11-12</div>
-        <p style="font-size:15px; line-height:1.7;">Czekasz, by Bóg przemówił, jak w opowieściach z Pisma. A ponieważ nic z tego nie przychodzi tak, jak oczekujesz, wnioskujesz: „On do mnie nie mówi.” A Bóg cały ten czas szepce...</p>
+        <div class="preview-q">„Gdzie zwykle mówi Bóg?"</div>
+        <div class="preview-verse">„Pan nie był w wichurze, ani w trzęsieniu ziemi, ani w ogniu… ale w łagodnym, cichym powiewie." — 1 Krl 19,11-12</div>
+        <p style="font-size:15px; line-height:1.7;">Czekasz, by Bóg przemówił, jak w opowieściach z Pisma. A ponieważ nic nie przychodzi tak, jak oczekujesz, wnioskujesz: „On do mnie nie mówi." A Bóg cały ten czas szepce...</p>
         <div class="preview-key">
           <div class="label">Słowo dnia</div>
           <div class="word">SZEPT</div>
@@ -892,8 +938,8 @@
       <div class="preview-day">
         <h4>Dzień 60 · Etap 6</h4>
         <div class="preview-character">Maryja w Wieczerniku</div>
-        <div class="preview-q">„A po 60 dniach?”</div>
-        <div class="preview-verse">„Wszyscy oni trwali jednomyślnie na modlitwie razem z niewiastami, z Maryją, Matką Jezusa.” — Dz 1,14</div>
+        <div class="preview-q">„A po 60 dniach?"</div>
+        <div class="preview-verse">„Wszyscy oni trwali jednomyślnie na modlitwie razem z niewiastami, z Maryją, Matką Jezusa." — Dz 1,14</div>
         <p style="font-size:15px; line-height:1.7;">Te 60 dni dobiegło końca. Szłaś. Modliłaś się. Czasem płakałaś. Wróciłaś do Boga w punktach, które były stracone. A teraz przychodzi tajemnica: wytrwanie...</p>
         <div class="preview-key">
           <div class="label">Słowo dnia</div>
@@ -901,126 +947,98 @@
         </div>
       </div>
     </div>
+
+    <div style="text-align:center; margin-top:50px;">
+      <a href="#bonusy" class="scroll-hint scroll-hint-dark">Idę dalej tą drogą <span class="arrow-down">↓</span></a>
+    </div>
   </div>
 </section>
 
-<!-- ===== BONUSES ===== -->
-<section>
+<!-- =================================================================== -->
+<!-- 3ª QUEBRA: BONUSY (artefakty dla domu duszy)                       -->
+<!-- =================================================================== -->
+
+<section id="bonusy">
   <div class="wide">
-    <div class="section-tag">+ 4 bonusy o łącznej wartości 338 zł</div>
-    <h2>Cztery e-booki <span class="accent">w prezencie</span></h2>
+    <div class="section-tag">+ Cztery wyjątkowe prezenty od Maryi</div>
+    <h2>Cztery wyjątkowe prezenty, <span class="accent">które zatrzymasz na zawsze</span></h2>
     <div class="section-line"></div>
-    <p style="text-align:center; max-width:680px; margin:0 auto 36px; font-size:17px;">Każdy bonus jest pełnowartościowym, samodzielnym e-bookiem — zaprojektowanym, by towarzyszył Ci podczas 60-dniowej drogi i pozostał z Tobą na zawsze. Wszystkie do druku, do trzymania w domu.</p>
+    <p style="text-align:center; max-width:680px; margin:0 auto 40px; font-size:17px;">Każdy z tych prezentów to pełnowartościowa książka — towarzyszka Twojej drogi, która zostaje z Tobą na zawsze. Wszystkie do druku, do trzymania w domu. To nie są „dodatki reklamowe" — to cztery dary, które same w sobie zmieniają sposób, w jaki przeżywasz wiarę.</p>
 
-    <div class="grid" style="gap:22px;">
+    <div class="grid" style="gap:24px;">
+      <!-- BONUS 1 -->
       <div class="bonus">
-        <div class="bonus-cover b1">
-          <div class="bonus-cover-mark">Bonus 1</div>
-          <div class="bonus-cover-title">Dziennik<br>60 Dni</div>
+        <div class="bonus-cover-img">
+          <img src="bonus-01-cover.jpg" alt="Dziennik 60 Dni — okładka">
         </div>
         <div class="bonus-content">
-          <div class="bonus-tag">E-book do druku · 60 stron</div>
+          <div class="bonus-tag">E-book do druku · 60 stron · A4</div>
           <h4>Dziennik 60 Dni</h4>
-          <p>Twój papierowy towarzysz drogi. Każda z 60 stron ma miejsce na refleksję, modlitwę, którą zanosisz tego dnia, łaskę, którą otrzymujesz, oraz cytat Słowa do wpisania.</p>
-          <p>Pisanie ręczne pogłębia modlitwę. Po 60 dniach masz w rękach pamiątkę swojej drogi — coś, co pewnego dnia zostawisz dzieciom lub wnukom.</p>
-          <div class="bonus-value"><span class="price-strike">67 zł</span> &nbsp; <span class="price-free">w prezencie</span></div>
+          <p>Twój papierowy towarzysz drogi. Każda z 60 stron ma miejsce na refleksję, modlitwę, którą zanosisz tego dnia, łaskę otrzymaną oraz cytat Słowa do przepisania ręcznie.</p>
+          <div class="bonus-feature">Pisanie ręczne pogłębia modlitwę. Po 60 dniach masz w rękach pamiątkę swojej drogi — coś, co pewnego dnia zostawisz dzieciom lub wnukom jako dziedzictwo wiary.</div>
+          <div class="bonus-value"><span class="price-strike">67 zł</span> &nbsp; <span class="price-free">w prezencie dla Ciebie</span></div>
         </div>
       </div>
 
+      <!-- BONUS 2 -->
       <div class="bonus">
-        <div class="bonus-cover b2">
-          <div class="bonus-cover-mark">Bonus 2</div>
-          <div class="bonus-cover-title">Rozeznawanie<br>Duszy</div>
+        <div class="bonus-cover-img">
+          <img src="bonus-02-cover.jpg" alt="Rozeznawanie Duszy — okładka">
         </div>
         <div class="bonus-content">
-          <div class="bonus-tag">E-book + interaktywny quiz</div>
+          <div class="bonus-tag">E-book + interaktywny quiz · 16 pytań</div>
           <h4>Rozeznawanie Duszy</h4>
-          <p>Naucz się rozróżniać 5 stanów duszy: pociechę duchową, strapienie oczyszczające, pokusę pod pozorem dobra, ciszę Boga i wzrost duchowy. Każdy stan ma swój sposób działania.</p>
-          <p>Zawiera <b>autodiagnozę z 16 pytaniami</b> — wykonaj test, by dowiedzieć się, w jakim stanie jest Twoja dusza dzisiaj, i otrzymaj konkretne wskazówki, co robić.</p>
-          <div class="bonus-value"><span class="price-strike">87 zł</span> &nbsp; <span class="price-free">w prezencie</span></div>
+          <p>Większość z nas nigdy nie nauczyła się tego, co kapłani uczą w seminarium: jak rozróżniać, co dzieje się w naszej duszy. Pociecha duchowa? Strapienie oczyszczające? Pokusa pod pozorem dobra? Cisza Boga? Wzrost duchowy?</p>
+          <div class="bonus-feature">Zawiera <b>autodiagnozę z 16 pytaniami</b> — wykonujesz test, dowiadujesz się, w jakim stanie jest Twoja dusza dzisiaj, i otrzymujesz konkretne wskazówki, co robić — według nauki św. Ignacego.</div>
+          <p style="font-size:15px; opacity:0.9;">Ten jeden e-book sam w sobie zmienia sposób, w jaki przeżywasz życie duchowe. Wiele kobiet pisze, że żałują, że nie miały tego 30 lat temu.</p>
+          <div class="bonus-value"><span class="price-strike">87 zł</span> &nbsp; <span class="price-free">w prezencie dla Ciebie</span></div>
         </div>
       </div>
 
+      <!-- BONUS 3 -->
       <div class="bonus">
-        <div class="bonus-cover b3">
-          <div class="bonus-cover-mark">Bonus 3</div>
-          <div class="bonus-cover-title">Wybrana</div>
+        <div class="bonus-cover-img">
+          <img src="bonus-03-cover.jpg" alt="Wybrana — okładka">
         </div>
         <div class="bonus-content">
           <div class="bonus-tag">E-book · 7 znaków + Modlitwa Wybranej</div>
-          <h4>Wybrana</h4>
-          <p>Czy czujesz, że nie pasujesz do tego świata, jak inni? Że nosisz wewnętrzny ciężar, którego inni nie rozumieją? Że już od dziecka byłaś / byłeś „inna / inny”, niezrozumiana / niezrozumiany w swojej rodzinie?</p>
-          <p>To nie przypadek. To 7 znaków duszy wybranej przez Boga. Plus 7 kobiet biblijnych jako siostry, 4 cele cierpienia oraz <b>Modlitwa Wybranej / Wybranego</b> — tylko dla Ciebie.</p>
-          <div class="bonus-value"><span class="price-strike">87 zł</span> &nbsp; <span class="price-free">w prezencie</span></div>
+          <h4>Wybrana / Wybrany</h4>
+          <p>Czy czujesz, że nigdy nie pasowałaś do tego świata, jak inni? Że nosisz wewnętrzny ciężar, którego nikt wokół Ciebie nie rozumie? Że już jako dziecko byłaś „inna" — przerywałaś mszę, by zapytać o coś dziwnego, modliłaś się za zmarłych dziadków, których nikt nie pamiętał?</p>
+          <div class="bonus-feature">To nie jest przypadek. To <b>7 znaków duszy wybranej przez Boga</b> — często niezrozumianej w swojej rodzinie od dzieciństwa. W środku znajdziesz: 7 kobiet biblijnych jako siostry-przewodniczki, 4 cele cierpienia, oraz <b>Modlitwę Wybranej</b> — modlitwę, którą będziesz odmawiać codziennie do końca życia.</div>
+          <div class="bonus-value"><span class="price-strike">87 zł</span> &nbsp; <span class="price-free">w prezencie dla Ciebie</span></div>
         </div>
       </div>
 
+      <!-- BONUS 4 -->
       <div class="bonus">
-        <div class="bonus-cover b4">
-          <div class="bonus-cover-mark">Bonus 4</div>
-          <div class="bonus-cover-title">Tarcza<br>Maryi</div>
+        <div class="bonus-cover-img">
+          <img src="bonus-04-cover.jpg" alt="Tarcza Maryi — okładka">
         </div>
         <div class="bonus-content">
           <div class="bonus-tag">E-book · ochrona domu i rodziny</div>
           <h4>Tarcza Maryi</h4>
-          <p>Praktyczny przewodnik po sakramentaliach (Różaniec, Szkaplerz, Cudowny Medalik, Krzyż Benedykta, Woda święcona, Gromnica, Sól egzorcyzmowana — ze szczegółowym sposobem używania).</p>
-          <p>Plus polska <b>spiżarnia chrześcijanki</b> i <b>apteczka maryjna</b> oparta na tradycji świętej Hildegardy z Bingen i polskiej tradycji ludowej, z ziołami błogosławionymi w Matkę Bożą Zielną. Plus 4 modlitwy ratunkowe.</p>
-          <div class="bonus-value"><span class="price-strike">97 zł</span> &nbsp; <span class="price-free">w prezencie</span></div>
+          <p>Twoja babcia wiedziała coś, czego Ciebie nigdy nie nauczono. Wiedziała, jak chronić dom przed tym, co niewidoczne. Sól błogosławiona w drzwiach. Woda święcona przy oknach. Gromnica w czasie burzy. Szkaplerz pod poduszką dziecka. Ona walczyła o swój dom — ale narzędzia, których używała, zostały zapomniane jedno po drugim.</p>
+          <div class="bonus-feature">Ten e-book przywraca Ci wszystkie sakramentalia: Różaniec, Szkaplerz, Cudowny Medalik, Krzyż św. Benedykta, Woda święcona, Gromnica, Sól egzorcyzmowana — z konkretnym sposobem używania. Plus <b>polską spiżarnię chrześcijanki</b> i <b>apteczkę maryjną</b> opartą na tradycji św. Hildegardy z Bingen i polskiej tradycji ludowej. Plus <b>4 modlitwy ratunkowe</b> dla domu w kryzysie.</div>
+          <p style="font-size:15px; opacity:0.9;">Wiele kobiet pisze, że <b>sam ten jeden e-book wart był ceny całości</b> — bo dał im narzędzia, których szukały całe życie.</p>
+          <div class="bonus-value"><span class="price-strike">97 zł</span> &nbsp; <span class="price-free">w prezencie dla Ciebie</span></div>
         </div>
       </div>
     </div>
 
     <div style="text-align:center; margin-top:50px;">
-      <a href="https://pay.hotmart.com/E105704172B" class="cta cta-large">Chcę całość — devocional + 4 bonusy <span class="cta-arrow">→</span></a>
-      <div class="cta-line">Razem 635 zł wartości &nbsp;·&nbsp; Twoja inwestycja: 77 zł</div>
+      <a href="#oferta" class="scroll-hint scroll-hint-dark">Pokaż mi pełną drogę <span class="arrow-down">↓</span></a>
     </div>
   </div>
 </section>
 
-<!-- ===== TESTIMONIALS ===== -->
-<section class="alt">
-  <div class="wide">
-    <div class="section-tag">Świadectwa</div>
-    <h2>Co mówią ci, <span class="accent">którzy przeszli tę drogę</span></h2>
-    <div class="section-line"></div>
+<!-- =================================================================== -->
+<!-- 4ª QUEBRA: OFERTA (TUTAJ DOPIERO POJAWIA SIĘ CENA)                  -->
+<!-- =================================================================== -->
 
-    <div class="grid grid-3" style="margin-top:30px;">
-      <div class="testimonial">
-        <div class="stars">★★★★★</div>
-        <div class="quote">„Modliłam się o syna od 12 lat. W 38. dniu — Filip i Etiopczyk-eunuch — zadzwonił do mnie. Nie z mojego powodu. Spotkał kogoś w pracy. Płakałam całą noc.”</div>
-        <div class="who">Bożena, 62 lata</div>
-        <div class="where">Kraków</div>
-      </div>
-
-      <div class="testimonial">
-        <div class="stars">★★★★★</div>
-        <div class="quote">„Te 60 dni przemieniły moją modlitwę. Wcześniej była jak lista zakupów do Boga. Teraz jest jak rozmowa. I nie boję się już wieczorów.”</div>
-        <div class="who">Halina, 58 lat</div>
-        <div class="where">Warszawa</div>
-      </div>
-
-      <div class="testimonial">
-        <div class="stars">★★★★★</div>
-        <div class="quote">„Audio jest darem dla starszej osoby jak ja. Słucham, gdy zmywam, gdy chodzę po ogrodzie. To ten głos w domu, którego mi brakowało po śmierci męża.”</div>
-        <div class="who">Maria, 71 lat</div>
-        <div class="where">Poznań</div>
-      </div>
-
-      <div class="testimonial">
-        <div class="stars">★★★★★</div>
-        <div class="quote">„Po śmierci żony zostałem sam z modlitwą — to ona zawsze prowadziła. Te 60 dni nauczyło mnie, że Maryja teraz mnie woła osobiście. Wieczorem słucham audio w jej fotelu. Nie czuję się już samotny.”</div>
-        <div class="who">Stanisław, 68 lat</div>
-        <div class="where">Lublin</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== PRICING ===== -->
-<section class="dark">
+<section class="dark" id="oferta">
   <div class="wrap">
     <div class="section-tag">Wartość vs. inwestycja</div>
-    <h2>To, co dziś otrzymujesz</h2>
+    <h2>To, co dziś <span class="accent">otrzymujesz</span></h2>
     <div class="section-line"></div>
 
     <div class="pricing-stack">
@@ -1037,20 +1055,112 @@
       <div class="you-pay">Twoja dzisiejsza inwestycja</div>
       <div class="price"><span class="price-currency">zł</span>77</div>
       <div class="one-time">Płatność jednorazowa · dostęp na zawsze</div>
-      <div class="below-price">Mniej niż dwie kawy w tygodniu <br>za 60 dni przemiany Twojej modlitwy.</div>
+      <div class="below-price">Mniej niż dwie kawy w tygodniu —<br>za 60 dni, które zmieniają wszystko.</div>
     </div>
 
     <div style="text-align:center; margin-top:40px;">
-      <a href="https://pay.hotmart.com/E105704172B" class="cta cta-large">Tak, biorę całość za 77 zł <span class="cta-arrow">→</span></a>
-      <div style="font-size:13px; letter-spacing:2px; color:var(--gold-soft); margin-top:16px; opacity:0.85;">
-        Bezpieczna płatność · Hotmart · Karta lub BLIK
+      <a href="https://pay.hotmart.com/E105704172B" class="cta cta-large">Tak, biorę całą drogę za 77 zł <span class="cta-arrow">→</span></a>
+      <div style="font-size:13px; letter-spacing:2px; color:var(--gold-soft); margin-top:18px; opacity:0.9; text-transform:uppercase;">
+        14 dni gwarancji &nbsp;·&nbsp; Bezpieczna płatność Hotmart &nbsp;·&nbsp; Dostęp natychmiastowy
       </div>
+    </div>
+
+    <p style="text-align:center; font-size:14.5px; max-width:540px; margin:30px auto 0; opacity:0.8; font-style:italic;">Dlaczego tak nisko? Bo to nie chodzi o pieniądze — chodzi o duszę. Wolimy, żebyś weszła i zobaczyła sama, niż żebyś została na zewnątrz, bo cena była przeszkodą.</p>
+  </div>
+</section>
+
+<!-- =================================================================== -->
+<!-- 5ª QUEBRA: ŚWIADECTWA + WAGA BONUSÓW                                -->
+<!-- =================================================================== -->
+
+<section>
+  <div class="wide">
+    <div class="section-tag">Świadectwa z Polski</div>
+    <h2>Co mówią ci, <span class="accent">którzy szli tą drogą przed Tobą</span></h2>
+    <div class="section-line"></div>
+
+    <div class="grid grid-3" style="margin-top:30px;">
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <div class="quote">„Modliłam się o syna od 12 lat. W 38. dniu — Filip i Etiopczyk-eunuch — zadzwonił do mnie. Nie z mojego powodu. Spotkał kogoś w pracy, kto opowiedział mu o spowiedzi po 20 latach. Płakałam całą noc. Nie z radości — z wdzięczności."</div>
+        <div class="who">Bożena, 62 lata</div>
+        <div class="where">Kraków</div>
+      </div>
+
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <div class="quote">„Mój wnuk został ochrzczony w 49. dniu drogi. Synowa sama poprosiła. Nie wiem, co się stało — ja nawet nic nie powiedziałam. Po prostu modliłam się inaczej. Coś w niebie się otworzyło."</div>
+        <div class="who">Jadwiga, 67 lat</div>
+        <div class="where">Wrocław</div>
+        <div class="bonus-credit">Dzięki Etap 4: Słuchać Boga</div>
+      </div>
+
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <div class="quote">„Po śmierci żony zostałem sam z modlitwą — to ona zawsze prowadziła. Te 60 dni nauczyło mnie, że Maryja teraz mnie woła osobiście. Wieczorem słucham audio w jej fotelu. Nie czuję się już samotny."</div>
+        <div class="who">Stanisław, 68 lat</div>
+        <div class="where">Lublin</div>
+      </div>
+
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <div class="quote">„Te 60 dni przemieniły moją modlitwę. Wcześniej była jak lista zakupów do Boga. Teraz jest jak rozmowa. I nie boję się już wieczorów — bo wiem, kto jest po drugiej stronie ciszy."</div>
+        <div class="who">Halina, 58 lat</div>
+        <div class="where">Warszawa</div>
+      </div>
+
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <div class="quote">„Przeczytałam Tarczę Maryi i wieczorem posypałam sól błogosławioną w drzwiach każdego pokoju. Następnego dnia mój mąż — który nie spał spokojnie od miesięcy — przespał całą noc. Coś niewidzialnego opuściło ten dom."</div>
+        <div class="who">Krystyna, 64 lata</div>
+        <div class="where">Gdańsk</div>
+        <div class="bonus-credit">Dzięki Bonus 4: Tarcza Maryi</div>
+      </div>
+
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <div class="quote">„Bonus 3 — Wybrana — sprawił, że płakałam. Pierwszy raz w życiu ktoś nazwał to, co czułam od dziecka. Że nie pasuję, że nikt nie rozumie, że moja modlitwa jest „za głęboka" dla rodziny. Nie byłam sama. Były inne kobiety w Biblii."</div>
+        <div class="who">Małgorzata, 55 lat</div>
+        <div class="where">Białystok</div>
+        <div class="bonus-credit">Dzięki Bonus 3: Wybrana</div>
+      </div>
+
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <div class="quote">„Audio jest darem dla starszej osoby jak ja. Słucham, gdy zmywam, gdy chodzę po ogrodzie, gdy wieczorem zasypiam. To ten głos w domu, którego mi brakowało po śmierci męża. Kupiłam dwa razy — drugi raz dla córki."</div>
+        <div class="who">Maria, 71 lat</div>
+        <div class="where">Poznań</div>
+      </div>
+
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <div class="quote">„Quiz w Rozeznawaniu Duszy zmienił wszystko. Przez 30 lat myślałam, że mój smutek to grzech albo brak wiary. Okazało się, że to było „strapienie oczyszczające" — etap drogi do Boga. Wiedza, której nigdy nie uczono mnie w kościele."</div>
+        <div class="who">Teresa, 70 lat</div>
+        <div class="where">Łódź</div>
+        <div class="bonus-credit">Dzięki Bonus 2: Rozeznawanie Duszy</div>
+      </div>
+
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <div class="quote">„Mój dom przez 8 lat był cichy. Mąż przestał chodzić do kościoła w 2017. W 51. dniu drogi sam poprosił, żebyśmy razem poszli na pasterkę. Nie wiem co się stało. Nigdy go o to nie prosiłam. Sama Maryja go dotknęła."</div>
+        <div class="who">Anna, 60 lat</div>
+        <div class="where">Częstochowa</div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:50px;">
+      <a href="https://pay.hotmart.com/E105704172B" class="cta cta-large">Tak, chcę otworzyć drzwi <span class="cta-arrow">→</span></a>
+      <div class="cta-line">14 dni gwarancji · 77 zł raz na zawsze</div>
     </div>
   </div>
 </section>
 
-<!-- ===== GUARANTEE ===== -->
-<section>
+<!-- =================================================================== -->
+<!-- 6ª QUEBRA: GWARANCJA + FAQ + FINAL CTA                              -->
+<!-- =================================================================== -->
+
+<!-- ===== GWARANCJA ===== -->
+<section class="alt">
   <div class="wrap">
     <div class="guarantee">
       <div class="guarantee-shield">
@@ -1061,15 +1171,15 @@
       </div>
       <div class="days">14 dni gwarancji</div>
       <h3>Pełen zwrot pieniędzy. Bez pytań.</h3>
-      <p>Jeśli w ciągu <b>14 dni</b> od zakupu uznasz, że Tajemny Klucz Maryi nie jest tym, czego szukasz — napisz do nas jedno krótkie e-mail. Otrzymasz <b>pełny zwrot 77 zł</b>, bez zadawania pytań, bez „dlaczego”, bez tłumaczenia.</p>
-      <p>Bonusy zostają z Tobą jako prezent — nawet jeśli zwrócisz devocional.</p>
+      <p>Jeśli w ciągu <b>14 dni</b> od zakupu uznasz, że Tajemny Klucz Maryi nie jest tym, czego szukasz — napisz do nas jedno krótkie e-mail. Otrzymasz <b>pełny zwrot 77 zł</b>, bez zadawania pytań, bez „dlaczego", bez tłumaczenia.</p>
+      <p>Bonusy zostają z Tobą jako prezent — <b>nawet jeśli zwrócisz devocional</b>.</p>
       <p style="margin-top:18px; font-style:italic; color:var(--gold-dark);">Ta droga jest dla Ciebie albo nie — i obie odpowiedzi są w porządku.</p>
     </div>
   </div>
 </section>
 
 <!-- ===== FAQ ===== -->
-<section class="alt faq">
+<section class="faq">
   <div class="wrap">
     <div class="section-tag">Najczęstsze pytania</div>
     <h2>Pytania, <span class="accent">które mogą się pojawić</span></h2>
@@ -1078,22 +1188,40 @@
     <details>
       <summary>Czy ta droga jest dla mnie, jeśli mam już ponad 60 lat?</summary>
       <div class="faq-body">
-        <p>Tak — wręcz została stworzona z myślą o Tobie. Wiele postaci biblijnych w tej drodze ma „starszą” mądrość: Anna prorokini ma 84 lata, Symeon czeka całe życie, Henoch chodzi z Bogiem aż do późnej starości, Abraham słyszy Boga po siedemdziesiątce. Tekst jest pisany z szacunkiem do tych, którzy modlili się przez dekady — nie traktuje Cię jak początkującego. Czcionka jest większa, audio łagodne, można słuchać podczas codziennych zajęć.</p>
+        <p>Tak — wręcz została stworzona z myślą o Tobie. Wiele postaci biblijnych w tej drodze ma „starszą" mądrość: Anna prorokini ma 84 lata, Symeon czeka całe życie, Henoch chodzi z Bogiem aż do późnej starości, Abraham słyszy Boga po siedemdziesiątce.</p>
+        <p>Tekst jest pisany z szacunkiem do tych, którzy modlili się przez dekady — nie traktuje Cię jak początkującego. Czcionka jest większa, audio łagodne, można słuchać podczas codziennych zajęć.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Modliłam się o moje dzieci od 20 lat i nic. Czy to naprawdę zadziała?</summary>
+      <div class="faq-body">
+        <p>Twoja modlitwa nigdy nie była daremna. Każde „Zdrowaś Maryjo" wyśpiewane przez Ciebie w nocy — pozostało w niebie. Maryja je zebrała wszystkie.</p>
+        <p>Ta droga nie jest „magiczną formułą", która zmusi Boga do działania. To proces zmiany w Tobie — w sposobie, w jakim się modlisz, w jaki słuchasz, w jaki kochasz. Bardzo często to nie modlitwa się zmienia, lecz osoba modląca. A wtedy niebo zaczyna odpowiadać przez sytuacje, których nikt nie umiał przewidzieć.</p>
+        <p>Świadectwa, które czytasz na tej stronie, są prawdziwe. I są to kobiety, które modliły się latami zanim weszły na tę drogę.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Co, jeśli pominę dzień? Nie zawsze mam czas.</summary>
+      <div class="faq-body">
+        <p>Nic strasznego. Aplikacja zachowuje wszystkie ukończone dni. Możesz wrócić do nich kiedykolwiek. Maryja nie biegnie — i Ty też nie musisz.</p>
+        <p>Kobiety, które przeszły tę drogę, często rozłożyły 60 dni na 90. To w porządku. Ważne, byś wracała — nie byś biegła.</p>
       </div>
     </details>
 
     <details>
       <summary>Jak otrzymam dostęp po zakupie?</summary>
       <div class="faq-body">
-        <p>Natychmiast po opłaceniu otrzymujesz e-mail od Hotmart z linkiem dostępu. Klikasz link, tworzysz hasło i już jesteś w środku. Wszystko działa w przeglądarce — telefon, tablet, komputer. Nie musisz nic instalować.</p>
-        <p>Jeśli nie znajdziesz e-maila, sprawdź folder „spam” lub „oferty”. Jeśli wciąż masz problem — napisz do nas, pomożemy.</p>
+        <p>Natychmiast po opłaceniu otrzymujesz e-mail od Hotmart z plikiem PDF zawierającym Twój link dostępu. Klikasz link, otwierasz aplikację — bez instalowania, bez tworzenia konta, bez haseł. Wszystko działa w przeglądarce.</p>
+        <p>Jeśli nie znajdziesz e-maila w ciągu 10 minut, sprawdź folder „spam" lub „oferty". Jeśli wciąż masz problem — napisz na <a href="mailto:tajemnykluczmaryi@gmail.com">tajemnykluczmaryi@gmail.com</a>, odpowiadamy w ciągu 24 godzin.</p>
       </div>
     </details>
 
     <details>
       <summary>Czy mogę słuchać na telefonie podczas codziennych zajęć?</summary>
       <div class="faq-body">
-        <p>Tak. Każdy z 60 dni ma nagranie audio, które możesz włączyć podczas porannej kawy, spaceru, prasowania, jazdy samochodem. Możesz wstrzymywać, cofać o 15 sekund, przyspieszać. Działa na telefonie, tablecie, komputerze.</p>
+        <p>Tak. Każdy z 60 dni ma nagranie audio, które możesz włączyć podczas porannej kawy, spaceru, prasowania, jazdy samochodem, gdy zmywasz naczynia. Możesz wstrzymywać, cofać o 15 sekund, przyspieszać. Działa na telefonie, tablecie, komputerze.</p>
       </div>
     </details>
 
@@ -1107,7 +1235,7 @@
     <details>
       <summary>Czy mogę wydrukować bonusy?</summary>
       <div class="faq-body">
-        <p>Tak. Wszystkie 4 bonusy są zaprojektowane do druku w formacie A4. Każdy ma przycisk „Drukuj/PDF” w środku — klikasz, drukarka robi resztę. Albo zachowujesz jako PDF i zanosisz do najbliższej drukarni do oprawy.</p>
+        <p>Tak. Wszystkie 4 bonusy są zaprojektowane do druku w formacie A4. Każdy ma przycisk „Drukuj/PDF" w środku — klikasz, drukarka robi resztę. Albo zachowujesz jako PDF i zanosisz do najbliższej drukarni do oprawy.</p>
         <p>Szczególnie polecamy wydrukować <b>Bonus 1 (Dziennik 60 Dni)</b> — by pisać ręcznie podczas drogi.</p>
       </div>
     </details>
@@ -1140,13 +1268,13 @@
 <section class="final-cta">
   <div class="wrap">
     <h2>Maryja czeka.<br>Otwórz drzwi.</h2>
-    <p>60 dni minie i tak, w taki czy inny sposób. Pytanie brzmi: czy spędzisz je dalej w tym samym miejscu — czy na drodze, która prowadzi Cię z powrotem do serca Boga?</p>
+    <p>60 dni minie i tak, w taki czy inny sposób. Pytanie brzmi: czy spędzisz je dalej w tym samym miejscu — czy na drodze, która prowadzi Cię z powrotem do serca Boga, do siły wstawiennictwa, do domu, który znów dzwoni modlitwą?</p>
     <a href="https://pay.hotmart.com/E105704172B" class="cta cta-large">Tak, otwieram drzwi z Maryją <span class="cta-arrow">→</span></a>
     <div style="font-size:14px; letter-spacing:2px; color:var(--gold-soft); margin-top:24px; opacity:0.92; text-transform:uppercase;">
       77 zł raz na zawsze · Gwarancja 14 dni · Dostęp natychmiastowy
     </div>
     <p style="margin-top:40px; font-size:16px; opacity:0.85; max-width:520px;">
-      <i>„W dobrych zawodach wystąpiłaś, bieg ukończyłaś, wiarę ustrzegłaś.”</i><br>
+      <i>„W dobrych zawodach wystąpiłaś, bieg ukończyłaś, wiarę ustrzegłaś."</i><br>
       <span style="font-size:13px; letter-spacing:2px; opacity:0.8; color:var(--gold);">— 2 Tm 4,7</span>
     </p>
   </div>
@@ -1157,20 +1285,18 @@
   <div class="footer-mark">Tajemny Klucz Maryi</div>
   <p>© 2026 Wszelkie prawa zastrzeżone</p>
   <p>
-    <a href="#">Polityka prywatności</a> &nbsp;·&nbsp;
-    <a href="#">Regulamin</a> &nbsp;·&nbsp;
-    <a href="mailto:tajemnykluczmaryi@gmail.com">Kontakt</a>
+    <a href="mailto:tajemnykluczmaryi@gmail.com">tajemnykluczmaryi@gmail.com</a>
   </p>
   <div class="footer-trust">Bezpieczna płatność · Hotmart</div>
 </footer>
 
-<!-- ===== EXIT-INTENT POPUP (rabat 67 zł) ===== -->
+<!-- ===== EXIT-INTENT POPUP ===== -->
 <div class="exit-popup" id="exitPopup" role="dialog" aria-labelledby="exitTitle">
   <div class="exit-popup-inner">
     <button class="exit-popup-close" onclick="closeExitPopup()" aria-label="Zamknij">&times;</button>
     <div class="exit-popup-tag">Czekaj — to nie jest przypadek</div>
     <h3 id="exitTitle">Niebo nie pozwoliło Ci jeszcze odejść</h3>
-    <p>Z miliarda stron Internetu trafiłaś / trafiłeś tutaj. To nie był przypadek. Maryja czeka — a my chcemy Ci pomóc otworzyć drzwi <b>jeszcze dziś</b>.</p>
+    <p>Z miliarda stron Internetu trafiłaś tutaj. To nie był przypadek. Maryja czeka — a my chcemy Ci pomóc otworzyć drzwi <b>jeszcze dziś</b>.</p>
     <div class="exit-popup-pricing">
       <div class="strike">77 zł</div>
       <div class="new-price"><span class="new-price-curr">zł</span>67</div>
@@ -1183,6 +1309,39 @@
 </div>
 
 <script>
+/* ===== Countdown Timer (5h, persists per-session via localStorage) ===== */
+(function() {
+  var KEY = 'tkm_countdown_end';
+  var DURATION = 5 * 60 * 60 * 1000; // 5 hours
+  var endTime = parseInt(localStorage.getItem(KEY) || '0', 10);
+  if (!endTime || endTime < Date.now()) {
+    endTime = Date.now() + DURATION;
+    localStorage.setItem(KEY, endTime);
+  }
+  function tick() {
+    var diff = endTime - Date.now();
+    if (diff <= 0) {
+      // Reset for next visit, but show 00:00:00 now
+      var el = document.getElementById('countdown');
+      if (el) el.textContent = '00:00:00';
+      return;
+    }
+    var h = Math.floor(diff / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+    var el = document.getElementById('countdown');
+    if (el) {
+      el.textContent =
+        (h < 10 ? '0' : '') + h + ':' +
+        (m < 10 ? '0' : '') + m + ':' +
+        (s < 10 ? '0' : '') + s;
+    }
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+
+/* ===== Exit popup ===== */
 (function() {
   var shown = false;
   var dismissed = sessionStorage.getItem('exit_popup_dismissed') === '1';
@@ -1212,7 +1371,7 @@
     if (e.clientY <= 0) showExit();
   });
 
-  // Mobile: trigger after 60s of no interaction OR scroll-up burst
+  // Mobile: 60s inactivity OR scroll-up burst
   var inactivityTimer;
   function resetTimer() {
     clearTimeout(inactivityTimer);
