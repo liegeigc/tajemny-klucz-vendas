@@ -121,7 +121,7 @@
     font-style: italic;
   }
 
-  /* Print/PDF — A4 layout */
+  /* Print/PDF — A4 layout with GIANT button for mobile viewing */
   @media print {
     html, body {
       width: 210mm;
@@ -130,14 +130,21 @@
     }
     body { padding: 0; align-items: center; }
     .wrap {
-      max-width: 165mm;
-      padding: 20mm 16mm;
+      max-width: 175mm;
+      padding: 18mm 12mm;
     }
-    h1 { font-size: 36px; }
+    h1 { font-size: 42px; }
+    .sub { font-size: 16px; margin-bottom: 20px; }
+    .greeting { font-size: 20px; margin-bottom: 16px; }
+    .body-p { font-size: 17px; line-height: 1.7; }
     .access-button {
-      padding: 18px 24px;
-      font-size: 14px;
+      padding: 36px 28px;
+      font-size: 26px;
+      letter-spacing: 3px;
+      margin-top: 26px;
+      border-width: 3px;
     }
+    .small-line { font-size: 13px; margin-top: 10px; }
   }
 
   /* Larger screens (tablet/desktop) */
