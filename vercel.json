@@ -1,0 +1,34 @@
+{
+  "redirects": [
+    {
+      "source": "/promocja-0506",
+      "destination": "https://pay.hotmart.com/E105704172B?off=a5cvks40",
+      "permanent": false
+    },
+    {
+      "source": "/promocja",
+      "destination": "https://pay.hotmart.com/E105704172B?off=a5cvks40",
+      "permanent": false
+    },
+    {
+      "source": "/klucz",
+      "destination": "https://pay.hotmart.com/E105704172B",
+      "permanent": false
+    },
+    {
+      "source": "/maryja",
+      "destination": "https://pay.hotmart.com/E105704172B",
+      "permanent": false
+    },
+    {
+      "source": "/youtube",
+      "destination": "https://pay.hotmart.com/E105704172B?off=a5cvks40",
+      "permanent": false
+    },
+    {
+      "source": "/yt-0506",
+      "destination": "https://pay.hotmart.com/E105704172B?off=a5cvks40",
+      "permanent": false
+    }
+  ]
+}
