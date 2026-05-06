@@ -15,5 +15,11 @@
       "destination": "https://pay.hotmart.com/E105704172B?off=a5cvks40",
       "permanent": false
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/audio/:filename",
+      "destination": "/api/audio/:filename"
+    }
   ]
 }
