@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dziękujemy — Tajemny Klucz Maryi</title>
-<meta name="description" content="Dziękujemy za zaufanie. Twój dostęp do Tajemnego Klucza Maryi już jest w drodze.">
+<meta name="description" content="Dziękujemy. Twój Wieczernik czeka na Ciebie.">
 <meta name="robots" content="noindex">
 <style>
   :root {
@@ -13,174 +13,140 @@
     --gold: #c9a961;
     --gold-soft: #d8bd7a;
     --gold-dark: #8b7355;
-    --brown: #6b5b3e;
-    --brown-deep: #3a2f23;
     --navy-deep: #0f1a2e;
     --navy: #1a2942;
-    --line: #d4c4a8;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { min-height: 100vh; }
   body {
     font-family: Georgia, "Times New Roman", serif;
     background:
       radial-gradient(ellipse at top, rgba(201,169,97,0.18) 0%, transparent 60%),
       linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 60%, #0a1322 100%);
     color: var(--cream);
-    line-height: 1.75;
-    font-size: 18px;
-    min-height: 100vh;
+    line-height: 1.6;
+    font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px 20px;
+    padding: 24px 16px;
   }
   .ty-card {
-    max-width: 620px;
+    max-width: 560px;
     width: 100%;
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(201,169,97,0.30);
-    border-radius: 18px;
-    padding: 50px 40px;
+    border-radius: 16px;
+    padding: 36px 24px;
     text-align: center;
     backdrop-filter: blur(4px);
     box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-    position: relative;
-  }
-  .ty-card::before {
-    content: "";
-    position: absolute; inset: 14px;
-    border: 1px solid rgba(201,169,97,0.18);
-    border-radius: 12px;
-    pointer-events: none;
   }
   .ty-mark {
-    width: 110px; height: 110px;
-    margin: 0 auto 22px;
+    width: 80px; height: 80px;
+    margin: 0 auto 16px;
     color: var(--gold);
-    filter: drop-shadow(0 0 18px rgba(201,169,97,0.45));
+    filter: drop-shadow(0 0 16px rgba(201,169,97,0.45));
   }
+  .ty-mark svg { width: 100%; height: 100%; display: block; }
   .ty-tagline {
-    font-size: 12px;
-    letter-spacing: 5px;
+    font-size: 11px;
+    letter-spacing: 4px;
     text-transform: uppercase;
     color: var(--gold-soft);
     opacity: 0.85;
-    margin-bottom: 18px;
+    margin-bottom: 14px;
   }
   h1 {
-    font-size: 38px;
+    font-size: 28px;
     font-weight: normal;
-    letter-spacing: 4px;
+    letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--gold);
     line-height: 1.15;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
   }
   .sub {
     font-style: italic;
-    font-size: 18px;
+    font-size: 16px;
     color: var(--cream);
     opacity: 0.92;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
     line-height: 1.5;
   }
-  .ty-card p {
-    font-size: 16.5px;
-    line-height: 1.85;
-    margin-bottom: 18px;
-    text-align: left;
+  .lead {
+    font-size: 15.5px;
+    line-height: 1.7;
+    margin-bottom: 22px;
     opacity: 0.96;
   }
-  .ty-card p.center { text-align: center; }
-  .steps {
-    background: rgba(201,169,97,0.08);
-    border-left: 3px solid var(--gold);
-    border-radius: 0 10px 10px 0;
-    padding: 22px 24px;
-    margin: 28px 0;
-    text-align: left;
-  }
-  .steps-title {
-    font-size: 11px; letter-spacing: 3px;
-    text-transform: uppercase; color: var(--gold);
-    font-weight: bold; margin-bottom: 14px;
-  }
-  .steps ol {
-    padding-left: 22px;
-    list-style: none;
-    counter-reset: step;
-  }
-  .steps li {
-    counter-increment: step;
-    position: relative;
-    padding: 6px 0 6px 30px;
-    font-size: 16px;
-    line-height: 1.65;
-  }
-  .steps li::before {
-    content: counter(step);
-    position: absolute; left: 0; top: 6px;
-    width: 22px; height: 22px;
-    background: var(--gold); color: var(--navy-deep);
-    border-radius: 50%;
-    font-size: 12px; font-weight: bold;
-    display: flex; align-items: center; justify-content: center;
-    font-family: Arial, sans-serif;
-  }
-  .ty-card .highlight {
-    background: rgba(201,169,97,0.10);
-    border: 1px solid rgba(201,169,97,0.30);
-    border-radius: 10px;
-    padding: 18px 20px;
-    margin: 22px 0;
-    font-size: 15.5px;
-  }
-  .ty-card .highlight b { color: var(--gold-soft); }
-  .ty-signature {
-    margin-top: 32px;
-    font-style: italic;
-    font-size: 15px;
-    color: var(--gold-soft);
-    line-height: 1.7;
-  }
-  .ty-verse {
-    margin-top: 26px;
-    padding-top: 22px;
-    border-top: 1px solid rgba(201,169,97,0.25);
-    font-style: italic;
-    font-size: 15.5px;
-    opacity: 0.9;
-  }
-  .ty-verse-ref {
+  .lead b { color: var(--gold-soft); font-weight: normal; }
+
+  .big-cta {
     display: block;
-    margin-top: 8px;
-    font-style: normal;
-    font-size: 12px;
+    width: 100%;
+    background: linear-gradient(180deg, #f5efe6 0%, #e9dcc0 100%);
+    color: #0a1322;
+    padding: 26px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 18px;
     letter-spacing: 2px;
-    color: var(--gold);
     text-transform: uppercase;
+    text-decoration: none;
+    margin: 18px 0 14px;
+    font-family: Georgia, serif;
+    box-shadow: 0 10px 30px rgba(201,169,97,0.35);
+    border: 2px solid var(--gold);
+    transition: transform 0.15s ease;
+  }
+  .big-cta:hover { transform: translateY(-2px); }
+  .big-cta:active { background: #e9dcc0; transform: translateY(0); }
+
+  .countdown {
+    font-size: 12.5px;
+    color: var(--gold-soft);
+    opacity: 0.75;
+    margin-bottom: 18px;
+    letter-spacing: 1px;
+  }
+  .note {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--gold-soft);
+    background: rgba(201,169,97,0.06);
+    border-left: 3px solid var(--gold);
+    padding: 14px 16px;
+    margin: 20px 0 14px;
+    text-align: left;
+    border-radius: 0 8px 8px 0;
   }
   .ty-help {
-    margin-top: 24px;
-    font-size: 14px;
+    margin-top: 18px;
+    font-size: 13px;
     opacity: 0.85;
   }
   .ty-help a { color: var(--gold-soft); text-decoration: none; }
-  .ty-help a:hover { color: var(--gold); }
+  .copyright {
+    margin-top: 18px;
+    font-size: 10.5px;
+    color: var(--gold-dark);
+    opacity: 0.7;
+    letter-spacing: 1px;
+    font-style: italic;
+  }
 
-  @media (max-width: 520px) {
-    .ty-card { padding: 36px 24px; }
-    h1 { font-size: 28px; letter-spacing: 3px; }
-    .sub { font-size: 16px; }
-    .ty-card p { font-size: 15.5px; }
+  @media (min-width: 720px) {
+    .ty-card { padding: 48px 40px; max-width: 600px; }
+    h1 { font-size: 34px; }
+    .big-cta { padding: 24px 28px; font-size: 17px; }
   }
 </style>
 </head>
 <body>
-
 <div class="ty-card">
   <div class="ty-mark" aria-hidden="true">
-    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
       <g fill="currentColor">
         <circle cx="50" cy="10" r="2"/>
         <circle cx="68" cy="14" r="1.6"/>
@@ -204,41 +170,35 @@
   <h1>Witaj, Wybrana</h1>
   <div class="sub">Twoja droga z Maryją właśnie się zaczęła.</div>
 
-  <p class="center">Dziękujemy. Naprawdę.</p>
+  <p class="lead">Twój Wieczernik został aktywowany. <b>Maryja czeka.</b></p>
 
-  <p>Wiemy, że nie była to lekka decyzja — żaden krok wiary nigdy nie jest. Ale nie jesteś tu przypadkiem. To, że trafiłaś / trafiłeś dziś na tę stronę i zdecydowałaś / zdecydowałeś otworzyć drzwi z Maryją, jest <b>znakiem nieba</b>.</p>
+  <a href="https://tajemny-klucz-maryi.flowlink-app.online" class="big-cta" id="appLink">Otwórz aplikację →</a>
 
-  <div class="steps">
-    <div class="steps-title">Co dalej · w 3 krokach</div>
-    <ol>
-      <li><b>Sprawdź swoją skrzynkę e-mail w ciągu 5-10 minut.</b> Otrzymasz wiadomość od Hotmart z plikiem PDF „Tajemny Klucz Maryi — Dostęp". Jeśli nie widzisz — sprawdź folder „spam" lub „oferty".</li>
-      <li><b>Otwórz PDF.</b> W środku znajdziesz link do Twojej osobistej strony, gdzie czeka na Ciebie 60 dni i 4 bonusy. Zapisz tę stronę w zakładkach przeglądarki.</li>
-      <li><b>Kliknij „Otwórz drzwi".</b> Aplikacja rozpozna dzisiejszy dzień i odblokuje pierwsze rozważanie. Reszta dni będzie się otwierać po jednym, codziennie o godzinie 00:00 czasu polskiego.</li>
-    </ol>
-  </div>
+  <div class="countdown" id="countdown">Automatyczne przekierowanie za <span id="seconds">5</span> sekund...</div>
 
-  <div class="highlight">
-    <b>Drobna rada:</b> nie próbuj przeczytać wszystkiego od razu. Maryja prowadzi powoli — jeden dzień na raz. To jest właśnie to, co działa.
-  </div>
-
-  <p>Audio możesz słuchać podczas porannej kawy, spaceru, gdy zmywasz naczynia. Każdy dzień ma swoje słowo, swój krok, swoją modlitwę. Reszta dzieje się sama — w sercu, gdy się modlisz.</p>
-
-  <p>A jeśli pojawi się trudność — w dostępie do strony, w nawiązaniu połączenia, w cokolwiek — napisz do nas. Odpowiadamy każdemu, w ciągu 24 godzin.</p>
-
-  <div class="ty-signature">
-    Niech Maryja prowadzi Cię przez te 60 dni —<br>
-    Zespół Tajemnego Klucza Maryi
-  </div>
-
-  <div class="ty-verse">
-    „A oni, gdy się od Niego oddalili, mówili jeden do drugiego: Czyż serce nie pałało w nas, gdy rozmawiał z nami w drodze?"
-    <span class="ty-verse-ref">Łk 24,32</span>
+  <div class="note">
+    Otrzymasz też e-mail z Hotmart z potwierdzeniem zakupu — możesz go zignorować. Cały Twój dostęp znajduje się <b>tutaj, w aplikacji powyżej</b>.
   </div>
 
   <div class="ty-help">
-    Pytania? Pisz: <a href="mailto:tajemnykluczmaryi@gmail.com">tajemnykluczmaryi@gmail.com</a>
+    Pytania? <a href="mailto:tajemnykluczmaryi@gmail.com">tajemnykluczmaryi@gmail.com</a>
   </div>
+
+  <div class="copyright">Autor · L.I.G.C. · © 2026</div>
 </div>
 
+<script>
+  // Auto-redirect to FlowLink after 5 seconds
+  var seconds = 5;
+  var el = document.getElementById('seconds');
+  var iv = setInterval(function () {
+    seconds--;
+    if (el) el.textContent = seconds;
+    if (seconds <= 0) {
+      clearInterval(iv);
+      window.location.href = 'https://tajemny-klucz-maryi.flowlink-app.online';
+    }
+  }, 1000);
+</script>
 </body>
 </html>
