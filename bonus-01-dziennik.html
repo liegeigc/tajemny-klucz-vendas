@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dziennik 60 Dni — Tajemny Klucz Maryi</title>
+<style>
+  :root {
+    --cream: #f5efe6;
+    --cream-light: #faf6ed;
+    --cream-soft: #efe6cf;
+    --gold: #c9a961;
+    --gold-soft: #d8bd7a;
+    --gold-dark: #8b7355;
+    --brown: #6b5b3e;
+    --brown-deep: #3a2f23;
+    --navy-deep: #0f1a2e;
+    --navy: #1a2942;
+    --line: #d4c4a8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: var(--cream);
+    color: var(--brown-deep);
+    line-height: 1.6;
+    font-size: 14px;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 12px auto;
+    background: var(--cream-light);
+    padding: 22mm 20mm 20mm 20mm;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.10);
+    page-break-after: always;
+    position: relative;
+    border: 1px solid var(--line);
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* ===== Capa (creme/marfim) ===== */
+  .cover {
+    background:
+      radial-gradient(ellipse at top, rgba(201,169,97,0.18) 0%, transparent 55%),
+      linear-gradient(170deg, #faf3e7 0%, #f3e8d2 60%, #e8d9b8 100%);
+    color: var(--brown-deep);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30mm 25mm;
+  }
+  .cover-tagline {
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    opacity: 0.95;
+    margin-bottom: 24px;
+  }
+  .cover-mark { color: var(--gold-dark); margin-bottom: 18px; }
+  .cover-mark svg {
+    width: 90px; height: 90px;
+    filter: drop-shadow(0 0 10px rgba(201,169,97,0.35));
+  }
+  .cover h1 {
+    font-size: 40px;
+    font-weight: normal;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 14px;
+    line-height: 1.15;
+  }
+  .cover h2 {
+    font-size: 18px;
+    font-weight: normal;
+    font-style: italic;
+    color: var(--brown);
+    opacity: 0.95;
+    letter-spacing: 1px;
+    margin-bottom: 60px;
+  }
+  .cover-sub {
+    font-size: 14px;
+    color: var(--gold-dark);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: auto;
+  }
+  .cover-name {
+    font-size: 13px;
+    font-style: italic;
+    color: var(--brown);
+    opacity: 0.85;
+    margin-top: 10px;
+  }
+
+  /* ===== Páginas internas ===== */
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+  }
+  .page-header .day-num {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    font-weight: bold;
+  }
+  .page-header .stage-tag {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    opacity: 0.7;
+  }
+  .day-title {
+    font-size: 24px;
+    color: var(--brown-deep);
+    font-style: italic;
+    margin-bottom: 4px;
+  }
+  .day-question {
+    font-size: 14px;
+    color: var(--gold-dark);
+    font-style: italic;
+    margin-bottom: 18px;
+  }
+
+  .verse-box {
+    background: linear-gradient(180deg, #f6ecd2 0%, #f0e6c9 100%);
+    border-left: 3px solid var(--gold);
+    padding: 12px 16px;
+    margin-bottom: 18px;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--brown-deep);
+  }
+
+  .questions-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .questions-label::before {
+    content: "✿";
+    color: var(--gold);
+    font-size: 14px;
+  }
+  .questions ol {
+    list-style: none;
+    counter-reset: q;
+    margin-bottom: 18px;
+  }
+  .questions li {
+    counter-increment: q;
+    margin-bottom: 8px;
+    padding-left: 22px;
+    position: relative;
+    font-size: 13px;
+    color: var(--brown-deep);
+  }
+  .questions li::before {
+    content: counter(q) ".";
+    position: absolute;
+    left: 0;
+    color: var(--gold-dark);
+    font-weight: bold;
+  }
+
+  .lines {
+    margin-top: 6px;
+  }
+  .lines .line {
+    border-bottom: 1px solid var(--line);
+    height: 22px;
+  }
+
+  .grace-box {
+    margin-top: 16px;
+    padding: 12px 16px;
+    background: rgba(201,169,97,0.08);
+    border: 1px dashed var(--gold);
+    border-radius: 6px;
+  }
+  .grace-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+  .grace-line {
+    border-bottom: 1px solid var(--line);
+    height: 20px;
+  }
+
+  .page-footer {
+    position: absolute;
+    bottom: 12mm;
+    left: 20mm;
+    right: 20mm;
+    display: flex;
+    justify-content: space-between;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    opacity: 0.65;
+    border-top: 1px solid var(--line);
+    padding-top: 6px;
+  }
+
+  /* ===== Carta ao leitor ===== */
+  .letter h1 {
+    font-size: 26px;
+    color: var(--brown-deep);
+    font-style: italic;
+    margin-bottom: 6px;
+    text-align: center;
+  }
+  .letter .letter-sub {
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 26px;
+  }
+  .letter p {
+    margin-bottom: 14px;
+    font-size: 14px;
+    color: var(--brown-deep);
+    line-height: 1.75;
+  }
+  .letter .signature {
+    text-align: right;
+    font-style: italic;
+    margin-top: 26px;
+    font-size: 13px;
+    color: var(--gold-dark);
+  }
+
+  /* ===== Como usar ===== */
+  .howto h1 {
+    font-size: 24px;
+    color: var(--brown-deep);
+    font-style: italic;
+    margin-bottom: 6px;
+    text-align: center;
+  }
+  .howto .howto-sub {
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 24px;
+  }
+  .howto-step {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 18px;
+    align-items: flex-start;
+  }
+  .howto-step .step-num {
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    background: var(--gold);
+    color: var(--navy-deep);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .howto-step .step-content { flex: 1; padding-top: 4px; }
+  .howto-step h3 {
+    font-size: 15px;
+    color: var(--brown-deep);
+    margin-bottom: 4px;
+  }
+  .howto-step p {
+    font-size: 13px;
+    color: var(--brown);
+    line-height: 1.6;
+  }
+
+  /* ===== Página final (creme) ===== */
+  .closing {
+    background:
+      radial-gradient(ellipse at top, rgba(201,169,97,0.18) 0%, transparent 55%),
+      linear-gradient(170deg, #faf3e7 0%, #f3e8d2 60%, #e8d9b8 100%);
+    color: var(--brown-deep);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40mm 25mm;
+  }
+  .closing h1 {
+    font-size: 28px;
+    color: var(--gold-dark);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    line-height: 1.2;
+  }
+  .closing p {
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 14px;
+    color: var(--brown);
+  }
+  .closing .verse-final {
+    font-style: italic;
+    color: var(--gold-dark);
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(139,115,85,0.3);
+    width: 70%;
+  }
+
+  /* ===== Print ===== */
+  @media print {
+    body { background: white; font-size: 12px; }
+    .page {
+      width: 100%;
+      min-height: auto;
+      margin: 0;
+      padding: 18mm 16mm;
+      box-shadow: none;
+      border: none;
+    }
+    .cover, .closing { padding: 30mm 20mm; }
+    .no-print { display: none !important; }
+  }
+
+  @page { size: A4; margin: 0; }
+
+  /* ===== Mobile responsive ===== */
+  @media (max-width: 820px) {
+    body { font-size: 16px; }
+    .page {
+      width: 100%;
+      min-height: auto;
+      margin: 8px 0;
+      padding: 24px 18px;
+      border-left: none;
+      border-right: none;
+      border-radius: 0;
+    }
+    .cover { padding: 40px 18px; }
+    .cover h1 { font-size: 30px; letter-spacing: 3px; }
+    .cover h2 { font-size: 15px; letter-spacing: 1px; }
+    .closing { padding: 40px 18px; }
+  }
+
+  /* ===== Toolbar de print ===== */
+  .toolbar {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    background: var(--navy-deep);
+    color: var(--gold);
+    padding: 10px 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    font-family: Georgia, serif;
+    font-size: 13px;
+    z-index: 100;
+    border: 1px solid var(--gold);
+  }
+  .toolbar button {
+    background: var(--gold);
+    color: var(--navy-deep);
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  .toolbar button:hover { background: var(--gold-soft); }
+</style>
+</head>
+<body>
+
+<div class="toolbar no-print">
+  <button onclick="goBack()" style="margin-right:10px;">← Wróć</button>
+  Dziennik 60 Dni
+  <button onclick="window.print()">Drukuj / Zapisz PDF</button>
+</div>
+<script>
+function goBack() {
+  try {
+    if (window.parent && window.parent !== window) {
+      window.parent.postMessage({ type: 'flowlink:close' }, '*');
+    }
+  } catch (e) {}
+  if (document.referrer && document.referrer !== window.location.href) {
+    history.back();
+  } else {
+    window.location.href = 'https://tajemny-klucz-maryi.flowlink-app.online';
+  }
+}
+</script>
+
+<!-- ============ CAPA ============ -->
+<div class="page cover">
+  <div class="cover-tagline">Tajemny Klucz Maryi</div>
+  <div class="cover-mark">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <!-- Fita marca-páginas (vermelho-vinho) -->
+      <path d="M 22 8 Q 28 30 32 50 Q 28 60 24 70" stroke="#a8404a" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.8"/>
+      <!-- Caule da rosa -->
+      <path d="M 50 88 L 50 60" stroke="#6b8e6b" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <!-- Folha esquerda -->
+      <path d="M 50 70 Q 38 66 32 72 Q 40 78 50 76" fill="#7a9d7a" opacity="0.9"/>
+      <!-- Folha direita -->
+      <path d="M 50 75 Q 62 72 70 78 Q 64 86 50 82" fill="#7a9d7a" opacity="0.9"/>
+      <!-- Pétalas externas da rosa -->
+      <circle cx="50" cy="50" r="14" fill="#fdf6ea" stroke="currentColor" stroke-width="0.6" opacity="0.95"/>
+      <!-- Pétalas internas -->
+      <path d="M 50 38 Q 42 42 42 50 Q 42 58 50 60 Q 58 58 58 50 Q 58 42 50 38 Z" fill="#fffaf0" stroke="currentColor" stroke-width="0.5" opacity="0.95"/>
+      <path d="M 50 44 Q 46 48 47 52 Q 50 56 53 52 Q 54 48 50 44 Z" fill="#fff5e8" stroke="currentColor" stroke-width="0.4"/>
+      <circle cx="50" cy="50" r="2.5" fill="#f5e9c8"/>
+    </svg>
+  </div>
+  <h1>Dziennik<br>60 Dni</h1>
+  <h2>moja droga z Tajemnym Kluczem Maryi</h2>
+  <div class="cover-sub">Twój osobisty dziennik</div>
+  <div class="cover-name">Imię: ____________________________</div>
+</div>
+
+<!-- ============ CARTA ============ -->
+<div class="page letter">
+  <h1>Do Ciebie, Wybrana</h1>
+  <div class="letter-sub">Zanim zaczniesz pisać</div>
+
+  <p>Ten dziennik nie jest sprawdzianem. Nie ma poprawnych odpowiedzi. Nikt nigdy nie sprawdzi, co tu napisałaś. To miejsce, gdzie tylko Ty i Bóg się spotykacie — przez papier, przez pióro, przez ciszę między jednym słowem a drugim.</p>
+
+  <p>Przez 60 dni będziesz słuchać historii, modlitwy, słowa dnia. A potem otwierasz tę stronę. Nie po to, by cokolwiek udowodnić. Po to, by zatrzymać się i zostawić ślad — krótki, prosty, prawdziwy.</p>
+
+  <p>Może niektóre dni będą krótkie. Wpiszesz jedno zdanie i zamkniesz. To wystarczy. Inne dni będą długie — łzy spadną na kartkę, a ty napiszesz to, czego nigdy nikomu nie powiedziałaś. To też wystarczy. Bóg czyta jedno i drugie z tą samą czułością.</p>
+
+  <p>Najważniejsze: <b>nie pomijaj dni, w których nic nie czujesz</b>. Te dni też mają miejsce. Napisz wtedy: <i>„dziś nic nie czuję, ale jestem tutaj”</i>. Czasem to najpiękniejsza modlitwa.</p>
+
+  <p>Po 60 dniach zachowaj ten dziennik. Wracaj do niego co rok, w tę samą datę, w którą zaczęłaś. Zobaczysz, co Bóg zrobił przez ten czas. To będzie Twoja własna księga łask.</p>
+
+  <div class="signature">— z modlitwą za Ciebie</div>
+
+  <div class="page-footer">
+    <span>Dziennik 60 Dni</span>
+    <span>Tajemny Klucz Maryi</span>
+  </div>
+</div>
+
+<!-- ============ JAK UŻYWAĆ ============ -->
+<div class="page howto">
+  <h1>Jak korzystać z dziennika</h1>
+  <div class="howto-sub">cztery proste kroki</div>
+
+  <div class="howto-step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <h3>Najpierw aplikacja, potem dziennik</h3>
+      <p>Otwórz dzień w aplikacji. Posłuchaj rozważania albo przeczytaj. Pomódl się modlitwą dnia. Dopiero wtedy otwórz tę stronę dziennika. Aplikacja sieje — dziennik zbiera owoc.</p>
+    </div>
+  </div>
+
+  <div class="howto-step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <h3>Pisz odręcznie, powoli</h3>
+      <p>Wpisanie z telefonu nie ma tej samej mocy, co kreślenie pióra po papierze. Ręka jest powolniejsza niż myśl — i to dobrze. Zmusza serce, by przyszło razem z głową.</p>
+    </div>
+  </div>
+
+  <div class="howto-step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <h3>Nie cenzuruj się</h3>
+      <p>Jeśli czujesz złość — napisz złość. Jeśli czujesz wątpliwość — napisz wątpliwość. Bóg zna już Twoje serce. Pisanie tego nie pogarsza — pisanie tego uwalnia.</p>
+    </div>
+  </div>
+
+  <div class="howto-step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <h3>Zapisz „Łaskę dnia”</h3>
+      <p>Na końcu każdego dnia jedna linia: drobna łaska, którą zauważyłaś. Może to dobra zbieżność, dobre słowo, niespodziewany pokój. Z 60 łask powstaje historia — Twoja historia z Bogiem.</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Dziennik 60 Dni</span>
+    <span>Jak korzystać</span>
+  </div>
+</div>
+
+<div id="days-container"></div>
+
+<!-- ============ PÁGINA FINAL ============ -->
+<div class="page closing">
+  <h1>60 dni dobiegło<br>końca</h1>
+  <p>Te 60 dni zostały zapisane na zawsze — w niebie i na tych stronach.</p>
+  <p>Nie zamykaj dziennika. Wracaj do niego. Co miesiąc. Co rok. W trudne dni. W radosne dni.</p>
+  <p>Każda strona to ślad: byłaś tutaj, modliłaś się, walczyłaś, ufałaś.</p>
+  <p>A Bóg, który Cię tu zaprowadził, nie odejdzie.</p>
+  <div class="verse-final">„Nie opuszczę cię ani nie zostawię.”<br>— Hbr 13,5</div>
+</div>
+
+<script>
+const days = [
+  // [num, character, theme/keyword, question, verse, [3 questions], stage]
+  [1,"Syn marnotrawny (odejście)","ODEJŚCIE","Ojcze, daj mi moją część?",
+   "„Ojcze, daj mi część majątku.” — Łk 15,12",
+   ["Kiedy w moim życiu powiedziałam Bogu — nie słowami — „teraz ja się tym zajmę”?","Co roztrwoniłam w tych latach: czas, radość, modlitwy, lekkość?","Co dzisiaj sprawia, że tęsknię za domem Ojca?"],
+   "Etap 1 — Rozpoznawanie odległości"],
+  [2,"Jonasz","POSŁUSZEŃSTWO","Dokąd uciekam?",
+   "„Jonasz wstał, aby uciec.” — Jon 1,3",
+   ["O co Bóg prosi mnie od dawna, a ja się od tego odwracam?","Jaki jest mój statek do Tarszisz — w czym się chowam, by nie słuchać?","Jaki jeden krok mogę zrobić dziś, by przestać uciekać?"],
+   "Etap 1 — Rozpoznawanie odległości"],
+  [3,"Ezaw","WIECZNOŚĆ","Czy zamieniam wieczne na chwilowe?",
+   "„Sprzedał swoje pierworództwo za miskę soczewicy.” — Rdz 25,34",
+   ["Jakie miski soczewicy biorę zamiast wieczności (TV, telefon, narzekanie)?","Co jest moim pierworództwem — co Bóg mi powierzył, a o czym zapomniałam?","Jaką jedną dobrą wymianę mogę zrobić dzisiaj?"],
+   "Etap 1 — Rozpoznawanie odległości"],
+  [4,"Samson","CZUJNOŚĆ","Kiedy świętość stała się tylko zwyczajem?",
+   "„Nie wiedział, że Pan odstąpił od niego.” — Sdz 16,20",
+   ["Co powoli zajęło miejsce mojej modlitwy w ostatnich latach?","Gdzie pozwoliłam, by świat wszedł, nie zauważając?","Co dzisiaj wyłączę lub wyjmę, by Bóg miał z powrotem Swoje miejsce?"],
+   "Etap 1 — Rozpoznawanie odległości"],
+  [5,"Kain","POKORA","Dlaczego jestem rozgniewana?",
+   "„Dlaczego twarz twoja jest ponura?” — Rdz 4,6",
+   ["Komu zazdroszczę w milczeniu — i czego konkretnie?","Co rani mnie podwójnie: ból + wstyd, że to czuję?","Za kogo mogę dziś odmówić Zdrowaś Maryjo, by zazdrość stała się błogosławieństwem?"],
+   "Etap 1 — Rozpoznawanie odległości"],
+  [6,"Adam","OBECNOŚĆ","Gdzie jesteś?",
+   "„Pan zawołał: »Gdzie jesteś?«” — Rdz 3,9",
+   ["Za czym dziś się chowam przed Bogiem (rutyna, wstyd, stary ból)?","Co mogę dziś po prostu Mu powiedzieć: „Panie, jestem tutaj”?","Co przeszkadza mi spojrzeć Mu w oczy?"],
+   "Etap 1 — Rozpoznawanie odległości"],
+  [7,"Ewa","ZAUFANIE","Czy Bóg naprawdę tak powiedział?",
+   "„Czy rzeczywiście Bóg powiedział?” — Rdz 3,1",
+   ["Jakie wątpliwości karmię w milczeniu, nie mówiąc Bogu?","Skąd wąż wchodzi do mojego życia (osoba, kanał, myśl)?","Którą wątpliwość zaniesie dzisiaj prosto do Niego?"],
+   "Etap 1 — Rozpoznawanie odległości"],
+  [8,"Saul","PEŁNIA","Czy jestem posłuszna połowicznie?",
+   "„Lepsze posłuszeństwo niż ofiara.” — 1 Sm 15,22",
+   ["W czym jestem „prawie” posłuszna — co zatrzymuję jako „swoje najlepsze bydło”?","Jakie pobożne wymówki ukrywają moje połowiczne tak?","Jaki jeden krok mogę zrobić CAŁY dzisiaj, choćby trwał 5 minut?"],
+   "Etap 1 — Rozpoznawanie odległości"],
+  [9,"Salomon","ŻAR","Czy mogę oziębnąć pod koniec?",
+   "„Żony skłoniły jego serce ku innym bogom.” — 1 Krl 11,4",
+   ["Jakie drobne bożki zadomowiły się z latami (TV, narzekanie, lęk)?","Co zabieram dziś z mojej szuflady (Różaniec, krzyż, Pismo)?","Jaki płomień chcę rozpalić na nowo?"],
+   "Etap 1 — Rozpoznawanie odległości"],
+  [10,"Żona Lota","PUŚCIĆ","Dlaczego patrzę wstecz?",
+   "„Obejrzała się i stała się słupem soli.” — Rdz 19,26",
+   ["Jaką urazę wciąż karmię w nocy?","Jakiej fazy mojego życia jeszcze sobie nie wybaczyłam?","Co dziś mogę puścić, choćby tylko jedno słowo: „puszczam”?"],
+   "Etap 1 — Rozpoznawanie odległości"],
+
+  [11,"Hiob","POZOSTAĆ","Czy zostaję, nawet w ciemności?",
+   "„Choćby mnie zabił, ja w Nim ufność pokładam.” — Hi 13,15",
+   ["Jaki ból niosę, którego nikt nie widzi w całości?","Czy oskarżam siebie za ten ból, jak przyjaciele oskarżali Hioba?","Jak mogę dziś po prostu zostać przed Bogiem, bez wyjaśniania?"],
+   "Etap 2 — Akceptowanie ciszy"],
+  [12,"Anna","WYTRWAŁOŚĆ","Jak długo modlić się o to samo?",
+   "„Wylewam moją duszę przed Panem.” — 1 Sm 1,15",
+   ["Jaką prośbę noszę od lat, niemal się jej już wstydząc?","Czy zmęczyłam się modleniem? Co podtrzymuje mnie mimo to?","Jak chcę dzisiaj na nowo wypowiedzieć to imię, jakby pierwszy raz?"],
+   "Etap 2 — Akceptowanie ciszy"],
+  [13,"Dawid (Psalmy)","SZCZEROŚĆ","Czy mogę narzekać Bogu?",
+   "„Jak długo, Panie?” — Ps 13,2",
+   ["Jaką skargę połykałam, modląc się grzecznie z zewnątrz?","Czy mogę powiedzieć Bogu „to bardzo boli” — bez maskowania?","Czym jest moje „a mimo to ufam” na końcu skargi?"],
+   "Etap 2 — Akceptowanie ciszy"],
+  [14,"Habakuk","MIMO TO","A gdy widzę tylko niesprawiedliwość?",
+   "„Choćby figowiec nie zakwitł… ja w Panu się będę weselił.” — Ha 3,17-18",
+   ["Co w świecie ściska mi serce, gdy myślę o moich dzieciach i wnukach?","Jakie radości znajduję, które nie zależą od poprawy świata?","Co dziś wyłączę z wiadomości, by oddać miejsce Bogu?"],
+   "Etap 2 — Akceptowanie ciszy"],
+  [15,"Sara","OBIETNICA","Czy jest już za późno dla Boga?",
+   "„Czy dla Pana jest coś niemożliwego?” — Rdz 18,14",
+   ["Co już pochowałam jako „przeterminowane” w moim życiu?","Z czego śmieję się w sobie, gdy ktoś mówi o nadziei?","Jakie marzenie chcę odgrzebać i oddać Bogu na nowo?"],
+   "Etap 2 — Akceptowanie ciszy"],
+  [16,"Zachariasz","MILCZENIE","A jeśli milczenie jest szkołą?",
+   "„Będziesz niemy aż do dnia, w którym to się stanie.” — Łk 1,20",
+   ["Czy moja modlitwa jest sucha? Co czuję, gdy się modlę?","Czego mogę nauczyć się w tej fazie ciszy, czego nie nauczyłam się w słowach?","Ile minut dziś zostanę w całkowitej ciszy z Różańcem w ręku?"],
+   "Etap 2 — Akceptowanie ciszy"],
+  [17,"Maryja w Wielką Sobotę","OCZEKIWANIE","Jak czekać na trzeci dzień?",
+   "„Twoją duszę miecz przeniknie.” — Łk 2,35",
+   ["Jaką żałobę noszę — niedawną lub dawną — która wciąż boli?","Czy ludzie kazali mi już „przewrócić stronę”, gdy ja nie potrafiłam?","Co mogę dziś powiedzieć Maryi siedzącej z mną w Wielką Sobotę?"],
+   "Etap 2 — Akceptowanie ciszy"],
+  [18,"Uczniowie z Emaus","DROGA","A gdy to, czego oczekiwałam, nie nadeszło?",
+   "„A myśmy się spodziewali...” — Łk 24,21",
+   ["Czego oczekiwałam, a co nie nadeszło tak, jak chciałam?","Kiedy moje serce ostatnio „pałało”, choć tego nie zauważyłam?","Jak chcę dziś rozpoznać Chrystusa idącego ze mną?"],
+   "Etap 2 — Akceptowanie ciszy"],
+  [19,"Eliasz","ODPOCZYNEK","A gdy chcę tylko spać?",
+   "„Dosyć już, Panie. Zabierz moje życie.” — 1 Krl 19,4",
+   ["Czy jestem wyczerpana — nie tylko ciałem, ale duszą?","Jaki posiłek od anioła potrzebuję dziś (sen, jedzenie, ciche popołudnie)?","Co mogę odwołać dzisiaj bez winy?"],
+   "Etap 2 — Akceptowanie ciszy"],
+  [20,"Jezus w Getsemani","ODDANIE","A gdy kielich nie odchodzi?",
+   "„Nie moja, lecz Twoja wola.” — Łk 22,42",
+   ["Jaki kielich proszę, by przeszedł — a nie przechodzi?","Jakiego anioła wzmocnienia potrzebuję teraz?","Jak mogę powiedzieć dziś „Twoja wola” bez pokonanego poddania?"],
+   "Etap 2 — Akceptowanie ciszy"],
+
+  [21,"Piotr po zaparciu się","ŁZY","Czy mogę zapłakać i wrócić?",
+   "„Wyszedłszy na zewnątrz, gorzko zapłakał.” — Łk 22,62",
+   ["Jaki niedawny upadek wciąż boli mi w piersi?","Czy uciekam od spowiedzi ze wstydu — czy mogę dziś wyznaczyć datę?","Jak Jezus na mnie patrzy w tej godzinie zaparcia się?"],
+   "Etap 3 — Powrót ze wstydem"],
+  [22,"Kobieta cudzołożna","WOLNOŚĆ","A jeśli wszyscy patrzą?",
+   "„I Ja ciebie nie potępiam.” — J 8,11",
+   ["Jaki dawny grzech ludzie wciąż mi przypominają?","Czy patrzę na siebie ich oczyma — czy oczyma Chrystusa?","Co dziś mogę spalić lub podrzeć symbolicznie, by uwolnić wewnętrznie?"],
+   "Etap 3 — Powrót ze wstydem"],
+  [23,"Maria Magdalena","ODNOWA","A ciężka przeszłość?",
+   "„Z której wyrzucił siedem złych duchów.” — Mk 16,9",
+   ["Jaką fazę mojego życia ukrywam nawet sama przed sobą?","Z czego Bóg już mnie uwolnił — choćby drobnego?","Jak mogę spojrzeć na tamtą młodszą wersję siebie z miłosierdziem?"],
+   "Etap 3 — Powrót ze wstydem"],
+  [24,"Syn marnotrawny (powrót)","POWRÓT","A jeśli ćwiczę mowę, a Ojciec biegnie?",
+   "„Gdy był jeszcze daleko, ujrzał go ojciec i wybiegł.” — Łk 15,20",
+   ["Jakiego dziecka/wnuka oczekuję wracającego do domu?","Jaką mowę powrotu sama ćwiczę, a nie zaczynam pierwszego kroku?","Jak Ojciec biegnie do mnie teraz, zanim doszłam do drzwi?"],
+   "Etap 3 — Powrót ze wstydem"],
+  [25,"Zacheusz","IMIĘ","A jeśli On zna moje imię?",
+   "„Zacheuszu, dziś muszę zatrzymać się w twoim domu.” — Łk 19,5",
+   ["W jakich chwilach czuję się niewidzialna dla świata?","Co znaczy, że Jezus zna moje imię — nie tłum, ale mnie?","Jak chcę dziś powiedzieć na głos: „Jestem kochana”?"],
+   "Etap 3 — Powrót ze wstydem"],
+  [26,"Samarytanka","ŻYWA WODA","A jeśli On wie wszystko?",
+   "„Człowiek, który mi powiedział wszystko, co uczyniłam.” — J 4,29",
+   ["Jaki sekret noszę, którego nigdy nikomu w pełni nie powiedziałam?","Czy wierzę, że Bóg wie wszystko — i wciąż chce ze mną rozmawiać?","Co dziś powiem Mu pierwszy raz słowami, choćby krótkim zdaniem?"],
+   "Etap 3 — Powrót ze wstydem"],
+  [27,"Dawid (Psalm 51)","NOWE SERCE","Czy nowe serce jest możliwe?",
+   "„Stwórz, o Boże, we mnie serce czyste.” — Ps 51,12",
+   ["Czy karzę siebie sama, zamiast prosić o miłosierdzie?","Jakiej części siebie nie umiem przebaczyć?","Jaki werset z Psalmu 51 staje się dziś moją modlitwą?"],
+   "Etap 3 — Powrót ze wstydem"],
+  [28,"Grzesznica namaszczająca","OLEJEK","A jeśli nie mam słów?",
+   "„Odpuszczone są jej liczne grzechy, ponieważ bardzo umiłowała.” — Łk 7,47",
+   ["Jakie łzy chciałabym ofiarować u stóp Jezusa, ale nie pozwalam sobie zapłakać?","Jaki najcenniejszy „olejek” mogę wylać dziś (czas, milczenie, gest)?","Co mogę powiedzieć duszą, gdy słów nie ma?"],
+   "Etap 3 — Powrót ze wstydem"],
+  [29,"Szaweł na drodze","ŚWIATŁO","A jeśli upadek jest drogą?",
+   "„Szawle, dlaczego Mnie prześladujesz?” — Dz 9,4",
+   ["Czy jestem swoim najgorszym oskarżycielem wewnątrz?","Jakie wewnętrzne potępienie chcę dziś zdjąć z siebie?","Kogo mogę dziś potraktować z większym miłosierdziem, bo otrzymałam to samo?"],
+   "Etap 3 — Powrót ze wstydem"],
+  [30,"Mateusz","WSTAĆ","Czy mogę wstać teraz?",
+   "„On wstał i poszedł za Nim.” — Mt 9,9",
+   ["Jakiego konkretnego kroku Bóg prosi mnie od dawna?","Jakie wymówki używam, by go odłożyć?","Jaki jeden krok zrobię dzisiaj, nie jutro?"],
+   "Etap 3 — Powrót ze wstydem"],
+
+  [31,"Eliasz w powiewie","SZEPT","Gdzie zwykle mówi Bóg?",
+   "„Pan nie był w wichurze… ale w łagodnym powiewie.” — 1 Krl 19,12",
+   ["Jakie hałasy zagłuszają szept Boga w moim domu?","Gdzie ostatnio czułam Jego obecność, choć tego nie nazwałam?","Ile minut dziś zostanę w całkowitej ciszy?"],
+   "Etap 4 — Słyszenie cichego głosu"],
+  [32,"Mały Samuel","SŁUCHANIE","A jeśli nie umiałabym rozpoznać?",
+   "„Mów, Panie, bo sługa Twój słucha.” — 1 Sm 3,10",
+   ["Jakie głosy konkurują o moją uwagę (rodzina, media, lęk)?","Po czym poznaję, że głos jest od Boga (pokój, łagodność, prawda)?","Jak chcę dzisiaj kłaść się jak Samuel w świątyni?"],
+   "Etap 4 — Słyszenie cichego głosu"],
+  [33,"Maryja w Zwiastowaniu","TAK","Czy mogę powiedzieć tak, nie rozumiejąc?",
+   "„Niech mi się stanie według Twego słowa.” — Łk 1,38",
+   ["O co Bóg prosi mnie, czego się boję, bo nie widzę pełnej mapy?","Jakiej kontroli ściskam, którą On chce, bym puściła?","Jak Maryja mówi dziś przeze mnie: „Oto służebnica”?"],
+   "Etap 4 — Słyszenie cichego głosu"],
+  [34,"Józef","SNY","Czy Bóg mówi nawet, gdy śpię?",
+   "„Anioł Pański ukazał mu się we śnie.” — Mt 1,20",
+   ["Jakie drobne znaki ostatnio zauważyłam i szybko odrzuciłam?","Kogo z mojej rodziny Bóg może prosić mnie, bym przyjęła takim, jaki jest?","Jak dziś mogę być Józefem — cichym, uważnym, posłusznym?"],
+   "Etap 4 — Słyszenie cichego głosu"],
+  [35,"Mojżesz przy krzewie","SANKTUARIUM","Czy widzę świętość w moim dniu?",
+   "„Zdejmij sandały — to ziemia święta.” — Wj 3,5",
+   ["Jakie krzewy gorejące przeoczam w moim domu (kuchnia, okno, sofa)?","Gdzie konkretnie mogę dziś „zdjąć sandały” i poczcić obecność Boga?","Jak rutyna może stać się ziemią świętą?"],
+   "Etap 4 — Słyszenie cichego głosu"],
+  [36,"Jakub i drabina","OBJAWIENIE","Czy Bóg jest tu teraz?",
+   "„Pan jest na tym miejscu, a ja nie wiedziałem.” — Rdz 28,16",
+   ["Czy czuję się sama w domu, choć Bóg tam jest?","W którym pokoju mojego domu chcę dziś rozpoznać Jego obecność?","Co znaczy, że mój dom jest „bramą do nieba”?"],
+   "Etap 4 — Słyszenie cichego głosu"],
+  [37,"Korneliusz","KADZIDŁO","Czy moje modlitwy naprawdę docierają?",
+   "„Twoje modlitwy stały się ofiarą wspomnienia.” — Dz 10,4",
+   ["Za kogo modlę się od lat bez widocznej zmiany?","Czy wierzę, że każda moja modlitwa wznosi się jak kadzidło?","Jaką drobną jałmużnę mogę dziś dać w milczeniu?"],
+   "Etap 4 — Słyszenie cichego głosu"],
+  [38,"Ananiasz","DYSPOZYCYJNOŚĆ","A jeśli On prosi o coś, co wydaje się bez sensu?",
+   "„Idź, bo on jest naczyniem wybranym.” — Dz 9,15",
+   ["Kto mnie zranił i jakiego gestu Bóg może prosić mnie wobec niego?","Jaką drobną wiadomość mogę wysłać dziś bez wymagań?","Czy ufam Bogu, choć nie ufam tej osobie?"],
+   "Etap 4 — Słyszenie cichego głosu"],
+  [39,"Filip i Etiopczyk","OPATRZNOŚĆ","A jeśli spotkania nie są przypadkiem?",
+   "„Duch powiedział do Filipa: Podejdź.” — Dz 8,29",
+   ["Za kogo modlę się, by Bóg posłał Filipa na jego drogę?","Czy ja sama mogłabym dziś być Filipem dla kogoś?","Kogo wysłucham dziś przez 5 minut bez przerywania?"],
+   "Etap 4 — Słyszenie cichego głosu"],
+  [40,"Piotr i wizja","OTWARTOŚĆ","Czy oceniam to, co Bóg już oczyścił?",
+   "„Co Bóg oczyścił, ty nie nazywaj nieczystym.” — Dz 10,15",
+   ["Jakie etykiety noszę o innych, które zamykają mi serce?","Jakie etykiety noszę o sobie samej, które już nie są prawdą?","Którą jedną etykietę puszczę dzisiaj?"],
+   "Etap 4 — Słyszenie cichego głosu"],
+
+  [41,"Piotr przywrócony","MIŁOŚĆ","A jeśli już wcześniej upadłam?",
+   "„Szymonie, czy Mnie miłujesz?” — J 21,17",
+   ["Jaki upadek wciąż mnie wstydzi po latach?","Jak mogę dziś trzykrotnie odpowiedzieć: „Panie, Ty wiesz, że Cię miłuję”?","Jaką misję — choćby drobną — daje mi Pan na resztę życia?"],
+   "Etap 5 — Ufność na nowo"],
+  [42,"Dawid przywrócony","POWRÓT","A jeśli upadnę znowu?",
+   "„Sercem skruszonym Boże nie wzgardzisz.” — Ps 51,19",
+   ["Jaki powtarzający się grzech wyczerpuje mnie samą?","Czy mogę obiecać tylko jedno: „wracam, choćbym upadła znów”?","Kiedy następna spowiedź — wpisz datę:"],
+   "Etap 5 — Ufność na nowo"],
+  [43,"Tomasz","RANY","Czy mogę wątpić i wciąż wierzyć?",
+   "„Pan mój i Bóg mój.” — J 20,28",
+   ["Jakie wątpliwości ukrywam, sądząc, że dojrzała wiara nie powinna ich mieć?","Jak chcę zanieść je do Boga zamiast karmić w ciemności?","Jaki znak „dotknięcia ran” chcę dziś uczynić?"],
+   "Etap 5 — Ufność na nowo"],
+  [44,"Jan Chrzciciel w więzieniu","PAMIĘĆ","Zmęczyłam się wiarą. Co teraz?",
+   "„Czy Ty jesteś Tym, który ma przyjść?” — Mt 11,3",
+   ["Czy jestem zmęczona wiarą — nie niewierząca, ale wyczerpana?","Jakie 3 konkretne łaski dał mi Bóg w tym roku?","Jak mogę dziś ofiarować zmęczenie zamiast walczyć z nim?"],
+   "Etap 5 — Ufność na nowo"],
+  [45,"Marta","WIARA I SKARGA","Czy mogę narzekać i wierzyć jednocześnie?",
+   "„Tak, Panie; ja wierzę.” — J 11,27",
+   ["Jaką stratę noszę, która wciąż boli mimo lat?","Czy pozwalam sobie płakać i wierzyć w tym samym oddechu?","Za którego zmarłego ofiaruję dziś Mszę lub Różaniec — imieniem?"],
+   "Etap 5 — Ufność na nowo"],
+  [46,"Kobieta z krwotokiem","DOTYK","Czy 12 lat to za długo?",
+   "„Córko, twoja wiara cię ocaliła.” — Mk 5,34",
+   ["Jaka choroba (moja lub bliskiej osoby) ciągnie się latami?","Jakiego „skraju płaszcza” mogę dziś dotknąć (Różaniec, krzyż, tabernakulum)?","Co znaczy, że Jezus zatrzymuje się dla mnie?"],
+   "Etap 5 — Ufność na nowo"],
+  [47,"Kananejka","WYTRWAŁOŚĆ","A jeśli wystarczą okruchy?",
+   "„O kobieto, wielka jest twoja wiara!” — Mt 15,28",
+   ["Za kogo modlę się, choć wydaje się, że niebo milczy?","Jakie „okruchy” wystarczyłyby mi jako odpowiedź?","Co mówię Bogu: „nalegam” — nie „poddaję się”?"],
+   "Etap 5 — Ufność na nowo"],
+  [48,"Ojciec opętanego chłopca","NIEWIARA","Czy mam dość wiary?",
+   "„Wierzę! Pomóż mojej niewierze!” — Mk 9,24",
+   ["Czy porównuję moją wiarę z innymi i czuję się mała?","Jaka prośba wydaje się większa niż moja wiara potrafi unieść?","Jak chcę dziś powiedzieć: „Wierzę. Pomóż mojej niewierze”?"],
+   "Etap 5 — Ufność na nowo"],
+  [49,"Bartymeusz","KRZYK","A jeśli każą mi zamilknąć?",
+   "„Synu Dawida, ulituj się nade mną!” — Mk 10,47",
+   ["Kto każe mi zamilknąć z wiarą (rodzina, kultura, świat)?","Gdzie chcę dziś krzyknąć głośniej — choćby przez znak krzyża przy stole?","Jakie dziedzictwo wiary chcę zostawić wnukom?"],
+   "Etap 5 — Ufność na nowo"],
+  [50,"Naaman","PROSTOTA","A jeśli to tak proste, że wydaje się małym?",
+   "„Zanurz się siedem razy w Jordanie.” — 2 Krl 5,10",
+   ["Jakie proste polecenie Boga odkładam, szukając spektakularnego?","Jaki jest mój „Jordan” na ten tydzień (Msza, spowiedź, Różaniec, telefon)?","Co prostego mogę zrobić DZISIAJ, nie jutro?"],
+   "Etap 5 — Ufność na nowo"],
+
+  [51,"Henoch","CHODZENIE","Czy mogę po prostu chodzić z Bogiem?",
+   "„Henoch chodził z Bogiem.” — Rdz 5,24",
+   ["Czy szukam zbyt skomplikowanego życia duchowego?","W którym konkretnym pokoju lub momencie dziś będę „chodziła z Bogiem”?","Co oznacza dla mnie świętość prostoty?"],
+   "Etap 6 — Chodzenie z Nim"],
+  [52,"Abraham","PRZYJAŹŃ","Czy mogę być przyjaciółką Boga?",
+   "„Abraham został nazwany przyjacielem Boga.” — Jk 2,23",
+   ["Czy moja modlitwa jest formalna, czy intymna jak rozmowa?","Jaki „temat zwykły” mogę dziś z Nim omówić, jak z bliską osobą?","Co znaczy, że Jezus mówi: „Nazwałem was przyjaciółmi”?"],
+   "Etap 6 — Chodzenie z Nim"],
+  [53,"Mojżesz twarzą w twarz","INTYMNOŚĆ","Jak rozmowa zmienia oblicze?",
+   "„Pan rozmawiał z Mojżeszem twarzą w twarz.” — Wj 33,11",
+   ["Czy mam „namiot” — stałe miejsce i godzinę modlitwy?","Gdzie i o której będzie mój namiot od jutra?","Jaki promień może wyjść z mojej twarzy po regularnym spotkaniu?"],
+   "Etap 6 — Chodzenie z Nim"],
+  [54,"Maria z Betanii","ODPOCZYNEK","Czy mogę po prostu usiąść u stóp?",
+   "„Maria obrała najlepszą cząstkę.” — Łk 10,42",
+   ["Czy jestem uzależniona od robienia, nie wiedząc już jak być?","Jakie 10 minut dziś zostanę u stóp, bez agendy?","Jaką „pilność” mogę odwołać bez winy?"],
+   "Etap 6 — Chodzenie z Nim"],
+  [55,"Anna prorokini","POWOŁANIE","Czy starość ma wezwanie?",
+   "„Nie opuszczała świątyni, służąc w postach i modlitwach.” — Łk 2,37",
+   ["Czy pytam się, czy jeszcze do czegoś się przydaję?","Jaki drobny ból mojego wieku mogę dziś ofiarować i imieniem czyim?","Co znaczy, że moja modlitwa trzyma świat?"],
+   "Etap 6 — Chodzenie z Nim"],
+  [56,"Symeon","POKÓJ","Czy warto czekać całe życie?",
+   "„Teraz, o Władco, pozwalasz odejść słudze Twemu w pokoju.” — Łk 2,29",
+   ["Czego boję się przy myśli o końcu (zależność, samotność, godzina)?","Jakiej łaski Symeona — pokoju w godzinie — proszę dziś?","Komu chcę powiedzieć dziś, że kocham, na wszelki wypadek?"],
+   "Etap 6 — Chodzenie z Nim"],
+  [57,"Jan oparty na piersi","BLISKOŚĆ","Czy mogę po prostu się oprzeć?",
+   "„Spoczywał na piersi Jezusa.” — J 13,23",
+   ["Czy umiem modlić się bez słów — tylko być?","Jak chcę dziś oprzeć głowę mentalnie na piersi Jezusa?","Co słyszę, gdy słucham Jego serca w ciszy?"],
+   "Etap 6 — Chodzenie z Nim"],
+  [58,"Maryja Matka","ZACHOWYWAĆ","Czy każda intymność musi być wypowiedziana?",
+   "„Maryja zachowywała wszystko, rozważając w sercu.” — Łk 2,19",
+   ["Jakie łaski opowiedziałam, a może powinnam były zachować?","Co dziś zachowam tylko między mną a Bogiem?","Jaki sekretny pokoik mam z Nim, gdzie tylko wy dwoje wchodzicie?"],
+   "Etap 6 — Chodzenie z Nim"],
+  [59,"Emaus — rozpoznanie","ROZPOZNANIE","Jak rozpoznać Jezusa w zwykłym dniu?",
+   "„Czyż serce nie pałało w nas?” — Łk 24,32",
+   ["Kiedy ostatnio moje serce „pałało”, choć tego nie połączyłam z Bogiem?","Na której najbliższej Mszy chcę spojrzeć na Hostię z świadomym rozpoznaniem?","Gdzie dziś chcę rozpoznać Chrystusa w „łamaniu chleba” codziennego życia?"],
+   "Etap 6 — Chodzenie z Nim"],
+  [60,"Maryja w Zesłaniu","WYTRWAŁOŚĆ","A po 60 dniach?",
+   "„Trwali jednomyślnie na modlitwie z Maryją.” — Dz 1,14",
+   ["Czego nauczyłam się przez te 60 dni, czego nie wiedziałam wcześniej?","Jaką JEDNĄ praktykę wybieram do trwania od jutra?","Jakiej Pięćdziesiątnicy proszę dla mojej rodziny?"],
+   "Etap 6 — Chodzenie z Nim"]
+];
+
+const stages = {
+  1: [1,10],   2: [11,20],  3: [21,30],
+  4: [31,40],  5: [41,50],  6: [51,60]
+};
+
+function buildDayPage(d) {
+  const [num, character, keyword, question, verse, qs, stage] = d;
+  const linesHtml = Array(8).fill('<div class="line"></div>').join('');
+  const questionsHtml = qs.map(q => `<li>${q}</li>`).join('');
+
+  return `
+  <div class="page">
+    <div class="page-header">
+      <span class="day-num">Dzień ${num} z 60 — ${keyword}</span>
+      <span class="stage-tag">${stage}</span>
+    </div>
+    <h2 class="day-title">${character}</h2>
+    <div class="day-question">„${question}”</div>
+    <div class="verse-box">${verse}</div>
+    <div class="questions">
+      <div class="questions-label">Pytania dla serca</div>
+      <ol>${questionsHtml}</ol>
+    </div>
+    <div class="lines">${linesHtml}</div>
+    <div class="grace-box">
+      <div class="grace-label">✦ Łaska dnia (zapisz jedną)</div>
+      <div class="grace-line"></div>
+    </div>
+    <div class="page-footer">
+      <span>Dzień ${num}</span>
+      <span>${stage}</span>
+    </div>
+  </div>`;
+}
+
+const container = document.getElementById('days-container');
+container.innerHTML = days.map(buildDayPage).join('');
+</script>
+
+</body>
+</html>

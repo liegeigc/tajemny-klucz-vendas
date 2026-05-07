@@ -1,0 +1,3129 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarcza Maryi — Tajemny Klucz Maryi</title>
+<style>
+  :root {
+    --cream: #f5efe6;
+    --cream-light: #faf6ed;
+    --cream-soft: #efe6cf;
+    --gold: #c9a961;
+    --gold-soft: #d8bd7a;
+    --gold-dark: #8b7355;
+    --brown: #6b5b3e;
+    --brown-deep: #3a2f23;
+    --navy-deep: #0f1a2e;
+    --navy: #1a2942;
+    --line: #d4c4a8;
+    --green-deep: #4a6b4a;
+    --green-soft: #8aa987;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: var(--cream);
+    color: var(--brown-deep);
+    line-height: 1.85;
+    font-size: 18px;
+  }
+
+  .toolbar {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    background: var(--navy-deep);
+    color: var(--gold);
+    padding: 12px 18px;
+    border-radius: 10px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    font-size: 13px;
+    z-index: 100;
+    border: 1px solid var(--gold);
+  }
+  .toolbar button {
+    background: var(--gold);
+    color: var(--navy-deep);
+    border: none;
+    padding: 9px 16px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  /* COVER (verde-floresta/bronze) */
+  .cover {
+    min-height: 100vh;
+    background:
+      radial-gradient(ellipse at top, rgba(220,170,90,0.22) 0%, transparent 55%),
+      linear-gradient(160deg, #0e2a1e 0%, #143828 55%, #0a1f15 100%);
+    color: var(--cream);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 30px;
+    position: relative;
+  }
+  .cover::before {
+    content: "";
+    position: absolute;
+    inset: 30px;
+    border: 1px solid rgba(201,169,97,0.25);
+    pointer-events: none;
+  }
+  .cover-tagline {
+    font-size: 12px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    opacity: 0.85;
+    margin-bottom: 28px;
+  }
+  .cover-mark { color: var(--gold); margin-bottom: 22px; }
+  .cover-mark svg {
+    width: 130px; height: 130px;
+    filter: drop-shadow(0 0 18px rgba(201,169,97,0.45));
+  }
+  .cover h1 {
+    font-size: 48px;
+    font-weight: normal;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+    line-height: 1.15;
+  }
+  .cover h2 {
+    font-size: 19px;
+    font-weight: normal;
+    font-style: italic;
+    color: var(--cream);
+    opacity: 0.92;
+    margin-bottom: 30px;
+    max-width: 580px;
+    line-height: 1.5;
+  }
+  .cover-parts {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .cover-part {
+    color: var(--gold-soft);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border: 1px solid rgba(201,169,97,0.4);
+    border-radius: 999px;
+  }
+  .cover-sub {
+    font-size: 13px;
+    color: var(--gold-soft);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-top: auto;
+    padding-top: 30px;
+  }
+
+  main { max-width: 760px; margin: 0 auto; padding: 50px 28px 60px; }
+
+  .ornament {
+    text-align: center;
+    margin: 50px 0;
+    color: var(--gold);
+  }
+  .ornament svg { width: 140px; height: 36px; }
+
+  /* Opening */
+  .opening {
+    background: var(--cream-light);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 40px 36px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .opening::before {
+    content: "";
+    position: absolute;
+    top: -1px; left: -1px; right: -1px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-soft), var(--gold));
+    border-radius: 14px 14px 0 0;
+  }
+  .opening h2 {
+    font-size: 30px;
+    color: var(--brown-deep);
+    font-style: italic;
+    margin-bottom: 6px;
+    text-align: center;
+  }
+  .opening .subtitle {
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 30px;
+  }
+  .opening p {
+    margin-bottom: 18px;
+    font-size: 17.5px;
+    line-height: 1.85;
+  }
+  .opening p:last-child { margin-bottom: 0; }
+  .opening .quote-box {
+    background: rgba(201,169,97,0.10);
+    border-left: 3px solid var(--gold);
+    padding: 18px 22px;
+    margin: 22px 0;
+    font-style: italic;
+    font-size: 17px;
+    border-radius: 0 8px 8px 0;
+    line-height: 1.7;
+  }
+
+  /* Part divider */
+  .part-divider {
+    text-align: center;
+    margin: 60px 0 40px;
+    padding: 30px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--cream-light);
+    border-radius: 14px;
+  }
+  .part-divider .part-label {
+    font-size: 12px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  .part-divider h2 {
+    font-size: 32px;
+    color: var(--brown-deep);
+    font-style: italic;
+    line-height: 1.25;
+    margin-bottom: 14px;
+  }
+  .part-divider p {
+    font-style: italic;
+    color: var(--gold-dark);
+    font-size: 16px;
+    margin-bottom: 14px;
+  }
+  .part-divider .part-line {
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 14px auto 0;
+  }
+  .part-divider .part-icon {
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+  .part-divider .part-icon svg { width: 60px; height: 60px; }
+
+  /* Subseções */
+  .subsection {
+    margin-bottom: 36px;
+  }
+  .subsection h3 {
+    font-size: 26px;
+    color: var(--brown-deep);
+    font-style: italic;
+    margin-bottom: 8px;
+  }
+  .subsection .sub-tag {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .subsection p {
+    font-size: 17px;
+    margin-bottom: 14px;
+    line-height: 1.85;
+  }
+
+  /* Item card (sacramental, alimento, remédio) */
+  .item-card {
+    background: var(--cream-light);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 24px 26px;
+    margin-bottom: 18px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .item-icon {
+    flex-shrink: 0;
+    width: 60px; height: 60px;
+    background: var(--navy-deep);
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+  }
+  .item-icon svg { width: 30px; height: 30px; }
+  .item-content { flex: 1; }
+  .item-content h4 {
+    font-size: 19px;
+    color: var(--brown-deep);
+    margin-bottom: 4px;
+  }
+  .item-content .item-tag {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  .item-content p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+  .item-content p:last-child { margin-bottom: 0; }
+  .item-content .how {
+    margin-top: 10px;
+    padding: 10px 14px;
+    background: rgba(201,169,97,0.08);
+    border-left: 2px solid var(--gold);
+    font-size: 15px;
+    line-height: 1.65;
+    border-radius: 0 6px 6px 0;
+  }
+  .item-content .how strong {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  /* Tabela despensa */
+  .pantry-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+    font-size: 16px;
+    background: var(--cream-light);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .pantry-table th {
+    background: var(--navy-deep);
+    color: var(--gold);
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .pantry-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--line);
+    line-height: 1.6;
+    vertical-align: top;
+  }
+  .pantry-table tr:last-child td { border-bottom: none; }
+  .pantry-table .product { font-weight: bold; color: var(--brown-deep); width: 32%; }
+  .pantry-table .duration { color: var(--gold-dark); font-style: italic; width: 22%; }
+  .pantry-table .how { font-size: 15px; }
+
+  /* Lista warning */
+  .warning-box {
+    background: linear-gradient(135deg, #f9ebe5, #f5dfd5);
+    border: 1px solid #c08877;
+    border-left: 4px solid #b54a3a;
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-bottom: 24px;
+  }
+  .warning-box .warning-title {
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #b54a3a;
+    font-weight: bold;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .warning-box .warning-title::before {
+    content: "⚠";
+    font-size: 20px;
+  }
+  .warning-box ul {
+    list-style: none;
+    padding: 0;
+  }
+  .warning-box li {
+    padding: 6px 0 6px 24px;
+    position: relative;
+    font-size: 16px;
+    color: var(--brown-deep);
+    line-height: 1.65;
+  }
+  .warning-box li::before {
+    content: "•";
+    position: absolute;
+    left: 6px;
+    color: #b54a3a;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  /* Lista checklist */
+  .checklist-box {
+    background: linear-gradient(135deg, #e9f0e8, #dde9da);
+    border: 1px solid var(--green-soft);
+    border-left: 4px solid var(--green-deep);
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-bottom: 24px;
+  }
+  .checklist-box .checklist-title {
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--green-deep);
+    font-weight: bold;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .checklist-box .checklist-title::before { content: "✓"; font-size: 20px; }
+  .checklist-box ul { list-style: none; padding: 0; }
+  .checklist-box li {
+    padding: 6px 0 6px 32px;
+    position: relative;
+    font-size: 16px;
+    color: var(--brown-deep);
+    line-height: 1.65;
+  }
+  .checklist-box li::before {
+    content: "";
+    position: absolute;
+    left: 4px; top: 11px;
+    width: 16px; height: 16px;
+    border: 2px solid var(--green-deep);
+    border-radius: 4px;
+    background: white;
+  }
+
+  /* Modlitwa box */
+  .prayer-box {
+    background:
+      radial-gradient(ellipse at top, rgba(220,170,90,0.22) 0%, transparent 60%),
+      linear-gradient(160deg, #0e2a1e 0%, #143828 55%, #0a1f15 100%);
+    color: var(--cream);
+    border-radius: 14px;
+    padding: 36px 32px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(220,170,90,0.3);
+  }
+  .prayer-box .prayer-name {
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  .prayer-box h4 {
+    font-size: 22px;
+    color: var(--gold);
+    font-style: italic;
+    margin-bottom: 22px;
+    text-align: center;
+  }
+  .prayer-box p {
+    font-size: 16.5px;
+    line-height: 1.85;
+    margin-bottom: 14px;
+    font-style: italic;
+  }
+  .prayer-box p:last-child { margin-bottom: 0; }
+  .prayer-box .amen {
+    font-style: normal;
+    font-weight: bold;
+    color: var(--gold);
+    text-align: center;
+    margin-top: 20px;
+    letter-spacing: 3px;
+    font-size: 14px;
+  }
+
+  /* Closing */
+  .closing-page {
+    background:
+      radial-gradient(ellipse at top, rgba(220,170,90,0.22) 0%, transparent 60%),
+      linear-gradient(160deg, #0e2a1e 0%, #143828 55%, #0a1f15 100%);
+    color: var(--cream);
+    padding: 60px 30px;
+    text-align: center;
+    border-radius: 14px;
+    margin-top: 40px;
+    border: 1px solid rgba(220,170,90,0.3);
+  }
+  .closing-page h2 {
+    font-size: 30px;
+    color: var(--gold);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+    line-height: 1.25;
+  }
+  .closing-page p {
+    font-size: 17px;
+    line-height: 1.85;
+    margin-bottom: 16px;
+    opacity: 0.95;
+  }
+  .closing-verse {
+    margin-top: 30px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(201,169,97,0.3);
+    font-style: italic;
+    color: var(--gold-soft);
+    font-size: 16px;
+  }
+
+  /* Detalhe ampliado: descrição estruturada de cada item */
+  .item-detail {
+    margin-top: 14px;
+    display: grid;
+    gap: 10px;
+  }
+  .item-detail .detail-block {
+    padding: 10px 14px;
+    background: rgba(74, 107, 74, 0.05);
+    border-left: 2px solid var(--green-deep);
+    border-radius: 0 6px 6px 0;
+    font-size: 15.2px;
+    line-height: 1.65;
+  }
+  .item-detail .detail-block strong.label {
+    display: block;
+    font-size: 10.5px;
+    letter-spacing: 2px;
+    color: var(--green-deep);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    font-weight: bold;
+  }
+  .item-detail .detail-block.warn {
+    background: rgba(181, 74, 58, 0.07);
+    border-left-color: #b54a3a;
+  }
+  .item-detail .detail-block.warn strong.label { color: #b54a3a; }
+  .item-detail .detail-block ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 4px;
+  }
+  .item-detail .detail-block li {
+    padding: 3px 0 3px 14px;
+    position: relative;
+  }
+  .item-detail .detail-block li::before {
+    content: "·";
+    position: absolute;
+    left: 4px;
+    color: var(--gold-dark);
+    font-weight: bold;
+  }
+
+  /* Item card com SVG ilustrativo grande */
+  .item-card.illus { align-items: stretch; gap: 22px; }
+  .item-card.illus .item-illus {
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    background: var(--cream);
+    border: 1.5px solid var(--gold);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--brown);
+    align-self: flex-start;
+  }
+  .item-card.illus .item-illus svg { width: 84px; height: 84px; }
+  .item-card.illus .item-content h4 { font-size: 21px; margin-bottom: 4px; }
+
+  /* IMPRESSÃO A4 */
+  @page { size: A4; margin: 18mm; }
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    html, body {
+      background: white !important;
+      color: #1d2a1d !important;
+      font-size: 11pt;
+      line-height: 1.55;
+    }
+    .toolbar { display: none !important; }
+
+    /* Cover, prayer-box, closing — sem fundo verde escuro na impressão */
+    .cover {
+      background: white !important;
+      color: #1d2a1d !important;
+      min-height: auto;
+      padding: 30mm 12mm;
+      page-break-after: always;
+      border: 1.5pt solid #4a6b4a;
+    }
+    .cover::before { border-color: #4a6b4a !important; }
+    .cover .cover-tagline,
+    .cover .cover-part,
+    .cover .cover-sub { color: #4a6b4a !important; opacity: 1 !important; }
+    .cover h1 { color: #1d2a1d !important; font-size: 32pt; }
+    .cover h2 { color: #2e3a2e !important; opacity: 1 !important; font-size: 13pt; }
+    .cover-mark { color: #4a6b4a !important; }
+    .cover-mark svg { filter: none !important; }
+    .cover-part { border-color: #4a6b4a !important; }
+
+    .prayer-box {
+      background: white !important;
+      color: #1d2a1d !important;
+      border: 1pt solid #4a6b4a !important;
+      page-break-inside: avoid;
+    }
+    .prayer-box .prayer-name,
+    .prayer-box .amen { color: #6b5b3e !important; }
+    .prayer-box h4 { color: #1d2a1d !important; }
+    .prayer-box p { color: #2e3a2e !important; }
+
+    .closing-page {
+      background: white !important;
+      color: #1d2a1d !important;
+      border: 1pt solid #4a6b4a !important;
+      page-break-before: always;
+    }
+    .closing-page h2 { color: #1d2a1d !important; font-size: 20pt; }
+    .closing-page p { color: #2e3a2e !important; opacity: 1 !important; }
+    .closing-verse { color: #6b5b3e !important; border-color: #6b5b3e !important; }
+
+    .pantry-table th {
+      background: #efe6cf !important;
+      color: #3a2f23 !important;
+    }
+    .item-icon {
+      background: white !important;
+      color: #4a6b4a !important;
+      border-color: #4a6b4a !important;
+    }
+
+    main { max-width: 100%; padding: 0; }
+
+    /* Quebras de página */
+    .part-divider { page-break-before: always; page-break-after: avoid; }
+    .opening { page-break-after: always; }
+    .item-card,
+    .item-card.illus,
+    .prayer-box,
+    .warning-box,
+    .checklist-box,
+    .pantry-table { page-break-inside: avoid; }
+    .item-card.illus { page-break-after: auto; }
+    .item-card.illus + .item-card.illus { page-break-before: always; }
+    .subsection h3 { page-break-after: avoid; }
+    .subsection { page-break-inside: avoid; }
+    h3, h4 { page-break-after: avoid; }
+    .ornament { display: none; }
+
+    /* Bordas reforçadas (sem fundos coloridos) */
+    .item-card,
+    .item-card.illus,
+    .opening,
+    .warning-box,
+    .checklist-box,
+    .part-divider {
+      background: white !important;
+      border: 1pt solid #6b5b3e !important;
+      box-shadow: none !important;
+    }
+    .item-detail .detail-block {
+      background: white !important;
+      border-left: 2pt solid #4a6b4a !important;
+    }
+    .item-detail .detail-block.warn {
+      border-left-color: #b54a3a !important;
+    }
+    .opening h2,
+    .subsection h3,
+    .item-content h4,
+    .part-divider h2 { color: #1d2a1d !important; }
+    .item-tag,
+    .sub-tag,
+    .part-label { color: #6b5b3e !important; }
+
+    .item-card.illus .item-illus {
+      background: white !important;
+      border-color: #6b5b3e !important;
+      color: #1d2a1d !important;
+    }
+
+    .pantry-table { font-size: 10pt; }
+    .item-card.illus .item-illus svg { width: 70px; height: 70px; }
+    .item-card.illus .item-illus { width: 80px; height: 80px; }
+
+    h1 { font-size: 22pt; }
+    h2 { font-size: 16pt; }
+    h3 { font-size: 14pt; }
+    h4 { font-size: 12pt; }
+  }
+
+  @media (max-width: 600px) {
+    body { font-size: 16.5px; }
+    main { padding: 30px 20px 40px; }
+    .cover h1 { font-size: 32px; letter-spacing: 4px; }
+    .cover h2 { font-size: 16px; }
+    .opening, .item-card, .prayer-box { padding: 24px 20px; }
+    .opening h2, .subsection h3 { font-size: 22px; }
+    .part-divider h2 { font-size: 26px; }
+    .item-card { flex-direction: column; align-items: center; text-align: center; gap: 14px; }
+    .pantry-table { font-size: 14px; }
+    .pantry-table th, .pantry-table td { padding: 10px 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <button onclick="goBack()" style="margin-right:8px;">← Wróć</button>
+  <button onclick="window.print()">Drukuj / PDF</button>
+</div>
+<script>
+function goBack() {
+  try {
+    if (window.parent && window.parent !== window) {
+      window.parent.postMessage({ type: 'flowlink:close' }, '*');
+    }
+  } catch (e) {}
+  if (document.referrer && document.referrer !== window.location.href) {
+    history.back();
+  } else {
+    window.location.href = 'https://tajemny-klucz-maryi.flowlink-app.online';
+  }
+}
+</script>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-tagline">Tajemny Klucz Maryi</div>
+  <div class="cover-mark">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <!-- Tarcza -->
+      <path d="M 50 10 L 80 22 L 80 52 Q 80 72 50 90 Q 20 72 20 52 L 20 22 Z"
+            stroke="currentColor" stroke-width="2.2" fill="none"/>
+      <!-- M no centro -->
+      <text x="50" y="56" font-family="Georgia, serif" font-size="32" text-anchor="middle"
+            fill="currentColor" font-weight="400" letter-spacing="-1">M</text>
+      <!-- Cruz acima do M -->
+      <path d="M 50 22 L 50 32 M 46 26 L 54 26" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      <!-- Estrelas decorativas -->
+      <circle cx="35" cy="70" r="1.5" fill="currentColor"/>
+      <circle cx="65" cy="70" r="1.5" fill="currentColor"/>
+      <circle cx="50" cy="76" r="1.5" fill="currentColor"/>
+    </svg>
+  </div>
+  <h1>Tarcza Maryi</h1>
+  <h2>Sacramentalia, modlitwy ochronne, spiżarnia chrześcijanki<br>i apteczka maryjna na trudne czasy</h2>
+  <div class="cover-parts">
+    <div class="cover-part">I · Dom-sanktuarium</div>
+    <div class="cover-part">II · Spiżarnia</div>
+    <div class="cover-part">III · Apteczka</div>
+    <div class="cover-part">IV · Modlitwy</div>
+  </div>
+  <div class="cover-sub">Praktyczny przewodnik dla wybranej</div>
+</div>
+
+<main>
+
+<!-- OPENING -->
+<div class="opening">
+  <h2>Twój dom jest twierdzą</h2>
+  <div class="subtitle">Słowo na początek</div>
+
+  <p>Maryja w wielu objawieniach minionego stulecia — w Fatimie, w La Salette, w Akita, w Medziugorju — zapowiadała czasy próby. Czasy, w których Kościół byłby atakowany, rodziny rozsypywałyby się, a wiara stawałaby się rzadkością. Nie chodzi o straszenie. Chodzi o <b>bycie przygotowaną</b>.</p>
+
+  <p>Wybrana kobieta nie jest paniczna. Nie biega od jednego kanału informacyjnego do drugiego. Ale również nie jest naiwna — wie, że jej dom musi stać się dwiema rzeczami jednocześnie: <b>sanktuarium</b>, gdzie mieszka Bóg, i <b>spiżarnią</b>, gdzie jest wszystko potrzebne do przetrwania.</p>
+
+  <div class="quote-box">
+    „Dom, w którym się modli i w którym jest święcony pokarm, nigdy nie będzie głodny — ani chleba, ani łaski.” <br>
+    <span style="font-size: 13px; color: var(--gold-dark); margin-top: 8px; display: block;">— stara mądrość polskich babci</span>
+  </div>
+
+  <p>Ten przewodnik daje Ci cztery rzeczy, których potrzebuje każdy chrześcijański dom:</p>
+
+  <p style="margin-left: 18px;">
+    <b>Część I:</b> sakramentalia, błogosławieństwa i ochrona duchowa Twojego domu.<br>
+    <b>Część II:</b> co i jak przechowywać w polskiej kuchni na trudniejsze czasy.<br>
+    <b>Część III:</b> domowa apteczka oparta na ziołach z tradycji świętych i objawień maryjnych.<br>
+    <b>Część IV:</b> modlitwy ratunkowe, których możesz użyć natychmiast.
+  </p>
+
+  <p>Nie ma tu nic, czego nie znałyby Twoje praprababki. Bo to nie jest „nowość”. To <b>przywrócenie tego, co kiedyś każda polska kobieta wiedziała</b> — i co czas pozwolił zapomnieć.</p>
+</div>
+
+<div class="ornament">
+  <svg viewBox="0 0 140 36" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 5 18 Q 35 8 70 18 Q 105 28 135 18" stroke="currentColor" stroke-width="0.8" fill="none"/>
+    <path d="M 70 13 L 72 17 L 76 18 L 72 19 L 70 23 L 68 19 L 64 18 L 68 17 Z" fill="currentColor"/>
+    <circle cx="25" cy="18" r="1.5" fill="currentColor" opacity="0.6"/>
+    <circle cx="115" cy="18" r="1.5" fill="currentColor" opacity="0.6"/>
+  </svg>
+</div>
+
+<!-- ============== CZĘŚĆ I ============== -->
+<div class="part-divider">
+  <div class="part-icon">
+    <svg viewBox="0 0 60 60" fill="none">
+      <path d="M30 5L10 15v15c0 12 8 22 20 25 12-3 20-13 20-25V15L30 5z" stroke="currentColor" stroke-width="2"/>
+      <path d="M30 22v18M22 31h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="part-label">Część pierwsza</div>
+  <h2>Dom jako sanktuarium</h2>
+  <p>Sakramentalia · Błogosławieństwo · Ochrona</p>
+  <div class="part-line"></div>
+</div>
+
+<div class="subsection">
+  <h3>Sakramentalia, które każdy katolicki dom powinien mieć</h3>
+  <div class="sub-tag">Siedem narzędzi obrony duchowej</div>
+  <p>Sakramentalia to znaki święte ustanowione przez Kościół, które przygotowują do przyjęcia łaski sakramentów. Nie działają „magicznie” — działają w mierze wiary tej, która ich używa. Maryja w Fatimie wyraźnie poprosiła, by Różaniec był „bronią naszych czasów”. Św. Szymon Stock otrzymał szkaplerz. Św. Katarzyna Labouré — Cudowny Medalik. Św. Benedykt — krzyż egzorcyzmu. Wszystkie one mają moc, gdy są noszone z wiarą.</p>
+</div>
+
+<div class="item-card illus">
+  <div class="item-illus">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <ellipse cx="50" cy="55" rx="32" ry="28" stroke="#4a6b4a" stroke-width="0.6" stroke-dasharray="0.5 4" fill="none"/>
+      <g fill="#4a6b4a" stroke="#3a2f23" stroke-width="0.4">
+        <circle cx="50" cy="27" r="2.4"/>
+        <circle cx="62" cy="29" r="2.4"/>
+        <circle cx="72" cy="36" r="2.4"/>
+        <circle cx="79" cy="46" r="2.4"/>
+        <circle cx="82" cy="58" r="2.4"/>
+        <circle cx="79" cy="68" r="2.4"/>
+        <circle cx="71" cy="76" r="2.4"/>
+        <circle cx="60" cy="80" r="2.4"/>
+        <circle cx="40" cy="80" r="2.4"/>
+        <circle cx="29" cy="76" r="2.4"/>
+        <circle cx="21" cy="68" r="2.4"/>
+        <circle cx="18" cy="58" r="2.4"/>
+        <circle cx="21" cy="46" r="2.4"/>
+        <circle cx="28" cy="36" r="2.4"/>
+        <circle cx="38" cy="29" r="2.4"/>
+      </g>
+      <circle cx="50" cy="22" r="3.2" fill="#c9a961" stroke="#8b7355" stroke-width="0.5"/>
+      <path d="M50 22 L50 35" stroke="#8b7355" stroke-width="0.6" stroke-dasharray="0.5 3"/>
+      <g transform="translate(50,42)">
+        <circle r="3.5" fill="#c9a961" stroke="#8b7355" stroke-width="0.4"/>
+        <text y="1.5" text-anchor="middle" font-family="Georgia,serif" font-size="5" fill="#3a2f23" font-style="italic">M</text>
+      </g>
+      <path d="M50 47 L50 70 M44 56 L56 56" stroke="#8b7355" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M48 70 L52 70 L51 73 L49 73 Z" fill="#c9a961"/>
+    </svg>
+  </div>
+  <div class="item-content">
+    <h4>Różaniec</h4>
+    <div class="item-tag">Najmocniejsze narzędzie obrony · od XIII w.</div>
+    <p>Różaniec — w obecnej formie 5 tajemnic z 10 paciorkami w każdej dziesiątce — przekazany został przez Maryję św. Dominikowi w 1208 r. w Prouille (południowa Francja). W Polsce zakorzenił się dzięki bractwom różańcowym przy klasztorach dominikańskich już w XV w. Św. Pius V przypisał zwycięstwo pod Lepanto (1571) modlitwie Różańca, ustanawiając święto Matki Bożej Różańcowej (7 października).</p>
+    <div class="item-detail">
+      <div class="detail-block">
+        <strong class="label">Czym jest dokładnie</strong>
+        Sznur z 59 paciorków: 1 krzyżyk, 3 paciorki początkowe, 5 dziesiątków po 10 paciorków, między nimi paciorki <i>Ojcze nasz</i>. Tradycyjne polskie różańce robi się z drewna jaworowego, oliwnego, z hubki, z bursztynu, z nasion <i>łez Hioba</i>. Autentyczny różaniec ma krzyżyk z postacią Chrystusa i medalik z Maryją.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Znaczenie duchowe</strong>
+        Różaniec jest „streszczeniem Ewangelii” (Jan Paweł II, <i>Rosarium Virginis Mariae</i>). 20 tajemnic kontempluje życie Chrystusa oczami Matki. W Fatimie Maryja w każdym z sześciu objawień prosiła: <i>„Odmawiajcie codziennie Różaniec.”</i> Jest bronią duchową — św. Padre Pio nazywał go „bronią na nasze czasy”.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak wybrać i pobłogosławić</strong>
+        Polskie sklepy parafialne (np. Częstochowa, Licheń) mają drewniane różańce 15-40 zł. Przed pierwszym użyciem poproś księdza o pobłogosławienie — wystarczy podejść po Mszy i powiedzieć: <i>„Proszę o pobłogosławienie tego różańca.”</i> Każda osoba w domu — także dzieci — powinna mieć własny.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak używać codziennie</strong>
+        <ul>
+          <li>Co najmniej jedna dziesiątka dziennie (5 minut)</li>
+          <li>Cała część (5 dziesiątków) — minimum w niedzielę i święta maryjne</li>
+          <li>Cały Różaniec (20 tajemnic) w pierwszy piątek miesiąca lub w intencjach trudnych</li>
+          <li>Rodzinnie wieczorem przed snem — wokół stołu, przy obrazie Maryi, ze świecą gromniczną</li>
+          <li>Tajemnice radosne — poniedziałek/sobota; bolesne — wtorek/piątek; chwalebne — środa/niedziela; światła — czwartek</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Kiedy sięgnąć po Różaniec</strong>
+        Bezsenność lub niepokój nocą — różaniec w dłoni, jedna dziesiątka. Strach o dziecko — Tajemnice Bolesne za nie. Trudna decyzja — cały Różaniec przed Najświętszym Sakramentem. Pogrzeb bliskiego — Tajemnice Chwalebne za jego duszę. Burza, awaria, wypadek — natychmiast „Zdrowaś Maryjo” na każdym paciorku.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Co robić, gdy się zniszczy</strong>
+        Zerwany sznurek nie unieważnia błogosławieństwa — można go naprawić. Jeśli krzyżyk się ułamie, zakop go w ziemi (tradycja polska — sakramentalia nigdy do śmieci). Nowy różaniec wymaga nowego pobłogosławienia.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="item-card illus">
+  <div class="item-illus">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <path d="M20 18 Q50 8 80 18" stroke="#8b7355" stroke-width="1.2" fill="none"/>
+      <rect x="34" y="16" width="20" height="24" rx="1.5" fill="#6b3e2e" stroke="#3a2f23" stroke-width="0.6"/>
+      <text x="44" y="32" text-anchor="middle" font-family="Georgia,serif" font-size="10" fill="#c9a961" font-style="italic">M</text>
+      <path d="M44 25 L44 22 M42 23.5 L46 23.5" stroke="#c9a961" stroke-width="0.6"/>
+      <path d="M34 40 L30 50 L58 50 L54 40 Z" fill="#6b3e2e" stroke="#3a2f23" stroke-width="0.5"/>
+      <rect x="46" y="56" width="20" height="24" rx="1.5" fill="#6b3e2e" stroke="#3a2f23" stroke-width="0.6"/>
+      <g transform="translate(56,68)">
+        <circle r="6" fill="#c9a961" opacity="0.5"/>
+        <path d="M-3 0 L3 0 M0 -3 L0 3" stroke="#c9a961" stroke-width="0.8"/>
+      </g>
+      <path d="M46 80 L42 90 L70 90 L66 80 Z" fill="#6b3e2e" stroke="#3a2f23" stroke-width="0.5"/>
+      <path d="M54 40 L46 56" stroke="#8b7355" stroke-width="0.6" fill="none"/>
+    </svg>
+  </div>
+  <div class="item-content">
+    <h4>Szkaplerz Karmelitański</h4>
+    <div class="item-tag">Płaszcz Maryi · od 1251 r.</div>
+    <p>16 lipca 1251 r. w Aylesford (Anglia) Matka Boża z Góry Karmel objawiła się generałowi karmelitów św. Szymonowi Stockowi, wręczając mu szkaplerz z obietnicą: <i>„Ktokolwiek umrze odziany w ten szkaplerz, nie zazna ognia piekielnego.”</i> W 1322 r. Jan XXII (bullą sobotnią) dodał obietnicę szybkiego wybawienia z czyśćca w pierwszą sobotę po śmierci. Św. Jan Paweł II nosił szkaplerz od dzieciństwa do śmierci — nazywał go „znakiem Maryi”.</p>
+    <div class="item-detail">
+      <div class="detail-block">
+        <strong class="label">Czym jest dokładnie</strong>
+        Dwa małe (zwykle 4×5 cm) brązowe płatki wełnianej tkaniny połączone dwoma sznurkami. Na jednym płatku obraz Matki Bożej Szkaplerznej, na drugim Najświętsze Serce Jezusa lub krzyż. Uwaga: <b>plastikowe „medaliki szkaplerzne”</b> sprzedawane czasem nie spełniają normy — autentyczny musi być z tkaniny.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Trzy warunki obietnicy</strong>
+        Szkaplerz nie jest amuletem. Aby otrzymać obietnice, trzeba: <b>(1)</b> zostać przyjętym przez kapłana z odpowiednią formułą jeden raz w życiu; <b>(2)</b> nosić szkaplerz dzień i noc nieprzerwanie; <b>(3)</b> zachowywać czystość według stanu (małżeńską lub bezżenną) i odmawiać codziennie maleńką modlitwę — Anioł Pański lub 7 razy <i>Zdrowaś Maryjo</i>.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak otrzymać i gdzie kupić</strong>
+        Idź do najbliższego klasztoru karmelitów (Czerna, Kraków-Wesoła, Lublin, Wrocław, Poznań) lub do każdej parafii. Powiedz: <i>„Proszę o przyjęcie do Szkaplerza Karmelitańskiego.”</i> Kapłan odmawia formułę i nakłada szkaplerz raz na całe życie. Sklep parafialny — 8-25 zł. Po pierwszym nałożeniu nowe egzemplarze nie wymagają już ceremonii — wystarczy zwykłe pobłogosławienie.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak nosić codziennie</strong>
+        <ul>
+          <li>Pod ubraniem, bezpośrednio na ciele lub na bieliźnie — jeden płatek z przodu, drugi na plecach</li>
+          <li>Dzień i noc, także w łóżku, w prysznicu (chyba że kąpiel — wtedy zdjąć i od razu założyć)</li>
+          <li>Nie nosić na zewnątrz ubrania jako biżuteria</li>
+          <li>Codziennie odmów <i>Anioł Pański</i> rano lub w południe</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Kiedy szczególnie pomaga</strong>
+        Pokusa ciężka, „atak” myśli — uchwyć szkaplerz przez ubranie i powiedz: <i>„Maryjo, chroń mnie pod Twoim płaszczem.”</i> Choroba — przyłóż szkaplerz do bolącego miejsca. Strach przed śmiercią u bliskiego — sprawdź, czy ma szkaplerz; jeśli nie, daj mu swój pobłogosławiony.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Gdy się zniszczy</strong>
+        Zużyty szkaplerz spal lub zakop w ziemi (nigdy do śmieci). Nowy egzemplarz noś od razu — błogosławieństwo „przechodzi” na kolejne. Jeśli zgubisz, kup nowy i poproś o zwykłe pobłogosławienie.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="item-card illus">
+  <div class="item-illus">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <ellipse cx="50" cy="50" rx="32" ry="42" fill="#c9a961" stroke="#8b7355" stroke-width="1"/>
+      <ellipse cx="50" cy="50" rx="29" ry="39" fill="none" stroke="#8b7355" stroke-width="0.4"/>
+      <circle cx="50" cy="14" r="3" fill="none" stroke="#8b7355" stroke-width="0.8"/>
+      <text x="50" y="46" text-anchor="middle" font-family="Georgia,serif" font-size="22" fill="#3a2f23" font-style="italic">M</text>
+      <path d="M50 28 L50 36 M46 32 L54 32" stroke="#3a2f23" stroke-width="1"/>
+      <path d="M30 60 Q50 56 70 60" stroke="#3a2f23" stroke-width="0.5" fill="none"/>
+      <g transform="translate(38,72)">
+        <circle r="2.5" fill="none" stroke="#3a2f23" stroke-width="0.6"/>
+        <path d="M0 -1.2 L0.4 -0.4 L1.2 -0.4 L0.6 0.2 L0.8 1 L0 0.6 L-0.8 1 L-0.6 0.2 L-1.2 -0.4 L-0.4 -0.4 Z" fill="#3a2f23"/>
+      </g>
+      <g transform="translate(62,72)">
+        <circle r="2.5" fill="none" stroke="#3a2f23" stroke-width="0.6"/>
+        <path d="M0 -1 Q0.5 0 0 1 Q-0.5 0 0 -1" fill="#3a2f23"/>
+        <path d="M-1.2 0 Q0 -0.5 1.2 0" stroke="#3a2f23" stroke-width="0.4" fill="none"/>
+      </g>
+      <g fill="#3a2f23">
+        <circle cx="50" cy="84" r="0.8"/>
+        <circle cx="42" cy="86" r="0.6"/>
+        <circle cx="58" cy="86" r="0.6"/>
+      </g>
+    </svg>
+  </div>
+  <div class="item-content">
+    <h4>Cudowny Medalik</h4>
+    <div class="item-tag">Objawiony św. Katarzynie Labouré · 27 listopada 1830 r.</div>
+    <p>W kaplicy Sióstr Szarytek przy ulicy du Bac 140 w Paryżu Maryja ukazała się nowicjuszce Katarzynie Labouré (1806-1876), pokazując medal z obietnicą: <i>„Wszyscy, którzy będą go nosić z ufnością, otrzymają wielkie łaski; szczególnie nosząc go na szyi.”</i> Wybity w 1832 r. medal w ciągu kilku lat rozprowadzono po świecie w 50 milionach egzemplarzy. Spektakularne nawrócenie Alfonsa Ratisbonne'a (1842) było owocem tego medalika.</p>
+    <div class="item-detail">
+      <div class="detail-block">
+        <strong class="label">Czym jest dokładnie — symbolika</strong>
+        <b>Awers:</b> Maryja Niepokalana stojąca na kuli ziemskiej i depcząca głowę węża; promienie łaski biją z Jej dłoni; napis otokowy: <i>„O Maryjo bez grzechu poczęta, módl się za nami, którzy się do Ciebie uciekamy.”</i> <b>Rewers:</b> krzyż na literze M, dwanaście gwiazd, dwa Serca (Jezusa cierniem ukoronowane, Maryi mieczem przebite). Każdy element pochodzi bezpośrednio z wizji.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Znaczenie duchowe</strong>
+        Medalik wyprzedził o 24 lata dogmat Niepokalanego Poczęcia (1854). Promienie wybiegające z dłoni Maryi to łaski, które rozdziela tym, którzy proszą — niewybiegające oznaczają łaski, „o które nikt nie prosi”. Noszenie medalika to akt wiary w pośrednictwo Maryi, nie magia. Działa „z ufnością” — jak powiedziała Maryja.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak rozpoznać autentyczny i gdzie kupić</strong>
+        Autentyczny medalik ma dokładnie obrazy z wizji: Maryja z opuszczonymi otwartymi dłońmi, dwanaście gwiazd, splecione M z krzyżem. Sklepy parafialne i klasztory szarytek (Warszawa, Kraków) — 3-15 zł za medalik metalowy. Złoty/srebrny — 80-300 zł. Każdy musi być pobłogosławiony — zwykła formuła błogosławieństwa wystarczy.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak używać codziennie</strong>
+        <ul>
+          <li>Noś na szyi na łańcuszku lub sznurku — pod lub na ubraniu</li>
+          <li>Każdy domownik własny — także niemowlęta (medalik pod poduszką lub przyszyty do bielizny)</li>
+          <li>Trzymaj 5-10 zapasowych w domu — by dawać przyjaciołom, sąsiadom, chorym</li>
+          <li>Codziennie odmów wezwanie z medalika</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Sytuacje konkretne</strong>
+        Trudny poród — daj rodzącej. Nawrócenie zatwardziałego krewnego — dyskretnie wszyj medalik w jego ubranie lub włóż do kieszeni. Konający — przyłóż do dłoni. Dziecko z koszmarami — pod poduszkę. Dom „ciężki” — medaliki w czterech rogach pod meblami. Podróż — medalik w samochodzie, w portfelu, w torebce.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Gdy się zniszczy lub zgubi</strong>
+        Stary, zużyty medalik zakop w ziemi (sakramentalium). Zgubienie nie odbiera łask — kup nowy, pobłogosław, używaj dalej. Niektórzy ludzie świadczą, że zagubiony medalik „wraca” w niezwykły sposób — to pobożna tradycja, nie dogmat.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="item-card illus">
+  <div class="item-illus">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <circle cx="50" cy="50" r="38" fill="#c9a961" stroke="#8b7355" stroke-width="1"/>
+      <circle cx="50" cy="50" r="34" fill="none" stroke="#8b7355" stroke-width="0.4"/>
+      <rect x="46" y="22" width="8" height="56" fill="#3a2f23"/>
+      <rect x="28" y="46" width="44" height="8" fill="#3a2f23"/>
+      <rect x="46.5" y="22.5" width="7" height="55" fill="#6b5b3e"/>
+      <rect x="28.5" y="46.5" width="43" height="7" fill="#6b5b3e"/>
+      <text x="50" y="42" text-anchor="middle" font-family="Georgia,serif" font-size="6" fill="#c9a961">C·S·P·B</text>
+      <text x="38" y="64" text-anchor="middle" font-family="Georgia,serif" font-size="5" fill="#c9a961">C·S</text>
+      <text x="62" y="64" text-anchor="middle" font-family="Georgia,serif" font-size="5" fill="#c9a961">S·M</text>
+      <text x="50" y="74" text-anchor="middle" font-family="Georgia,serif" font-size="4" fill="#c9a961">B</text>
+      <text x="50" y="20" text-anchor="middle" font-family="Georgia,serif" font-size="4" fill="#3a2f23" letter-spacing="1">PAX</text>
+    </svg>
+  </div>
+  <div class="item-content">
+    <h4>Krzyż św. Benedykta (Medal-Krzyż)</h4>
+    <div class="item-tag">Egzorcyzm w metalu · od VI w.</div>
+    <p>Św. Benedykt z Nursji (480-547), patriarcha mnichów Zachodu, wielokrotnie odpędzał demony znakiem krzyża. Po jego śmierci medalik z literami egzorcyzmu rozpowszechnił się w klasztorach benedyktyńskich. Najbardziej znana wersja — „Medal Jubileuszowy” — została wybita w opactwie Monte Cassino w 1880 r. na 1400-lecie urodzin świętego. W Polsce kult krzyża Benedykta szerzą benedyktyni z Tyńca, Lubinia i Biskupowa.</p>
+    <div class="item-detail">
+      <div class="detail-block">
+        <strong class="label">Symbolika liter — egzorcyzm w skrócie</strong>
+        Pionowe ramię: <b>C·S·S·M·L</b> = <i>Crux Sacra Sit Mihi Lux</i> („Krzyż święty niech mi będzie światłem”). Poziome: <b>N·D·S·M·D</b> = <i>Non Draco Sit Mihi Dux</i> („Niech smok nie będzie mi wodzem”). Wokół: <b>V·R·S·N·S·M·V·S·M·Q·L·I·V·B</b> = <i>Vade Retro Satana, Numquam Suade Mihi Vana — Sunt Mala Quae Libas, Ipse Venena Bibas</i> („Idź precz, szatanie, nie kuś mnie próżnościami — złe jest, co podajesz, sam pij swoje trucizny”). Litery <b>C·S·P·B</b> wokół krzyża — <i>Crux Sancti Patris Benedicti</i>. <b>PAX</b> nad krzyżem — pokój, motto benedyktynów.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Czym jest dokładnie</strong>
+        Okrągły medal ze srebra, mosiądzu lub miedzi (zwykle 2-4 cm średnicy) z reliefem krzyża po jednej stronie i postaci św. Benedykta z księgą Reguły i czarą po drugiej. Większy <b>krzyż-medal benedyktyński</b> (10-30 cm) — wieszany na ścianie. Autentyk musi być pobłogosławiony specjalną formułą egzorcyzmu (<i>Forma exorcismi</i>) — zwykła błogosławieństwo nie wystarcza.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Gdzie kupić i jak pobłogosławić</strong>
+        Klasztory benedyktyńskie (Tyniec pod Krakowem, Lubiń pod Poznaniem) — sklepiki klasztorne, 10-50 zł za medal, 40-150 zł za duży krzyż na ścianę. Sklepy katolickie online. <b>Ważne:</b> poproś księdza znającego tradycję (najlepiej benedyktyna lub egzorcystę) o błogosławieństwo formułą św. Benedykta — formuła jest w <i>Rituale Romanum</i>. Bez niej medal jest tylko ozdobą.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Gdzie i jak umieścić</strong>
+        <ul>
+          <li>Duży krzyż-medal — nad głównymi drzwiami wejściowymi domu, od wewnątrz</li>
+          <li>Mniejszy — nad drzwiami sypialni, nad łóżkiem dziecka</li>
+          <li>Medalik — wszyty w pas, noszony na szyi, w portfelu, w samochodzie</li>
+          <li>Pod fundament nowego domu (tradycja benedyktyńska) — pobłogosławiony medalik włożony w cement</li>
+          <li>W ziemi pola, ogrodu — chroni przed gradobiciem (stara polska praktyka wsi)</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Sytuacje konkretne</strong>
+        Wchodząc do domu — dotknij krzyża i przeżegnaj się. Wychodząc — to samo, mówiąc: <i>„Krzyż święty niech będzie mi światłem.”</i> Strach lub atak demoniczny — uchwyć krzyż, przyłóż do czoła, odmów: <i>„Vade retro Satana”</i>. Choroba, gorączka — przyłóż medalik do czoła chorego. Pokusa silna — pocałuj krzyż.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Kontrowersja: zwykły krucyfiks vs. krzyż Benedykta</strong>
+        Każdy poświęcony krucyfiks ma moc — ale krzyż Benedykta nosi <i>dodatkowo</i> formułę egzorcyzmu wyrytą na metalu. Tradycyjnie używany przez egzorcystów Kościoła. Nie jest „lepszy” teologicznie, ale ma szczególne błogosławieństwo skierowane przeciw demonom.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="item-card illus">
+  <div class="item-illus">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <path d="M40 18 L60 18 L58 26 L42 26 Z" fill="#c9a961" stroke="#8b7355" stroke-width="0.7"/>
+      <rect x="46" y="14" width="8" height="6" fill="#8b7355"/>
+      <path d="M42 26 Q26 36 26 56 Q26 78 50 86 Q74 78 74 56 Q74 36 58 26 Z" fill="#cfe7f0" stroke="#4a6b4a" stroke-width="1" opacity="0.9"/>
+      <path d="M46 26 L48 26 L48 32 L52 32 L52 26 L54 26 L54 34 L48 34 L48 28 L46 28 Z" fill="#3a2f23"/>
+      <text x="50" y="46" text-anchor="middle" font-family="Georgia,serif" font-size="10" fill="#4a6b4a" font-style="italic">M</text>
+      <path d="M50 38 L50 44 M47 41 L53 41" stroke="#4a6b4a" stroke-width="0.8"/>
+      <path d="M30 56 Q40 50 50 56 Q60 62 70 56" stroke="#fff" stroke-width="1" fill="none" opacity="0.7"/>
+      <path d="M30 66 Q40 60 50 66 Q60 72 70 66" stroke="#fff" stroke-width="1" fill="none" opacity="0.5"/>
+      <circle cx="38" cy="74" r="1.2" fill="#fff" opacity="0.7"/>
+      <circle cx="58" cy="78" r="1" fill="#fff" opacity="0.7"/>
+    </svg>
+  </div>
+  <div class="item-content">
+    <h4>Woda święcona</h4>
+    <div class="item-tag">Sakramentalium codzienne · od czasów apostolskich</div>
+    <p>Jeden z najstarszych sakramentaliów Kościoła. <i>Konstytucje Apostolskie</i> (IV w.) wspominają już używanie wody pobłogosławionej. Św. Teresa z Avili pisała: <i>„Nie znam nic, co lepiej odpędza złe duchy niż woda święcona.”</i> W Polsce woda święcona w kropielnicy przy drzwiach była przez wieki znakiem domu katolickiego — tradycja, którą warto przywrócić.</p>
+    <div class="item-detail">
+      <div class="detail-block">
+        <strong class="label">Czym jest — wersje obrzędowe</strong>
+        <b>Zwykła woda święcona</b> — pobłogosławiona przed Mszą lub w domu przez kapłana. <b>Woda gregoriańska</b> — w starym rycie woda + sól + popiół + wino, używana do konsekracji ołtarzy. <b>Woda lurdzka</b> — z cudownego źródła w Lourdes. <b>Woda jordańska</b> — z chrzcielnej rzeki. <b>Woda święcona z Trzech Króli (6 stycznia)</b> — w polskiej tradycji najmocniejsza, używana do błogosławieństwa domu w „K+M+B” na drzwiach.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Znaczenie duchowe</strong>
+        Woda przypomina chrzest — moment, w którym zostałaś włączona w Chrystusa. Każde użycie wody święconej to <i>odnowienie tej łaski</i>. Sól dodana symbolizuje mądrość i niezniszczalność (Mt 5,13). Modlitwa błogosławieństwa wypędza demony i sprowadza ochronę aniołów. Działa <i>ex opere operantis</i> — czyli wedle wiary i pobożności tej, która jej używa.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak zdobyć i przechowywać</strong>
+        Każda parafia ma kropielnicę w kruchcie — przynieś własną buteleczkę szklaną (50-200 ml). Kapłani zazwyczaj chętnie dolewają. W święto Trzech Króli (6 stycznia) i w Wigilię Paschalną — szczególne nabieranie po Mszy. Trzymaj w domu w <b>kropielnicy ściennej</b> (sklep parafialny, 30-80 zł, ceramika lub metal) i w buteleczce w kuchni. Woda święcona <b>nie psuje się duchowo</b>, ale jeśli pojawi się osad, glon — wylej do ziemi (nie do kanalizacji) i nabierz nową.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Codzienne użycie — siedem chwil</strong>
+        <ul>
+          <li>Rano po wstaniu — przeżegnaj się wodą święconą zamiast „obudzić się komórką”</li>
+          <li>Każdy domownik wychodzący z domu — pokrop palcami i przeżegnaj się</li>
+          <li>Każdy domownik wracający — to samo (oddziela od „atmosfery zewnętrznej”)</li>
+          <li>Przed posiłkiem — kropla na dłoń lub na stół, znak krzyża</li>
+          <li>Wieczorem przed snem — pokrop dzieci na czoło: <i>„W imię Ojca i Syna i Ducha Świętego”</i></li>
+          <li>Pokrop własne łóżko po napięciu, kłótni, koszmarze</li>
+          <li>Raz na tydzień (sobota wieczorem) — obejdź dom z wodą święconą, pokrop każdy pokój</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Sytuacje krytyczne</strong>
+        Pokój, w którym dziecko ma koszmary — pokrop wszystkie cztery rogi i nad łóżkiem, odmów <i>Pod Twoją obronę</i>. Po nieprzyjemnym gościu — pokrop drzwi i salon. Po telewizji z trudną treścią — pokrop ekran wyłączony. Burza — pokrop okna i wezwij Maryję Gromniczną. Choroba — pokrop chorego, daj łyżkę do picia z modlitwą. Atmosfera nienawiści w domu — całe mieszkanie + nowa świeca gromniczna.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Czego nie robić</strong>
+        Nie pić (chyba że specjalnie do tego błogosławiona, np. lurdzka). Nie używać do gotowania, mycia. Nie wylewać do śmieci ani do ubikacji — zawsze do ziemi (ogród, doniczka). Nie dawać zwierzętom (chyba że błogosławisz zwierzę krzyżem). Pusta buteleczka po wodzie święconej — przepłucz i można użyć ponownie tylko do niej.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="item-card illus">
+  <div class="item-illus">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <path d="M50 14 Q46 22 46 28 Q46 34 50 34 Q54 34 54 28 Q54 22 50 14 Z" fill="#f5b041" stroke="#c9a961" stroke-width="0.5"/>
+      <path d="M50 14 Q48 20 48 26 Q48 30 50 30 Q52 30 52 26 Q52 20 50 14 Z" fill="#fde892"/>
+      <path d="M50 30 L50 36" stroke="#3a2f23" stroke-width="0.6"/>
+      <rect x="42" y="36" width="16" height="50" fill="#faf6ed" stroke="#8b7355" stroke-width="0.7"/>
+      <path d="M42 36 L58 36" stroke="#c9a961" stroke-width="0.4"/>
+      <text x="50" y="58" text-anchor="middle" font-family="Georgia,serif" font-size="9" fill="#4a6b4a" font-style="italic">M</text>
+      <path d="M50 50 L50 56 M47 53 L53 53" stroke="#4a6b4a" stroke-width="0.6"/>
+      <path d="M44 68 Q50 64 56 68" stroke="#c9a961" stroke-width="0.5" fill="none"/>
+      <path d="M44 74 Q50 70 56 74" stroke="#c9a961" stroke-width="0.5" fill="none"/>
+      <rect x="38" y="86" width="24" height="6" fill="#8b7355" stroke="#3a2f23" stroke-width="0.4"/>
+      <ellipse cx="50" cy="86" rx="12" ry="2" fill="#6b5b3e"/>
+    </svg>
+  </div>
+  <div class="item-content">
+    <h4>Gromnica (świeca poświęcona 2 lutego)</h4>
+    <div class="item-tag">Święto Matki Bożej Gromnicznej · Ofiarowanie Pańskie</div>
+    <p>Polska gromnica to jedna z najpiękniejszych tradycji ludowych Kościoła w naszym kraju. Słowo „gromnica” pochodzi od „grom” — piorun. Według wierzeń, świeca pobłogosławiona 2 lutego, w święto Ofiarowania Pańskiego (Mt 2,22-40), chroni dom od piorunów, pożarów i nagłej śmierci. Maria, prowadząc Jezusa do świątyni, jest przedstawiana jako <i>Niewiasta z gromnicą</i> — dlatego święto nazywa się też „Matki Bożej Gromnicznej”. W Polsce poświęcenie świec odbywa się tego dnia we wszystkich parafiach.</p>
+    <div class="item-detail">
+      <div class="detail-block">
+        <strong class="label">Czym jest dokładnie</strong>
+        Tradycyjna gromnica: <b>świeca z czystego wosku pszczelego</b>, długa (30-50 cm), zwykle ozdobiona czerwoną wstążką, suszonymi kwiatami lub złotym napisem. Wosk pszczeli — bo pszczoły symbolizują Maryję (czystość, słodycz, pracowitość). Współczesne parafinowe gromnice są tańsze, ale tradycja preferuje pszczeli wosk. Pobłogosławiona musi być specjalną formułą 2 lutego — zwykła świeca poświęcona przy okazji nie jest gromnicą.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Znaczenie duchowe</strong>
+        Płomień gromnicy symbolizuje Chrystusa — <i>„Światłość na oświecenie pogan”</i> (proroctwo Symeona, Łk 2,32). Zapalona gromnica uobecnia obecność Chrystusa-Światła przyniesionego przez Maryję. W ludowej teologii polskiej Maryja Gromniczna jest Tą, która chroni przed wilkami (legenda o niej ostrzegającej wieś gromnicą), co duchowo oznacza ochronę przed „wilkami” duchowymi — pokusami, atakami złego.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak zdobyć i pobłogosławić</strong>
+        Tradycyjne polskie gromnice z pszczelego wosku — od zaprzyjaźnionego pszczelarza, sklep parafialny, sklep „Pszczelarski” lub w klasztorach. Cena: 25-80 zł za pszczelego wosku, 8-25 zł parafinowa. <b>Bezwarunkowo</b> idź 2 lutego (Matka Boża Gromniczna) na Mszę z gromnicą — błogosławienie odbywa się przed liturgią. Jeśli przegapisz datę — można poprosić księdza o błogosławienie w innym dniu, ale tradycyjnie najmocniej działa ta poświęcona 2 lutego.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak przechowywać</strong>
+        <ul>
+          <li>W szklanej szafce, suchym miejscu, z dala od bezpośredniego słońca (wosk topnieje powyżej 65°C)</li>
+          <li>Pionowo, w specjalnym uchwycie, lampce, w czerwonej wstążce</li>
+          <li>Co najmniej <b>dwie w domu</b>: jedna „bieżąca”, druga zapasowa</li>
+          <li>Nie przechowywać razem ze świecami zwyczajnymi — gromnica to sakramentalium</li>
+          <li>Trzymaj zapałki/zapalniczkę razem ze świecą</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Kiedy zapalić — sytuacje konkretne</strong>
+        <ul>
+          <li><b>Burza, grad, wichura</b> — zapal i postaw na parapecie, odmów modlitwę do Matki Bożej Gromnicznej</li>
+          <li><b>Przy chorym</b> — postaw obok łóżka, zwłaszcza gdy temperatura wysoka</li>
+          <li><b>Przy umierającym</b> — gromnica włożona w dłoń konającego (lub trzymana przy nim) — towarzyszy w przejściu</li>
+          <li><b>Modlitwa rodzinna Różańca</b> — w centrum stołu</li>
+          <li><b>Atmosfera lęku, niepokoju w domu</b> — zapal i obejdź dom</li>
+          <li><b>Dziecko z gorączką</b> — zapalona przy łóżku z modlitwą do Maryi</li>
+          <li><b>Dzień Wszystkich Świętych, Wigilia</b> — w oknie, by dusze bliskich zmarłych „znalazły drogę”</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Co zrobić ze ogarkiem</strong>
+        Pozostały ogarek (kawałek wosku) <b>nie wyrzucaj</b>. Zakop w ziemi pod krzewem przy domu, przy progu, lub spal w nowy 2 lutego. Niektóre rodziny zachowują ogarki kilkudziesięcioletnich gromnic jako relikwię rodzinną. Stara polska tradycja: dawano ogarki gromnic do trumny zmarłego.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="item-card illus">
+  <div class="item-illus">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <ellipse cx="50" cy="86" rx="40" ry="6" fill="#8b7355" opacity="0.3"/>
+      <path d="M14 86 Q24 56 32 50 Q42 38 50 36 Q58 38 68 50 Q76 56 86 86 Z" fill="#faf6ed" stroke="#8b7355" stroke-width="0.8"/>
+      <path d="M22 78 Q32 60 42 56" stroke="#fff" stroke-width="0.5" fill="none" opacity="0.7"/>
+      <g fill="#fff" stroke="#c9a961" stroke-width="0.3">
+        <path d="M30 48 L33 50 L31 53 L28 51 Z"/>
+        <path d="M44 36 L47 38 L45 41 L42 39 Z"/>
+        <path d="M58 40 L61 42 L59 45 L56 43 Z"/>
+        <path d="M68 50 L71 52 L69 55 L66 53 Z"/>
+        <path d="M40 60 L43 62 L41 65 L38 63 Z"/>
+        <path d="M55 58 L58 60 L56 63 L53 61 Z"/>
+        <path d="M50 32 L53 34 L51 37 L48 35 Z"/>
+      </g>
+      <g transform="translate(50,28)">
+        <path d="M0 -6 L0 6 M-6 0 L6 0" stroke="#c9a961" stroke-width="1" stroke-linecap="round"/>
+        <circle r="1.2" fill="#c9a961"/>
+      </g>
+      <text x="50" y="76" text-anchor="middle" font-family="Georgia,serif" font-size="6" fill="#8b7355" font-style="italic">Sal Benedictum</text>
+    </svg>
+  </div>
+  <div class="item-content">
+    <h4>Sól egzorcyzmowana (Sal benedictum)</h4>
+    <div class="item-tag">Stara tradycja Kościoła · od pierwszych wieków</div>
+    <p>Sól była używana w obrzędzie chrzcielnym Kościoła łacińskiego — przed reformą II Soboru Watykańskiego (1969) kapłan kładł chrzczonemu szczyptę soli na język ze słowami: <i>„Przyjmij sól mądrości.”</i> W Starym Testamencie sól była dodawana do każdej ofiary jako „przymierze soli” (Kpł 2,13; Lb 18,19). Elizeusz uzdrowił skażoną wodę solą (2 Krl 2,19-22). Św. Benedykt używał soli błogosławionej do egzorcyzmów. W Polsce praktyka soli egzorcyzmowanej zachowała się głównie w parafiach tradycyjnych i u egzorcystów.</p>
+    <div class="item-detail">
+      <div class="detail-block">
+        <strong class="label">Czym jest dokładnie</strong>
+        Zwykła sól kuchenna (niejodowana, najlepiej kamienna lub wielicka) pobłogosławiona przez kapłana <b>specjalną formułą egzorcyzmu</b> z <i>Rituale Romanum</i> (<i>Exorcizo te, creatura salis...</i>). Nie myli się ze zwykłą solą poświęconą krótką modlitwą — formuła egzorcyzmowa jest dłuższa, zawiera bezpośrednie polecenie wypędzenia złych duchów z soli i nadania jej mocy oczyszczającej.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Znaczenie duchowe</strong>
+        Sól w Biblii to znak <b>nieskazitelności</b> i <b>trwałości przymierza</b>. Pan Jezus mówi do uczniów: <i>„Wy jesteście solą ziemi”</i> (Mt 5,13). Sól egzorcyzmowana ma podwójną moc: <b>oczyszczającą</b> (rozkładającą wpływ zły) i <b>zachowawczą</b> (chroniącą od zepsucia). W tradycji Kościoła używana razem z wodą święconą wzmacnia jej działanie — woda + sól pobłogosławione razem to klasyczny sakramentalium ochrony domu.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Gdzie zdobyć — to nie jest oczywiste</strong>
+        <b>Nie każdy kapłan</b> egzorcyzmuje sól — w Polsce robią to: parafie tradycyjne (FSSP w Warszawie, Poznaniu, Krakowie), egzorcyści diecezjalni, niektóre wspólnoty charyzmatyczne, niektórzy księża dominikanie i benedyktyni. Idź do księdza znanego z gorliwości i poproś wprost: <i>„Proszę o egzorcyzmowanie tej soli formułą z Rituale Romanum.”</i> Przynieś własną sól w słoiczku (250-500 g wystarczy na lata). Jeśli ksiądz nie ma formuły — może odmówić; szukaj innego.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak przechowywać</strong>
+        <ul>
+          <li>Słoik szklany z zakrętką, suchy, z dala od pary kuchennej</li>
+          <li>Etykieta: „Sól egzorcyzmowana — [data błogosławieństwa]”</li>
+          <li>Przechowywana <b>oddzielnie</b> od soli kuchennej — by się nie pomyliły</li>
+          <li>Przy ołtarzu domowym lub w szafce z sakramentaliami</li>
+          <li>Nie używaj do gotowania (chyba że celowo, jako ochronę pokarmu)</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak używać — siedem zastosowań</strong>
+        <ul>
+          <li><b>Cztery rogi pokoju</b> — szczypta w każdym kącie, raz na sezon (Wielki Post, Adwent), powiedz: <i>„W imię Trójcy Świętej, niech to miejsce będzie czyste.”</i></li>
+          <li><b>Próg domu</b> — szczypta pod dywanikiem, odnawiać raz w roku</li>
+          <li><b>Dodać do wody święconej</b> — pół łyżeczki do butelki wody, wzmacnia (ale tylko jeśli i woda, i sól pobłogosławione)</li>
+          <li><b>Po napięciu, kłótni</b> — szczypta rzucona w kierunku miejsca konfliktu z modlitwą</li>
+          <li><b>Po wyjściu nieprzyjemnego gościa</b> — szczypta na próg + woda święcona</li>
+          <li><b>Pod łóżkiem</b> chorego lub dziecka z koszmarami — w małym woreczku</li>
+          <li><b>Na grób</b> bliskiego — szczypta przy ustawianiu krzyża, modlitwa za duszę</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Czego nie robić</strong>
+        Nie traktuj soli jako amuletu „magicznego” — działa wraz z wiarą i modlitwą. Nie sprzedawaj jej (sakramentalia nie są na handel — symonia). Nie mieszaj z solami kosmetycznymi, błotnymi, „energetyzowanymi” z ezoteryki — to zakaz. Stary, niewykorzystany zapas — rozsyp w ogrodzie pod krzyżem lub przy figurze Maryi.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ornament">
+  <svg viewBox="0 0 140 36" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 5 18 Q 35 8 70 18 Q 105 28 135 18" stroke="currentColor" stroke-width="0.8" fill="none"/>
+    <path d="M 70 13 L 72 17 L 76 18 L 72 19 L 70 23 L 68 19 L 64 18 L 68 17 Z" fill="currentColor"/>
+  </svg>
+</div>
+
+<div class="subsection">
+  <h3>Znaki, że w Twoim domu coś jest „nie tak”</h3>
+  <div class="sub-tag">I co zrobić natychmiast</div>
+  <p>Nie każdy konflikt jest atakiem duchowym. Ale czasem jest. Poniższe znaki — gdy występują razem i bez wyraźnej przyczyny — sygnalizują, że dom potrzebuje błogosławieństwa lub oczyszczenia duchowego.</p>
+</div>
+
+<div class="warning-box">
+  <div class="warning-title">Sygnały ostrzegawcze</div>
+  <ul>
+    <li><b>Atmosfera „ciężka”</b> w jakimś konkretnym pokoju — zwłaszcza wieczorem</li>
+    <li><b>Niewytłumaczalne kłótnie</b> wybuchające w tym samym miejscu</li>
+    <li><b>Powtarzające się koszmary</b> u dzieci lub wnuków w danej sypialni</li>
+    <li><b>Aversja</b> dziecka lub zwierzęcia do konkretnego kąta domu</li>
+    <li><b>Sakramentalia spadające</b> nieproporcjonalnie często, krzyże krzywiące się</li>
+    <li><b>Zapach</b> nieprzyjemny bez źródła, zwłaszcza siarka lub stęchlizna</li>
+    <li><b>Po wizycie</b> konkretnej osoby w domu — niepokój, kłótnia, choroba</li>
+  </ul>
+</div>
+
+<div class="checklist-box">
+  <div class="checklist-title">Co zrobić — w tej kolejności</div>
+  <ul>
+    <li>Pokropić wodą święconą każdy pokój, kąt, łóżko, drzwi i okno</li>
+    <li>Rzucić szczyptę soli egzorcyzmowanej w czterech rogach każdego pokoju</li>
+    <li>Powiesić Krzyż św. Benedykta nad głównymi drzwiami (jeśli jeszcze nie ma)</li>
+    <li>Postawić obraz Maryi (najlepiej Częstochowska) w widocznym miejscu salonu</li>
+    <li>Odmówić przez całą rodzinę Różaniec — najlepiej cały, lub przynajmniej trzy dziesiątki</li>
+    <li>Odmówić Modlitwę św. Michała Archanioła w każdym pokoju</li>
+    <li>Poprosić księdza o błogosławieństwo domu (np. po Trzech Królach lub w razie potrzeby)</li>
+    <li>Rodzina przystępuje do spowiedzi i Komunii w najbliższym tygodniu</li>
+  </ul>
+</div>
+
+<div class="ornament">
+  <svg viewBox="0 0 140 36" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 5 18 Q 35 8 70 18 Q 105 28 135 18" stroke="currentColor" stroke-width="0.8" fill="none"/>
+    <path d="M 70 13 L 72 17 L 76 18 L 72 19 L 70 23 L 68 19 L 64 18 L 68 17 Z" fill="currentColor"/>
+  </svg>
+</div>
+
+<!-- ============== CZĘŚĆ II ============== -->
+<div class="part-divider">
+  <div class="part-icon">
+    <svg viewBox="0 0 60 60" fill="none">
+      <path d="M10 20l5-10h30l5 10v30H10V20z" stroke="currentColor" stroke-width="2"/>
+      <path d="M20 30h20M20 40h20M30 20v30" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="30" cy="14" r="2" fill="currentColor"/>
+    </svg>
+  </div>
+  <div class="part-label">Część druga</div>
+  <h2>Spiżarnia chrześcijanki</h2>
+  <p>Co i jak przechowywać · polska kuchnia, polskie tradycje</p>
+  <div class="part-line"></div>
+</div>
+
+<div class="subsection">
+  <h3>Dlaczego się przygotować</h3>
+  <p>Babcie wiedziały. Nasze prababcie miały spiżarnię nie z paniki, lecz z mądrości. Wojny, zimy bez prądu, choroby — wszystko to mogło przyjść. Maryja w wielu objawieniach (Akita, Medziugorje) prosiła wiernych, by zachowali zapasy żywności. Nie z lęku — z roztropności matki rodziny.</p>
+  <p>Polska kuchnia ma <b>ogromną przewagę</b>: nasze tradycyjne produkty są naturalnie trwałe. Kasza, kapusta, miód, suszone grzyby, smalec — wszystko to nasze prababcie umiały przechowywać miesiącami i latami bez lodówki.</p>
+</div>
+
+<div class="subsection">
+  <h3>Co warto mieć w domu</h3>
+  <div class="sub-tag">Polskie produkty trwałe · z rozsądnym zapasem</div>
+</div>
+
+<table class="pantry-table">
+  <thead>
+    <tr><th>Produkt</th><th>Trwałość</th><th>Jak przechowywać (krótko)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="product">Kasza gryczana</td><td class="duration">3-5 lat</td><td class="how">Słoik szklany, sucho, ciemno, &lt;18°C</td></tr>
+    <tr><td class="product">Ryż / kasza jaglana</td><td class="duration">2-5 lat</td><td class="how">Słoik szklany, liść laurowy</td></tr>
+    <tr><td class="product">Mąka pełnoziarnista</td><td class="duration">6 mies.</td><td class="how">Chłodno, sucho, w torebce + słoiku</td></tr>
+    <tr><td class="product">Miód</td><td class="duration">Bezterminowo</td><td class="how">Słoik szklany, ciemno, 15-20°C</td></tr>
+    <tr><td class="product">Sól, cukier, ocet</td><td class="duration">Bezterminowo</td><td class="how">Sucho, &lt;65% wilgotności</td></tr>
+    <tr><td class="product">Czosnek</td><td class="duration">3-6 mies.</td><td class="how">Plecionka w przewiewnym, suchym miejscu</td></tr>
+    <tr><td class="product">Cebula, ziemniaki</td><td class="duration">3-5 mies.</td><td class="how">Piwnica 4-8°C, oddzielnie, ciemno</td></tr>
+    <tr><td class="product">Kapusta i ogórki kiszone</td><td class="duration">6-12 mies.</td><td class="how">Słoiki pasteryzowane, piwnica</td></tr>
+    <tr><td class="product">Suszone grzyby</td><td class="duration">2-3 lata</td><td class="how">Słoiki szklane, sucho</td></tr>
+    <tr><td class="product">Smalec domowy</td><td class="duration">6 mies. chłodno</td><td class="how">Słoik, lodówka lub piwnica 4-8°C</td></tr>
+    <tr><td class="product">Olej rzepakowy / lniany</td><td class="duration">12 mies. / 3 mies.</td><td class="how">Ciemne butelki; lniany — w lodówce</td></tr>
+    <tr><td class="product">Konfitury, soki</td><td class="duration">12 mies.</td><td class="how">Pasteryzowane słoiki, ciemno</td></tr>
+    <tr><td class="product">Suszone owoce</td><td class="duration">1-2 lata</td><td class="how">Słoiki szklane, sucho</td></tr>
+    <tr><td class="product">Marchew, seler, pietruszka</td><td class="duration">3 mies.</td><td class="how">W piasku w piwnicy, lub mrożone</td></tr>
+    <tr><td class="product">Jabłka (Antonówka)</td><td class="duration">3-4 mies.</td><td class="how">Piwnica, w gazety pojedynczo</td></tr>
+    <tr><td class="product">Drożdże suszone</td><td class="duration">12 mies.</td><td class="how">Sucho, słoik szczelny</td></tr>
+    <tr><td class="product">Świece, zapałki, baterie</td><td class="duration">Bezterminowo</td><td class="how">Sucho, w pudełku metalowym</td></tr>
+  </tbody>
+</table>
+
+<div class="subsection">
+  <h3>Każdy produkt — szczegółowo</h3>
+  <div class="sub-tag">Wszystko, co trzeba wiedzieć</div>
+  <p>Poniżej każdy z najważniejszych produktów polskiej spiżarni, z pełnym opisem: jak wybierać, jak przechowywać dokładnie, znaczenie duchowe i sposób użycia w trudnych chwilach.</p>
+</div>
+
+<div class="item-card illus">
+  <div class="item-illus">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <ellipse cx="50" cy="86" rx="36" ry="5" fill="#8b7355" opacity="0.3"/>
+      <path d="M28 38 Q28 34 32 34 L68 34 Q72 34 72 38 L72 86 Q72 90 68 90 L32 90 Q28 90 28 86 Z" fill="#cfe7f0" stroke="#4a6b4a" stroke-width="0.8" opacity="0.85"/>
+      <rect x="36" y="22" width="28" height="14" rx="2" fill="#8b7355" stroke="#3a2f23" stroke-width="0.6"/>
+      <rect x="40" y="14" width="20" height="10" rx="1.5" fill="#6b5b3e" stroke="#3a2f23" stroke-width="0.6"/>
+      <g fill="#7a5230">
+        <ellipse cx="38" cy="56" rx="2" ry="1.3"/>
+        <ellipse cx="46" cy="60" rx="2" ry="1.3"/>
+        <ellipse cx="55" cy="55" rx="2" ry="1.3"/>
+        <ellipse cx="62" cy="62" rx="2" ry="1.3"/>
+        <ellipse cx="42" cy="68" rx="2" ry="1.3"/>
+        <ellipse cx="50" cy="72" rx="2" ry="1.3"/>
+        <ellipse cx="58" cy="68" rx="2" ry="1.3"/>
+        <ellipse cx="36" cy="76" rx="2" ry="1.3"/>
+        <ellipse cx="46" cy="80" rx="2" ry="1.3"/>
+        <ellipse cx="56" cy="76" rx="2" ry="1.3"/>
+        <ellipse cx="64" cy="80" rx="2" ry="1.3"/>
+      </g>
+      <text x="50" y="48" text-anchor="middle" font-family="Georgia,serif" font-size="6" fill="#3a2f23" font-style="italic">Kasza</text>
+    </svg>
+  </div>
+  <div class="item-content">
+    <h4>Kasza gryczana</h4>
+    <div class="item-tag">Polski chleb codzienny · 3-5 lat trwałości</div>
+    <p>Kasza gryczana (z gryki, <i>Fagopyrum esculentum</i>) jest tradycyjnym pożywieniem ludu polskiego od średniowiecza. Sprowadzona z południowo-wschodniej Europy w XIII-XIV w. wraz z najazdami tatarskimi (stąd nazwa zachodnia „kasza tatarczana”). W trudnych czasach okupacji, w czasie wojen, w klasztorach — kasza gryczana ratowała życie. Niedrogi, sycący, niezwykle bogaty w magnez, żelazo, lizynę. Bez glutenu — bezpieczna dla osób z celiakią.</p>
+    <div class="item-detail">
+      <div class="detail-block">
+        <strong class="label">Co kupić — odmiany</strong>
+        <ul>
+          <li><b>Kasza gryczana prażona</b> (brązowa) — najpopularniejsza, mocniejszy smak, krócej się gotuje (15 min)</li>
+          <li><b>Kasza gryczana niepalona</b> (jasna, zielonkawa) — łagodniejsza, bardziej wartościowa odżywczo, gotuje się 25 min</li>
+          <li>Polskie marki: Janex, Sonko, Lubella, Bartex — sprawdzone</li>
+          <li>Kupuj w torebkach 1-5 kg, nie pakowanej w plastik foliowy długo (lepsze papierowe)</li>
+          <li>Cena: 6-12 zł/kg (2025), tańsza w hurtowniach lub bezpośrednio od młynarza</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak przechowywać dokładnie</strong>
+        <ul>
+          <li><b>Pojemnik:</b> słoik szklany z szczelną zakrętką lub metalowa puszka spożywcza (nie plastik)</li>
+          <li><b>Miejsce:</b> spiżarnia, dolna szafka kuchenna z dala od kuchenki i pieca</li>
+          <li><b>Temperatura:</b> 10-18°C (idealna piwnica)</li>
+          <li><b>Wilgotność:</b> poniżej 65% — wilgoć powoduje pleśnienie</li>
+          <li><b>Światło:</b> ciemno — światło niszczy witaminy i tłuszcze</li>
+          <li><b>Z dala od:</b> zlewu, garnków z parą, mydła, środków chemicznych (chłonie zapachy)</li>
+          <li><b>Anty-mól:</b> 1-2 liście laurowe na słoik — odstrasza mole spożywcze</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Sygnały zepsucia</strong>
+        Zapach stęchły, „gorzki” — zjełczała, wyrzuć. Pajęczynki, larwy, drobne kuleczki w sypkim — mole spożywcze, wyrzuć i umyj słoik wrzątkiem. Kolor szarożółty zamiast brązowego — utleniony tłuszcz, jakość spadła. Zbrylenia twarde — wilgoć, ryzyko pleśni.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Znaczenie duchowe</strong>
+        W Polsce kasza była od wieków nazywana „chlebem ubogich” — jadali ją mnisi (jest postna), żołnierze (sytna), babcie (tania). Św. Jan Paweł II wspominał kaszę gryczaną z dzieciństwa w Wadowicach. Trzymanie zapasu kaszy to akt zaufania Bogu — masz „chleb na jutro” bez paniki.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Kiedy szczególnie cenna</strong>
+        Choroba w rodzinie — kaszotto z kaszy gryczanej z czosnkiem leczy. Długi post (Wielki Post, Adwent, Wigilia) — kasza z kapustą i grzybami. Brak prądu — można ugotować na kuchence gazowej, ognisku, palenisku. Choroba dziecka — łagodna kasza jaglana w mleku z miodem.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="item-card illus">
+  <div class="item-illus">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <ellipse cx="50" cy="88" rx="32" ry="4" fill="#8b7355" opacity="0.3"/>
+      <path d="M30 30 L70 30 L72 84 Q72 88 68 88 L32 88 Q28 88 28 84 Z" fill="#fde892" stroke="#c9a961" stroke-width="0.8"/>
+      <ellipse cx="50" cy="30" rx="20" ry="3" fill="#c9a961" stroke="#8b7355" stroke-width="0.6"/>
+      <rect x="38" y="20" width="24" height="12" rx="2" fill="#6b5b3e" stroke="#3a2f23" stroke-width="0.5"/>
+      <text x="50" y="29" text-anchor="middle" font-family="Georgia,serif" font-size="5" fill="#c9a961">MIÓD</text>
+      <g fill="#c9a961" opacity="0.6">
+        <path d="M40 50 L44 50 L46 54 L44 58 L40 58 L38 54 Z"/>
+        <path d="M52 50 L56 50 L58 54 L56 58 L52 58 L50 54 Z"/>
+        <path d="M46 60 L50 60 L52 64 L50 68 L46 68 L44 64 Z"/>
+        <path d="M58 60 L62 60 L64 64 L62 68 L58 68 L56 64 Z"/>
+        <path d="M40 70 L44 70 L46 74 L44 78 L40 78 L38 74 Z"/>
+        <path d="M52 70 L56 70 L58 74 L56 78 L52 78 L50 74 Z"/>
+      </g>
+      <g transform="translate(80,38)">
+        <ellipse rx="3" ry="2" fill="#3a2f23"/>
+        <path d="M-2 -1 L-3 -3 M0 -2 L0 -4 M2 -1 L3 -3" stroke="#fff" stroke-width="0.4" opacity="0.6"/>
+        <path d="M-3 0 L-5 0 M3 0 L5 0" stroke="#cfe7f0" stroke-width="0.5"/>
+      </g>
+    </svg>
+  </div>
+  <div class="item-content">
+    <h4>Miód</h4>
+    <div class="item-tag">Słodycz Maryi · trwałość bezterminowa</div>
+    <p>Miód jest jedynym pokarmem na świecie, który <b>nigdy się nie psuje</b> — w grobowcach egipskich z 3000 r. p.n.e. odnaleziono miód jadalny do dziś. W Biblii Ziemia Obiecana to „kraj mlekiem i miodem płynący” (Wj 3,8). Pszczoła w tradycji chrześcijańskiej jest symbolem Maryi — pracowita, czysta, rodząca słodycz. Wosk pszczeli używany jest do gromnic i świec liturgicznych. W Polsce pszczelarstwo zachowało się głównie wokół klasztorów (Tyniec, Czerwińsk) i na wsiach Podlasia, Lubelszczyzny, Mazur.</p>
+    <div class="item-detail">
+      <div class="detail-block">
+        <strong class="label">Co kupić — autentyczny miód polski</strong>
+        <ul>
+          <li><b>Lipowy</b> — najlepszy na przeziębienia, gorączki; jasny, zapach kwiatu lipy</li>
+          <li><b>Akacjowy</b> — najsłodszy, długo nie krystalizuje; dobry dla dzieci</li>
+          <li><b>Wielokwiatowy</b> — uniwersalny, najpopularniejszy</li>
+          <li><b>Spadziowy</b> (z drzew iglastych) — ciemny, gorzkawy, najlepszy lek na gardło i oskrzela</li>
+          <li><b>Gryczany</b> — najciemniejszy, ostry; bogaty w żelazo, dla anemicznych</li>
+          <li>Kupuj <b>od pszczelarza bezpośrednio</b> — pasieki, targi, „Polska Smakuje”. 35-65 zł/0,5 kg</li>
+          <li>Unikaj „miodu sztucznego” lub „mieszanego z UE/spoza UE” — etykieta to ostrzeżenie</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak rozpoznać autentyczny</strong>
+        Zanurz łyżkę i unieś — autentyczny ciecze powoli i ciągle, fałszywy „kapie kropelkami”. Krystalizacja po 3-6 miesiącach to <b>znak naturalności</b> (nie psucia!). Smak złożony, lekko kwaskowy, z posmakiem kwiatów. Sztuczny — czysto słodki jak cukier. Test wody: łyżka miodu na szklankę zimnej wody — naturalny opadnie i powoli się rozpuści; sztuczny rozpuści się od razu.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak przechowywać dokładnie</strong>
+        <ul>
+          <li><b>Pojemnik:</b> słoik szklany z metalową lub szklaną zakrętką (nie plastik — przepuszcza tlen)</li>
+          <li><b>Miejsce:</b> ciemna szafka, spiżarnia, lub piwnica</li>
+          <li><b>Temperatura:</b> 15-20°C — najlepsza. Powyżej 25°C traci enzymy</li>
+          <li><b>Z dala od:</b> bezpośredniego słońca (degraduje), źródła ciepła, wilgoci (chłonie wodę)</li>
+          <li><b>Krystalizacja:</b> normalna — nie psuje. Aby przywrócić płynność: słoik w naczyniu z ciepłą wodą (max 40°C), nigdy w mikrofalówce ani w wrzątku</li>
+          <li><b>Łyżka:</b> tylko sucha drewniana lub szklana — wilgoć z metalowej + miód = początek pleśni na powierzchni</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Sygnały zepsucia (rzadkie!)</strong>
+        Zapach kwaskowy, „fermentacyjny”, piana na powierzchni, pęcherzyki gazu — fermentacja (zbyt wilgotny, wilgoć z łyżki). Pleśń biała na wierzchu — wyrzuć tylko warstwę pleśni, dół często jest jeszcze dobry. Ciemnienie po latach to normalne (reakcja Maillarda) — nie znaczy zepsucia.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Sytuacje konkretne</strong>
+        <ul>
+          <li>Przeziębienie, kaszel — łyżeczka miodu lipowego z sokiem cytryny w ciepłej wodzie, 3x dziennie</li>
+          <li>Ból gardła — łyżeczka miodu spadziowego z czosnkiem, na czczo</li>
+          <li>Niewyspanie, stres — łyżka miodu w mleku ciepłym przed snem</li>
+          <li>Rana powierzchowna — cieniutka warstwa miodu (przeciwbakteryjny, używany w szpitalach)</li>
+          <li>Dziecko z brakiem apetytu — łyżeczka rano z chlebem domowym</li>
+          <li>Wigilia — kawałek opłatka maczany w miodzie, łamany rodziną</li>
+        </ul>
+      </div>
+      <div class="detail-block warn">
+        <strong class="label">Uwaga</strong>
+        <b>Nie dawać miodu dzieciom poniżej 1. roku życia</b> — ryzyko botulizmu. Nie podgrzewać powyżej 40°C — niszczy enzymy. Cukrzyca — miód podnosi cukier; konsultacja z lekarzem.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="item-card illus">
+  <div class="item-illus">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <g transform="translate(50,52)">
+        <ellipse rx="22" ry="28" fill="#faf6ed" stroke="#8b7355" stroke-width="0.8"/>
+        <path d="M-22 -10 Q-15 -25 0 -28 Q15 -25 22 -10" stroke="#8b7355" stroke-width="0.5" fill="none" opacity="0.6"/>
+        <ellipse cx="-10" cy="-5" rx="8" ry="14" fill="#fff" stroke="#c9a961" stroke-width="0.4" opacity="0.7"/>
+        <ellipse cx="10" cy="-5" rx="8" ry="14" fill="#fff" stroke="#c9a961" stroke-width="0.4" opacity="0.7"/>
+        <ellipse cx="-12" cy="10" rx="7" ry="11" fill="#fff" stroke="#c9a961" stroke-width="0.4" opacity="0.7"/>
+        <ellipse cx="12" cy="10" rx="7" ry="11" fill="#fff" stroke="#c9a961" stroke-width="0.4" opacity="0.7"/>
+        <ellipse cx="0" cy="0" rx="7" ry="13" fill="#fff" stroke="#c9a961" stroke-width="0.5" opacity="0.8"/>
+        <path d="M0 -28 L0 -32 Q0 -35 4 -35 Q4 -38 0 -38" stroke="#4a6b4a" stroke-width="0.8" fill="none"/>
+        <path d="M-2 -32 Q2 -34 4 -32" stroke="#4a6b4a" stroke-width="0.6" fill="none"/>
+      </g>
+    </svg>
+  </div>
+  <div class="item-content">
+    <h4>Czosnek</h4>
+    <div class="item-tag">Antybiotyk natury · ochrona duchowa i fizyczna</div>
+    <p>Czosnek (<i>Allium sativum</i>) używany jest w Polsce od czasów słowiańskich — zawieszony nad drzwiami chronił przed „złym”, dodawany do potraw chronił przed chorobami. Św. Hildegarda z Bingen pisała: <i>„Czosnek surowy, jedzony z umiarem, daje zdrową krew.”</i> W tradycji ludowej polski rolnik wieszał warkocz czosnku w obejściu na święto Matki Bożej Zielnej (15 sierpnia), prosząc o ochronę domu. Współczesna nauka potwierdza: czosnek to silny antybiotyk, antywirusowy, obniża ciśnienie i cholesterol.</p>
+    <div class="item-detail">
+      <div class="detail-block">
+        <strong class="label">Co kupić — odmiany polskie</strong>
+        <ul>
+          <li><b>Czosnek polski</b> — ząbki większe, mocniejszy aromat, fioletowo-różowa łuska. Najlepszy odmianowo: Harnaś, Jarus, Mega, Cyryl. Cena: 25-40 zł/kg w sezonie</li>
+          <li><b>Czosnek chiński</b> (najtańszy, bielsze, większe) — słabszy zapach, mniej aktywnych substancji. Jeśli to wszystko, co masz — kupuj, ale lepiej polski</li>
+          <li><b>Czosnek niedźwiedzi</b> (<i>Allium ursinum</i>) — dziko rosnący w polskich lasach (kwiecień-maj), liście jak konwalia, ale zapach czosnku. Bardzo cenny — używać świeży lub mrożony</li>
+          <li>Kupuj główki <b>twarde, suche, bez kiełków</b>, z całą łuską</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak przechowywać dokładnie</strong>
+        <ul>
+          <li><b>Forma:</b> w warkoczu zawieszonym w spiżarni lub w plecionym koszyku, NIE w plastikowym worku (gnije)</li>
+          <li><b>Temperatura:</b> 10-15°C, sucho, przewiewnie</li>
+          <li><b>Wilgotność:</b> niska — wilgoć = pleśń</li>
+          <li><b>NIE w lodówce</b> — w niskiej temperaturze kiełkuje szybciej</li>
+          <li><b>Z dala od ziemniaków</b> — wzajemnie przyspieszają psucie</li>
+          <li>Trwałość: 3-6 miesięcy świeży; 1 rok suszony lub kiszony</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Sygnały zepsucia</strong>
+        Zielony kiełek wyrastający — środkowy ząbek można usunąć, reszta dobra (kiełek może być gorzki). Brązowe plamy na ząbkach — początek psucia. Miękkie, kwaśny zapach — wyrzuć. Pleśń (biała, zielona, czarna) — cała główka do wyrzucenia.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Znaczenie duchowe</strong>
+        Czosnek w polskim folklorze religijnym: zawieszony nad drzwiami z medalikiem chroni przed „uroku”. Pierwsza ząbek zjedzony rano na czczo „odpędza siedem chorób”. Tradycja Matki Bożej Zielnej (15 sierpnia) — w bukietach z ziołami, błogosławiony przez kapłana. Nie jest to przesąd — to znak wdzięczności Bogu za dar natury.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Sytuacje konkretne</strong>
+        <ul>
+          <li><b>Początek przeziębienia</b> — 2-3 ząbki posiekane z miodem, na łyżce, na noc</li>
+          <li><b>Ból ucha</b> — ząbek czosnku obtoczony oliwą, w gazie, przyłożyć (nie wkładać do ucha!)</li>
+          <li><b>Ciśnienie wysokie</b> — 1 ząbek surowy dziennie, regularnie</li>
+          <li><b>Pasożyty</b> u dzieci — czosnek z miodem rano (tradycja babć)</li>
+          <li><b>Profilaktycznie</b> — minimum 2 główki tygodniowo dla rodziny w potrawach</li>
+          <li><b>Po pogrzebie / wizycie ciężkiej duchowo</b> — szczypta czosnku z czarnym pieprzem na progu</li>
+        </ul>
+      </div>
+      <div class="detail-block warn">
+        <strong class="label">Uwaga</strong>
+        Surowy czosnek na pusty żołądek w nadmiarze może podrażniać. Osoby z zapaleniem żołądka — z ostrożnością. Lekarstwa rozrzedzające krew (warfaryna) — czosnek może wzmacniać działanie, konsultacja lekarska.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="item-card illus">
+  <div class="item-illus">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <ellipse cx="50" cy="86" rx="32" ry="4" fill="#8b7355" opacity="0.3"/>
+      <path d="M28 30 L72 30 L72 86 Q72 90 68 90 L32 90 Q28 90 28 86 Z" fill="#cfe7f0" stroke="#4a6b4a" stroke-width="0.8" opacity="0.6"/>
+      <path d="M28 30 L72 30 L72 36 L28 36 Z" fill="#8b7355"/>
+      <rect x="36" y="14" width="28" height="16" rx="2" fill="#6b5b3e" stroke="#3a2f23" stroke-width="0.5"/>
+      <text x="50" y="26" text-anchor="middle" font-family="Georgia,serif" font-size="5" fill="#c9a961" letter-spacing="0.5">KAPUSTA</text>
+      <g fill="#dde9da" stroke="#4a6b4a" stroke-width="0.4">
+        <path d="M34 42 L42 42 L40 50 L34 48 Z"/>
+        <path d="M44 42 L52 42 L50 50 L44 48 Z"/>
+        <path d="M54 42 L62 42 L60 50 L54 48 Z"/>
+        <path d="M36 52 L44 52 L42 60 L36 58 Z"/>
+        <path d="M46 52 L54 52 L52 60 L46 58 Z"/>
+        <path d="M56 52 L64 52 L62 60 L56 58 Z"/>
+        <path d="M34 62 L42 62 L40 70 L34 68 Z"/>
+        <path d="M44 62 L52 62 L50 70 L44 68 Z"/>
+        <path d="M54 62 L62 62 L60 70 L54 68 Z"/>
+      </g>
+      <path d="M30 78 Q40 75 50 78 Q60 81 70 78" stroke="#fff" stroke-width="0.5" fill="none" opacity="0.5"/>
+    </svg>
+  </div>
+  <div class="item-content">
+    <h4>Kapusta kiszona i ogórki kiszone</h4>
+    <div class="item-tag">Polskie probiotyki · 6-12 miesięcy</div>
+    <p>Kiszenie to najstarsza forma konserwacji w Polsce — używana od czasów Słowian. Św. Jadwiga Śląska przekazała siostrom cysterkom przepisy na kiszenie kapusty i ogórków. Przez wieki polskie zimy ratowała nie świeża sałata, lecz kiszona kapusta — bogata w witaminę C (Polacy nie chorowali na szkorbut). Mleczne bakterie fermentacyjne (<i>Lactobacillus</i>) tworzą żywą florę bakteryjną — to oryginalny probiotyk, dziesiątki razy mocniejszy niż przemysłowe.</p>
+    <div class="item-detail">
+      <div class="detail-block">
+        <strong class="label">Co kupić / co kisić</strong>
+        <ul>
+          <li><b>Kapusta:</b> głowy zwarte, twarde, polskiej odmiany (Stalexport, Galaxy). 2-4 zł/kg w sezonie jesiennym</li>
+          <li><b>Ogórki:</b> małe, twarde, gruntowe (nie szklarniowe). Polska odmiana: Bohun, Octopus. Sezon: czerwiec-sierpień</li>
+          <li><b>Sól:</b> kamienna, niejodowana (jod hamuje fermentację) — wielicka idealna</li>
+          <li><b>Dodatki tradycyjne:</b> marchew, kminek, jałowiec, koper, czosnek, chrzan, liść laurowy, wiśniowe liście</li>
+          <li>Słoiki: 0,5-1 l szklane z gumową uszczelką lub typu Weck. Beczka dębowa do dużych ilości</li>
+          <li>Gotową: targ, „Babcia Wiera” lub od gospodarstwa. 8-15 zł/kg domowa</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak przechowywać po fermentacji</strong>
+        <ul>
+          <li><b>Faza fermentacji</b> (7-14 dni): w temperaturze 18-22°C, kapusta przykryta solanką (sól + woda), odpowietrzaj codziennie</li>
+          <li><b>Faza dojrzewania</b>: po fermentacji do <b>piwnicy lub lodówki, 2-8°C</b>, gdzie spowalnia procesy</li>
+          <li><b>Pojemnik:</b> słoik szklany pasteryzowany (poddany na wodzie 80°C 15 min) — trzyma 6-12 miesięcy</li>
+          <li><b>Solanka:</b> musi <b>zawsze pokrywać</b> warzywa — inaczej pleśń. Dolewaj jeśli odparuje</li>
+          <li><b>Pleśń biała na powierzchni</b> — zbierz łyżką, dolej solanki, doprowadź pH (kwasowość) — często da się uratować</li>
+          <li><b>Pleśń kolorowa (czarna, zielona)</b> — wyrzuć całość</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Znaczenie duchowe i kulturowe</strong>
+        Kapusta z grochem to potrawa wigilijna — symbol skromności i polskiej tradycji. Bigos (kapusta kiszona z mięsem) jadali polscy szlachcice po Mszy. Mnisi cysterscy w Pelplinie i Oliwie kisili kapustę w wielkich beczkach na cały klasztor. Kiszenie to akt wdzięczności Bogu — przygotowywanie zapasów na zimę.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Korzyści zdrowotne</strong>
+        <ul>
+          <li>Witamina C — chroni od przeziębień, infekcji</li>
+          <li>Probiotyki — odbudowują florę jelitową po antybiotykach</li>
+          <li>Witamina K2 — zdrowe kości, serce</li>
+          <li>Trawienie — łyżka kiszonki przed obiadem pobudza soki żołądkowe</li>
+          <li>Odporność — codziennie 2-3 łyżki kapusty kiszonej w zimie = mniej chorób</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Sytuacje konkretne</strong>
+        Po antybiotyku — 3 łyżki kapusty kiszonej dziennie przez 2 tygodnie odbudowuje florę. Zatrucie pokarmowe w odzysku — szklanka soku z kapusty kiszonej (kwas mlekowy detoksykuje). Kac — sok z kiszonych ogórków (ogórkowa). Brak apetytu u starszej osoby — łyżka kiszonki na rozpoczęcie posiłku. Skurcze nóg — kwas z kiszonych ogórków zawiera elektrolity.
+      </div>
+      <div class="detail-block warn">
+        <strong class="label">Uwaga</strong>
+        Wysokie ciśnienie / nerki — kapusta kiszona zawiera dużo sodu, przepłucz lekko przed jedzeniem. Refluks żołądka — z ostrożnością. Domowe kiszenia nieprawidłowe (botulizm) zdarzają się rzadko, ale zwracaj uwagę: zapach „buty”, „śmierdzące jaja”, gaz nadmierny — wyrzuć.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="item-card illus">
+  <div class="item-illus">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <ellipse cx="50" cy="86" rx="32" ry="4" fill="#8b7355" opacity="0.3"/>
+      <path d="M30 38 L70 38 L72 84 Q72 88 68 88 L32 88 Q28 88 28 84 Z" fill="#cfe7f0" stroke="#4a6b4a" stroke-width="0.8" opacity="0.7"/>
+      <rect x="38" y="22" width="24" height="16" rx="1.5" fill="#8b7355" stroke="#3a2f23" stroke-width="0.5"/>
+      <rect x="42" y="14" width="16" height="10" rx="1.5" fill="#6b5b3e" stroke="#3a2f23" stroke-width="0.5"/>
+      <text x="50" y="32" text-anchor="middle" font-family="Georgia,serif" font-size="4" fill="#c9a961" letter-spacing="0.5">SÓL</text>
+      <g fill="#fff" stroke="#c9a961" stroke-width="0.3">
+        <rect x="38" y="48" width="3" height="3"/>
+        <rect x="46" y="52" width="3" height="3"/>
+        <rect x="54" y="46" width="3" height="3"/>
+        <rect x="60" y="54" width="3" height="3"/>
+        <rect x="42" y="60" width="3" height="3"/>
+        <rect x="50" y="64" width="3" height="3"/>
+        <rect x="58" y="62" width="3" height="3"/>
+        <rect x="40" y="72" width="3" height="3"/>
+        <rect x="48" y="76" width="3" height="3"/>
+        <rect x="56" y="74" width="3" height="3"/>
+        <rect x="62" y="78" width="3" height="3"/>
+        <rect x="44" y="80" width="3" height="3"/>
+      </g>
+    </svg>
+  </div>
+  <div class="item-content">
+    <h4>Sól, cukier, ocet</h4>
+    <div class="item-tag">Trwałość bezterminowa · trzy filary konserwacji</div>
+    <p>Sól, cukier i ocet to najstarsze konserwanty świata — używane od starożytności. W Polsce sól z Wieliczki była przez wieki podstawą gospodarki. Cukier zastąpił miód jako konserwant w XIX w. Ocet jabłkowy domowy — nieodzowny w polskiej kuchni. Wszystkie trzy mają trwałość praktycznie nieograniczoną i są niezbędne nie tylko jako przyprawy, ale jako ratunek przy chorobach.</p>
+    <div class="item-detail">
+      <div class="detail-block">
+        <strong class="label">Sól — jak wybrać</strong>
+        <ul>
+          <li><b>Sól kamienna wielicka</b> — najwyższej jakości polska sól, niefiltrowana, zawiera śladowe minerały. 5-12 zł/kg</li>
+          <li><b>Sól himalajska</b> — różowa, drobna, „ekskluzywna”, ale nie ma istotnej przewagi nad wielicką</li>
+          <li><b>Sól warzona</b> (tańsza, biała, drobna) — czysty NaCl, trwała, używana do solanki i kiszenia</li>
+          <li><b>Sól jodowana</b> — kuchenna codzienna; <b>NIE</b> do kiszenia, fermentacji</li>
+          <li>Trzymaj w domu min. 5 kg — w długiej zimie lub kryzysie sól bezcenna</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Cukier — jak wybrać</strong>
+        <ul>
+          <li><b>Cukier biały trzcinowy/buraczany</b> — uniwersalny do konfitur, kompotów</li>
+          <li><b>Cukier brązowy nieczyszczony</b> (muscovado, demerara) — bogatszy smak, melasa, witaminy</li>
+          <li><b>Polski cukier buraczany</b> (Diamant, Pfeifer) — tradycyjny, z polskich plantacji</li>
+          <li>Trzymaj 5-10 kg — do konfitur, sokutek, słodzenia herbat, na święta</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Ocet — jak wybrać</strong>
+        <ul>
+          <li><b>Ocet jabłkowy domowy</b> — najlepszy, fermentowany z jabłek z sadu, „mętny” z osadem (matka octu)</li>
+          <li><b>Ocet spirytusowy 10%</b> — uniwersalny, do marynat, czyszczenia. Tani, długotrwały</li>
+          <li><b>Ocet winny / balsamiczny</b> — do sałatek, ryb</li>
+          <li>Trzymaj min. 2 l octu spirytusowego, 0,5 l octu jabłkowego</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak przechowywać dokładnie</strong>
+        <ul>
+          <li><b>Sól:</b> słoik szklany, sucho, &lt;65% wilgotności (sól chłonie wodę). Wrzuć ziarnko ryżu — chłonie wilgoć</li>
+          <li><b>Cukier:</b> słoik szklany szczelny, sucho, ciemno. Wilgoć tworzy bryły (rozkrusz młotkiem). Mole spożywcze nie atakują</li>
+          <li><b>Ocet:</b> butelka szklana ciemna, korek lub gwint plastikowy (kwas niszczy metal). Pokojowa temperatura, ciemno. Osad „matki octu” na dnie — normalny, można odsiać</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Sytuacje konkretne</strong>
+        <ul>
+          <li><b>Ból gardła</b> — pół łyżki octu jabłkowego + miód + woda gorąca, płukać/pić</li>
+          <li><b>Skurcze nóg</b> — łyżka octu jabłkowego rozcieńczonego (uzupełnia elektrolity)</li>
+          <li><b>Niestrawność</b> — łyżeczka octu w wodzie 15 min przed posiłkiem</li>
+          <li><b>Ranka zakażona</b> — przemyć octem rozcieńczonym (silne antybakteryjne)</li>
+          <li><b>Ugryzienie owada</b> — kompres z octu</li>
+          <li><b>Przeciw molom w szafie</b> — woreczek z solą + lawendą</li>
+          <li><b>Ciasta na trudne czasy</b> — cukier konserwuje konfitury miesiącami</li>
+          <li><b>Kiszenie i marynowanie</b> — sól + ocet to baza wszystkiego</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Znaczenie duchowe</strong>
+        Sól w Biblii — przymierze z Bogiem, mądrość. Pan Jezus: <i>„Wy jesteście solą ziemi.”</i> W obrzędzie chrztu (sprzed 1969) kładziono dziecku szczyptę soli na język. Cukier i miód — symbole słodyczy ducha (Ps 119,103). Ocet — symbol cierpienia Chrystusa (gąbka z octem na krzyżu, J 19,29). W polskich domach często sól jest błogosławiona w święto Trzech Króli razem z kredą.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="item-card illus">
+  <div class="item-illus">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <ellipse cx="50" cy="88" rx="36" ry="4" fill="#8b7355" opacity="0.3"/>
+      <g fill="#a0522d" stroke="#3a2f23" stroke-width="0.5">
+        <path d="M30 60 Q26 56 30 52 Q34 48 42 50 Q46 52 46 58 Q44 64 38 66 Q32 66 30 60 Z"/>
+        <path d="M52 64 Q48 60 52 56 Q56 52 64 54 Q68 56 68 62 Q66 68 60 70 Q54 70 52 64 Z"/>
+        <path d="M40 76 Q36 72 40 68 Q44 64 52 66 Q56 68 56 74 Q54 80 48 82 Q42 82 40 76 Z"/>
+        <path d="M62 80 Q58 76 62 72 Q66 68 74 70 Q78 72 78 78 Q76 84 70 86 Q64 86 62 80 Z"/>
+      </g>
+      <g fill="#7a3e16" stroke="#3a2f23" stroke-width="0.4">
+        <ellipse cx="36" cy="58" rx="2" ry="1"/>
+        <ellipse cx="40" cy="56" rx="2" ry="1"/>
+        <ellipse cx="58" cy="62" rx="2" ry="1"/>
+        <ellipse cx="62" cy="60" rx="2" ry="1"/>
+        <ellipse cx="46" cy="74" rx="2" ry="1"/>
+        <ellipse cx="50" cy="72" rx="2" ry="1"/>
+        <ellipse cx="68" cy="78" rx="2" ry="1"/>
+      </g>
+      <path d="M28 30 L34 36 M40 26 L44 32 M50 28 L52 34 M60 24 L62 30 M70 30 L72 36" stroke="#4a6b4a" stroke-width="0.5"/>
+      <text x="50" y="20" text-anchor="middle" font-family="Georgia,serif" font-size="6" fill="#3a2f23" font-style="italic">Borowiki</text>
+    </svg>
+  </div>
+  <div class="item-content">
+    <h4>Suszone grzyby (borowiki, podgrzybki, koźlarze)</h4>
+    <div class="item-tag">Skarb polskich lasów · 2-3 lata</div>
+    <p>Polskie lasy to jedno z najbogatszych miejsc grzybowych Europy — borowiki (<i>Boletus edulis</i>), podgrzybki, koźlarze, maślaki, rydze, prawdziwki. Zbieranie grzybów to święta polska tradycja od czasów piastowskich. Suszone grzyby to baza wigilijnej zupy grzybowej, pierogów, sosów. Zawierają białko, witaminy z grupy B, beta-glukany wzmacniające odporność.</p>
+    <div class="item-detail">
+      <div class="detail-block">
+        <strong class="label">Co zbierać / co kupić</strong>
+        <ul>
+          <li><b>Borowik szlachetny</b> (prawdziwek) — król grzybów, kapelusz brązowy, miąższ biały, pod kapeluszem rurki nie blaszki</li>
+          <li><b>Podgrzybek brunatny</b> — najpopularniejszy, dobry do suszenia</li>
+          <li><b>Koźlarz</b> — orzechowy smak, idealny do zup</li>
+          <li><b>Maślak</b> — śliska skórka (zdjąć przed suszeniem)</li>
+          <li>Sezon: lipiec-listopad. Pora deszczowa po lecie</li>
+          <li>Kupowane: targ jesienny, sklep „Lasy Polskie”, „Smaki Bieszczad” — 80-200 zł/100g suszonych borowików</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Bezpieczeństwo zbierania</strong>
+        <ul>
+          <li>Zbieraj <b>tylko grzyby, które znasz na 100%</b></li>
+          <li>Pomocnik: atlas grzybów, aplikacja „Grzybobranie”, lokalny atlas Państwowej Inspekcji</li>
+          <li>Nie zbieraj: muchomor sromotnikowy (zabija!), zasłonak rudy, piestrzenica</li>
+          <li>Sprawdzenie: stoiska kontroli grzybiarskiej w urzędach gminy (bezpłatne)</li>
+          <li>Zbieraj do koszyka wiklinowego (nie reklamówki — zaduszą się)</li>
+          <li>Wąchaj — obrzydliwy zapach = wyrzuć</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak suszyć i przechowywać</strong>
+        <ul>
+          <li><b>Suszenie:</b> oczyszczone, krojone na plastry 5 mm, na nitce nad piecem lub w suszarce (40-50°C, 6-12 godzin)</li>
+          <li><b>Test gotowości:</b> grzyb łamie się ostro, nie gnie</li>
+          <li><b>Pojemnik:</b> słoik szklany szczelny lub bawełniany woreczek</li>
+          <li><b>Miejsce:</b> spiżarnia ciemna, sucho, &lt;18°C</li>
+          <li><b>Z dala od:</b> wilgoci, przypraw o silnym zapachu (chłonie aromaty)</li>
+          <li>Przed użyciem: moczyć 30 min w ciepłej wodzie, następnie gotować 30 min</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Sygnały zepsucia</strong>
+        Wilgotne, miękkie — wilgoć weszła, ryzyko pleśni. Pleśń biała/zielona — wyrzuć. Mole spożywcze (małe gąsienice, pajęczynka) — wymagają wyrzucenia, nie zjedz. Zapach stęchły zamiast leśnego — utrata jakości.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Znaczenie duchowe i kulturowe</strong>
+        Grzybobranie to polska tradycja rodzinna — dzień w lesie, modlitwa „Pod Twoją obronę” przed wejściem (w lesie wciąż czyha niebezpieczeństwo). Wigilijna zupa grzybowa z makaronem to znak skromnej, postnej polskiej duchowości. Susząc grzyby na zimę, pamiętasz mądrość babć — nie marnuj darów Bożej przyrody.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Sytuacje konkretne</strong>
+        Wigilia — zupa grzybowa z makaronem (postna). Choroba w rodzinie — bulion z borowików wzmacnia. Brak prądu — suche grzyby + gotowanie na palenisku. Niedostępne mięso — grzyby + kasza dają białko. Dzień bezmięsny (środa, piątek) — pierogi z grzybami i kapustą.
+      </div>
+      <div class="detail-block warn">
+        <strong class="label">Uwaga</strong>
+        Grzyby są ciężkostrawne dla małych dzieci (poniżej 6 r.ż.) i osób z chorobami żołądka. Nie podawaj na noc. Nigdy nie próbuj surowego grzyba „dla testu” — niektóre trujące grzyby mają opóźnioną reakcję 6-24 godzin. Konsultacja medyczna przy podejrzeniu zatrucia <b>natychmiast</b>.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="item-card illus">
+  <div class="item-illus">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <ellipse cx="50" cy="88" rx="36" ry="4" fill="#8b7355" opacity="0.3"/>
+      <path d="M28 32 L72 32 L72 86 Q72 90 68 90 L32 90 Q28 90 28 86 Z" fill="#cfe7f0" stroke="#4a6b4a" stroke-width="0.8" opacity="0.7"/>
+      <rect x="38" y="20" width="24" height="14" rx="2" fill="#8b7355" stroke="#3a2f23" stroke-width="0.5"/>
+      <rect x="42" y="12" width="16" height="10" rx="1.5" fill="#6b5b3e" stroke="#3a2f23" stroke-width="0.5"/>
+      <text x="50" y="29" text-anchor="middle" font-family="Georgia,serif" font-size="4" fill="#c9a961">SMALEC</text>
+      <path d="M30 36 L70 36 L70 86 L30 86 Z" fill="#faf6ed" opacity="0.4"/>
+      <g fill="#faf6ed" stroke="#c9a961" stroke-width="0.4">
+        <path d="M32 44 Q40 40 50 44 Q60 48 70 44 L70 60 L32 60 Z"/>
+        <path d="M32 60 Q40 56 50 60 Q60 64 70 60 L70 76 L32 76 Z"/>
+        <path d="M32 76 Q40 72 50 76 Q60 80 70 76 L70 86 L32 86 Z"/>
+      </g>
+      <g fill="#7a3e16">
+        <ellipse cx="40" cy="50" rx="1.5" ry="0.8"/>
+        <ellipse cx="55" cy="54" rx="1.5" ry="0.8"/>
+        <ellipse cx="46" cy="68" rx="1.5" ry="0.8"/>
+        <ellipse cx="60" cy="72" rx="1.5" ry="0.8"/>
+        <ellipse cx="38" cy="80" rx="1.5" ry="0.8"/>
+      </g>
+    </svg>
+  </div>
+  <div class="item-content">
+    <h4>Smalec domowy ze skwarkami</h4>
+    <div class="item-tag">Polski tłuszcz tradycyjny · 6 miesięcy chłodno</div>
+    <p>Smalec — biały tłuszcz wytapiany ze słoniny lub sadła wieprzowego — był przez wieki głównym tłuszczem polskiego stołu. W folklorze wigilijnym chleb ze smalcem i ogórkiem kiszonym to oryginalny „polski sandwich”. Smalec domowy z cebulą, jabłkiem i majerankiem — perła polskiej kuchni regionalnej. Wbrew współczesnej propagandzie antytłuszczowej: smalec ma wysoki punkt dymienia (190°C), nie utlenia się przy smażeniu, jest naturalnym źródłem witaminy D. Św. Hildegarda zalecała tłuszcz zwierzęcy umiarkowanie jako „rozgrzewający”.</p>
+    <div class="item-detail">
+      <div class="detail-block">
+        <strong class="label">Co kupić / jak zrobić</strong>
+        <ul>
+          <li><b>Słonina lub sadło wieprzowe</b> od polskiego rolnika lub w sklepie „mięso-wędliny”. 8-15 zł/kg</li>
+          <li><b>Smalec gotowy</b>: w słoiku, masarniach, „Pyzy z masarni”, sklepach „Polskie Smaki”. 12-25 zł za 250 g</li>
+          <li><b>Składniki na domowy:</b> 1 kg słoniny, 2 cebule, 1 jabłko, majeranek, czosnek, pieprz, sól</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak wytopić w domu</strong>
+        <ul>
+          <li>Słoninę pokroić w kostki 1×1 cm</li>
+          <li>Smażyć na małym ogniu w grubym garnku 1-2 godziny, mieszając</li>
+          <li>Gdy skwarki będą złociste — wyłowić cedzakiem</li>
+          <li>Dodać posiekaną cebulę, jabłko, majeranek, czosnek, smażyć 10 min</li>
+          <li>Solić, pieprzyć, mieszać z powrotem ze skwarkami</li>
+          <li>Przelać do słoików (gorące), zakręcić — wytworzy się próżnia</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak przechowywać dokładnie</strong>
+        <ul>
+          <li><b>Pojemnik:</b> słoiki szklane małe (250-500 ml), pasteryzowane wrzątkiem</li>
+          <li><b>Faza po wytopieniu:</b> ostygłe słoiki — do <b>lodówki (4-6°C) lub piwnicy (4-10°C)</b></li>
+          <li><b>Trwałość:</b> 6 miesięcy zamknięty w lodówce; 2-4 tygodnie po otwarciu</li>
+          <li><b>Z dala od:</b> światła słonecznego (jełczeje), ciepła (powyżej 15°C miękki)</li>
+          <li><b>Łyżka tylko sucha</b> — kropla wody = pleśń w słoiku</li>
+          <li><b>Smalec wytopiony bez dodatków</b> trzyma się 12 miesięcy zamknięty</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Sygnały zepsucia</strong>
+        Zapach „zjełczały”, kwaśny — utleniony, wyrzuć. Pleśń (różowa, zielona, czarna) na powierzchni — całość do wyrzucenia (smalec zapleśniały to nie tylko pleśń widoczna). Gorzki smak — utleniony. Zmiana koloru z białego na żółto-szary — początek psucia.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Znaczenie kulturowe</strong>
+        Chleb ze smalcem był symbolem polskiej gościnności — w czasach PRL podawany na pogrzebach, weselach, w Wigilię (wersja z grzybami). „Smalec babci” to znak troski rodzinnej. Wytapianie smalcu po świniobiciu (listopad-grudzień) to rytuał wiejski — cała rodzina razem przy garnku.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Sytuacje konkretne</strong>
+        <ul>
+          <li>Brak masła / oleju w sklepie — smalec do wszystkiego (smażenie, smarowanie chleba)</li>
+          <li>Zima, mroźny dzień — chleb ze smalcem i kiszonym ogórkiem grzeje</li>
+          <li>Ciężka praca fizyczna — smalec daje energię na długie godziny</li>
+          <li>Choroba odżywcza, niedowaga — smalec to gęste kalorie</li>
+          <li>Wigilia (wersja postna) — smalec roślinny z fasoli + cebula + majeranek</li>
+        </ul>
+      </div>
+      <div class="detail-block warn">
+        <strong class="label">Uwaga</strong>
+        Choroby serca, wysoki cholesterol — z umiarem (1-2 łyżki dziennie maks.). Nadwaga — smalec jest energetyczny. Cukrzyca — bezpieczny w niewielkich ilościach. Po antybiotyku — odbudowuje błonę śluzową jelit (badania szwedzkie).
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="item-card illus">
+  <div class="item-illus">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <ellipse cx="50" cy="88" rx="32" ry="4" fill="#8b7355" opacity="0.3"/>
+      <path d="M40 18 L60 18 L60 26 L58 28 L42 28 L40 26 Z" fill="#8b7355" stroke="#3a2f23" stroke-width="0.5"/>
+      <path d="M44 14 L56 14 L56 18 L44 18 Z" fill="#6b5b3e"/>
+      <path d="M40 28 L40 84 Q40 88 44 88 L56 88 Q60 88 60 84 L60 28 Z" fill="#3a2f23" stroke="#1a1a1a" stroke-width="0.5"/>
+      <path d="M40 30 L40 84 Q40 86 42 86 L58 86 Q60 86 60 84 L60 30 Z" fill="#5a3a1a" opacity="0.7"/>
+      <rect x="42" y="42" width="16" height="22" fill="#faf6ed" stroke="#c9a961" stroke-width="0.5"/>
+      <text x="50" y="50" text-anchor="middle" font-family="Georgia,serif" font-size="4" fill="#3a2f23">OLEJ</text>
+      <text x="50" y="56" text-anchor="middle" font-family="Georgia,serif" font-size="3.5" fill="#3a2f23">RZEPAKOWY</text>
+      <text x="50" y="62" text-anchor="middle" font-family="Georgia,serif" font-size="3" fill="#4a6b4a">tłoczony na zimno</text>
+      <g fill="#c9a961" opacity="0.6">
+        <circle cx="46" cy="78" r="1"/>
+        <circle cx="50" cy="80" r="1.2"/>
+        <circle cx="54" cy="78" r="1"/>
+      </g>
+    </svg>
+  </div>
+  <div class="item-content">
+    <h4>Olej rzepakowy i olej lniany</h4>
+    <div class="item-tag">Polskie oleje tradycyjne · różne trwałości</div>
+    <p>Polska jest jednym z największych producentów rzepaku w Europie. Olej rzepakowy tłoczony na zimno (zwany „polską oliwą”) ma profil tłuszczowy zbliżony do oliwy z oliwek, jest tańszy i ekologicznie bardziej rozsądny w polskich warunkach. Olej lniany — tłoczony z lnu (<i>Linum usitatissimum</i>) — był używany w polskich klasztorach od średniowiecza. Najbogatsze źródło kwasów Omega-3. Św. Hildegarda zalecała siemię lniane jako „lekarstwo całego ciała”.</p>
+    <div class="item-detail">
+      <div class="detail-block">
+        <strong class="label">Olej rzepakowy — co kupić</strong>
+        <ul>
+          <li><b>Olej rzepakowy tłoczony na zimno</b> (etykieta: „extra virgin”, „pierwsze tłoczenie”) — najlepszy zdrowotnie, do sałatek, na zimno. Polskie marki: Olei, Boruta, Uchodzę. 12-25 zł za 0,5 l</li>
+          <li><b>Olej rzepakowy rafinowany</b> — uniwersalny, do smażenia (do 200°C). 8-15 zł za 1 l</li>
+          <li>Etykieta: „polski”, „Wielkopolska”, „Mazowsze” = rzepak krajowy</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Olej lniany — co kupić</strong>
+        <ul>
+          <li><b>Olej lniany świeży, tłoczony na zimno</b> — w ciemnej butelce 250 ml. Sprawdź datę tłoczenia (nie tylko ważności)</li>
+          <li>Polskie marki: Oleofarm, Inni, Olejarnia Świętokrzyska. 18-35 zł za 250 ml</li>
+          <li>Termin do 3 miesięcy od tłoczenia — kupuj w ilościach, które zużyjesz</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak przechowywać dokładnie</strong>
+        <ul>
+          <li><b>Olej rzepakowy zamknięty:</b> 12 miesięcy w spiżarni (pokojowa temperatura, ciemno, sucho)</li>
+          <li><b>Olej rzepakowy otwarty:</b> 3-4 miesiące, najlepiej w lodówce (mętnieje na zimno — to normalne)</li>
+          <li><b>Olej lniany zamknięty:</b> 3 miesiące pokojowa, 6 miesięcy lodówka</li>
+          <li><b>Olej lniany otwarty:</b> <b>tylko w lodówce</b>, zużyć w 4-6 tygodni</li>
+          <li><b>Butelka:</b> ciemne szkło lub stal nierdzewna; nigdy plastik długoterminowo (chemia migruje)</li>
+          <li><b>Z dala od:</b> kuchenki (ciepło utlenia), słońca (światło niszczy)</li>
+          <li><b>NIE</b> używać do smażenia oleju lnianego (powyżej 50°C niszczy się i staje toksyczny)</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Sygnały zepsucia (jełczenie)</strong>
+        Zapach „farby olejnej”, „starej ryby”, „masła po terminie” — utleniony, wyrzuć. Smak gorzki, palący w gardle — utleniony. Lniany — szczególnie wrażliwy, zjełczały działa pro-zapalnie. Lepiej wyrzucić niż używać.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Sytuacje konkretne</strong>
+        <ul>
+          <li><b>Łyżka oleju lnianego rano</b> — Omega-3 dla mózgu, serca, skóry</li>
+          <li><b>Sałatka z kiszoną kapustą + olej lniany + cebula</b> — wschodniopolska tradycja, super-zdrowa</li>
+          <li><b>Smażenie schabowych, pierogów</b> — olej rzepakowy rafinowany</li>
+          <li><b>Suchy kaszel</b> — pół łyżki oleju lnianego na czczo łagodzi błonę</li>
+          <li><b>Skóra sucha, łuszczyca</b> — olej lniany pity codziennie + smarowanie</li>
+          <li><b>Brak masła</b> w domu — olej lniany na chleb z odrobiną soli (chłopski przepis)</li>
+          <li><b>Piątkowe dni postu</b> — olej lniany zamiast tłuszczu zwierzęcego</li>
+        </ul>
+      </div>
+      <div class="detail-block warn">
+        <strong class="label">Uwaga</strong>
+        Olej lniany rozrzedza krew — przed operacją odstaw 7 dni. Z lekami przeciwzakrzepowymi konsultuj z lekarzem. Dawka: max 2 łyżki dziennie. Olej rzepakowy bezpieczny dla wszystkich (chyba że alergia na rzepak — rzadka).
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="item-card illus">
+  <div class="item-illus">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <ellipse cx="50" cy="86" rx="32" ry="4" fill="#8b7355" opacity="0.3"/>
+      <path d="M30 36 L70 36 L72 84 Q72 88 68 88 L32 88 Q28 88 28 84 Z" fill="#cfe7f0" stroke="#4a6b4a" stroke-width="0.8" opacity="0.6"/>
+      <rect x="38" y="20" width="24" height="16" rx="2" fill="#8b7355" stroke="#3a2f23" stroke-width="0.5"/>
+      <rect x="42" y="14" width="16" height="8" rx="1" fill="#6b5b3e"/>
+      <ellipse cx="50" cy="62" rx="18" ry="22" fill="#a83232" opacity="0.85"/>
+      <ellipse cx="44" cy="56" rx="2" ry="3" fill="#fff" opacity="0.6"/>
+      <text x="50" y="30" text-anchor="middle" font-family="Georgia,serif" font-size="4" fill="#c9a961" letter-spacing="0.5">KONFITURA</text>
+      <text x="50" y="68" text-anchor="middle" font-family="Georgia,serif" font-size="5" fill="#fff" font-style="italic">malinowa</text>
+      <g fill="#660000">
+        <circle cx="42" cy="50" r="1.2"/>
+        <circle cx="56" cy="52" r="1.2"/>
+        <circle cx="48" cy="72" r="1.2"/>
+        <circle cx="58" cy="76" r="1.2"/>
+      </g>
+    </svg>
+  </div>
+  <div class="item-content">
+    <h4>Konfitury, soki, suszone owoce</h4>
+    <div class="item-tag">Słodycz polskich sadów · 12-24 miesięcy</div>
+    <p>Polskie sady (Antonówka, Szara Reneta, Kosztele) i lasy (jagody, maliny, jeżyny, czarne bzy, żurawiny) dają ogromny urodzaj od czerwca do października. Konfitury, soki, suszone owoce — to sposób, jak polskie babcie zatrzymywały lato w słoiku. Konfitura malinowa lub czarnej porzeczki to pierwszy lek przy gorączce. Sok z czarnego bzu — antywirusowy. Suszone śliwki, jabłka, żurawina — zdrowa przekąska zimą.</p>
+    <div class="item-detail">
+      <div class="detail-block">
+        <strong class="label">Co warto mieć — najważniejsze</strong>
+        <ul>
+          <li><b>Konfitura malinowa</b> — łyżka do herbaty przy gorączce, podstawa „herbatki na noc”. 18-30 zł/słoik</li>
+          <li><b>Konfitura czarnej porzeczki</b> — najwyższa zawartość witaminy C wśród owoców</li>
+          <li><b>Sok z czarnego bzu (z cukrem lub miodem)</b> — antywirusowy. Zbiera się we wrześniu</li>
+          <li><b>Sok malinowy</b> — przy przeziębieniach, jeden z najpopularniejszych domowych „leków”</li>
+          <li><b>Suszone śliwki</b> — zaparcia, magnez, na święta</li>
+          <li><b>Suszone jabłka</b> — przekąska, kompot wigilijny</li>
+          <li><b>Żurawina suszona</b> — układ moczowy, infekcje pęcherza</li>
+          <li><b>Powidła ze śliwek węgierek</b> — polski deser regionalny</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak robić w domu (konfitury)</strong>
+        <ul>
+          <li>Owoce świeże, dojrzałe, niepotłuczone (1 kg)</li>
+          <li>Cukier 700 g (na 1 kg owoców) — naturalny konserwant</li>
+          <li>Smażyć w garnku 30-45 min, mieszając</li>
+          <li>Przelać gorące do słoików pasteryzowanych (wrzątkiem)</li>
+          <li>Zakręcić, postawić do góry dnem 10 min — wytworzy się próżnia</li>
+          <li>Przechowywać w spiżarni</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak przechowywać dokładnie</strong>
+        <ul>
+          <li><b>Konfitury, soki:</b> słoiki szklane pasteryzowane, ciemna spiżarnia, 10-18°C, 12-24 miesiące zamknięte</li>
+          <li><b>Po otwarciu:</b> w lodówce, 2-4 tygodnie</li>
+          <li><b>Suszone owoce:</b> słoiki szklane szczelne, sucho, 1-2 lata. Sprawdzać raz w miesiącu na mole</li>
+          <li><b>Żelujące:</b> jeśli konfitura skrystalizuje (cukier się wytrącił) — podgrzać delikatnie z łyżką wody, wraca do normy</li>
+          <li><b>Z dala od:</b> światła (blaknięcie), ciepła (fermentacja)</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Sygnały zepsucia</strong>
+        Pleśń biała, zielona na powierzchni — wyrzuć całość (spory wnikają w głąb). Wieczko wybrzuszone, „pyk” przy otwieraniu — fermentacja, wyrzuć. Bąbelki w środku — fermentacja. Suszone owoce zwilgocone, lepkie — wilgoć, ryzyko pleśni.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Sytuacje konkretne</strong>
+        <ul>
+          <li><b>Gorączka, przeziębienie</b> — herbata + 2 łyżki soku malinowego, łyżka miodu, sok cytryny</li>
+          <li><b>Sucha herbata zimą</b> — łyżka konfitury wrzucona do herbaty zamiast cytryny</li>
+          <li><b>Niedokrwistość</b> — sok z czarnej porzeczki rano (witamina C wzmacnia wchłanianie żelaza)</li>
+          <li><b>Infekcja pęcherza</b> u kobiety — żurawina suszona codziennie + woda</li>
+          <li><b>Zaparcia u dziecka</b> — namoczone suszone śliwki na czczo</li>
+          <li><b>Wigilia, święta</b> — kompot z suszu (jabłka, śliwki, gruszki, daktyle)</li>
+          <li><b>Smutek, melancholia</b> — gorąca herbata z konfiturą + Różaniec — to działa</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="item-card illus">
+  <div class="item-illus">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <ellipse cx="50" cy="88" rx="36" ry="4" fill="#8b7355" opacity="0.3"/>
+      <g fill="#a85a32" stroke="#3a2f23" stroke-width="0.5">
+        <ellipse cx="34" cy="68" rx="10" ry="14"/>
+        <ellipse cx="50" cy="64" rx="11" ry="15"/>
+        <ellipse cx="66" cy="70" rx="10" ry="14"/>
+      </g>
+      <g fill="#7a3e16" opacity="0.6">
+        <ellipse cx="32" cy="62" rx="3" ry="2"/>
+        <ellipse cx="48" cy="58" rx="3" ry="2"/>
+        <ellipse cx="64" cy="64" rx="3" ry="2"/>
+      </g>
+      <g fill="#4a6b4a" stroke="#3a2f23" stroke-width="0.4">
+        <path d="M34 54 Q32 50 28 50 Q26 52 28 54" />
+        <path d="M50 50 Q48 46 44 46 Q42 48 44 50" />
+        <path d="M66 56 Q64 52 60 52 Q58 54 60 56" />
+      </g>
+      <text x="50" y="34" text-anchor="middle" font-family="Georgia,serif" font-size="6" fill="#3a2f23" font-style="italic">Ziemniaki</text>
+    </svg>
+  </div>
+  <div class="item-content">
+    <h4>Ziemniaki, marchew, cebula, buraki, jabłka</h4>
+    <div class="item-tag">Polska piwnica · 3-5 miesięcy</div>
+    <p>Polska piwnica jest skarbnicą zimową — to dziedzictwo wsi, które zniknęło w mieszkaniach miejskich, ale w domach jednorodzinnych wciąż żyje. Ziemniaki sprowadzone do Polski w XVII w. uratowały kraj od głodu w XVIII-XIX w. Marchew, pietruszka, seler, cebula, buraki, kapusta, jabłka — wszystkie polskie warzywa korzeniowe i owoce wczesnozimowe znakomicie się przechowują w odpowiednich warunkach. Antonówka — polska odmiana jabłka — leży w piwnicy do marca-kwietnia.</p>
+    <div class="item-detail">
+      <div class="detail-block">
+        <strong class="label">Co kupić — sezonowo i lokalnie</strong>
+        <ul>
+          <li><b>Ziemniaki</b> — odmiany trwałe: Bryza, Vineta, Lord, Asterix. Targ jesienny, gospodarstwo. 1,50-3 zł/kg w sezonie</li>
+          <li><b>Marchew</b> — odmiany jesienne: Karotka, Flacoro, Berlikum. Z ogonkiem (lepiej trzyma)</li>
+          <li><b>Cebula</b> — odmiana Hyborn, Sturon — twarde, długo leżące</li>
+          <li><b>Buraki</b> — Czerwona Kula, Wodan</li>
+          <li><b>Jabłka Antonówka</b> — najlepsza polska odmiana zimowa. Twarda, kwaskowa, nieoceniona w piwnicy. Mogą leżeć do marca</li>
+          <li>Kupuj w workach 10-25 kg w sezonie (wrzesień-listopad)</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak przechowywać dokładnie — piwnica idealna</strong>
+        <ul>
+          <li><b>Temperatura:</b> 4-8°C (chłodno, nie mróz)</li>
+          <li><b>Wilgotność:</b> 80-90% (warzywa) — do tego potrzeba lekko wilgotnej piwnicy ziemnej</li>
+          <li><b>Wentylacja:</b> przewiewnie, ale bez przeciągów</li>
+          <li><b>Ciemno:</b> światło zielenieje ziemniaki (solanina — toksyczna)</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak rozmieścić</strong>
+        <ul>
+          <li><b>Ziemniaki:</b> drewniane skrzynki lub worki jutowe na półce, oddzielone od cebuli (cebula dojrzewa szybciej, gdy obok ziemniaków, wzajemnie psują)</li>
+          <li><b>Marchew, pietruszka, seler:</b> w skrzynkach z piaskiem (klasyczna polska metoda) — wkładać warzywa pionowo, zasypać piaskiem. Trzyma 4-5 miesięcy</li>
+          <li><b>Cebula:</b> warkocze zawieszone, lub w skrzynce z dziurkami</li>
+          <li><b>Buraki:</b> w skrzynkach jak marchew</li>
+          <li><b>Jabłka:</b> każde owinięte pojedynczo w gazetę (zapobiega rozprzestrzenianiu się gnicia), w skrzynce drewnianej</li>
+          <li><b>Czosnek</b> — zdecydowanie oddzielnie, sucho, bez wilgoci</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Sygnały zepsucia</strong>
+        Ziemniaki zielone — solanina (toksyczna), wyrzuć. Skiełkowane (kiełki dłuższe niż 2 cm) — kiełki obciąć, miąższ spożywczy. Miękkie, gnijące — natychmiast wyrzuć (gnicie się rozprzestrzenia). Cebula z miękką szyjką — zaczyna się psuć od środka. Marchew gumowa — straciła wodę, jeszcze do gotowania. Jabłka brązowieją w jednym miejscu — wyrzuć całe (brunatna zgnilizna).
+      </div>
+      <div class="detail-block">
+        <strong class="label">Bez piwnicy — co zrobić w mieszkaniu</strong>
+        <ul>
+          <li>Mała spiżarnia bez ogrzewania — temperatura 12-15°C może wystarczyć (krótszy czas trwałości)</li>
+          <li>Balkon nieogrzewany w styropianowej skrzynce — namiastka piwnicy zimą</li>
+          <li>Lodówka — buraki, marchew (1-2 miesiące), nie ziemniaki!</li>
+          <li>Pakowanie próżniowe — przedłuża trwałość 2-3 razy</li>
+          <li>Mrożenie — pokrojone marchew, buraki, ziemniaki (po blanszowaniu)</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Sytuacje konkretne</strong>
+        <ul>
+          <li><b>Brak prądu zimą</b> — gotuj zupę z ziemniaków, marchwi, cebuli na piecu kaflowym lub kuchence gazowej</li>
+          <li><b>Kawałek dla sąsiada</b> — Polska tradycja gościnności: zawsze masz ziemniaki na zupę dla niespodziewanego gościa</li>
+          <li><b>Choroba w rodzinie</b> — zupa z marchwi i pietruszki (rosół „bez kości”)</li>
+          <li><b>Przeziębienie</b> — cebula z miodem, świeży sok z buraków</li>
+          <li><b>Wigilia</b> — barszcz czerwony z buraków własnych</li>
+          <li><b>Niedostępne mięso</b> — kotlety ziemniaczane (placki ziemniaczane), pierogi z ziemniakami i serem</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="item-card illus">
+  <div class="item-illus">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <ellipse cx="50" cy="88" rx="36" ry="4" fill="#8b7355" opacity="0.3"/>
+      <rect x="20" y="50" width="60" height="38" rx="2" fill="#a83232" stroke="#3a2f23" stroke-width="0.7"/>
+      <rect x="22" y="52" width="56" height="34" fill="#c93838" opacity="0.7"/>
+      <text x="50" y="68" text-anchor="middle" font-family="Georgia,serif" font-size="5" fill="#fff" font-style="italic" letter-spacing="0.5">ZAPAŁKI</text>
+      <text x="50" y="78" text-anchor="middle" font-family="Georgia,serif" font-size="3.5" fill="#fff">ŚWIĘTE</text>
+      <g transform="translate(40,28)">
+        <rect x="-2" y="0" width="4" height="22" fill="#8b7355"/>
+        <ellipse cx="0" cy="-2" rx="3" ry="3" fill="#3a2f23"/>
+        <path d="M0 -5 Q-2 -10 0 -14 Q2 -10 0 -5" fill="#f5b041"/>
+      </g>
+      <g transform="translate(60,32)">
+        <rect x="-2" y="0" width="4" height="18" fill="#8b7355"/>
+        <ellipse cx="0" cy="-2" rx="3" ry="3" fill="#3a2f23"/>
+      </g>
+      <g transform="translate(50,38)">
+        <rect x="-2" y="0" width="4" height="12" fill="#8b7355"/>
+        <ellipse cx="0" cy="-2" rx="3" ry="3" fill="#3a2f23"/>
+      </g>
+    </svg>
+  </div>
+  <div class="item-content">
+    <h4>Świece, zapałki, baterie, źródła światła</h4>
+    <div class="item-tag">Niezbędne — gdy nie ma prądu</div>
+    <p>Polskie zimy regularnie przynoszą awarie prądu — szczególnie po nawałnicach, śnieżycach. Wybrana kobieta nie panikuje wtedy, ponieważ ma w domu wszystko, czego potrzeba. To nie jest przygotowanie na „koniec świata” — to <b>zwykła roztropność polskiej babci</b>. Zapałki i świece były w polskim domu standardem, dopóki nie pojawiły się kuchenki gazowe i prąd wszędzie.</p>
+    <div class="item-detail">
+      <div class="detail-block">
+        <strong class="label">Co mieć — minimum domu</strong>
+        <ul>
+          <li><b>Świece tradycyjne</b> (długie, parafinowe lub woskowe) — minimum 10 sztuk</li>
+          <li><b>Świece gromniczne</b> — 2 sztuki (patrz wyżej)</li>
+          <li><b>Lampy oliwne / naftowe</b> — 1-2 sztuki, zapas oleju lub nafty</li>
+          <li><b>Latarki</b> — 2 LED na baterie, jedna na korbkę (bez baterii)</li>
+          <li><b>Zapałki</b> — 5-10 pudełek, jedne wodoodporne (na kemping)</li>
+          <li><b>Zapalniczki</b> — 3-5 sztuk (jedna w kuchni, jedna w samochodzie, jedna w torebce)</li>
+          <li><b>Krzemień, hubka</b> — staroświecka metoda na ostatnią rezerwę</li>
+          <li><b>Baterie</b> — paluszki AA, AAA, R20, w odpowiednich ilościach</li>
+          <li><b>Powerbank</b> — naładowany, do telefonu</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak przechowywać dokładnie</strong>
+        <ul>
+          <li><b>Świece:</b> w kartonowym pudełku w spiżarni, sucho, &lt;25°C (powyżej topnieją)</li>
+          <li><b>Zapałki:</b> w metalowym pudełku (chronią przed wilgocią), sucho. Zawilgnięte zapałki nie działają</li>
+          <li><b>Baterie:</b> sucho, &lt;25°C (lodówka NIE jest dobra wbrew mitom — kondensacja). Nieotwierane mają 5-10 lat. Otwarte używać do roku</li>
+          <li><b>Zapalniczki:</b> sucho, nie pod słońcem (gaz rozszerza się i może wyciec)</li>
+          <li><b>Olej do lamp / nafta:</b> w szczelnej butelce metalowej lub szklanej, daleko od ognia, dzieci</li>
+          <li>Wszystko w jednym miejscu — „skrzynia awaryjna” — łatwa do znalezienia w ciemności</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Sygnały zepsucia</strong>
+        Świece zmiękczone, wygięte — zbyt ciepło stało, ale wciąż użyteczne. Zapałki wilgotne — zapal jedną testową; jeśli nie działa, wyrzuć. Baterie napuchnięte, wyciekające — bardzo niebezpieczne, nie używać! Stary olej do lamp — zapach „farby olejnej”, lepiej kupić nowy.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Sytuacje konkretne — awaria prądu</strong>
+        <ul>
+          <li>Zapal najpierw <b>świecę gromniczną</b> z modlitwą — to znak, że nie panikujesz</li>
+          <li>Latarka: do mostka piwnicy, do toalety, do zegarka</li>
+          <li>Lampa oliwna w salonie — światło stałe na kilka godzin</li>
+          <li>Telefon: tylko zwarte połączenia, oszczędzaj baterię, używaj powerbanku</li>
+          <li>Nie otwieraj często lodówki (zachowuje zimno do 4 godzin zamknięta)</li>
+          <li>Gotuj na kuchence gazowej (jeśli masz) lub palenisku</li>
+          <li>Zbierz rodzinę do jednego pokoju — łatwiej ogrzać</li>
+          <li>Modlitwa wieczorna przy świecy — zwykle z radia bateryjnego nie ma „wiadomości”, lecisz wewnętrznie</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Znaczenie duchowe</strong>
+        Brak prądu to dla nas okazja, by przypomnieć sobie, jak żyły poprzednie pokolenia — przy świecy, z modlitwą, z rozmową. Może to być <i>łaska ukryta</i> — moment, gdy rodzina znów rozmawia, dzieci nie patrzą w ekrany, dom staje się prawdziwym domem. Zapal świecę z wdzięcznością.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="checklist-box">
+  <div class="checklist-title">Złote zasady spiżarni</div>
+  <ul>
+    <li>Wymieniaj zapasy regularnie — używaj najstarsze pierwsze (FIFO)</li>
+    <li>Etykietuj słoiki datą zrobienia i datą do spożycia</li>
+    <li>Pojemniki szklane > plastik (smaki nie przenikają)</li>
+    <li>Sucho i ciemno — wilgoć i światło to wrogowie zapasów</li>
+    <li>Liść laurowy w szufladach z mąką i kaszami zniechęca mole</li>
+    <li>Co miesiąc sprawdzaj — zapach, kolor, tekstura</li>
+    <li>Mała spiżarnia > pusta lodówka (pomyśl zapasem 1-3 miesięcznym, nie ekstremalnym)</li>
+    <li>Pobłogosław spiżarnię raz w roku — wodą święconą i Modlitwą za chleb codzienny</li>
+  </ul>
+</div>
+
+<div class="ornament">
+  <svg viewBox="0 0 140 36" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 5 18 Q 35 8 70 18 Q 105 28 135 18" stroke="currentColor" stroke-width="0.8" fill="none"/>
+    <path d="M 70 13 L 72 17 L 76 18 L 72 19 L 70 23 L 68 19 L 64 18 L 68 17 Z" fill="currentColor"/>
+  </svg>
+</div>
+
+<!-- ============== CZĘŚĆ III ============== -->
+<div class="part-divider">
+  <div class="part-icon">
+    <svg viewBox="0 0 60 60" fill="none">
+      <rect x="14" y="14" width="32" height="38" rx="3" stroke="currentColor" stroke-width="2"/>
+      <path d="M22 8h16M30 8v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M30 24v18M22 33h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="part-label">Część trzecia</div>
+  <h2>Apteczka maryjna</h2>
+  <p>Naturalne lekarstwa z tradycji świętych i objawień</p>
+  <div class="part-line"></div>
+</div>
+
+<div class="subsection">
+  <h3>Skąd pochodzi ta wiedza</h3>
+  <p>Św. Hildegarda z Bingen (XII w., Doktor Kościoła) — niemiecka mistyczka, której Bóg objawiał właściwości ziół. Jej traktat <i>Physica</i> był używany w klasztorach jako podręcznik medyczny przez wieki. Wiele jej rad jest dziś potwierdzonych nauką.</p>
+  <p>Maryja w objawieniach <b>w Lourdes (1858)</b> wskazała źródło, którego woda do dziś leczy choroby. <b>W Fatimie (1917)</b> zachęcała do prostego życia i naturalnych pokarmów. <b>W Medziugorju</b> mówiła wielokrotnie o postach o chlebie i wodzie jako uzdrowieniu duchowym i fizycznym.</p>
+  <p>Polska tradycja ludowa, oparta na czci Maryi w sanktuariach (Częstochowa, Licheń, Kalwaria), zachowała wiele zielarskich praktyk błogosławionych w święto Matki Bożej Zielnej (15 sierpnia).</p>
+</div>
+
+<div class="warning-box">
+  <div class="warning-title">Ważna uwaga</div>
+  <p style="font-size: 16px; color: var(--brown-deep); line-height: 1.7;">Te środki <b>uzupełniają</b>, ale nie zastępują opieki lekarskiej. Konsultuj się z lekarzem przy poważnych objawach. Naturalne nie znaczy „bez ryzyka” — niektóre zioła wchodzą w interakcje z lekami. Zawsze zaczynaj od małych dawek.</p>
+</div>
+
+<div class="item-card illus">
+  <div class="item-illus">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <ellipse cx="50" cy="92" rx="38" ry="3" fill="#8b7355" opacity="0.3"/>
+      <g transform="translate(30,55)">
+        <ellipse cx="0" cy="14" rx="14" ry="18" fill="#faf6ed" stroke="#8b7355" stroke-width="0.6"/>
+        <path d="M-12 8 Q-13 6 -10 4 M-7 4 Q-8 2 -5 0 M-2 2 Q-3 0 0 -2 M3 0 Q2 -2 5 -4 M8 -2 Q7 -4 10 -6 M-10 16 Q-11 14 -8 12 M-5 14 Q-6 12 -3 10 M0 12 Q-1 10 2 8 M5 10 Q4 8 7 6 M10 8 Q9 6 12 4" stroke="#8b7355" stroke-width="0.4" fill="none"/>
+        <path d="M0 -4 L0 -10 M-3 -8 L0 -6 L3 -8" stroke="#4a6b4a" stroke-width="0.6" fill="none"/>
+        <path d="M-2 -10 Q0 -14 2 -10 Q0 -8 -2 -10" fill="#4a6b4a"/>
+      </g>
+      <g transform="translate(68,52)">
+        <path d="M-12 -10 L12 -10 L11 18 Q0 22 -11 18 Z" fill="#c9a961" stroke="#6b3e2e" stroke-width="0.6"/>
+        <rect x="-14" y="-12" width="28" height="4" rx="1" fill="#6b3e2e" stroke="#3a2f23" stroke-width="0.5"/>
+        <text y="6" text-anchor="middle" font-family="Georgia,serif" font-size="6" fill="#3a2f23" font-style="italic">Miod</text>
+        <path d="M0 -10 L0 -22 L4 -24" stroke="#8b7355" stroke-width="0.8" fill="none"/>
+        <ellipse cx="4" cy="-24" rx="3" ry="1.5" fill="#c9a961" stroke="#8b7355" stroke-width="0.4"/>
+      </g>
+      <path d="M65 78 Q70 82 78 80" stroke="#c9a961" stroke-width="0.8" fill="none" opacity="0.6"/>
+      <circle cx="78" cy="80" r="1" fill="#c9a961"/>
+    </svg>
+  </div>
+  <div class="item-content">
+    <h4>Czosnek z miodem</h4>
+    <div class="item-tag">Hildegarda z Bingen · od XII w. · tradycja polska</div>
+    <p>Czosnek (<i>Allium sativum</i>) z miodem to najstarszy zarejestrowany antybiotyk Europy. Św. Hildegarda zalecała go w <i>Physica</i> przy „przeziębieniu krwi” i osłabieniu. Polska tradycja wiejska — szczególnie z Podlasia i Małopolski — zachowała przepis na nalewkę i syrop czosnkowo-miodowy podawany dzieciom przed zimą. Badania współczesne potwierdziły działanie allicyny (czynnik bakteriobójczy uwalniany po roztarciu ząbka).</p>
+    <div class="item-detail">
+      <div class="detail-block">
+        <strong class="label">Czym jest dokładnie</strong>
+        Świeże ząbki czosnku pospolitego (najlepiej polski, fioletowy, jesiennego siewu — twardszy, mocniejszy w działaniu niż chiński) połączone z naturalnym miodem (lipowy, gryczany lub wielokwiatowy). Allicyna powstaje dopiero po roztarciu czosnku — należy posiekać i odstawić na 10 minut przed połączeniem z miodem. Autentyczny polski czosnek ma skórkę różowo-fioletową, ząbki zwarte, zapach ostry, ale czysty.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Właściwości i znaczenie duchowe</strong>
+        Działanie bakteriobójcze, przeciwwirusowe, immunostymulujące, obniżające ciśnienie. Miód lipowy jest naparstniczy, gryczany — wykrztuśny. W tradycji ludowej czosnek wieszany w wiązankach przy drzwiach był znakiem ochrony domu, a poświęcony 15 sierpnia (Matka Boża Zielna) razem z innymi ziołami nabierał wymiaru sakramentalium. Hildegarda nazywała go <i>„zielem żywym”</i>.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak zdobyć / gdzie kupić</strong>
+        <ul>
+          <li>Targ rolniczy lub gospodarstwo wiejskie — czosnek polski, sezon zbioru lipiec-sierpień, 30-50 zł/kg</li>
+          <li>Miód prosto od pszczelarza (z plombą i etykietą) — 40-70 zł/kg, lipowy najlepiej</li>
+          <li>Sklepy zielarskie i ekologiczne mają oba produkty cały rok</li>
+          <li>Sygnały jakości: czosnek twardy, bez zielonych kiełków, miód krystalizujący się w 2-3 miesiące (płynny przez rok = sztuczny lub przegrzany)</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak przygotować</strong>
+        <ul>
+          <li><b>Syrop podstawowy:</b> 5 ząbków czosnku posiekać drobno, odstawić 10 minut, zalać 4 łyżkami miodu (200 g), wymieszać szklaną łyżką, zostawić 24 godz. w słoiku</li>
+          <li><b>Nalewka czosnkowa:</b> 100 g posiekanego czosnku + 200 ml miodu + 100 ml soku z cytryny, mieszać codziennie przez 5 dni</li>
+          <li><b>Inhalacja:</b> 3 ząbki rozgnieść, zalać 0,5 l wrzątku, oddychać oparami pod ręcznikiem 5 minut</li>
+          <li><b>Mleczko czosnkowe (dla dzieci):</b> 1 ząbek pokrojony, krótko zagotować w 200 ml mleka, ostudzić, odcedzić, dodać łyżeczkę miodu</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Dawkowanie i czas trwania</strong>
+        Dorośli: 1 łyżeczka 2-3 razy dziennie na czczo lub między posiłkami przez 7-10 dni. Dzieci powyżej 3 r. ż.: pół łyżeczki 2 razy dziennie przez 5-7 dni. Po kuracji 10-14 dni przerwy. Profilaktycznie zimą: 1 łyżeczka rano przez 2-3 tygodnie, potem przerwa.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Kiedy konkretnie sięgnąć</strong>
+        Pierwsze objawy przeziębienia (drapanie w gardle, dreszcze) — łyżeczka co 4 godziny. Ból gardła, początek anginy — powoli rozpuszczać w ustach. Spadek odporności jesienią — kuracja 10-dniowa. Po antybiotyku — przywrócenie flory (z probiotykiem). Pasożyty u dzieci — czosnek z mlekiem rano przez 5 dni.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Przechowywanie</strong>
+        Słoik szklany szczelnie zamknięty, w lodówce do 2-3 tygodni. Nalewka czosnkowo-miodowa odcedzona — do 3 miesięcy w ciemnej spiżarni &lt;18°C. Sygnały zepsucia: piana na powierzchni (fermentacja), kwaśny zapach, zmiana koloru na szarozielony. Suszony czosnek (w warkoczu) — do roku w spiżarni.
+      </div>
+      <div class="detail-block warn">
+        <strong class="label">Uwaga / Przeciwwskazania</strong>
+        <b>Nie dawać miodu dzieciom poniżej 1. roku życia</b> (botulizm). Czosnek zwiększa działanie leków przeciwzakrzepowych (warfaryna, aspiryna) — odstawić 7 dni przed operacją. Wrzody żołądka, refluks — może drażnić. Karmienie piersią — zmienia smak mleka. Nie zastępuje leczenia. Konsultuj z lekarzem przy poważnych objawach lub gdy bierzesz leki.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="item-card illus">
+  <div class="item-illus">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <ellipse cx="50" cy="92" rx="36" ry="3" fill="#8b7355" opacity="0.3"/>
+      <path d="M50 90 L50 30" stroke="#6b8e6b" stroke-width="1.4"/>
+      <g fill="#6b8e6b" stroke="#3a2f23" stroke-width="0.4">
+        <ellipse cx="38" cy="72" rx="10" ry="4" transform="rotate(-20 38 72)"/>
+        <ellipse cx="62" cy="68" rx="10" ry="4" transform="rotate(20 62 68)"/>
+        <ellipse cx="36" cy="58" rx="11" ry="4.5" transform="rotate(-15 36 58)"/>
+        <ellipse cx="64" cy="54" rx="11" ry="4.5" transform="rotate(15 64 54)"/>
+        <ellipse cx="38" cy="44" rx="10" ry="4" transform="rotate(-12 38 44)"/>
+        <ellipse cx="62" cy="42" rx="10" ry="4" transform="rotate(12 62 42)"/>
+        <ellipse cx="42" cy="34" rx="8" ry="3.5" transform="rotate(-10 42 34)"/>
+        <ellipse cx="58" cy="32" rx="8" ry="3.5" transform="rotate(10 58 32)"/>
+      </g>
+      <g stroke="#4a6b4a" stroke-width="0.3" fill="none">
+        <path d="M30 72 Q38 71 46 72 M54 68 Q62 67 70 68 M28 58 Q36 57 44 58 M56 54 Q64 53 72 54"/>
+      </g>
+      <g transform="translate(50,22)">
+        <ellipse cx="-3" cy="0" rx="2" ry="3" fill="#9b7bb8" opacity="0.7"/>
+        <ellipse cx="3" cy="0" rx="2" ry="3" fill="#9b7bb8" opacity="0.7"/>
+        <ellipse cx="0" cy="-3" rx="2" ry="3" fill="#9b7bb8" opacity="0.7"/>
+      </g>
+    </svg>
+  </div>
+  <div class="item-content">
+    <h4>Szałwia (sálvia)</h4>
+    <div class="item-tag">„Salvia salvatrix” · zioło zbawienia · Hildegarda</div>
+    <p>Szałwia lekarska (<i>Salvia officinalis</i>) — średniowieczne łacińskie przysłowie brzmi: <i>„Cur moriatur homo cui salvia crescit in horto?”</i> („Dlaczego ma umrzeć człowiek, w którego ogrodzie rośnie szałwia?”). Św. Hildegarda nazywała ją <i>salvia salvatrix</i> — „szałwia zbawicielka”. Polskie klasztory benedyktyńskie od XIV w. uprawiały ją w wirydarzach jako podstawowy środek na choroby gardła i przeziębienia. Znana także jako „herba sacra” w średniowiecznych zielnikach.</p>
+    <div class="item-detail">
+      <div class="detail-block">
+        <strong class="label">Czym jest dokładnie</strong>
+        Bylina śródziemnomorska, w Polsce uprawiana w ogrodach od XV w. Stosuje się <b>liście</b> — najlepiej zebrane przed kwitnieniem (czerwiec), suszone w cieniu. Liście są szarozielone, owłosione, o charakterystycznym mocnym, lekko gorzkim aromacie. Autentyczna sucha szałwia rozcierana między palcami pachnie intensywnie kamforowo-żywicznie. Odmiany: lekarska (najmocniejsza), muszkatołowa (łagodniejsza), purpurowa (ozdobna, lecz lecznicza).
+      </div>
+      <div class="detail-block">
+        <strong class="label">Właściwości i znaczenie duchowe</strong>
+        Działanie ściągające (taniny), antyseptyczne (olejki eteryczne — tujon, cyneol), przeciwzapalne, hamujące pocenie, wspierające trawienie. W tradycji katolickiej święcona w bukietach 15 sierpnia. Hildegarda pisała: <i>„Szałwia jest gorąca i sucha — wypędza chłód chorób”</i>. W Polsce noszona w mieszkach ze święconym zielem chroniła przed zarazą.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak zdobyć / gdzie kupić</strong>
+        <ul>
+          <li>Własny ogród — bylina łatwa, lubi słońce, sucho, zbiór czerwiec przed kwitnieniem</li>
+          <li>Apteki i sklepy zielarskie: Herbapol, Dary Natury — 8-15 zł/50 g suszonego liścia</li>
+          <li>Targ z ziołami klasztornymi (Tyniec, Jędrzejów) — 12-25 zł/100 g, najwyższa jakość</li>
+          <li>Sygnały jakości: liście całe, szarozielone, intensywny zapach, brak pyłu i łodyg</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak przygotować</strong>
+        <ul>
+          <li><b>Napar:</b> 1 łyżeczka suszonego liścia na 250 ml wrzątku, parzyć pod przykryciem 10 minut, pić ciepłe</li>
+          <li><b>Płukanka do gardła:</b> 2 łyżeczki na 250 ml, parzyć 15 minut, ostudzić, płukać 30 sekund 3-4 razy dziennie</li>
+          <li><b>Nalewka:</b> 50 g liścia + 250 ml spirytusu 40%, nastawiać 14 dni, używać do płukań rozcieńczona (1 łyżeczka na szklankę wody)</li>
+          <li><b>Kompres:</b> mocny napar, gaza, na opuchnięcia dziąseł lub trudno gojące się rany</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Dawkowanie i czas trwania</strong>
+        Doustnie: 2-3 razy dziennie pół szklanki naparu przez maks. 7-10 dni, następnie 7 dni przerwy. Płukanki: 3-4 razy dziennie do ustąpienia objawów (zwykle 5-7 dni). Nie stosować dłużej niż 2 tygodnie ciągłe (kumulacja tujonu).
+      </div>
+      <div class="detail-block">
+        <strong class="label">Kiedy konkretnie sięgnąć</strong>
+        Ból gardła, chrypka, początek anginy → płukanie 4 razy dziennie. Zapalenie dziąseł, afty → płukanka 3 razy dziennie. Nadmierna potliwość (menopauza, stres) → napar wieczorem. Zaburzenia trawienia, wzdęcia → napar po posiłku. Hamowanie laktacji (świadome odstawienie dziecka) → 3 napary dziennie.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Przechowywanie</strong>
+        Suszony liść w słoiku szklanym, ciemne, suche miejsce &lt;20°C — trwałość do 2 lat. Po roku traci aromat — wymienić zapas. Nalewka spirytusowa: do 3 lat w ciemnej butelce. Sygnały zepsucia: utrata zapachu, zbrylenie, pleśń (wilgoć).
+      </div>
+      <div class="detail-block warn">
+        <strong class="label">Uwaga / Przeciwwskazania</strong>
+        <b>Nie stosować w ciąży</b> (tujon — działa poronnie). <b>Karmienie piersią</b> — hamuje laktację (chyba że celowo). Padaczka — tujon może wywoływać drgawki. Dzieci poniżej 6 lat — tylko zewnętrznie. Interakcje z lekami przeciwcukrzycowymi i uspokajającymi. Nie zastępuje leczenia. Konsultuj z lekarzem przy poważnych objawach lub gdy bierzesz leki.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="item-card illus">
+  <div class="item-illus">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <ellipse cx="50" cy="92" rx="34" ry="3" fill="#8b7355" opacity="0.3"/>
+      <path d="M50 88 L50 50" stroke="#6b8e6b" stroke-width="1"/>
+      <g fill="#6b8e6b" stroke="#3a2f23" stroke-width="0.3">
+        <path d="M44 78 Q40 76 38 78 Q40 82 44 80 Z"/>
+        <path d="M56 78 Q60 76 62 78 Q60 82 56 80 Z"/>
+        <path d="M44 70 Q40 68 38 70 Q40 74 44 72 Z"/>
+        <path d="M56 70 Q60 68 62 70 Q60 74 56 72 Z"/>
+        <path d="M46 62 Q42 60 40 62 Q42 66 46 64 Z"/>
+        <path d="M54 62 Q58 60 60 62 Q58 66 54 64 Z"/>
+      </g>
+      <g transform="translate(50,38)">
+        <circle r="6" fill="#c9a961"/>
+        <g fill="#faf6ed" stroke="#8b7355" stroke-width="0.4">
+          <ellipse cx="0" cy="-10" rx="3" ry="6"/>
+          <ellipse cx="7" cy="-7" rx="3" ry="6" transform="rotate(45 7 -7)"/>
+          <ellipse cx="10" cy="0" rx="3" ry="6" transform="rotate(90 10 0)"/>
+          <ellipse cx="7" cy="7" rx="3" ry="6" transform="rotate(135 7 7)"/>
+          <ellipse cx="0" cy="10" rx="3" ry="6"/>
+          <ellipse cx="-7" cy="7" rx="3" ry="6" transform="rotate(45 -7 7)"/>
+          <ellipse cx="-10" cy="0" rx="3" ry="6" transform="rotate(90 -10 0)"/>
+          <ellipse cx="-7" cy="-7" rx="3" ry="6" transform="rotate(135 -7 -7)"/>
+        </g>
+        <circle r="3" fill="#c9a961" stroke="#8b7355" stroke-width="0.5"/>
+      </g>
+    </svg>
+  </div>
+  <div class="item-content">
+    <h4>Rumianek (camomila)</h4>
+    <div class="item-tag">Najłagodniejsze zioło · zielnik klasztorny od X w.</div>
+    <p>Rumianek pospolity (<i>Matricaria chamomilla</i>) jest jednym z najstarszych ziół leczniczych Europy. Uprawiany w polskich klasztorach od X w., w polskiej tradycji ludowej zwany „lekiem matek”. Św. Hildegarda nazywała go <i>chamemilla</i> i polecała przy „bolesnościach żołądka i nerwach”. Polskie babcie podawały napar rumiankowy niemowlętom przy kolce. Bukiety rumianku święcone w święto Matki Bożej Zielnej zachowywano cały rok.</p>
+    <div class="item-detail">
+      <div class="detail-block">
+        <strong class="label">Czym jest dokładnie</strong>
+        Stosuje się <b>kwiaty</b> — koszyczki kwiatowe (białe płatki + żółty środek) zbierane od maja do sierpnia w pełnym kwitnieniu. Autentyczny rumianek pachnie słodko-jabłkowo (stąd grecka nazwa <i>chamai-melon</i> — „ziemne jabłko”). Środek koszyczka jest pusty (próba: przekrojony pionowo — wnętrze puste = rumianek pospolity, pełne = rumian polny, mniej leczniczy). Dziko rosnący na ugorach, polach, miedzach.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Właściwości i znaczenie duchowe</strong>
+        Działanie przeciwzapalne (chamazulen, bisabolol), rozkurczowe, łagodzące, antyseptyczne, gojące. Bezpieczny od najmłodszych. W tradycji katolickiej święcony 15 sierpnia jako symbol prostoty i pokory Maryi — biały kwiat na żółtym sercu interpretowany jako czystość promieniująca z miłości. Hildegarda używała go przy „nerwach gorących”.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak zdobyć / gdzie kupić</strong>
+        <ul>
+          <li>Zbiór własny: maj-sierpień, słoneczny dzień po obeschnięciu rosy, łąki i ugory z dala od dróg</li>
+          <li>Apteki: Herbapol, Kawon, Dary Natury — 5-12 zł/50 g (kwiat luzem) lub torebki ekspresowe 6-10 zł/20 szt.</li>
+          <li>Sklepy zielarskie: kwiat siewny premium 15-25 zł/100 g</li>
+          <li>Sygnały jakości: kwiaty całe (nie pył), słodko-jabłkowy zapach, środek pusty po przekrojeniu</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak przygotować</strong>
+        <ul>
+          <li><b>Napar pitny:</b> 1 łyżeczka kwiatu na 200 ml wrzątku, parzyć pod przykryciem 5-7 minut, lekko ostudzić</li>
+          <li><b>Kompres na oczy:</b> 1 łyżeczka na 100 ml, parzyć 10 min, przecedzić bardzo dokładnie, ostudzić, gaza, 10 minut na powieki</li>
+          <li><b>Inhalacja:</b> 2 łyżki kwiatu na 1 l wrzątku, oddychać oparami pod ręcznikiem 10 minut</li>
+          <li><b>Kąpiel dla dzieci:</b> 50 g kwiatu w woreczku muślinowym do wanny — działa łagodząco na skórę</li>
+          <li><b>Płukanka skóry:</b> mocny napar (2 łyżki/250 ml) do przemywania podrażnień</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Dawkowanie i czas trwania</strong>
+        Dorośli: 2-3 szklanki naparu dziennie, do ustąpienia objawów. Dzieci powyżej roku: pół szklanki 1-2 razy dziennie. Niemowlęta: tylko zewnętrznie (kąpiel, kompres) lub po konsultacji z pediatrą — łyżeczka słabego naparu. Bezpieczny do długotrwałego stosowania (nawet kilka tygodni z 2-3 dniowymi przerwami co tydzień).
+      </div>
+      <div class="detail-block">
+        <strong class="label">Kiedy konkretnie sięgnąć</strong>
+        Kolka u niemowlęcia → łyżeczka słabego naparu po konsultacji z pediatrą. Bezsenność dziecka → pół szklanki letniego naparu wieczorem. Zapalenie spojówek → kompres 2 razy dziennie. Bóle brzucha, niestrawność → szklanka po posiłku. Podrażnienia skóry, opryszczka → przemywanie. Stres, nerwowość → wieczorem przed snem. Bóle menstruacyjne → 2-3 razy dziennie.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Przechowywanie</strong>
+        Słoik szklany szczelnie zamknięty, ciemna spiżarnia &lt;18°C — do 12 miesięcy (po roku traci aromat). Sygnały zepsucia: brak charakterystycznego zapachu jabłkowego, brunatny kolor (był wilgotny), pleśń. Napar świeży — zużyć w ciągu 24 godzin (chłodziarka).
+      </div>
+      <div class="detail-block warn">
+        <strong class="label">Uwaga / Przeciwwskazania</strong>
+        Alergia na rośliny astrowate (kompozytowe — bylica, rumianek, słonecznik) — może wywołać wysypkę lub trudności w oddychaniu. Pierwsze użycie u dziecka — zacząć od kropli. Nie stosować przy ostrych zapaleniach oczu bakteryjnych (potrzebny lekarz). Może wzmacniać leki uspokajające i przeciwzakrzepowe. Nie zastępuje leczenia. Konsultuj z lekarzem przy poważnych objawach lub gdy bierzesz leki.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="item-card illus">
+  <div class="item-illus">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <ellipse cx="50" cy="92" rx="38" ry="3" fill="#8b7355" opacity="0.3"/>
+      <path d="M50 92 L50 20" stroke="#6b3e2e" stroke-width="2"/>
+      <path d="M50 30 L30 26 M50 35 L25 38 M50 40 L28 50 M50 45 L70 30 M50 38 L75 36 M50 32 L72 22" stroke="#6b3e2e" stroke-width="0.8"/>
+      <g fill="#4a6b4a" stroke="#3a2f23" stroke-width="0.3">
+        <path d="M30 26 Q22 22 20 28 Q22 32 30 28 Z"/>
+        <path d="M25 38 Q15 36 14 42 Q18 46 26 42 Z"/>
+        <path d="M28 50 Q18 50 16 56 Q20 60 30 54 Z"/>
+        <path d="M70 30 Q78 26 80 32 Q78 36 70 32 Z"/>
+        <path d="M75 36 Q85 34 86 40 Q82 44 74 40 Z"/>
+        <path d="M72 22 Q80 18 82 24 Q80 28 72 24 Z"/>
+      </g>
+      <g fill="#faf6ed" stroke="#c9a961" stroke-width="0.4">
+        <circle cx="32" cy="42" r="2.2"/>
+        <circle cx="36" cy="34" r="2"/>
+        <circle cx="68" cy="40" r="2.2"/>
+        <circle cx="64" cy="32" r="2"/>
+        <circle cx="50" cy="48" r="2.4"/>
+      </g>
+      <text x="50" y="14" text-anchor="middle" font-family="Georgia,serif" font-size="6" fill="#3a2f23" font-style="italic">Tilia</text>
+    </svg>
+  </div>
+  <div class="item-content">
+    <h4>Lipa (kwiat lipy)</h4>
+    <div class="item-tag">Drzewo Maryi · polska tradycja od XII w.</div>
+    <p>Lipa drobnolistna i szerokolistna (<i>Tilia cordata, Tilia platyphyllos</i>) — w Polsce „drzewo Maryi”. Pod lipami stawiano figurki Matki Bożej, kapliczki, krzyże przydrożne. Czarnoleska lipa Jana Kochanowskiego z XVI w. była symbolem polskiej duchowości. Kwiat lipy zbiera się w czerwcu (lipcu — stąd nazwa miesiąca), święci 15 sierpnia. Najlepszy lek na gorączkę dla dzieci i dorosłych — dziedzictwo polskich babć z każdej wsi.</p>
+    <div class="item-detail">
+      <div class="detail-block">
+        <strong class="label">Czym jest dokładnie</strong>
+        Stosuje się <b>kwiat z przylistkiem</b> (jasnozielona „skrzydełka” przyrośnięta do kwiatostanu). Zbiór: czerwiec-pierwsze dni lipca, gdy 2/3 kwiatów już otwarte, w pełnym słońcu po obeschnięciu rosy. Suszyć w cieniu, w przewiewie, do 35°C. Autentyczna susz — żółtopomarańczowa, słodki miodowy zapach. Lipa drobnolistna ma kwiaty mniejsze i bardziej aromatyczne niż szerokolistna.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Właściwości i znaczenie duchowe</strong>
+        Działanie napotne, przeciwgorączkowe, uspokajające, łagodzące kaszel (saponiny, flawonoidy, śluzy). W polskiej tradycji ludowej lipa była drzewem maryjnym — pod nią modlono się w upalne dni, zapach kwiatu uważano za „oddech Matki Bożej”. Drewno lipowe służyło do rzeźbienia figur Maryi (lekkie, jasne, mało pęka). Hildegarda nazywała ją <i>tilia</i> i polecała przy „chorobach gorącego serca”.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak zdobyć / gdzie kupić</strong>
+        <ul>
+          <li>Zbiór własny: pierwsze dni czerwca-lipca, lipy z dala od dróg i pól (pestycydy)</li>
+          <li>Apteki: Herbapol kwiat lipy 50 g — 6-12 zł, torebki ekspresowe 5-9 zł/20 szt.</li>
+          <li>Sklepy zielarskie: kwiat całe baldachy 15-25 zł/100 g</li>
+          <li>Sygnały jakości: kolor żółto-pomarańczowy (nie brązowy), zapach słodki miodowy, przylistek razem z kwiatem</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak przygotować</strong>
+        <ul>
+          <li><b>Napar napotny:</b> 1 czubata łyżka kwiatu na 250 ml wrzątku, parzyć pod przykryciem 10 minut, pić bardzo gorące z miodem i sokiem z cytryny</li>
+          <li><b>Inhalacja:</b> 2 łyżki na 1 l wrzątku, oddychać 10 minut pod ręcznikiem (kaszel, katar)</li>
+          <li><b>Syrop:</b> 100 g kwiatu + 1 l wody + 500 g cukru + sok z cytryny — gotować 20 min, odcedzić</li>
+          <li><b>Kąpiel uspokajająca:</b> garść kwiatu w muślinie do wanny — przed snem dla dzieci nadpobudliwych</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Dawkowanie i czas trwania</strong>
+        Przy gorączce: szklanka gorącego naparu co 3-4 godziny przez 2-3 dni, owinąć się ciepło, by się spocić. Profilaktycznie wieczorem zimą: 1 szklanka przez 10-14 dni. Dzieci powyżej 2 lat: pół szklanki 2-3 razy dziennie. Po 2-3 dniach intensywnego stosowania — przerwa.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Kiedy konkretnie sięgnąć</strong>
+        Pierwsze objawy przeziębienia, gorączka → szklanka co 3-4 godziny. Kaszel suchy męczący → napar 3 razy dziennie z miodem. Bezsenność, niepokój → szklanka wieczorem. Stres, gorące rumieńce, kołatanie serca → napar uspokajający. Dziecko z gorączką (powyżej 2 lat) → pół szklanki letniego naparu co 4 godziny.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Przechowywanie</strong>
+        Słoik szklany ciemny, papierowa torba lniana, ciemna spiżarnia &lt;18°C — do 1 roku (po roku znacznie traci moc napotną). Syrop lipowy — w lodówce do 6 miesięcy. Sygnały zepsucia: utrata aromatu miodowego, zbrunatnienie, pleśń.
+      </div>
+      <div class="detail-block warn">
+        <strong class="label">Uwaga / Przeciwwskazania</strong>
+        Choroby serca, niewydolność krążenia — długotrwałe stosowanie może obciążać (działanie napotne). Dzieci poniżej 1 r.ż. — tylko po konsultacji z pediatrą. Nadciśnienie nieuregulowane — ostrożnie. Po wypiciu naparu napotnego nie wychodzić od razu na zimno (ryzyko reakcji termicznej). Nie zastępuje leczenia. Konsultuj z lekarzem przy gorączce powyżej 39°C lub utrzymującej się dłużej niż 3 dni.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="item-card illus">
+  <div class="item-illus">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <ellipse cx="50" cy="92" rx="32" ry="3" fill="#8b7355" opacity="0.3"/>
+      <g stroke="#4a6b4a" stroke-width="0.8" fill="none">
+        <path d="M50 90 L50 30"/>
+        <path d="M50 75 Q42 70 38 60"/>
+        <path d="M50 65 Q58 60 62 50"/>
+        <path d="M50 55 Q42 50 36 42"/>
+        <path d="M50 45 Q58 40 64 32"/>
+      </g>
+      <g fill="#6b8e6b" stroke="#3a2f23" stroke-width="0.3">
+        <ellipse cx="38" cy="60" rx="3" ry="2" transform="rotate(-30 38 60)"/>
+        <ellipse cx="42" cy="64" rx="3" ry="2" transform="rotate(-30 42 64)"/>
+        <ellipse cx="46" cy="68" rx="3" ry="2" transform="rotate(-30 46 68)"/>
+        <ellipse cx="62" cy="50" rx="3" ry="2" transform="rotate(30 62 50)"/>
+        <ellipse cx="58" cy="54" rx="3" ry="2" transform="rotate(30 58 54)"/>
+        <ellipse cx="54" cy="58" rx="3" ry="2" transform="rotate(30 54 58)"/>
+        <ellipse cx="36" cy="42" rx="3" ry="2" transform="rotate(-30 36 42)"/>
+        <ellipse cx="40" cy="46" rx="3" ry="2" transform="rotate(-30 40 46)"/>
+        <ellipse cx="44" cy="50" rx="3" ry="2" transform="rotate(-30 44 50)"/>
+        <ellipse cx="64" cy="32" rx="3" ry="2" transform="rotate(30 64 32)"/>
+        <ellipse cx="60" cy="36" rx="3" ry="2" transform="rotate(30 60 36)"/>
+        <ellipse cx="56" cy="40" rx="3" ry="2" transform="rotate(30 56 40)"/>
+      </g>
+      <g fill="#9b7bb8" opacity="0.7">
+        <circle cx="50" cy="22" r="1.5"/>
+        <circle cx="46" cy="20" r="1.2"/>
+        <circle cx="54" cy="20" r="1.2"/>
+        <circle cx="48" cy="17" r="1.2"/>
+        <circle cx="52" cy="17" r="1.2"/>
+        <circle cx="50" cy="14" r="1.2"/>
+      </g>
+    </svg>
+  </div>
+  <div class="item-content">
+    <h4>Tymianek (tomilho)</h4>
+    <div class="item-tag">Lekarstwo płuc · benedyktyni od XI w.</div>
+    <p>Tymianek pospolity (<i>Thymus vulgaris</i>) i macierzanka (<i>Thymus serpyllum</i>, dziki w Polsce) — przybyły do Europy ze sprzętem benedyktyńskim. Hildegarda zalecała go przy <i>„ciężkiej piersi”</i>. Polscy górale od pokoleń używali macierzanki tatrzańskiej w okresie zimy — naparu na kaszel, nalewki rozgrzewającej. „Macierzanka” w nazwie pochodzi od „matki” — uznawana za zioło opieki Matki Bożej nad dziećmi.</p>
+    <div class="item-detail">
+      <div class="detail-block">
+        <strong class="label">Czym jest dokładnie</strong>
+        Stosuje się <b>ziele</b> (cała górna część roślinki — łodyżki z liśćmi i kwiatami). Zbiór: czerwiec-sierpień w pełnym kwitnieniu, słoneczny dzień. Liście drobne (1-3 mm), ciemnozielone, kwiaty drobne fioletowo-różowe, intensywny aromat tymolowy (lekko miętowo-pieprzny). Tymianek ogrodowy (<i>vulgaris</i>) ma silniejsze działanie, macierzanka łagodniejsze. Susz autentyczny rozcierany — pachnie ostro, ziemisto, lekko balsamicznie.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Właściwości i znaczenie duchowe</strong>
+        Działanie wykrztuśne, antybakteryjne (tymol — silny antyseptyk), rozkurczowe na oskrzela, przeciwzapalne, wzmacniające układ trawienny. W tradycji ludowej macierzankę kładziono pod poduszkę dziecka chorego — modlono się przy tym do Matki Bożej Częstochowskiej o uzdrowienie. Bukiety z tymiankiem święcono 15 sierpnia. Hildegarda: <i>„Quendel” (tymianek) — zioło na suchą piersi i kaszel niemy</i>.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak zdobyć / gdzie kupić</strong>
+        <ul>
+          <li>Własna uprawa: bylina łatwa, słońce, sucha gleba</li>
+          <li>Macierzanka dziko: suche łąki, miedze, Tatry — czerwiec-lipiec</li>
+          <li>Apteki: Herbapol ziele tymianku 50 g — 7-12 zł, macierzanka 50 g — 6-10 zł</li>
+          <li>Sklepy zielarskie: 15-30 zł/100 g, najlepsze polskie zielarnie klasztorne</li>
+          <li>Sygnały jakości: intensywny zapach tymolowy, drobny zielony liść, brak łodyżek grubszych niż zapałka</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak przygotować</strong>
+        <ul>
+          <li><b>Napar:</b> 1 łyżeczka ziela na 200 ml wrzątku, parzyć pod przykryciem 10 minut, z miodem</li>
+          <li><b>Syrop na kaszel:</b> 50 g ziela + 500 ml wody + 300 g cukru + 1 cytryna — gotować 20 min, odcedzić, pić 1 łyżkę 3-4 razy dziennie</li>
+          <li><b>Inhalacja:</b> 2 łyżki ziela na 1 l wrzątku, oddychać 10 minut pod ręcznikiem</li>
+          <li><b>Kąpiel górska:</b> garść tymianku/macierzanki w muślinowym woreczku do wanny — rozgrzewa, pomaga przy kaszlu</li>
+          <li><b>Płukanie gardła:</b> 2 łyżeczki na 250 ml wrzątku, ostudzić, płukać 3 razy dziennie</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Dawkowanie i czas trwania</strong>
+        Dorośli: 3 razy dziennie szklanka naparu przez 7-10 dni, następnie 7 dni przerwy. Syrop: 1 łyżka 3-4 razy dziennie. Dzieci powyżej 3 lat: pół szklanki naparu 2 razy dziennie. Inhalacja: 1-2 razy dziennie maks. 5 dni z rzędu.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Kiedy konkretnie sięgnąć</strong>
+        Kaszel mokry, zaleganie wydzieliny → syrop 4 razy dziennie + inhalacja wieczorem. Zapalenie oskrzeli → napar 3 razy dziennie + kąpiel. Ból gardła → płukanka 3 razy dziennie. Niestrawność, wzdęcia → napar po posiłkach. Wczesne objawy grypy zimowej → kąpiel rozgrzewająca + szklanka naparu z miodem przed snem.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Przechowywanie</strong>
+        Słoik szklany szczelny, ciemna spiżarnia &lt;18°C — do 1,5 roku. Syrop tymiankowy — lodówka do 3 miesięcy. Sygnały zepsucia: utrata aromatu tymolowego (zwykle po 18 miesiącach), pleśń, zbrunatnienie.
+      </div>
+      <div class="detail-block warn">
+        <strong class="label">Uwaga / Przeciwwskazania</strong>
+        <b>Nie stosować w ciąży</b> w dużych dawkach (tymol — może drażnić). Nadczynność tarczycy — ostrożnie. Dzieci poniżej 2 r.ż. — tylko zewnętrznie (kąpiel, inhalacja pod nadzorem). Wrzody żołądka — może drażnić błonę śluzową. Olejek tymiankowy nigdy doustnie bez konsultacji. Nie zastępuje leczenia. Konsultuj z lekarzem przy poważnych objawach lub gdy bierzesz leki.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="item-card illus">
+  <div class="item-illus">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <ellipse cx="50" cy="92" rx="36" ry="3" fill="#8b7355" opacity="0.3"/>
+      <g fill="#c9a961" stroke="#6b3e2e" stroke-width="0.6">
+        <path d="M30 60 Q26 50 32 42 Q40 36 50 40 Q60 36 68 42 Q74 50 70 60 Q72 70 64 80 Q56 88 50 84 Q44 88 36 80 Q28 70 30 60 Z"/>
+      </g>
+      <g stroke="#6b3e2e" stroke-width="0.4" fill="none" opacity="0.7">
+        <path d="M34 56 Q38 50 44 48"/>
+        <path d="M50 44 Q52 50 56 56"/>
+        <path d="M62 50 Q66 58 64 66"/>
+        <path d="M40 64 Q44 70 48 72"/>
+        <path d="M52 70 Q58 74 60 78"/>
+        <path d="M36 70 Q32 74 36 78"/>
+      </g>
+      <g fill="#4a6b4a" stroke="#3a2f23" stroke-width="0.3">
+        <path d="M50 38 Q46 32 48 26 Q52 24 54 28 Q56 32 50 38 Z"/>
+        <path d="M54 30 Q60 26 64 22 Q66 26 62 30 Q58 32 54 30 Z"/>
+        <path d="M46 30 Q40 26 36 22 Q34 26 38 30 Q42 32 46 30 Z"/>
+      </g>
+      <text x="50" y="16" text-anchor="middle" font-family="Georgia,serif" font-size="6" fill="#3a2f23" font-style="italic">Zingiber</text>
+    </svg>
+  </div>
+  <div class="item-content">
+    <h4>Imbir (gengibre)</h4>
+    <div class="item-tag">Korzeń ognia · Hildegarda · od XII w.</div>
+    <p>Imbir lekarski (<i>Zingiber officinale</i>) — kłącze rośliny tropikalnej znane Europie od czasów Cesarstwa Rzymskiego, w klasztorach europejskich od X w. Św. Hildegarda zalecała go przy <i>„chłodnym charakterze”</i> i osłabieniu trawienia. W polskich kuchniach kupieckich od XIV w. (Gdańsk, Toruń, Kraków). Tradycyjnie dodawany do piernika toruńskiego — symbol gościny i święta.</p>
+    <div class="item-detail">
+      <div class="detail-block">
+        <strong class="label">Czym jest dokładnie</strong>
+        Stosuje się <b>kłącze</b> (mylnie zwane „korzeniem”) świeże lub suszone, mielone. Świeży imbir: jasnożółto-beżowa skórka, jasnożółty miąższ, ostry pieprzny zapach, intensywnie palący smak. Sproszkowany: jasnobeżowy, zachowuje aromat, słabszy w działaniu rozgrzewającym niż świeży. Imbir biologiczny (eko) bez napromieniowywania zachowuje pełnię gingerolu (główny czynnik rozgrzewający).
+      </div>
+      <div class="detail-block">
+        <strong class="label">Właściwości i znaczenie duchowe</strong>
+        Działanie rozgrzewające, przeciwzapalne (gingerol, szogaol), przeciwwymiotne (silne — porównywalne z lekami), przeciwbólowe, wspomagające trawienie. W chrześcijańskiej tradycji kuchennej imbir to przyprawa adwentowo-bożonarodzeniowa (pierniki, miód grzany) — symbol ciepła Wcielenia. Hildegarda: <i>„rozgrzewa wnętrze i uwalnia mózg z wilgoci”</i>.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak zdobyć / gdzie kupić</strong>
+        <ul>
+          <li>Świeże kłącze: warzywniak, supermarket — 15-25 zł/kg (kupować w razie potrzeby, nie zapas)</li>
+          <li>Sproszkowany: sklep z przyprawami 8-15 zł/50 g, eko 20-35 zł/50 g</li>
+          <li>Kandyzowany (cukrowany): 15-25 zł/100 g — domowy zamiennik tabletek na nudności</li>
+          <li>Sygnały jakości: świeży — twardy, gładki, bez plam; suszony — intensywny aromat ostro-cytrusowy</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak przygotować</strong>
+        <ul>
+          <li><b>Napar rozgrzewający:</b> plasterek świeżego imbiru (1-2 cm) zalać 250 ml wrzątku, parzyć 10 minut, dodać miód i sok z cytryny</li>
+          <li><b>„Wodę na życie” (Hildegarda):</b> imbir + cynamon + goździki + miód, gotować 15 min</li>
+          <li><b>Imbir kandyzowany:</b> żuć kawałek przy nudnościach (kobiety w ciąży)</li>
+          <li><b>Okład rozgrzewający:</b> starty świeży imbir w gazie na ból stawów (15 min, ostrożnie ze skórą)</li>
+          <li><b>Złote mleko:</b> imbir + kurkuma + mleko + miód — wieczorem przy przeziębieniu</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Dawkowanie i czas trwania</strong>
+        Dorośli: 2-3 g świeżego (lub 0,5-1 g suszonego) dziennie, w 2-3 porcjach. Profilaktycznie zimą: 1 napar rano przez 2-3 tygodnie, przerwa tydzień. Przy mdłościach ciążowych (po konsultacji): pół g 3 razy dziennie maks. 4 dni. Dzieci powyżej 6 lat: bardzo słaby napar, pół szklanki dziennie.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Kiedy konkretnie sięgnąć</strong>
+        Pierwsze objawy przeziębienia, „coś łapię” → napar gorący 3 razy dziennie. Mdłości (podróż, ciąża, chemioterapia po konsultacji) → kandyzowany imbir żuć powoli. Niestrawność, wzdęcia po ciężkim posiłku → szklanka naparu po jedzeniu. Zimne stopy zimą, marznięcie → napar wieczorem. Bóle stawów → okład 2 razy dziennie. Bóle menstruacyjne → napar 2-3 razy dziennie.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Przechowywanie</strong>
+        Świeży imbir: lodówka w papierowej torebce do 3 tygodni, zamrażarka starty w pojemniku do 6 miesięcy. Suszony sproszkowany: szczelny słoik szklany, ciemna spiżarnia &lt;20°C — do 12 miesięcy. Sygnały zepsucia: świeży — miękki, czarne plamy, pleśń; suszony — utrata aromatu (po roku jest już słaby).
+      </div>
+      <div class="detail-block warn">
+        <strong class="label">Uwaga / Przeciwwskazania</strong>
+        <b>Kamica żółciowa</b> — może wywołać kolkę. <b>Leki przeciwzakrzepowe</b> (warfaryna, aspiryna) — imbir nasila ich działanie, ryzyko krwawienia. Wrzody żołądka, refluks — drażni. Ciąża — tylko małe dawki kulinarne lub po konsultacji. Operacje — odstawić 7 dni przed. Nadciśnienie — ostrożnie. Nie zastępuje leczenia. Konsultuj z lekarzem przy poważnych objawach lub gdy bierzesz leki.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="item-card illus">
+  <div class="item-illus">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <ellipse cx="50" cy="92" rx="34" ry="3" fill="#8b7355" opacity="0.3"/>
+      <g transform="translate(50,52)">
+        <path d="M0 -22 Q-14 -12 -16 0 Q-14 14 0 24 Q14 14 16 0 Q14 -12 0 -22 Z" fill="#faf6ed" stroke="#6b8e6b" stroke-width="0.6"/>
+        <path d="M0 -22 L0 24 M-16 0 L16 0 M-12 -10 L12 10 M-12 10 L12 -10" stroke="#6b8e6b" stroke-width="0.4" opacity="0.5"/>
+        <g fill="#3a2f23">
+          <ellipse cx="-7" cy="-10" rx="1.6" ry="2.2" transform="rotate(-30 -7 -10)"/>
+          <ellipse cx="0" cy="-12" rx="1.6" ry="2.2"/>
+          <ellipse cx="7" cy="-10" rx="1.6" ry="2.2" transform="rotate(30 7 -10)"/>
+          <ellipse cx="-10" cy="-2" rx="1.6" ry="2.2" transform="rotate(-60 -10 -2)"/>
+          <ellipse cx="-4" cy="-2" rx="1.6" ry="2.2" transform="rotate(-15 -4 -2)"/>
+          <ellipse cx="4" cy="-2" rx="1.6" ry="2.2" transform="rotate(15 4 -2)"/>
+          <ellipse cx="10" cy="-2" rx="1.6" ry="2.2" transform="rotate(60 10 -2)"/>
+          <ellipse cx="-7" cy="6" rx="1.6" ry="2.2" transform="rotate(-30 -7 6)"/>
+          <ellipse cx="0" cy="8" rx="1.6" ry="2.2"/>
+          <ellipse cx="7" cy="6" rx="1.6" ry="2.2" transform="rotate(30 7 6)"/>
+          <ellipse cx="-4" cy="14" rx="1.6" ry="2.2" transform="rotate(-15 -4 14)"/>
+          <ellipse cx="4" cy="14" rx="1.6" ry="2.2" transform="rotate(15 4 14)"/>
+        </g>
+      </g>
+      <g fill="#9b7bb8" opacity="0.6">
+        <path d="M50 24 Q44 22 46 18 Q50 16 54 18 Q56 22 50 24 Z"/>
+      </g>
+      <text x="50" y="14" text-anchor="middle" font-family="Georgia,serif" font-size="5.5" fill="#3a2f23" font-style="italic">Nigella</text>
+    </svg>
+  </div>
+  <div class="item-content">
+    <h4>Czarnuszka (nigella sativa)</h4>
+    <div class="item-tag">Czarne ziarno błogosławione · zielnik biblijny</div>
+    <p>Czarnuszka siewna (<i>Nigella sativa</i>) — w tradycji chrześcijańskiej „czarne ziarno błogosławione”, znane już z Księgi Izajasza (Iz 28,25-27). Hadis Mahometa nazywał ją „lekiem na wszystko oprócz śmierci”, a chrześcijańscy zielarze średniowieczni — <i>panacea nigra</i>. W Polsce uprawiana w ogrodach klasztornych co najmniej od XV w. (cysterskie). Współczesne badania potwierdziły działanie tymochinonu — silnego antyoksydantu i czynnika immunomodulującego.</p>
+    <div class="item-detail">
+      <div class="detail-block">
+        <strong class="label">Czym jest dokładnie</strong>
+        Stosuje się <b>nasiona</b> (drobne, czarne, kanciaste, ostry pieprzno-orzechowy aromat) lub tłoczony na zimno olej. Roślina jednoroczna, kwitnie biało-błękitnie, wytwarza torebki nasienne. Zbiór: sierpień-wrzesień, gdy torebki brązowieją. Tłoczenie na zimno = zachowanie tymochinonu. Olej autentyczny: ciemnozłoty do brązowego, gorzko-pieprzny smak, niemiły, ale charakterystyczny zapach.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Właściwości i znaczenie duchowe</strong>
+        Działanie immunomodulujące, antyhistaminowe (alergie), przeciwzapalne, wspomagające trawienie, hepatoprotekcyjne (chroni wątrobę). W tradycji chrześcijańskiej symbol skromności i wiary („nasienie najmniejsze dające plon”). Polskie zielarki klasztorne uważały ją za zioło maryjne — święcona 15 sierpnia. Hildegarda nie wymienia jej (była mało rozpowszechniona w jej czasach), ale późniejsi mistrzowie zielarscy (Marcin z Urzędowa, XVI w.) zalecali ją przy „suchotach i kaszlu”.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak zdobyć / gdzie kupić</strong>
+        <ul>
+          <li>Sklepy zielarskie i ekologiczne: nasiona całe 18-30 zł/100 g</li>
+          <li>Olej tłoczony na zimno: 30-60 zł/100 ml (etiopski, syryjski lub polski; eko najlepiej)</li>
+          <li>Apteki: kapsułki olejowe 25-45 zł/60 szt.</li>
+          <li>Sygnały jakości: nasiona błyszczące, zapach ostry, olej z datą tłoczenia &lt;6 mies., w ciemnej butelce</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak przygotować</strong>
+        <ul>
+          <li><b>Olej kuracyjnie:</b> pół łyżeczki rano na czczo, popić wodą lub wymieszać z miodem</li>
+          <li><b>Nasiona mielone:</b> łyżeczka świeżo zmielonych nasion na sałatkę, jogurt, chleb</li>
+          <li><b>Napar (rzadki):</b> łyżeczka nasion na 200 ml wrzątku, parzyć 10 minut</li>
+          <li><b>Maść skórna:</b> olej z czarnuszki + olej kokosowy 1:1 — na egzemy, łuszczycę</li>
+          <li><b>Inhalacja:</b> 1 łyżka oleju do 1 l gorącej wody na katar i zatoki</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Dawkowanie i czas trwania</strong>
+        Dorośli: pół do 1 łyżeczki oleju dziennie rano przez 4-6 tygodni, następnie 2 tygodnie przerwy. Nasiona: 1-3 g zmielone dziennie. Dzieci powyżej 6 lat: pół łyżeczki oleju 3 razy w tygodniu. Kuracja immunomodulacyjna jesienno-zimowa: 6 tygodni przed sezonem grypowym.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Kiedy konkretnie sięgnąć</strong>
+        Nawracające infekcje, słaba odporność → kuracja 6-tygodniowa olejem rano. Alergie sezonowe (pyłki) → 4 tygodnie przed sezonem + cały sezon. Astma alergiczna (jako wspomaganie!) → po konsultacji z pulmonologiem. Egzema, łuszczyca → maść 2 razy dziennie + kuracja doustna. Wsparcie wątroby po antybiotykach → 2 tygodnie po leczeniu.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Przechowywanie</strong>
+        Nasiona: szczelny słoik, ciemna spiżarnia &lt;18°C — do 2 lat (zachowują pełnię działania). Olej: ciemna butelka, lodówka po otwarciu, zużyć w 3 miesiące (po tym czasie utlenia się). Sygnały zepsucia: olej zjełczały (kwaśny, gryzący zapach), nasiona stęchłe, pleśń.
+      </div>
+      <div class="detail-block warn">
+        <strong class="label">Uwaga / Przeciwwskazania</strong>
+        <b>Nie stosować w ciąży</b> (działanie poronne w dużych dawkach). Karmienie piersią — ostrożnie. Cukrzyca — może obniżać poziom cukru, dostosować leki. Niskie ciśnienie — może je dalej obniżać. Operacje — odstawić 14 dni przed (wpływ na krzepliwość). Pierwsze użycie — sprawdzić tolerancję skórną. Nie zastępuje leczenia. Konsultuj z lekarzem przy poważnych objawach lub gdy bierzesz leki.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="item-card illus">
+  <div class="item-illus">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <ellipse cx="50" cy="92" rx="36" ry="3" fill="#8b7355" opacity="0.3"/>
+      <g stroke="#6b3e2e" stroke-width="1.2" fill="none">
+        <path d="M50 90 L50 30"/>
+        <path d="M50 70 L30 60 M50 70 L70 60 M50 55 L34 42 M50 55 L66 42 M50 42 L40 32 M50 42 L60 32"/>
+      </g>
+      <g fill="#4a6b4a" stroke="#3a2f23" stroke-width="0.3">
+        <path d="M30 60 Q22 56 20 62 Q22 66 30 64 Z"/>
+        <path d="M70 60 Q78 56 80 62 Q78 66 70 64 Z"/>
+        <path d="M34 42 Q26 38 24 44 Q26 48 34 46 Z"/>
+        <path d="M66 42 Q74 38 76 44 Q74 48 66 46 Z"/>
+      </g>
+      <g fill="#3a2f23" stroke="#6b3e2e" stroke-width="0.3">
+        <circle cx="42" cy="38" r="2"/>
+        <circle cx="46" cy="36" r="2"/>
+        <circle cx="50" cy="34" r="2"/>
+        <circle cx="54" cy="36" r="2"/>
+        <circle cx="58" cy="38" r="2"/>
+        <circle cx="44" cy="42" r="2"/>
+        <circle cx="48" cy="40" r="2"/>
+        <circle cx="52" cy="40" r="2"/>
+        <circle cx="56" cy="42" r="2"/>
+        <circle cx="46" cy="46" r="2"/>
+        <circle cx="50" cy="44" r="2"/>
+        <circle cx="54" cy="46" r="2"/>
+        <circle cx="48" cy="50" r="2"/>
+        <circle cx="52" cy="50" r="2"/>
+      </g>
+      <text x="50" y="14" text-anchor="middle" font-family="Georgia,serif" font-size="5.5" fill="#3a2f23" font-style="italic">Sambucus</text>
+    </svg>
+  </div>
+  <div class="item-content">
+    <h4>Sok z czarnego bzu</h4>
+    <div class="item-tag">Stara polska tradycja · drzewo Maryi</div>
+    <p>Bez czarny (<i>Sambucus nigra</i>) — w polskiej tradycji ludowej święte drzewo: pod nim nie wolno było rąbać drewna ani nieczystości spalać, bo rośnie w cieniu Matki Bożej. Polskie babcie zbierały kwiaty w czerwcu, owoce we wrześniu — robiły syrop „na wszystko” na całą zimę. Hildegarda nazywała go <i>holderbeere</i> i polecała przy „chorobach gorącej krwi”. Współczesne badania potwierdziły działanie antywirusowe (antocyjany) skuteczne także przeciw wirusom grypy.</p>
+    <div class="item-detail">
+      <div class="detail-block">
+        <strong class="label">Czym jest dokładnie</strong>
+        Krzew lub niewielkie drzewo, dziko rosnący w Polsce na obrzeżach lasów, miedzach, przydrożach. Stosuje się: <b>kwiaty</b> (czerwiec — białe baldachy), <b>owoce</b> (wrzesień — czarno-fioletowe drobne kuleczki, dojrzałe całkowicie czarne i miękkie). Surowe owoce zawierają lekko trujący sambunigryn — <b>obowiązkowe gotowanie</b> przed spożyciem (10 minut wystarczy do unieczynnienia). Kwiaty można suszyć i używać surowych.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Właściwości i znaczenie duchowe</strong>
+        Działanie napotne (kwiaty), antywirusowe i immunostymulujące (antocyjany owocu), przeciwgorączkowe, wykrztuśne. Polska tradycja: krzewy bzu przy wiejskich kapliczkach i krzyżach przydrożnych. Bukiety z kwiatem czarnego bzu święcono w Boże Ciało. Wierzono, że demony nie zbliżają się do drzewa, na którym Judasz się powiesił (legenda — odwrócona w tradycji polskiej w ochronę przez krew Chrystusa). Hildegarda: <i>„uwalnia ciało od złych humorów”</i>.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak zdobyć / gdzie kupić</strong>
+        <ul>
+          <li>Zbiór własny: kwiaty czerwiec (rano, przed pełnym otwarciem), owoce — koniec sierpnia/wrzesień, dojrzałe (gałąź zwisa)</li>
+          <li>Apteki: syrop z czarnego bzu (Bonifratrzy, Sambucol) 18-35 zł/250 ml</li>
+          <li>Sklepy zielarskie: kwiaty suszone 12-20 zł/50 g, owoce 15-25 zł/100 g</li>
+          <li>Sygnały jakości: syrop ciemnofioletowy (prawie czarny), gęsty, bez konserwantów; owoce suszone — czarno-granatowe, lśniące</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak przygotować</strong>
+        <ul>
+          <li><b>Syrop domowy z owoców:</b> 1 kg dojrzałych owoców + 0,5 l wody — gotować 30 min, przecedzić, dodać 500 g cukru i sok z 1 cytryny, zagotować ponownie 5 min, do butelek</li>
+          <li><b>Syrop z kwiatów:</b> 30 baldachów kwiatu + 1 l wody + 1 kg cukru + 2 cytryny — zalać wrzątkiem, nastawić 24-48 godz., odcedzić, krótko zagotować</li>
+          <li><b>Napar z kwiatów:</b> 1 łyżka kwiatu na 250 ml wrzątku, parzyć 10 min — działa napotnie</li>
+          <li><b>Konfitura z owoców:</b> dla wzmocnienia odporności łyżeczka dziennie</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Dawkowanie i czas trwania</strong>
+        Dorośli: 1 łyżka syropu rozpuszczona w szklance gorącej wody, 2-3 razy dziennie przez 5-7 dni przy infekcji. Profilaktycznie zimą: łyżka rano przez 2-3 tygodnie. Dzieci powyżej 1 r.ż.: pół łyżeczki 2 razy dziennie. Napar z kwiatów napotny: 2-3 razy dziennie maks. 3 dni.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Kiedy konkretnie sięgnąć</strong>
+        Pierwsze objawy grypy/przeziębienia → syrop 3 razy dziennie + napar napotny wieczorem. Gorączka → napar z kwiatów co 4 godziny ciepły. Kaszel z infekcji → syrop z owoców 4 razy dziennie. Profilaktyka jesienna (październik-listopad) → łyżka syropu rano. Po antybiotyku — wsparcie odporności → 2 tygodnie syropu.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Przechowywanie</strong>
+        Syrop pasteryzowany w czystych słoikach/butelkach: spiżarnia &lt;18°C do 12 miesięcy, po otwarciu lodówka 4-6 tygodni. Suszone kwiaty: szczelny słoik, ciemna spiżarnia — do 1 roku. Suszone owoce: do 18 miesięcy. Sygnały zepsucia: pleśń na powierzchni syropu, kwaśny zapach (fermentacja), bańki gazu.
+      </div>
+      <div class="detail-block warn">
+        <strong class="label">Uwaga / Przeciwwskazania</strong>
+        <b>Surowe owoce, niedojrzałe owoce, liście i kora są lekko trujące</b> (sambunigryn) — zawsze gotować! Choroby autoimmunologiczne — czarny bez stymuluje układ odporności, ostrożnie. Cukrzyca — syrop zawiera cukier, dostosować dietę. Ciąża i dzieci poniżej 1 r.ż. — tylko po konsultacji. Leki immunosupresyjne — może osłabiać ich działanie. Nie zastępuje leczenia. Konsultuj z lekarzem przy poważnych objawach lub gdy bierzesz leki.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="item-card illus">
+  <div class="item-illus">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <ellipse cx="50" cy="92" rx="34" ry="3" fill="#8b7355" opacity="0.3"/>
+      <g transform="translate(50,55)">
+        <ellipse cx="0" cy="20" rx="22" ry="6" fill="#6b3e2e" stroke="#3a2f23" stroke-width="0.5"/>
+        <path d="M-22 20 L-22 -8 Q-22 -16 0 -18 Q22 -16 22 -8 L22 20" fill="#c9a961" stroke="#6b3e2e" stroke-width="0.6"/>
+        <ellipse cx="0" cy="-8" rx="22" ry="6" fill="#6b3e2e" opacity="0.4"/>
+        <g fill="#3a2f23">
+          <ellipse cx="-12" cy="-2" rx="2" ry="2.5"/>
+          <ellipse cx="-4" cy="-4" rx="2" ry="2.5"/>
+          <ellipse cx="4" cy="-2" rx="2" ry="2.5"/>
+          <ellipse cx="12" cy="-4" rx="2" ry="2.5"/>
+          <ellipse cx="-8" cy="6" rx="2" ry="2.5"/>
+          <ellipse cx="0" cy="4" rx="2" ry="2.5"/>
+          <ellipse cx="8" cy="6" rx="2" ry="2.5"/>
+          <ellipse cx="-4" cy="12" rx="2" ry="2.5"/>
+          <ellipse cx="4" cy="12" rx="2" ry="2.5"/>
+        </g>
+        <path d="M-12 -22 L-12 -16 L12 -16 L12 -22" stroke="#8b7355" stroke-width="0.8" fill="none"/>
+        <text y="-20" text-anchor="middle" font-family="Georgia,serif" font-size="5" fill="#3a2f23" font-style="italic">Propolis</text>
+      </g>
+      <g transform="translate(75,30)">
+        <path d="M-3 0 Q-5 -3 -3 -5 Q0 -7 3 -5 Q5 -3 3 0 Q5 3 3 5 Q0 7 -3 5 Q-5 3 -3 0 Z" fill="#c9a961" stroke="#6b3e2e" stroke-width="0.4"/>
+        <ellipse cx="-4" cy="-2" rx="1.5" ry="1" fill="#faf6ed" opacity="0.7"/>
+        <ellipse cx="4" cy="-2" rx="1.5" ry="1" fill="#faf6ed" opacity="0.7"/>
+      </g>
+    </svg>
+  </div>
+  <div class="item-content">
+    <h4>Propolis</h4>
+    <div class="item-tag">Apteczka pszczela · od starożytności</div>
+    <p>Propolis (kit pszczeli) — żywicowo-balsamiczna substancja zbierana przez pszczoły z pączków drzew (topola, brzoza, świerk) i przetwarzana z dodatkiem własnych enzymów. Pszczoły używają go do dezynfekcji ula i zabezpieczania martwych intruzów. W medycynie europejskiej znany od czasów Hipokratesa. Polscy pszczelarze tradycji bartniczej (Puszcza Białowieska, Kurpie) zostawiali zawsze trochę propolisu w domu — „lekarstwo z ula od Pana Boga przez pszczołę”.</p>
+    <div class="item-detail">
+      <div class="detail-block">
+        <strong class="label">Czym jest dokładnie</strong>
+        Mieszanina żywic roślinnych (50%), wosku (30%), olejków eterycznych, pyłku, enzymów pszczelich. Kolor brunatno-żółty do ciemnobrązowego, zapach żywiczno-balsamiczny intensywny, smak gorzkawy lekko piekący. Najbogatszy w bioflawonoidy propolis pochodzi z Puszczy Białowieskiej i z polskich Karpat (topolowy, świerkowy). Forma: krople (nalewka spirytusowa 5-30%), maść, aerozol, miód propolisowy, surowy kit (bryłki).
+      </div>
+      <div class="detail-block">
+        <strong class="label">Właściwości i znaczenie duchowe</strong>
+        Działanie antybakteryjne, antywirusowe, przeciwgrzybicze, immunostymulujące, gojące, przeciwzapalne, miejscowo znieczulające. Zawiera ponad 300 związków biologicznie czynnych. W tradycji chrześcijańskiej pszczoły są symbolem Maryi (czystej Dziewicy płodnej duchem) — Wigilia Paschalna i Exsultet wspomina pszczołę przy świecy paschalnej. Polskie pszczelarstwo bartnicze ma korzenie klasztorne (cysterskie, benedyktyńskie) — propolis często święcono razem z miodem 15 sierpnia.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak zdobyć / gdzie kupić</strong>
+        <ul>
+          <li>Bezpośrednio od pszczelarza: nalewka 10-20% — 25-50 zł/30 ml, surowy kit 80-150 zł/100 g</li>
+          <li>Apteki i sklepy zielarskie: krople, aerozole, maść — 15-40 zł</li>
+          <li>Stowarzyszenie Pszczelarzy Polskich (znak „Polski Miód”) — gwarancja autentyczności</li>
+          <li>Sygnały jakości: ciemnobrązowy, intensywny żywiczny zapach, gorzki smak (jeśli słaby zapach — rozcieńczony)</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak przygotować i używać</strong>
+        <ul>
+          <li><b>Doustnie:</b> 5-10 kropli nalewki 10% na łyżkę miodu lub w kieliszku ciepłej wody, 1-3 razy dziennie</li>
+          <li><b>Płukanie gardła:</b> 15-20 kropli nalewki w 100 ml letniej wody, płukać 30 sek 3 razy dziennie</li>
+          <li><b>Aerozol do gardła:</b> bezpośrednio na gardło 2-3 razy dziennie</li>
+          <li><b>Maść skórna:</b> na opryszczkę, drobne rany, owrzodzenia — 2 razy dziennie cienka warstwa</li>
+          <li><b>Inhalacja:</b> 30 kropli na 1 l wrzątku, oddychać 10 minut</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Dawkowanie i czas trwania</strong>
+        Dorośli: 5-10 kropli 10% nalewki 2-3 razy dziennie przez 7-14 dni przy infekcji, następnie 7 dni przerwy. Profilaktycznie: 5 kropli rano przez 3 tygodnie, miesiąc przerwy. Dzieci powyżej 3 lat: 2-3 krople 1-2 razy dziennie (po teście tolerancji). Maść — do ustąpienia zmian skórnych (zwykle 5-10 dni).
+      </div>
+      <div class="detail-block">
+        <strong class="label">Kiedy konkretnie sięgnąć</strong>
+        Ból gardła, początek anginy → płukanka 3 razy dziennie + krople doustne. Opryszczka warg → maść co 4 godziny od pierwszego mrowienia. Drobne rany, oparzenia I stopnia → maść 2 razy dziennie. Afty, zapalenie dziąseł → krople bezpośrednio na zmianę. Spadek odporności → kuracja 3-tygodniowa rano. Grzybica skóry → maść 2 razy dziennie do 4 tygodni.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Przechowywanie</strong>
+        Nalewka spirytusowa: ciemna butelka, ciemna spiżarnia &lt;20°C — do 5 lat (im starsza, tym łagodniejsza w smaku). Maść — lodówka po otwarciu, do 12 miesięcy. Surowy kit: zamrażarka, do 3 lat. Sygnały zepsucia: zmętnienie nalewki, zjełczałość maści, utrata charakterystycznego zapachu.
+      </div>
+      <div class="detail-block warn">
+        <strong class="label">Uwaga / Przeciwwskazania</strong>
+        <b>Alergia na produkty pszczele</b> (miód, pyłek, jad pszczeli) — bezwzględnie nie stosować, ryzyko reakcji anafilaktycznej. Pierwsze użycie: test skórny — kropla na zgięcie łokcia, obserwować 24 godz. Astma alergiczna — ostrożnie. Dzieci poniżej 3 lat — nie stosować doustnie. Nalewka spirytusowa — nie podawać dzieciom doustnie bez konsultacji. Nie zastępuje leczenia. Konsultuj z lekarzem przy poważnych objawach lub gdy bierzesz leki.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="item-card illus">
+  <div class="item-illus">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <ellipse cx="50" cy="92" rx="32" ry="3" fill="#8b7355" opacity="0.3"/>
+      <g transform="translate(50,55)">
+        <path d="M-12 -22 L12 -22 L12 -16 L8 -14 L8 22 Q0 26 -8 22 L-8 -14 L-12 -16 Z" fill="#faf6ed" stroke="#8b7355" stroke-width="0.7"/>
+        <rect x="-13" y="-26" width="26" height="6" rx="1" fill="#6b3e2e" stroke="#3a2f23" stroke-width="0.5"/>
+        <path d="M-3 -32 L3 -32 L3 -26 M-3 -29 L3 -29" stroke="#c9a961" stroke-width="1.2" fill="none"/>
+        <text y="0" text-anchor="middle" font-family="Georgia,serif" font-size="7" fill="#9b7bb8" font-style="italic">M</text>
+        <path d="M-3 6 L3 6 M0 4 L0 10" stroke="#9b7bb8" stroke-width="0.8"/>
+        <ellipse cx="0" cy="16" rx="4" ry="2" fill="#a8c4d8" opacity="0.5"/>
+      </g>
+      <g transform="translate(80,75)">
+        <path d="M0 -6 Q-4 0 0 6 Q4 0 0 -6 Z" fill="#a8c4d8" stroke="#5a8aa0" stroke-width="0.5"/>
+      </g>
+      <g transform="translate(20,30)">
+        <path d="M0 0 L0 6 M-3 3 L3 3" stroke="#c9a961" stroke-width="0.8"/>
+      </g>
+      <text x="50" y="14" text-anchor="middle" font-family="Georgia,serif" font-size="5" fill="#3a2f23" font-style="italic">Aqua Lourdensis</text>
+    </svg>
+  </div>
+  <div class="item-content">
+    <h4>Woda z Lourdes / z sanktuariów</h4>
+    <div class="item-tag">Św. Bernadeta · 1858 r. · łaska Niepokalanej</div>
+    <p>11 lutego 1858 r. w Massabielle k. Lourdes Maryja objawiła się Bernadetcie Soubirous. 25 lutego, przy dziewiątym objawieniu, Niepokalana wskazała Bernadettcie miejsce w grocie ze słowami: <i>„Idź, napij się ze źródła i obmyj się w nim”</i>. Bernadeta odgrzebała ziemię — wytrysnęło źródło, dziś wypływa 32 000 litrów dziennie. Międzynarodowe Biuro Medyczne w Lourdes zarejestrowało setki tysięcy uzdrowień, z czego 70 zostało oficjalnie uznanych przez Kościół za cudowne (po długich badaniach lekarskich). W Polsce: Częstochowa, Licheń, Kalwaria Zebrzydowska, Niepokalanów — wszędzie wody błogosławione w sanktuariach.</p>
+    <div class="item-detail">
+      <div class="detail-block">
+        <strong class="label">Czym jest</strong>
+        Woda ze źródła w Grocie Massabielle (Lourdes) lub innych sanktuariach maryjnych. Chemicznie — zwykła woda mineralna, badaniami nie różni się od miejscowych źródeł. Jej moc nie pochodzi z chemii, lecz z wstawiennictwa Maryi i wiary korzystającego. Nie jest sakramentem ani amuletem — jest sakramentalium (znak święty Kościoła). Forma: małe buteleczki plastikowe (kremowa figurka Maryi z Lourdes na korku), butelki szklane, ampułki.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Skąd pochodzi i jak ją zdobyć</strong>
+        <ul>
+          <li><b>Lourdes (Francja):</b> pielgrzymi nabierają osobiście ze źródła, przewożą do domu w buteleczkach. Sanktuarium daje za darmo</li>
+          <li><b>Polska — sklepy z dewocjonaliami:</b> w Częstochowie, Licheniu, Kalwarii — buteleczki Lourdes 8-25 zł, woda jasnogórska 5-15 zł</li>
+          <li><b>Pielgrzymi powracający z Lourdes</b> dzielą się — tradycja polska gościnności</li>
+          <li><b>Woda święcona z parafii</b> (kropielnice, Wielka Sobota) — alternatywa dla codziennego użycia</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Jak używać</strong>
+        <ul>
+          <li><b>Picie:</b> łyżeczka (dorośli) lub kropla (niemowlę) wraz z modlitwą do Matki Bożej z Lourdes lub Zdrowaś Maryjo, na czczo lub przed zaśnięciem</li>
+          <li><b>Pokropienie:</b> chorego, dziecka, miejsca w domu — palcem lub kropidłem domowym, zawsze ze znakiem krzyża</li>
+          <li><b>Obmycie:</b> czoła, oczu, miejsca chorego — gestem Bernadetty (ona obmywała twarz w błotnistej wodzie posłuszna Maryi)</li>
+          <li><b>Namaszczenie:</b> kropla na czole + modlitwa „Niepokalana, módl się za nami”</li>
+          <li><b>Ołtarzyk domowy:</b> buteleczka obok obrazu Matki Bożej, świeca</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Sytuacje konkretne</strong>
+        <ul>
+          <li>Choroba w rodzinie → łyżeczka chorego rano + pokropienie pokoju + modlitwa wspólna</li>
+          <li>Niepokój nocny, koszmary u dziecka → kropla na czoło, znak krzyża, „Pod Twoją obronę”</li>
+          <li>Ciężka decyzja, dyskernowanie powołania → łyżeczka rano przez nowennę 9 dni</li>
+          <li>Pogrzeb bliskiego → pokropienie trumny lub grobu</li>
+          <li>Przeprowadzka, nowy dom → pokropienie wszystkich pomieszczeń ze znakiem krzyża</li>
+          <li>Burza, niebezpieczeństwo → pokropienie domu i dzieci, zapalenie gromnicy</li>
+          <li>Pielgrzymka mentalna do Lourdes → łyżeczka + różaniec do Matki Bożej z Lourdes (11 lutego — wspomnienie)</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <strong class="label">Znaczenie duchowe</strong>
+        Woda z Lourdes nie działa „magicznie” ani automatycznie. Działa <b>w mierze wiary</b> przyjmującego. Pierwszy efekt to nawrócenie serca, drugi — uzdrowienie duchowe, czasem fizyczne. Komisja medyczna w Lourdes (lekarze różnych wyznań i ateiści) bada przypadki przez średnio 10 lat — uznane za cudowne są tylko te, które nauka medyczna nie potrafi wyjaśnić. Maryja w Lourdes wezwała do <b>nawrócenia, pokuty i modlitwy za grzeszników</b> — to klucz do owoców używania wody.
+      </div>
+      <div class="detail-block">
+        <strong class="label">Przechowywanie i szacunek</strong>
+        Buteleczka w czystym miejscu, najlepiej obok obrazu Maryi lub krzyża, NIGDY w łazience razem ze środkami czystości. Zużyta resztka — wlać do ziemi pod kwiat (sakramentalia nigdy do kanalizacji ani do śmieci). Pusta buteleczka — można zachować jako pamiątkę lub spalić, popiół zakopać. Pod żadnym pozorem nie sprzedawać.
+      </div>
+      <div class="detail-block warn">
+        <strong class="label">Ważne uwagi</strong>
+        Woda święcona <b>nie zastępuje sakramentów</b> (Eucharystii, Spowiedzi, Namaszczenia chorych) ani lekarzy i leków. Maryja prosiła Bernadettę: <i>„Powiedz kapłanom”</i> — to znaczy: zdrowie duszy idzie przez Kościół, nie przez prywatną pobożność. Używaj wody z Lourdes razem z regularną Spowiedzią, Eucharystią i lekarstwami. Nie ufaj „wodom magicznym” sprzedawanym przez przedsiębiorców religijnych — autentyczne źródła są darmowe lub w cenie symbolicznej w sanktuariach. Konsultuj poważne objawy z lekarzem.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ornament">
+  <svg viewBox="0 0 140 36" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 5 18 Q 35 8 70 18 Q 105 28 135 18" stroke="currentColor" stroke-width="0.8" fill="none"/>
+    <path d="M 70 13 L 72 17 L 76 18 L 72 19 L 70 23 L 68 19 L 64 18 L 68 17 Z" fill="currentColor"/>
+  </svg>
+</div>
+
+<!-- ============== CZĘŚĆ IV ============== -->
+<div class="part-divider">
+  <div class="part-icon">
+    <svg viewBox="0 0 60 60" fill="none">
+      <path d="M30 5L8 18v18c0 11 9 19 22 22 13-3 22-11 22-22V18L30 5z" stroke="currentColor" stroke-width="2"/>
+      <path d="M30 24v14M23 31h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="part-label">Część czwarta</div>
+  <h2>Modlitwy ratunkowe</h2>
+  <p>Cztery modlitwy do natychmiastowego użycia</p>
+  <div class="part-line"></div>
+</div>
+
+<div class="prayer-box">
+  <div class="prayer-name">Modlitwa pierwsza</div>
+  <h4>Modlitwa św. Michała Archanioła</h4>
+  <p>Święty Michale Archaniele, broń nas w walce. Przeciw zasadzkom i niegodziwości złego ducha bądź naszą obroną.</p>
+  <p>Niech go Bóg pogromi, pokornie błagamy, a Ty, Książę zastępów niebieskich, szatana i inne złe duchy, które na zgubę dusz krążą po świecie, mocą Bożą strąć do piekła.</p>
+  <div class="amen">A M E N</div>
+</div>
+
+<div class="prayer-box">
+  <div class="prayer-name">Modlitwa druga</div>
+  <h4>Akt zawierzenia rodziny Maryi</h4>
+  <p>Najświętsza Maryjo Panno, Matko Boża, Królowo Polski. Dziś, świadoma swojej kruchości i potrzeby ochrony, zawierzam Ci całe moje życie i moją rodzinę.</p>
+  <p>Oddaję Ci moich rodziców (jeśli jeszcze żyją) i tych, którzy odeszli. Oddaję Ci mojego męża/żonę. Oddaję Ci moje dzieci po imieniu — [wymień każde]. Oddaję Ci moje wnuki — [wymień każde]. Oddaję Ci nasz dom, naszą pracę, nasze zdrowie.</p>
+  <p>Tarczo wierzących, rozciągnij Twój płaszcz nad nami. Strzeż nas od zła, od grzechu, od wpływów ciemności. Prowadź nas drogą zbawienia. Niech żaden z nas nie zginie na wieki.</p>
+  <p>Twoja jestem, Maryjo. Wszystko, co moje, jest Twoje. Bądź naszą Matką teraz i w godzinie naszej śmierci.</p>
+  <div class="amen">A M E N</div>
+</div>
+
+<div class="prayer-box">
+  <div class="prayer-name">Modlitwa trzecia</div>
+  <h4>Modlitwa o ochronę domu</h4>
+  <p>Panie Boże nasz, Ty obiecałeś, że gdzie dwóch lub trzech zgromadzi się w Twoje imię, Ty jesteś pośród nich. Spójrz na ten nasz dom — niech będzie miejscem Twojej obecności.</p>
+  <p>Pobłogosław każdy pokój, każde łóżko, każdą szafę i kuchnię. Pobłogosław stół, przy którym jadamy, i Pismo, które czytamy. Pobłogosław spiżarnię, by nigdy nie zabrakło chleba.</p>
+  <p>Posłaj swoich aniołów, by stanęli na straży naszych drzwi. Niech żadne zło nie wchodzi do tego domu. Niech żaden duch ciemności nie zatrzyma się tutaj.</p>
+  <p>Maryjo, weź ten dom pod Swój płaszcz. Niech Twoje stopy zdepczą każdą głowę węża, który chciałby tu wejść. Niech Twój wzrok obejmie każdy kąt, każde okno, każdy próg.</p>
+  <p>Niech ten dom będzie Wieczernikiem — miejscem modlitwy, pokoju, miłości i Twojej obecności.</p>
+  <div class="amen">A M E N</div>
+</div>
+
+<div class="prayer-box">
+  <div class="prayer-name">Modlitwa czwarta</div>
+  <h4>Modlitwa wieczorna pod osłoną Maryi</h4>
+  <p>Pod Twoją obronę uciekamy się, święta Boża Rodzicielko. Naszymi prośbami racz nie gardzić w potrzebach naszych, ale od wszelakich złych przygód racz nas zawsze wybawiać, Panno chwalebna i błogosławiona.</p>
+  <p>O Pani nasza, Orędowniczko nasza, Pośredniczko nasza, Pocieszycielko nasza. Z Synem swoim nas pojednaj, Synowi swojemu nas polecaj, Synowi swojemu nas oddawaj.</p>
+  <div class="amen">A M E N</div>
+</div>
+
+<div class="ornament">
+  <svg viewBox="0 0 140 36" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 5 18 Q 35 8 70 18 Q 105 28 135 18" stroke="currentColor" stroke-width="0.8" fill="none"/>
+    <path d="M 70 13 L 72 17 L 76 18 L 72 19 L 70 23 L 68 19 L 64 18 L 68 17 Z" fill="currentColor"/>
+  </svg>
+</div>
+
+<!-- CLOSING -->
+<div class="closing-page">
+  <h2>Twój dom — twierdza miłości</h2>
+  <p>Maryja zapowiadała trudne czasy, ale nigdy nie zapowiadała ich, by nas wystraszyć. Zapowiadała, by nas <b>przygotować</b>.</p>
+  <p>Wybrana kobieta nie żyje w lęku. Żyje w spokojnej gotowości. Jej dom ma sakramentalia. Jej spiżarnia ma chleb i sól. Jej apteczka ma zioła pobłogosławione w święto Matki Bożej Zielnej. A nad jej drzwiami wisi krzyż.</p>
+  <p>Gdy nadejdzie burza — a może przyjść jakakolwiek, w jakimkolwiek wymiarze — Twój dom będzie schronieniem. Najpierw dla Twojej rodziny. Potem dla sąsiadów. Potem dla tych, których przyśle Maryja na Twoje progi.</p>
+  <p style="font-style: italic; color: var(--gold-soft); margin-top: 26px;">To jest misja Wybranej. Tarcza Maryi. Twój dom.</p>
+  <div class="closing-verse">„Dom będzie zbudowany przez Mądrość i utrwalony przez Roztropność.” — Prz 24,3</div>
+</div>
+
+</main>
+
+</body>
+</html>

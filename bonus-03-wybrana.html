@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wybrana — Tajemny Klucz Maryi</title>
+<style>
+  :root {
+    --cream: #f5efe6;
+    --cream-light: #faf6ed;
+    --cream-soft: #efe6cf;
+    --gold: #c9a961;
+    --gold-soft: #d8bd7a;
+    --gold-dark: #8b7355;
+    --brown: #6b5b3e;
+    --brown-deep: #3a2f23;
+    --navy-deep: #0f1a2e;
+    --navy: #1a2942;
+    --line: #d4c4a8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: var(--cream);
+    color: var(--brown-deep);
+    line-height: 1.85;
+    font-size: 18px;
+  }
+
+  .toolbar {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    background: var(--navy-deep);
+    color: var(--gold);
+    padding: 12px 18px;
+    border-radius: 10px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    font-size: 13px;
+    z-index: 100;
+    border: 1px solid var(--gold);
+  }
+  .toolbar button {
+    background: var(--gold);
+    color: var(--navy-deep);
+    border: none;
+    padding: 9px 16px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  /* COVER (safira profundo) */
+  .cover {
+    min-height: 100vh;
+    background:
+      radial-gradient(ellipse at top, rgba(255,220,150,0.20) 0%, transparent 55%),
+      linear-gradient(160deg, #0e1a3e 0%, #1a2a5e 55%, #0a1230 100%);
+    color: var(--cream);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 30px;
+    position: relative;
+  }
+  .cover::before {
+    content: "";
+    position: absolute;
+    inset: 30px;
+    border: 1px solid rgba(201,169,97,0.25);
+    pointer-events: none;
+  }
+  .cover-tagline {
+    font-size: 12px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    opacity: 0.85;
+    margin-bottom: 28px;
+  }
+  .cover-mark { color: var(--gold); margin-bottom: 22px; }
+  .cover-mark svg {
+    width: 130px; height: 130px;
+    filter: drop-shadow(0 0 20px rgba(201,169,97,0.5));
+  }
+  .cover h1 {
+    font-size: 56px;
+    font-weight: normal;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+    line-height: 1.1;
+  }
+  .cover h2 {
+    font-size: 19px;
+    font-weight: normal;
+    font-style: italic;
+    color: var(--cream);
+    opacity: 0.92;
+    margin-bottom: 50px;
+    max-width: 540px;
+    line-height: 1.5;
+  }
+  .cover-sub {
+    font-size: 13px;
+    color: var(--gold-soft);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-top: auto;
+    padding-top: 30px;
+  }
+
+  main { max-width: 760px; margin: 0 auto; padding: 50px 28px 60px; }
+
+  .ornament {
+    text-align: center;
+    margin: 50px 0;
+    color: var(--gold);
+  }
+  .ornament svg { width: 140px; height: 36px; }
+
+  /* Opening */
+  .opening {
+    background: var(--cream-light);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 40px 36px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .opening::before {
+    content: "";
+    position: absolute;
+    top: -1px; left: -1px; right: -1px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-soft), var(--gold));
+    border-radius: 14px 14px 0 0;
+  }
+  .opening h2 {
+    font-size: 30px;
+    color: var(--brown-deep);
+    font-style: italic;
+    margin-bottom: 6px;
+    text-align: center;
+  }
+  .opening .subtitle {
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 30px;
+  }
+  .opening p {
+    margin-bottom: 18px;
+    font-size: 17.5px;
+    line-height: 1.85;
+  }
+  .opening p:last-child { margin-bottom: 0; }
+  .opening .pull-quote {
+    background:
+      radial-gradient(ellipse at top, rgba(201,169,97,0.10) 0%, transparent 70%),
+      linear-gradient(135deg, var(--navy-deep), var(--navy));
+    color: var(--cream);
+    border-radius: 10px;
+    padding: 26px 28px;
+    margin: 26px 0;
+    text-align: center;
+    font-style: italic;
+    font-size: 18.5px;
+    line-height: 1.6;
+    border: 1px solid rgba(201,169,97,0.3);
+  }
+  .opening .pull-quote .quote-mark {
+    font-size: 40px;
+    color: var(--gold);
+    line-height: 0.5;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  /* Part divider */
+  .part-divider {
+    text-align: center;
+    margin: 60px 0 40px;
+  }
+  .part-divider .part-label {
+    font-size: 12px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  .part-divider h2 {
+    font-size: 32px;
+    color: var(--brown-deep);
+    font-style: italic;
+    line-height: 1.25;
+    margin-bottom: 14px;
+  }
+  .part-divider .part-line {
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 14px auto 0;
+  }
+
+  /* Sinais cards */
+  .sign-card {
+    background: var(--cream-light);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 32px 32px;
+    margin-bottom: 26px;
+    position: relative;
+  }
+  .sign-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    border-radius: 14px 0 0 0;
+  }
+  .sign-number {
+    display: inline-block;
+    background: var(--navy-deep);
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 44px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Georgia, serif;
+    margin-bottom: 14px;
+  }
+  .sign-card h3 {
+    font-size: 26px;
+    color: var(--brown-deep);
+    font-style: italic;
+    margin-bottom: 6px;
+    line-height: 1.25;
+  }
+  .sign-card .biblical-ref {
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    color: var(--gold-dark);
+    margin-bottom: 18px;
+    font-style: italic;
+  }
+  .sign-card p {
+    font-size: 17px;
+    margin-bottom: 14px;
+    line-height: 1.8;
+  }
+  .sign-card .recognition {
+    background: linear-gradient(135deg, #fff8e8, #f5e9c8);
+    border-left: 3px solid var(--gold);
+    padding: 18px 22px;
+    margin-top: 18px;
+    border-radius: 0 8px 8px 0;
+    font-size: 16.5px;
+    line-height: 1.75;
+  }
+  .sign-card .recognition-title {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  /* Mulheres da Bíblia - galeria */
+  .women-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin-bottom: 30px;
+  }
+  .woman-card {
+    background: var(--cream-light);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 28px 30px;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+  .woman-icon {
+    flex-shrink: 0;
+    width: 72px; height: 72px;
+    background: var(--navy-deep);
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+  }
+  .woman-icon svg { width: 36px; height: 36px; }
+  .woman-content { flex: 1; }
+  .woman-content h4 {
+    font-size: 22px;
+    color: var(--brown-deep);
+    font-style: italic;
+    margin-bottom: 4px;
+  }
+  .woman-content .woman-tag {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    font-weight: bold;
+  }
+  .woman-content p { font-size: 16.5px; line-height: 1.75; margin-bottom: 8px; }
+  .woman-content .lesson {
+    margin-top: 12px;
+    padding: 12px 16px;
+    background: rgba(201,169,97,0.10);
+    border-radius: 6px;
+    font-style: italic;
+    font-size: 15.5px;
+    border-left: 2px solid var(--gold);
+  }
+
+  /* Propósito do sofrimento */
+  .purpose-block {
+    background: linear-gradient(180deg, #faf2e0 0%, #f4ead0 100%);
+    border: 2px solid var(--gold);
+    border-radius: 14px;
+    padding: 36px 32px;
+    margin-bottom: 30px;
+  }
+  .purpose-block h3 {
+    text-align: center;
+    font-size: 26px;
+    color: var(--brown-deep);
+    font-style: italic;
+    margin-bottom: 22px;
+  }
+  .purpose-item {
+    margin-bottom: 24px;
+    padding-left: 56px;
+    position: relative;
+  }
+  .purpose-item:last-child { margin-bottom: 0; }
+  .purpose-num {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px; height: 40px;
+    background: var(--navy-deep);
+    color: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+    border: 2px solid var(--gold);
+  }
+  .purpose-item h4 {
+    font-size: 20px;
+    color: var(--brown-deep);
+    margin-bottom: 6px;
+  }
+  .purpose-item p {
+    font-size: 16.5px;
+    line-height: 1.75;
+    margin: 0;
+  }
+
+  /* Oração final */
+  .prayer-card {
+    background:
+      radial-gradient(ellipse at top, rgba(255,220,150,0.18) 0%, transparent 60%),
+      linear-gradient(160deg, #0e1a3e 0%, #1a2a5e 55%, #0a1230 100%);
+    color: var(--cream);
+    border-radius: 14px;
+    padding: 50px 36px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(201,169,97,0.3);
+    text-align: center;
+  }
+  .prayer-card .prayer-label {
+    font-size: 12px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    margin-bottom: 14px;
+  }
+  .prayer-card h3 {
+    font-size: 32px;
+    color: var(--gold);
+    font-style: italic;
+    margin-bottom: 30px;
+    line-height: 1.25;
+  }
+  .prayer-card p {
+    font-size: 17.5px;
+    line-height: 1.9;
+    margin-bottom: 16px;
+    font-style: italic;
+    text-align: left;
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .prayer-card .amen {
+    font-style: normal;
+    font-weight: bold;
+    color: var(--gold);
+    text-align: center;
+    margin-top: 20px;
+    letter-spacing: 3px;
+  }
+
+  /* Closing */
+  .closing-page {
+    background: var(--cream-light);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--gold);
+    padding: 40px 36px;
+    text-align: center;
+    border-radius: 14px;
+    margin-top: 40px;
+  }
+  .closing-page h2 {
+    font-size: 28px;
+    color: var(--brown-deep);
+    font-style: italic;
+    margin-bottom: 22px;
+  }
+  .closing-page p {
+    font-size: 17px;
+    line-height: 1.85;
+    margin-bottom: 16px;
+  }
+  .closing-page .verse {
+    margin-top: 30px;
+    padding-top: 24px;
+    border-top: 1px dashed var(--line);
+    font-style: italic;
+    color: var(--gold-dark);
+    font-size: 16px;
+  }
+
+  @page { size: A4; margin: 18mm; }
+  @media print {
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+    html, body {
+      background: #ffffff !important;
+      color: #2a2218 !important;
+      font-size: 11pt;
+      line-height: 1.55;
+    }
+    body { font-size: 11.5pt; }
+    .toolbar, .toolbar button { display: none !important; }
+    main { max-width: 100%; margin: 0; padding: 0; }
+
+    .cover {
+      background: #ffffff !important;
+      color: #2a2218 !important;
+      min-height: auto;
+      padding: 30mm 10mm 20mm;
+      page-break-after: always;
+    }
+    .cover::before { border-color: #b8943f !important; }
+    .cover-tagline { color: #8b7355 !important; }
+    .cover-mark { color: #b8943f !important; }
+    .cover-mark svg { filter: none !important; width: 90px; height: 90px; }
+    .cover h1 { color: #2a2218 !important; font-size: 38pt; }
+    .cover h2 { color: #3a2f23 !important; font-size: 13pt; opacity: 1; }
+    .cover-sub { color: #8b7355 !important; }
+
+    .opening, .sign-card, .woman-card, .closing-page {
+      background: #ffffff !important;
+      color: #2a2218 !important;
+      border: 1px solid #b8943f !important;
+      page-break-inside: avoid;
+      box-shadow: none !important;
+    }
+    .opening { padding: 18px 22px; margin-bottom: 18px; }
+    .opening h2, .sign-card h3, .woman-content h4,
+    .purpose-block h3, .purpose-item h4, .closing-page h2 {
+      color: #2a2218 !important;
+    }
+    .opening p, .sign-card p, .woman-content p,
+    .purpose-item p, .closing-page p {
+      color: #2a2218 !important;
+      font-size: 11pt;
+      line-height: 1.55;
+    }
+    .opening h2 { font-size: 18pt; }
+    .sign-card h3 { font-size: 15pt; }
+    .woman-content h4 { font-size: 13pt; }
+    .purpose-block h3 { font-size: 16pt; }
+    .purpose-item h4 { font-size: 12.5pt; }
+    .closing-page h2 { font-size: 16pt; }
+    .part-divider h2 { font-size: 18pt; color: #2a2218 !important; }
+
+    .opening .pull-quote {
+      background: #f7f1e2 !important;
+      color: #2a2218 !important;
+      border: 1px solid #b8943f !important;
+      page-break-inside: avoid;
+    }
+    .opening .pull-quote .quote-mark { color: #8b7355 !important; }
+    .opening .pull-quote span { color: #8b7355 !important; }
+
+    .sign-card {
+      page-break-before: always;
+      page-break-inside: avoid;
+      padding: 18px 22px;
+      margin-bottom: 14px;
+    }
+    .sign-card::before { background: #b8943f !important; }
+    .sign-number {
+      background: #ffffff !important;
+      color: #2a2218 !important;
+      border: 2px solid #8b7355 !important;
+    }
+    .sign-card .biblical-ref { color: #8b7355 !important; }
+    .sign-card .recognition {
+      background: #faf2dc !important;
+      color: #2a2218 !important;
+      border-left: 3px solid #8b7355 !important;
+    }
+    .sign-card .recognition-title { color: #6b5b3e !important; }
+
+    .woman-card {
+      page-break-before: always;
+      page-break-inside: avoid;
+      padding: 18px 22px;
+    }
+    .woman-icon {
+      background: #ffffff !important;
+      border: 2px solid #8b7355 !important;
+      color: #8b7355 !important;
+    }
+    .woman-content .woman-tag { color: #8b7355 !important; }
+    .woman-content .lesson {
+      background: #faf2dc !important;
+      border-left: 2px solid #8b7355 !important;
+      color: #2a2218 !important;
+    }
+
+    .purpose-block {
+      background: #ffffff !important;
+      border: 2px solid #b8943f !important;
+      page-break-inside: avoid;
+      padding: 18px 22px;
+    }
+    .purpose-item {
+      page-break-before: always;
+      page-break-inside: avoid;
+      margin-bottom: 14px;
+    }
+    .purpose-item:first-of-type { page-break-before: avoid; }
+    .purpose-num {
+      background: #ffffff !important;
+      color: #2a2218 !important;
+      border: 2px solid #8b7355 !important;
+    }
+
+    .prayer-card {
+      page-break-before: always;
+      page-break-inside: avoid;
+      background: #ffffff !important;
+      color: #2a2218 !important;
+      border: 2px solid #b8943f !important;
+      padding: 24px 26px;
+    }
+    .prayer-card .prayer-label { color: #8b7355 !important; }
+    .prayer-card h3 { color: #2a2218 !important; font-size: 18pt; }
+    .prayer-card p { color: #2a2218 !important; font-size: 11.5pt; }
+    .prayer-card .amen { color: #8b7355 !important; }
+
+    .closing-page {
+      page-break-before: always;
+      page-break-inside: avoid;
+      border-left: 4px solid #b8943f !important;
+      padding: 22px 26px;
+    }
+    .closing-page .verse { color: #8b7355 !important; }
+
+    .part-divider {
+      page-break-before: always;
+      page-break-after: avoid;
+      margin: 0 0 18px;
+    }
+    .part-divider .part-label,
+    .part-divider p { color: #8b7355 !important; }
+    .part-divider .part-line {
+      background: #b8943f !important;
+    }
+
+    .ornament { color: #b8943f !important; margin: 18px 0; }
+    .women-grid { gap: 0; }
+  }
+
+  @media (max-width: 600px) {
+    body { font-size: 16.5px; }
+    main { padding: 30px 20px 40px; }
+    .cover h1 { font-size: 38px; letter-spacing: 5px; }
+    .cover h2 { font-size: 16px; }
+    .opening, .sign-card, .prayer-card, .purpose-block { padding: 26px 22px; }
+    .opening h2, .sign-card h3, .purpose-block h3 { font-size: 22px; }
+    .part-divider h2 { font-size: 26px; }
+    .prayer-card h3 { font-size: 24px; }
+    .woman-card { flex-direction: column; align-items: center; text-align: center; padding: 24px 22px; }
+    .woman-icon { width: 60px; height: 60px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <button onclick="goBack()" style="margin-right:8px;">← Wróć</button>
+  <button onclick="window.print()">📄 Drukuj / PDF</button>
+</div>
+<script>
+function goBack() {
+  try {
+    if (window.parent && window.parent !== window) {
+      window.parent.postMessage({ type: 'flowlink:close' }, '*');
+    }
+  } catch (e) {}
+  if (document.referrer && document.referrer !== window.location.href) {
+    history.back();
+  } else {
+    window.location.href = 'https://tajemny-klucz-maryi.flowlink-app.online';
+  }
+}
+</script>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-tagline">Tajemny Klucz Maryi</div>
+  <div class="cover-mark">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <!-- Gwiazdy 12 -->
+      <g fill="currentColor">
+        <circle cx="50" cy="14" r="2.5"/>
+        <circle cx="68" cy="18" r="2"/>
+        <circle cx="80" cy="32" r="2"/>
+        <circle cx="84" cy="50" r="2"/>
+        <circle cx="80" cy="68" r="2"/>
+        <circle cx="68" cy="82" r="2"/>
+        <circle cx="50" cy="86" r="2.5"/>
+        <circle cx="32" cy="82" r="2"/>
+        <circle cx="20" cy="68" r="2"/>
+        <circle cx="16" cy="50" r="2"/>
+        <circle cx="20" cy="32" r="2"/>
+        <circle cx="32" cy="18" r="2"/>
+      </g>
+      <!-- Coroa central -->
+      <path d="M 35 52 L 35 60 L 65 60 L 65 52 L 60 56 L 55 48 L 50 56 L 45 48 L 40 56 Z"
+            stroke="currentColor" stroke-width="1.5" fill="none"/>
+      <!-- Coração de Maria com fogo -->
+      <path d="M 50 38 Q 38 30 38 42 Q 38 54 50 62 Q 62 54 62 42 Q 62 30 50 38 Z"
+            stroke="currentColor" stroke-width="1.8" fill="none"/>
+      <!-- Cruz acima -->
+      <path d="M 50 24 L 50 36 M 46 28 L 54 28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <h1>Wybrana</h1>
+  <h2>Twoje życie nie jest przypadkiem.<br>Niesiesz w sobie cel, którego sama jeszcze nie znasz.</h2>
+  <div class="cover-sub">Siedem znaków · Siedem kobiet Biblii · Sens cierpienia</div>
+</div>
+
+<main>
+
+<!-- OPENING -->
+<div class="opening">
+  <h2>Gdy zaczynasz podejrzewać prawdę</h2>
+  <div class="subtitle">Słowo na początek</div>
+
+  <p>Może już to czułaś. Może przez całe życie. To delikatne podejrzenie, którego nikomu nie mówisz: że nie jesteś tutaj przypadkiem. Że Twoje cierpienia są dziwne, jakby ktoś szczególnie celował w Twoją wiarę. Że atrakcja, którą czujesz do rzeczy świętych, jest silniejsza niż u innych. Że gdy się modlisz, dzieją się rzeczy, których nikt nie rozumie.</p>
+
+  <p>I ukrywałaś to. Bałaś się powiedzieć, by ktoś nie pomyślał, że uważasz się za wyjątkową. Nie chodzi o to. Chodzi o to, że <b>od dzieciństwa coś było inne</b>, choć nie umiałaś tego nazwać.</p>
+
+  <div class="pull-quote">
+    <span class="quote-mark">„</span>
+    Zanim ukształtowałem cię w łonie matki, znałem cię, nim przyszedłeś na świat, poświęciłem cię.
+    <br><span style="font-size: 13px; letter-spacing: 2px; color: var(--gold); margin-top: 12px; display: block;">— Jr 1,5</span>
+  </div>
+
+  <p>Pismo nie mówi tego tylko prorokowi Jeremiaszowi. Mówi to każdej duszy, która została wybrana do szczególnego dzieła. A w czasach takich jak nasze — gdy świat ciemnieje, gdy Kościół jest atakowany, gdy rodziny się rozsypują — Bóg potrzebuje <b>kobiet wybranych</b> bardziej niż kiedykolwiek. Cichych, wytrwałych, modlących się w domach. Bez sławy. Bez aplauzu. Ale z przeznaczeniem niebieskim, którego ziemia nie widzi.</p>
+
+  <p>W tej książce poznasz <b>siedem znaków, że jesteś jedną z nich</b>. Zobaczysz <b>siedem kobiet Biblii</b>, które miały dokładnie te same cechy. I zrozumiesz, dlaczego Twoje cierpienia są częścią misji — a nie kary. Na końcu otrzymasz <b>Modlitwę Wybranej</b>, by codziennie potwierdzać tę tożsamość.</p>
+</div>
+
+<div class="ornament">
+  <svg viewBox="0 0 140 36" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 5 18 Q 35 8 70 18 Q 105 28 135 18" stroke="currentColor" stroke-width="0.8" fill="none"/>
+    <g fill="currentColor">
+      <path d="M 70 13 L 72 17 L 76 18 L 72 19 L 70 23 L 68 19 L 64 18 L 68 17 Z"/>
+    </g>
+    <circle cx="25" cy="18" r="1.5" fill="currentColor" opacity="0.6"/>
+    <circle cx="115" cy="18" r="1.5" fill="currentColor" opacity="0.6"/>
+  </svg>
+</div>
+
+<!-- PART I -->
+<div class="part-divider">
+  <div class="part-label">Część pierwsza</div>
+  <h2>Siedem znaków Wybranej</h2>
+  <p style="font-style: italic; color: var(--gold-dark); font-size: 16px;">Rozpoznaj się — choćby jeden z tych znaków pojawił się w Twoim życiu</p>
+  <div class="part-line"></div>
+</div>
+
+<!-- SINAL 1 -->
+<div class="sign-card">
+  <div class="sign-number">1</div>
+  <h3>Tęsknota za czymś, czego świat nie daje</h3>
+  <div class="biblical-ref">Hbr 11,13-16 · „Zatęsknili za lepszą ojczyzną”</div>
+  <p>Inni szukają rzeczy, dóbr, podróży, wiadomości. Ty też ich kosztowałaś — ale gdzieś w głębi <b>nigdy nie wystarczyły</b>. Po każdej zdobyczy zostawała ta sama cisza. Wiele kobiet myli to z depresją. To nie depresja. To <i>święta tęsknota za niebem</i>, którą wybrane dusze noszą od dzieciństwa.</p>
+  <p>Święty Augustyn pisał: <i>„Niespokojne jest serce nasze, dopóki nie spocznie w Tobie.”</i> Zwykła osoba nie czuje tego niepokoju tak silnie. Ty czujesz. To znak.</p>
+  <div class="recognition">
+    <div class="recognition-title">Czy to o Tobie?</div>
+    Nawet w najlepszych chwilach życia czuję, że „to jeszcze nie to”. Coś we mnie zawsze szuka czegoś więcej. Nie depresja — święte pragnienie.
+  </div>
+</div>
+
+<!-- SINAL 2 -->
+<div class="sign-card">
+  <div class="sign-number">2</div>
+  <h3>Cierpienia, których nikt nie rozumie</h3>
+  <div class="biblical-ref">Iz 53,3 · „Mąż boleści, oswojony z cierpieniem”</div>
+  <p>W Twoim życiu były bóle, których nigdy nie umiałaś wyjaśnić innym. Nie były „obiektywnie wielkie” w oczach świata. Ale paliły Cię od wewnątrz. Inni nie rozumieli. Mówili: <i>„czego się tak smucisz, masz wszystko”</i>. Ale Ty wiedziałaś, że ten ból ma głębsze pochodzenie.</p>
+  <p>Wybrane dusze cierpią inaczej. Ich cierpienia nie zawsze odpowiadają zewnętrznym przyczynom — bo cierpią także za <b>innych</b>: za dziecko zagubione, za rodzinę, za Kościół. Czasem nawet nie wiesz, za kogo cierpisz w danej godzinie. Bóg wie. I to wystarczy.</p>
+  <div class="recognition">
+    <div class="recognition-title">Czy to o Tobie?</div>
+    Cierpiałam rzeczy, których nikt wokół nie rozumiał. Czułam, że mój ból ma jakiś sens szerszy niż moje życie — choć nie umiałam tego wyjaśnić.
+  </div>
+</div>
+
+<!-- SINAL 3 -->
+<div class="sign-card">
+  <div class="sign-number">3</div>
+  <h3>Atak duchowy nieproporcjonalny</h3>
+  <div class="biblical-ref">Łk 22,31 · „Szatan żądał, by was przesiać jak pszenicę”</div>
+  <p>Wróg nie traci czasu na dusze, które już ma. Atakuje te, które są dla niego niebezpieczne. Jeśli przez Twoje życie przeszły dziwne fale: depresje bez wyraźnej przyczyny, koszmary, trudności małżeńskie nieproporcjonalne, dzieci atakowane szczególnie, choroby duchowe w rodzinie — <b>to nie przypadek</b>. To znak, że Twoja modlitwa robi gdzieś szkodę królestwu ciemności, dlatego ono uderza.</p>
+  <p>Dlatego tylko silnym duszom Bóg pozwala na te wszystkie próby. Słabsze nie zniosłyby. Tobie zaufał — bo wytrzymałaś.</p>
+  <div class="recognition">
+    <div class="recognition-title">Czy to o Tobie?</div>
+    Czasem mam wrażenie, że ataki duchowe na mnie i moją rodzinę są nieproporcjonalne. Jakby coś chciało mnie szczególnie zatrzymać.
+  </div>
+</div>
+
+<!-- SINAL 4 -->
+<div class="sign-card">
+  <div class="sign-number">4</div>
+  <h3>Bóg posługuje się Tobą bez Twojej wiedzy</h3>
+  <div class="biblical-ref">Est 4,14 · „Któż wie, czy nie ze względu na taką jak ta chwilę”</div>
+  <p>Ludzie przychodzą do Ciebie z swoimi bólami, choć nie prosiłaś o tę rolę. Mówisz właściwe słowo we właściwej godzinie, choć nie planowałaś. Twoje milczenie pociesza. Twoja obecność ucisza. Czasem zauważasz, że ktoś, za kogo się modliłaś w sekrecie, niespodziewanie zmienił się.</p>
+  <p>Nie wszystkie kobiety są instrumentami Boga. Wybrane dusze są — często bez świadomości tego. Bóg posługuje się ich zwykłością, by działać niezauważalnie. Estera nie wiedziała, że uratuje swój lud. Wiedziała tylko, że jest królową. A była dlatego wybrana.</p>
+  <div class="recognition">
+    <div class="recognition-title">Czy to o Tobie?</div>
+    Inni przychodzą do mnie z bólami, choć nie szukam tej roli. Ludzie mówią, że „mam coś”, czego nie umieją nazwać. Bóg działa przeze mnie, choć nie wiem jak.
+  </div>
+</div>
+
+<!-- SINAL 5 -->
+<div class="sign-card">
+  <div class="sign-number">5</div>
+  <h3>Niewytłumaczalne zbiegi okoliczności</h3>
+  <div class="biblical-ref">Rz 8,28 · „Bóg z tymi, którzy Go miłują, współdziała we wszystkim”</div>
+  <p>W Twoim życiu zdarzają się rzeczy, które inni nazwaliby przypadkiem, a Ty wiesz, że nie były. Spotkanie właściwej osoby we właściwej godzinie. Filmik, który wyświetlił się dokładnie wtedy, gdy najbardziej go potrzebowałaś. Słowo z Mszy, które mówiło o Twojej dokładnej sprawie. Książka, która spadła z półki na właściwej stronie.</p>
+  <p>Wybrane dusze żyją w gęstej sieci znaków. Bóg orkiestruje dla nich szczegóły, których inni nawet nie zauważą. Jeśli zauważasz — to znak, że jesteś w sieci.</p>
+  <div class="recognition">
+    <div class="recognition-title">Czy to o Tobie?</div>
+    Często doświadczam zbiegów okoliczności tak precyzyjnych, że wiem — to nie przypadek. Bóg odpowiada przez znaki, które inni przeoczają.
+  </div>
+</div>
+
+<!-- SINAL 6 -->
+<div class="sign-card">
+  <div class="sign-number">6</div>
+  <h3>Wiara, która wytrzymuje wbrew wszystkiemu</h3>
+  <div class="biblical-ref">2 Tm 4,7 · „Dobrą walkę walczyłem, biegu dokonałem, wiary ustrzegłem”</div>
+  <p>Mogłaś już dawno odejść. Wiele Twoich rówieśniczek odeszło. Świat wokół wyśmiewa, rodzina się dystansuje, czasem sam Kościół rani. Mimo to <b>jeszcze tu jesteś</b>. Wciąż się modlisz, choć czasem sucho. Wciąż chodzisz na Mszę, choć kolano boli. Wciąż wierzysz w Maryję, choć inni mówią, że to „przesada”.</p>
+  <p>Tylko wybrane dusze wytrzymują dziesięciolecia próby. Nie z geniuszu. Z łaski. Bóg trzyma za rękę te, które wybrał — i to dlatego dotąd nie odeszłaś. <b>To największy ze wszystkich znaków.</b></p>
+  <div class="recognition">
+    <div class="recognition-title">Czy to o Tobie?</div>
+    Mogłabym była dawno odejść. Tysiąc razy mogłam się załamać. Nie odeszłam. Coś mnie trzyma — i wiem, że to On.
+  </div>
+</div>
+
+<!-- SINAL 7 -->
+<div class="sign-card">
+  <div class="sign-number">7</div>
+  <h3>Pociąg do sacrum i niezrozumienie we własnym domu</h3>
+  <div class="biblical-ref">J 1,11 · „Przyszedł do swojej własności, a swoi Go nie przyjęli”</div>
+  <p>Pamiętasz kościół z dziewczęcych lat. Zapach kadzidła. Wibracje organów. Mama zabierająca cię na Mszę. Coś w Tobie wibrowało wtedy w sposób, który inne dzieci nie rozumiały. Lubiłaś być sama w pustym kościele. Modliłaś się jak dorosła, choć miałaś osiem lat. Maryja była już wtedy <b>żywa</b> dla Ciebie.</p>
+  <p>Pociąg do sacrum nie jest „wychowaniem” — milion dzieci wychowywanych w wierze nigdy go nie czuje. Jest <b>wewnętrznym znakiem powołania</b>, jak Samuel słyszący głos w Świątyni jeszcze jako chłopiec.</p>
+  <p>Ale ta wewnętrzna inność miała swoją cenę. <b>Już jako mała dziewczynka byłaś inna</b> — i nawet jeśli nikt nie umiał tego nazwać, czuł to każdy w domu. Patrzyli na Ciebie inaczej niż na rodzeństwo. Coś w Tobie ich niepokoiło, drażniło, męczyło. Nie umiałaś tego zrozumieć — byłaś dzieckiem, które po prostu chciało być kochane jak inne. A jednak czułaś, że <i>nie pasujesz</i>, że jesteś „za wrażliwa”, „za poważna”, „za dziwna”, „za pobożna”. Próbowałaś się dostroić, schować, być cichszą, weselszą, mniej sobą. Nigdy nie było dosyć.</p>
+  <p>Rosłaś z poczuciem, że <b>brakuje Ci wsparcia</b> — emocjonalnego i duchowego. Bywało, że odrzucenie było subtelne: spojrzenie, westchnienie, porównanie z siostrą lub bratem. Bywało otwarte: słowa, które wracają do Ciebie nawet dziś. Niosłaś ten ciężar w samotności, bo komu miałaś się poskarżyć, jeśli sami sprawcy mieli być Twoim schronieniem? Świat mówił: „rodzina to wszystko” — a Ty wiedziałaś po cichu, że Twoja rodzina była miejscem, gdzie najgłębiej raniono Cię tym, że <i>nie byłaś rozumiana</i>.</p>
+  <p>Posłuchaj teraz uważnie: <b>to nie była przekleństwo. To było pierwsze odsunięcie Bożej dłoni.</b> Bóg wcześnie oddziela to, co należy do Niego. Józefa znienawidzili rodzeni bracia, bo na jego życiu spoczęła łaska, której nie pojmowali — sprzedali go w niewolę, a Bóg uczynił go ratunkiem dla całego rodu (Rdz 37). Dawid był najmłodszy, posłany do owiec, pominięty przez ojca, gdy Samuel przyszedł namaścić króla — ten, którego dom przeoczył, został wybrany przez Pana (1 Sm 16). Sam Chrystus <i>„przyszedł do swojej własności, a swoi Go nie przyjęli”</i> (J 1,11). Wybrane dusze niemal zawsze najpierw doświadczają niezrozumienia tam, gdzie miało być najbezpieczniej — bo Bóg nie chce, by ich serce zakorzeniło się w ziemi. Chce je dla siebie.</p>
+  <p>Dlatego to, co w dzieciństwie wyglądało jak rana, było w rzeczywistości <b>wczesnym znakiem przynależności</b>. Twoja matka, ojciec, rodzeństwo nie umieli Cię „dać” — bo nie byłaś im dana. Byłaś tylko przez nich przepuszczona. Pan mówi: <i>„Choćby nawet matka zapomniała o swym niemowlęciu, Ja nie zapomnę o tobie. Oto wyryłem cię na obu dłoniach”</i> (Iz 49,15-16). I jeszcze: <i>„Choćby ojciec mój i matka mnie opuścili, Pan mnie przygarnie”</i> (Ps 27,10). Twoja samotność z dzieciństwa była ukrytym łonem, w którym dojrzewała Twoja zażyłość z Nim. To, co bolało, formowało.</p>
+  <div class="recognition">
+    <div class="recognition-title">Czy to o Tobie?</div>
+    Już jako dziewczynka czułam coś szczególnego w kościele, w obecności Hostii, w obrazach Maryi. A jednocześnie w domu byłam „inna” — nie rozumiana, porównywana, czasem odrzucana. Próbowałam pasować, ale to nigdy nie wystarczyło. Dziś rozumiem: byłam wcześnie odsunięta, by należeć do Niego.
+  </div>
+</div>
+
+<div class="ornament">
+  <svg viewBox="0 0 140 36" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 5 18 Q 35 8 70 18 Q 105 28 135 18" stroke="currentColor" stroke-width="0.8" fill="none"/>
+    <g fill="currentColor">
+      <path d="M 70 13 L 72 17 L 76 18 L 72 19 L 70 23 L 68 19 L 64 18 L 68 17 Z"/>
+    </g>
+    <circle cx="25" cy="18" r="1.5" fill="currentColor" opacity="0.6"/>
+    <circle cx="115" cy="18" r="1.5" fill="currentColor" opacity="0.6"/>
+  </svg>
+</div>
+
+<!-- PART II -->
+<div class="part-divider">
+  <div class="part-label">Część druga</div>
+  <h2>Siedem kobiet Biblii, które były jak Ty</h2>
+  <p style="font-style: italic; color: var(--gold-dark); font-size: 16px;">Wybrane, ale niewidoczne dla świata</p>
+  <div class="part-line"></div>
+</div>
+
+<div class="women-grid">
+
+  <div class="woman-card">
+    <div class="woman-icon">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7l2-7z" stroke="currentColor" stroke-width="1.5" fill="currentColor" fill-opacity="0.3"/>
+      </svg>
+    </div>
+    <div class="woman-content">
+      <h4>Maryja z Nazaretu</h4>
+      <div class="woman-tag">Wybrana w ciszy · Łk 1,26-38</div>
+      <p>Młoda dziewczyna z prowincjonalnej wioski. Bez statusu, bez bogactwa, bez sławy. Bóg wybrał Ją, gdy nikt na świecie nie znał Jej imienia. Powiedziała „tak” w samotności, nie wiedząc, co to oznacza dla Jej życia.</p>
+      <div class="lesson">Wybrana często mieszka w prowincji. Bóg widzi tam, gdzie świat nie patrzy.</div>
+    </div>
+  </div>
+
+  <div class="woman-card">
+    <div class="woman-icon">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M12 21s-8-7-8-13a5 5 0 0110-2 5 5 0 0110 2c0 6-8 13-8 13z" stroke="currentColor" stroke-width="1.5" fill="currentColor" fill-opacity="0.3"/>
+      </svg>
+    </div>
+    <div class="woman-content">
+      <h4>Anna, matka Samuela</h4>
+      <div class="woman-tag">Bezpłodna · 1 Sm 1</div>
+      <p>Modliła się latami o dziecko. Naśmiewano się z niej w świątyni. Bóg dał jej syna, ale zażądał, by go oddała na służbę. Anna nie pytała „dlaczego”. Oddała. Samuel został prorokiem, który namaścił królów Izraela.</p>
+      <div class="lesson">Wybrana rodzi nie tylko dla siebie. Owoc jej cierpliwości należy do narodu.</div>
+    </div>
+  </div>
+
+  <div class="woman-card">
+    <div class="woman-icon">
+      <svg viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M5 22a7 7 0 0114 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 4l1.5 2.5L16 7l-2.5 1L12 11l-1.5-3L8 7l2.5-.5z" fill="currentColor" opacity="0.4"/>
+      </svg>
+    </div>
+    <div class="woman-content">
+      <h4>Estera</h4>
+      <div class="woman-tag">Niewidzialna królowa · Est 4,14</div>
+      <p>Sierota z ludu na wygnaniu. Wybrana na królową Persji bez własnego planu. Mardocheusz powiedział do niej: <i>„Któż wie, czy nie ze względu na taką jak ta chwilę osiągnęłaś tron?”</i> Uratowała swój lud, choć nikt by jej nigdy o tym nie zapamiętał, gdyby nie posłuchała.</p>
+      <div class="lesson">Wybrana zostaje gdzie jest, by w odpowiedniej godzinie odpowiedzieć tak.</div>
+    </div>
+  </div>
+
+  <div class="woman-card">
+    <div class="woman-icon">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M3 12c0-5 4-9 9-9s9 4 9 9-4 9-9 9c-2 0-4-.7-5.5-1.8l-3.5 1 1-3.5C3.7 16 3 14 3 12z" stroke="currentColor" stroke-width="1.5" fill="currentColor" fill-opacity="0.2"/>
+      </svg>
+    </div>
+    <div class="woman-content">
+      <h4>Ruth Moabitka</h4>
+      <div class="woman-tag">Wierność wbrew logice · Rt 1-4</div>
+      <p>Była cudzoziemką, młodą wdową, mogła wrócić do swojego ludu. Wybrała pozostać przy biednej, gorzkiej teściowej. <i>„Twój lud będzie moim ludem, a Twój Bóg moim Bogiem.”</i> Z jej linii wyrósł król Dawid — i sam Chrystus.</p>
+      <div class="lesson">Wybrana często zostaje przy słabszej, choć logika nakazuje odejść. Tam Bóg pisze rodowody.</div>
+    </div>
+  </div>
+
+  <div class="woman-card">
+    <div class="woman-icon">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M20 7L9 18l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.2" opacity="0.4"/>
+      </svg>
+    </div>
+    <div class="woman-content">
+      <h4>Elżbieta</h4>
+      <div class="woman-tag">Stara, ale wezwana · Łk 1,5-25</div>
+      <p>Dekady niepłodności. Już zrezygnowała. W starości otrzymała syna — Jana Chrzciciela. Bóg czekał aż osiągnie wiek, gdy świat ją odpisał, by pokazać, że to On jest dawcą życia.</p>
+      <div class="lesson">Wybrana często kwitnie późno. Wiek nie jest przeszkodą dla Boga — jest scenografią.</div>
+    </div>
+  </div>
+
+  <div class="woman-card">
+    <div class="woman-icon">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M12 2C8 6 4 9 4 14a8 8 0 0016 0c0-5-4-8-8-12z" stroke="currentColor" stroke-width="1.5" fill="currentColor" fill-opacity="0.2"/>
+        <path d="M12 8v8M9 12h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="woman-content">
+      <h4>Maria Magdalena</h4>
+      <div class="woman-tag">Z ciemności do świtu · Mk 16,9</div>
+      <p>Siedem złych duchów. Przeszłość, której się wstydziła. Pierwsza zobaczyła Zmartwychwstałego. Pierwsza ogłosiła Apostołom: <i>„Widziałam Pana!”</i> Bóg uczynił z dawnej grzesznicy Apostołkę Apostołów.</p>
+      <div class="lesson">Wybrana często ma ciężką przeszłość — by świadczyć, że łaska jest mocniejsza niż grzech.</div>
+    </div>
+  </div>
+
+  <div class="woman-card">
+    <div class="woman-icon">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M12 2v6m-6 0l4 6h4l4-6m-12 0H4l8 14 8-14h-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="woman-content">
+      <h4>Monika, matka Augustyna</h4>
+      <div class="woman-tag">Łzy, które ratują dziecko · IV w.</div>
+      <p>Trzydzieści trzy lata płakała i modliła się o syna, który wybrał herezje, kobiety, świat. Świat by powiedział: „Daj sobie spokój.” Nie dała. Augustyn wrócił. Stał się jednym z największych Doktorów Kościoła. Łzy matki uratowały duszę, której nikt już nie ratował.</p>
+      <div class="lesson">Wybrana matka modli się dziesięcioleciami. Łzy matki nigdy nie giną — gromadzą się przed tronem.</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="ornament">
+  <svg viewBox="0 0 140 36" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 5 18 Q 35 8 70 18 Q 105 28 135 18" stroke="currentColor" stroke-width="0.8" fill="none"/>
+    <g fill="currentColor">
+      <path d="M 70 13 L 72 17 L 76 18 L 72 19 L 70 23 L 68 19 L 64 18 L 68 17 Z"/>
+    </g>
+  </svg>
+</div>
+
+<!-- PART III -->
+<div class="part-divider">
+  <div class="part-label">Część trzecia</div>
+  <h2>Dlaczego wybrana cierpi</h2>
+  <p style="font-style: italic; color: var(--gold-dark); font-size: 16px;">Cztery powody, które zmieniają wszystko</p>
+  <div class="part-line"></div>
+</div>
+
+<div class="purpose-block">
+  <h3>Twój ból nie jest na próżno</h3>
+
+  <div class="purpose-item">
+    <div class="purpose-num">1</div>
+    <h4>Współcierpienie z Chrystusem</h4>
+    <p>Święty Paweł pisze: <i>„Dopełniam w moim ciele to, czego brak w cierpieniach Chrystusa, dla dobra Jego Ciała, którym jest Kościół”</i> (Kol 1,24). Twoje cierpienie ma wartość zbawczą — gdy zjednoczone z Krzyżem, służy nawróceniu dusz, których ty nawet nie znasz. Każdy ból ofiarowany w cichości otwiera niebo dla kogoś innego.</p>
+  </div>
+
+  <div class="purpose-item">
+    <div class="purpose-num">2</div>
+    <h4>Wstawiennictwo cichym za rodziny</h4>
+    <p>Twoje wytrwałe modlitwy za męża, dzieci, wnuki — które wydają się nie przynosić owocu — są dokładnie tym, co trzyma drzwi nieba otwarte dla nich. Maria Magdalena z Pazzi pisała, że jedna matka modląca się może zbawić cały rodowód. Może w Twojej rodzinie to Ty jesteś tą jedną.</p>
+  </div>
+
+  <div class="purpose-item">
+    <div class="purpose-num">3</div>
+    <h4>Przygotowanie na czas próby</h4>
+    <p>Bóg uzdalnia te, których wybiera. Cierpienia Twojego życia nie były bez celu — uczyły Cię wiary, którą inni nie mają. Gdy nadejdą czasy ciemniejsze (a Pismo i Maryja w wielu objawieniach to zapowiadają), Twój dom będzie schronieniem dla mniej przygotowanych. Jesteś szkolona już teraz.</p>
+  </div>
+
+  <div class="purpose-item">
+    <div class="purpose-num">4</div>
+    <h4>Świadectwo dla pokoleń</h4>
+    <p>Twoje wnuki — i ich wnuki — odziedziczą wiarę, którą nosisz teraz. Choć dziś dzieci wydają się dalekie, łańcuch wiary nie pęknie, jeśli ktoś go trzyma. Ty trzymasz. Pewnego dnia ktoś z Twojej rodziny powie: <i>„Babcia/mama nigdy nie odeszła. Spróbuję jak ona.”</i></p>
+  </div>
+</div>
+
+<div class="ornament">
+  <svg viewBox="0 0 140 36" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 5 18 Q 35 8 70 18 Q 105 28 135 18" stroke="currentColor" stroke-width="0.8" fill="none"/>
+    <g fill="currentColor">
+      <path d="M 70 13 L 72 17 L 76 18 L 72 19 L 70 23 L 68 19 L 64 18 L 68 17 Z"/>
+    </g>
+  </svg>
+</div>
+
+<!-- PART IV - PRAYER -->
+<div class="prayer-card">
+  <div class="prayer-label">Część czwarta</div>
+  <h3>Modlitwa Wybranej</h3>
+  <p>Ojcze niebieski, dziś przyjmuję imię, które dałeś mi przed założeniem świata. Jestem Twoja Wybrana — choć świat mnie nie zna, choć ja sama o tym wątpiłam.</p>
+  <p>Dziękuję za każdy ból, który uczynił mnie tym, kim jestem. Dziękuję za każdą walkę, która mi pokazała, że wróg się mnie boi. Dziękuję za każdą cichą modlitwę, która — nie wiedząc — ratowała kogoś.</p>
+  <p>Maryjo, Niewiasto Wybrana, weź mnie pod Swój płaszcz. Uczyń ze mnie cichy instrument w Twoich rękach. Niech moja modlitwa trzyma tych, których kocham. Niech moje cierpienie zostanie zjednoczone z cierpieniem Twojego Syna. Niech moje łzy zalśnią w Niebie jak gwiazdy w Twojej koronie.</p>
+  <p>Nie chcę być sławna. Nie chcę być widoczna. Chcę być wierna do końca — jak Ty, w cichym Nazarecie.</p>
+  <p style="text-align: center; margin-top: 26px; color: var(--gold);">Oto jestem. Niech mi się stanie według słowa Twego.</p>
+  <div class="amen">A M E N</div>
+</div>
+
+<!-- CLOSING -->
+<div class="closing-page">
+  <h2>Teraz już wiesz</h2>
+  <p>Nie jesteś przypadkiem. Nie jesteś zmęczonym tłem życia innych ludzi. Jesteś Wybraną — wybraną przez Tego, który widzi to, co świat nie umie zobaczyć.</p>
+  <p>Idź dziś wolniej. Patrz na siebie z czcią. Ten dom, ta kuchnia, ten Różaniec w Twojej szufladzie — to nie zwyczajne rzeczy. To narzędzia misji, której pełna mapa zostanie Ci pokazana dopiero w niebie.</p>
+  <p>A do tego dnia: trwaj. Twoja zwyczajność jest świętsza, niż myślisz.</p>
+  <div class="verse">„Wybrałem cię i nie odrzuciłem.” — Iz 41,9</div>
+</div>
+
+</main>
+
+</body>
+</html>

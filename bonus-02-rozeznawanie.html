@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rozeznawanie duszy — Tajemny Klucz Maryi</title>
+<style>
+  :root {
+    --cream: #f5efe6;
+    --cream-light: #faf6ed;
+    --cream-soft: #efe6cf;
+    --gold: #c9a961;
+    --gold-soft: #d8bd7a;
+    --gold-dark: #8b7355;
+    --brown: #6b5b3e;
+    --brown-deep: #3a2f23;
+    --navy-deep: #0f1a2e;
+    --navy: #1a2942;
+    --line: #d4c4a8;
+    --warning: #b54a3a;
+    --warning-soft: #d97a6a;
+    --good: #6b8e6b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: var(--cream);
+    color: var(--brown-deep);
+    line-height: 1.85;
+    font-size: 18px;
+  }
+
+  /* ===== COVER (índigo/púrpura) ===== */
+  .cover {
+    min-height: 100vh;
+    background:
+      radial-gradient(ellipse at top, rgba(220,210,255,0.18) 0%, transparent 55%),
+      linear-gradient(160deg, #1a1844 0%, #2d2360 55%, #1e1648 100%);
+    color: var(--cream);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 30px;
+    position: relative;
+  }
+  .cover::before {
+    content: "";
+    position: absolute;
+    inset: 30px;
+    border: 1px solid rgba(201,169,97,0.25);
+    pointer-events: none;
+  }
+  .cover-tagline {
+    font-size: 12px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    opacity: 0.85;
+    margin-bottom: 28px;
+  }
+  .cover-mark { color: var(--gold); margin-bottom: 22px; position: relative; }
+  .cover-mark svg {
+    width: 110px; height: 110px;
+    filter: drop-shadow(0 0 18px rgba(201,169,97,0.45));
+  }
+  .cover h1 {
+    font-size: 44px;
+    font-weight: normal;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+    line-height: 1.15;
+    max-width: 700px;
+  }
+  .cover h2 {
+    font-size: 19px;
+    font-weight: normal;
+    font-style: italic;
+    color: var(--cream);
+    opacity: 0.92;
+    margin-bottom: 50px;
+    max-width: 520px;
+    line-height: 1.5;
+  }
+  .cover-sub {
+    font-size: 13px;
+    color: var(--gold-soft);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-top: auto;
+    padding-top: 30px;
+  }
+
+  /* ===== MAIN ===== */
+  main { max-width: 760px; margin: 0 auto; padding: 50px 28px 60px; }
+
+  /* Toolbar de print */
+  .toolbar {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    background: var(--navy-deep);
+    color: var(--gold);
+    padding: 12px 18px;
+    border-radius: 10px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    font-size: 13px;
+    z-index: 100;
+    border: 1px solid var(--gold);
+  }
+  .toolbar button {
+    background: var(--gold);
+    color: var(--navy-deep);
+    border: none;
+    padding: 9px 16px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  .toolbar button:hover { background: var(--gold-soft); }
+
+  /* Ornamento divisor */
+  .ornament {
+    text-align: center;
+    margin: 50px 0;
+    color: var(--gold);
+  }
+  .ornament svg { width: 120px; height: 30px; }
+
+  /* Carta de abertura */
+  .opening {
+    background: var(--cream-light);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 40px 36px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .opening::before {
+    content: "";
+    position: absolute;
+    top: -1px; left: -1px; right: -1px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-soft), var(--gold));
+    border-radius: 14px 14px 0 0;
+  }
+  .opening h2 {
+    font-size: 30px;
+    color: var(--brown-deep);
+    font-style: italic;
+    margin-bottom: 6px;
+    text-align: center;
+  }
+  .opening .subtitle {
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 30px;
+  }
+  .opening p {
+    margin-bottom: 18px;
+    font-size: 17.5px;
+    line-height: 1.85;
+  }
+  .opening p:last-child { margin-bottom: 0; }
+  .opening .highlight {
+    background: rgba(201,169,97,0.10);
+    border-left: 3px solid var(--gold);
+    padding: 18px 22px;
+    margin: 22px 0;
+    font-style: italic;
+    font-size: 17px;
+    border-radius: 0 8px 8px 0;
+  }
+
+  /* Part divider */
+  .part-divider {
+    text-align: center;
+    margin: 60px 0 40px;
+  }
+  .part-divider .part-label {
+    font-size: 12px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  .part-divider h2 {
+    font-size: 32px;
+    color: var(--brown-deep);
+    font-style: italic;
+    line-height: 1.25;
+    margin-bottom: 14px;
+  }
+  .part-divider .part-line {
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 14px auto 0;
+  }
+
+  /* Cards de estado */
+  .state-card {
+    background: var(--cream-light);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 32px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .state-card.good { border-left: 6px solid var(--good); }
+  .state-card.warning { border-left: 6px solid var(--warning); }
+  .state-card.neutral { border-left: 6px solid var(--gold); }
+
+  .state-num {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 44px; height: 44px;
+    background: var(--cream-soft);
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--gold-dark);
+    font-family: Georgia, serif;
+  }
+  .state-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+    font-weight: bold;
+  }
+  .state-tag.good { background: rgba(107,142,107,0.15); color: var(--good); border: 1px solid var(--good); }
+  .state-tag.warning { background: rgba(181,74,58,0.12); color: var(--warning); border: 1px solid var(--warning); }
+  .state-tag.neutral { background: rgba(201,169,97,0.15); color: var(--gold-dark); border: 1px solid var(--gold); }
+
+  .state-card h3 {
+    font-size: 26px;
+    color: var(--brown-deep);
+    font-style: italic;
+    margin-bottom: 8px;
+    padding-right: 60px;
+  }
+  .state-card .subtitle {
+    font-size: 14px;
+    color: var(--gold-dark);
+    font-style: italic;
+    margin-bottom: 22px;
+  }
+  .state-card p {
+    font-size: 17px;
+    margin-bottom: 14px;
+    line-height: 1.8;
+  }
+  .state-card .signs {
+    background: rgba(245,239,230,0.7);
+    border: 1px dashed var(--line);
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin: 18px 0;
+  }
+  .state-card .signs-title {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    font-weight: bold;
+    margin-bottom: 12px;
+  }
+  .state-card .signs ul {
+    list-style: none;
+    padding: 0;
+  }
+  .state-card .signs li {
+    padding: 6px 0 6px 28px;
+    position: relative;
+    font-size: 16.5px;
+  }
+  .state-card .signs li::before {
+    content: "✦";
+    position: absolute;
+    left: 6px;
+    color: var(--gold);
+    font-size: 13px;
+  }
+  .state-card .action {
+    background: linear-gradient(135deg, #fff8e8, #f5e9c8);
+    border: 1px solid var(--gold);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-top: 20px;
+    font-size: 16.5px;
+    line-height: 1.7;
+  }
+  .state-card .action-title {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .state-card .action-title::before {
+    content: "→";
+    color: var(--gold);
+    font-size: 16px;
+  }
+
+  /* Sinais de ataque (grid) */
+  .signs-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-bottom: 30px;
+  }
+  .sign-item {
+    background: var(--cream-light);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 22px 24px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+  .sign-icon {
+    flex-shrink: 0;
+    width: 56px; height: 56px;
+    background: var(--navy-deep);
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+  }
+  .sign-icon svg { width: 28px; height: 28px; }
+  .sign-content { flex: 1; }
+  .sign-content h4 {
+    font-size: 19px;
+    color: var(--brown-deep);
+    margin-bottom: 6px;
+  }
+  .sign-content p { font-size: 16px; line-height: 1.7; margin: 0; }
+
+  /* Auto-diagnóstico */
+  .quiz {
+    background: linear-gradient(180deg, #faf2e0 0%, #f4ead0 100%);
+    border: 2px solid var(--gold);
+    border-radius: 14px;
+    padding: 36px 32px;
+    margin-bottom: 30px;
+  }
+  .quiz h3 {
+    text-align: center;
+    font-size: 26px;
+    color: var(--brown-deep);
+    font-style: italic;
+    margin-bottom: 8px;
+  }
+  .quiz .quiz-sub {
+    text-align: center;
+    font-size: 13px;
+    color: var(--gold-dark);
+    margin-bottom: 26px;
+    letter-spacing: 1px;
+  }
+  .quiz-item {
+    background: rgba(255,255,255,0.5);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 16.5px;
+    line-height: 1.7;
+  }
+  .quiz-check {
+    flex-shrink: 0;
+    width: 26px; height: 26px;
+    border: 2px solid var(--gold);
+    border-radius: 6px;
+    margin-top: 2px;
+    background: white;
+  }
+  .quiz-key {
+    margin-top: 22px;
+    padding: 18px 20px;
+    background: rgba(201,169,97,0.10);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .quiz-key .key-title {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  /* Quiz interativo */
+  .quiz-question {
+    background: rgba(255,255,255,0.6);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin-bottom: 16px;
+  }
+  .quiz-question .q-num {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  .quiz-question .q-text {
+    font-size: 17px;
+    color: var(--brown-deep);
+    margin-bottom: 14px;
+    line-height: 1.55;
+    font-weight: 600;
+  }
+  .quiz-options-list { display: flex; flex-direction: column; gap: 8px; }
+  .quiz-options-list label {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 14px;
+    background: var(--cream-light);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1.55;
+    transition: all 0.18s ease;
+  }
+  .quiz-options-list label:hover {
+    border-color: var(--gold);
+    background: rgba(245,233,200,0.5);
+  }
+  .quiz-options-list input[type="radio"] {
+    margin-top: 4px;
+    accent-color: var(--gold-dark);
+    flex-shrink: 0;
+  }
+  .quiz-options-list input[type="radio"]:checked + span { color: var(--brown-deep); font-weight: 600; }
+
+  .quiz-submit-wrap { text-align: center; margin-top: 24px; }
+  .quiz-submit, .quiz-restart {
+    background: var(--navy-deep);
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .quiz-submit:hover, .quiz-restart:hover {
+    background: var(--gold);
+    color: var(--navy-deep);
+  }
+  .quiz-submit:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  .quiz-result { display: none; margin-top: 30px; }
+  .quiz-result.visible { display: block; }
+  .quiz-result-card {
+    background: var(--cream-light);
+    border: 2px solid var(--gold);
+    border-radius: 12px;
+    padding: 30px 28px;
+    margin-bottom: 22px;
+  }
+  .quiz-result-card .result-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+  .quiz-result-card h3 {
+    font-size: 26px;
+    color: var(--brown-deep);
+    font-style: italic;
+    margin-bottom: 4px;
+  }
+  .quiz-result-card .result-sub {
+    font-size: 14px;
+    color: var(--gold-dark);
+    font-style: italic;
+    margin-bottom: 18px;
+  }
+
+  .quiz-bars { margin: 20px 0 24px; }
+  .quiz-bar-row { margin-bottom: 12px; }
+  .quiz-bar-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--brown-deep);
+    margin-bottom: 4px;
+  }
+  .quiz-bar-track {
+    height: 10px;
+    background: rgba(201,169,97,0.15);
+    border-radius: 999px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .quiz-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold-soft), var(--gold), var(--gold-dark));
+    border-radius: 999px;
+    transition: width 0.6s ease;
+  }
+  .quiz-bar-fill.top { background: linear-gradient(90deg, var(--gold), var(--brown)); }
+
+  .guidance-block {
+    margin-top: 22px;
+    padding: 22px 22px;
+    background: rgba(255,255,255,0.55);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+  }
+  .guidance-block h4 {
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  .guidance-block p { font-size: 16px; line-height: 1.7; margin-bottom: 10px; }
+  .guidance-block ul { padding-left: 22px; margin-bottom: 6px; }
+  .guidance-block ul li { margin-bottom: 6px; font-size: 15.5px; line-height: 1.65; }
+  .guidance-verse {
+    font-style: italic;
+    background: rgba(201,169,97,0.10);
+    padding: 12px 16px;
+    border-radius: 6px;
+    color: var(--brown-deep);
+    margin-top: 10px;
+  }
+  .guidance-wait {
+    font-weight: bold;
+    color: var(--warning);
+    background: rgba(181,74,58,0.08);
+    padding: 10px 14px;
+    border-radius: 6px;
+    border-left: 3px solid var(--warning);
+    margin-top: 10px;
+    font-size: 15.5px;
+  }
+  .quiz-second {
+    margin-top: 18px;
+    padding: 14px 18px;
+    background: rgba(201,169,97,0.10);
+    border: 1px dashed var(--gold);
+    border-radius: 8px;
+    font-size: 15px;
+    color: var(--brown-deep);
+  }
+  .quiz-restart-wrap { text-align: center; margin-top: 22px; }
+
+  /* Encerramento (índigo) */
+  .closing-page {
+    background:
+      radial-gradient(ellipse at top, rgba(220,210,255,0.18) 0%, transparent 60%),
+      linear-gradient(160deg, #1a1844 0%, #2d2360 55%, #1e1648 100%);
+    color: var(--cream);
+    padding: 60px 30px;
+    text-align: center;
+    border-radius: 14px;
+    margin-top: 40px;
+    border: 1px solid rgba(220,210,255,0.3);
+  }
+  .closing-page h2 {
+    font-size: 30px;
+    color: var(--gold);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+    line-height: 1.25;
+  }
+  .closing-page p {
+    font-size: 17px;
+    line-height: 1.85;
+    margin-bottom: 16px;
+    opacity: 0.95;
+  }
+  .closing-verse {
+    margin-top: 30px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(201,169,97,0.3);
+    font-style: italic;
+    color: var(--gold-soft);
+    font-size: 16px;
+  }
+
+  /* Print */
+  @page { size: A4; margin: 18mm; }
+  @media print {
+    * {
+      -webkit-print-color-adjust: economy;
+      print-color-adjust: economy;
+      background: white !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
+    html, body {
+      background: white !important;
+      color: #1a1a1a !important;
+      font-size: 11pt;
+      line-height: 1.55;
+    }
+    .toolbar, .quiz-restart, .quiz-options-list label input { display: none !important; }
+    main { max-width: 100%; padding: 0; margin: 0; }
+
+    .cover {
+      min-height: auto;
+      background: white !important;
+      color: #1a1a1a !important;
+      padding: 20mm 10mm;
+      border: 2px solid #6b5b3e;
+      page-break-after: always;
+    }
+    .cover::before { border-color: #8b7355 !important; inset: 8mm; }
+    .cover-tagline, .cover-sub { color: #6b5b3e !important; opacity: 1; }
+    .cover-mark { color: #6b5b3e !important; }
+    .cover-mark svg {
+      filter: none !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .cover-mark svg circle[fill="#1a1844"] { fill: #1a1a1a !important; }
+    .cover h1 { color: #3a2f23 !important; font-size: 28pt; }
+    .cover h2 { color: #3a2f23 !important; opacity: 1; font-size: 13pt; }
+
+    .part-divider { page-break-before: always; margin: 0 0 8mm 0; padding-top: 4mm; }
+    .part-divider h2 { font-size: 20pt; color: #3a2f23 !important; }
+    .part-divider .part-label { color: #6b5b3e !important; }
+    .part-divider .part-line { background: #8b7355 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+    .opening, .state-card, .sign-item, .quiz, .quiz-key, .quiz-result-card,
+    .state-card .signs, .state-card .action, .opening .highlight {
+      page-break-inside: avoid;
+      background: white !important;
+      border: 1px solid #6b5b3e !important;
+      box-shadow: none !important;
+    }
+    .opening { page-break-before: always; padding: 8mm; margin-bottom: 6mm; }
+    .opening::before { display: none; }
+    .opening h2, .state-card h3, .quiz h3, .quiz-result-card h3 { color: #3a2f23 !important; }
+    .opening p, .state-card p, .sign-content p, .quiz p { color: #1a1a1a !important; font-size: 10.5pt; }
+    .opening .highlight { border-left: 3px solid #6b5b3e !important; font-size: 10.5pt; }
+
+    .state-card { padding: 6mm; margin-bottom: 5mm; }
+    .state-card.good { border-left: 4px solid #6b8e6b !important; }
+    .state-card.warning { border-left: 4px solid #b54a3a !important; }
+    .state-card.neutral { border-left: 4px solid #8b7355 !important; }
+    .state-num { background: white !important; border: 1px solid #6b5b3e !important; color: #3a2f23 !important; }
+    .state-tag { background: white !important; border: 1px solid #6b5b3e !important; color: #3a2f23 !important; }
+    .state-card h3 { font-size: 15pt; }
+    .state-card .signs { background: white !important; border: 1px dashed #8b7355 !important; padding: 4mm; }
+    .state-card .signs li::before { color: #6b5b3e !important; }
+    .state-card .action { background: white !important; border: 1px solid #8b7355 !important; padding: 4mm; }
+    .state-card .signs-title, .state-card .action-title, .signs-title, .action-title { color: #3a2f23 !important; }
+
+    .signs-grid { gap: 4mm; }
+    .sign-item { padding: 4mm; page-break-inside: avoid; }
+    .sign-icon {
+      background: white !important;
+      border: 1.5px solid #3a2f23 !important;
+      color: #3a2f23 !important;
+      width: 36px; height: 36px;
+    }
+    .sign-icon svg { width: 18px; height: 18px; }
+    .sign-content h4 { font-size: 12pt; color: #3a2f23 !important; }
+
+    .ornament { margin: 6mm 0; color: #8b7355 !important; }
+    .ornament svg { width: 60px; height: 16px; }
+
+    .quiz { padding: 6mm; margin-bottom: 6mm; page-break-before: always; }
+    .quiz-item { background: white !important; border: 1px solid #8b7355 !important; padding: 3mm; font-size: 10.5pt; }
+    .quiz-check { background: white !important; border: 1.5px solid #3a2f23 !important; }
+    .quiz-key { background: white !important; border-left: 3px solid #6b5b3e !important; padding: 4mm; }
+    .quiz-options-list { display: block !important; }
+    .quiz-options-list label {
+      display: block;
+      border: 1px solid #8b7355 !important;
+      background: white !important;
+      padding: 2mm 3mm;
+      margin-bottom: 1.5mm;
+      font-size: 10pt;
+    }
+
+    .closing-page {
+      background: white !important;
+      color: #1a1a1a !important;
+      border: 1px solid #6b5b3e !important;
+      padding: 8mm;
+      page-break-before: always;
+    }
+    .closing-page h2 { color: #3a2f23 !important; font-size: 18pt; }
+    .closing-page p { color: #1a1a1a !important; opacity: 1; }
+    .closing-verse { color: #6b5b3e !important; border-top: 1px solid #8b7355 !important; }
+
+    a { color: #1a1a1a !important; text-decoration: none; }
+    p, h1, h2, h3, h4 { orphans: 3; widows: 3; }
+    h1, h2, h3, h4 { page-break-after: avoid; }
+  }
+
+  @media (max-width: 600px) {
+    body { font-size: 16.5px; }
+    main { padding: 30px 20px 40px; }
+    .cover h1 { font-size: 30px; letter-spacing: 3px; }
+    .cover h2 { font-size: 16px; }
+    .opening { padding: 28px 22px; }
+    .opening h2 { font-size: 24px; }
+    .opening p { font-size: 16px; }
+    .state-card { padding: 24px 20px; }
+    .state-card h3 { font-size: 22px; padding-right: 50px; }
+    .part-divider h2 { font-size: 26px; }
+    .quiz { padding: 26px 20px; }
+    .sign-item { padding: 18px 18px; gap: 14px; }
+    .sign-icon { width: 46px; height: 46px; }
+    .sign-icon svg { width: 22px; height: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <button onclick="goBack()" style="margin-right:8px;">← Wróć</button>
+  <button onclick="window.print()">📄 Drukuj / PDF</button>
+</div>
+<script>
+function goBack() {
+  try {
+    if (window.parent && window.parent !== window) {
+      window.parent.postMessage({ type: 'flowlink:close' }, '*');
+    }
+  } catch (e) {}
+  if (document.referrer && document.referrer !== window.location.href) {
+    history.back();
+  } else {
+    window.location.href = 'https://tajemny-klucz-maryi.flowlink-app.online';
+  }
+}
+</script>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-tagline">Tajemny Klucz Maryi</div>
+  <div class="cover-mark">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <!-- Raios de luz da pomba -->
+      <g stroke="currentColor" stroke-width="0.6" opacity="0.4">
+        <line x1="50" y1="14" x2="35" y2="4"/>
+        <line x1="50" y1="14" x2="50" y2="2"/>
+        <line x1="50" y1="14" x2="65" y2="4"/>
+        <line x1="50" y1="14" x2="20" y2="14"/>
+        <line x1="50" y1="14" x2="80" y2="14"/>
+      </g>
+      <!-- Pomba (Espírito Santo) -->
+      <path d="M 42 14 Q 38 12 35 16 Q 38 18 42 18 L 50 22 L 58 18 Q 62 18 65 16 Q 62 12 58 14 L 50 12 Z" fill="currentColor" opacity="0.95"/>
+      <circle cx="50" cy="13" r="1.2" fill="#1a1844"/>
+      <!-- Correntes da lanterna -->
+      <path d="M 38 26 L 42 50 M 62 26 L 58 50" stroke="currentColor" stroke-width="0.6" fill="none" opacity="0.7"/>
+      <!-- Topo da lanterna -->
+      <path d="M 40 50 L 60 50 L 58 46 L 42 46 Z" stroke="currentColor" stroke-width="1" fill="currentColor" opacity="0.85"/>
+      <!-- Vidro da lanterna -->
+      <path d="M 40 50 L 40 78 Q 40 82 44 82 L 56 82 Q 60 82 60 78 L 60 50 Z" stroke="currentColor" stroke-width="1.2" fill="none"/>
+      <!-- Chama dourada interna -->
+      <path d="M 50 56 Q 46 64 50 76 Q 54 64 50 56 Z" fill="currentColor" opacity="0.9"/>
+      <!-- Base da lanterna -->
+      <rect x="42" y="82" width="16" height="3" fill="currentColor" opacity="0.85"/>
+      <!-- Bruma sutil ao redor -->
+      <ellipse cx="50" cy="68" rx="34" ry="6" stroke="currentColor" stroke-width="0.4" fill="none" opacity="0.25"/>
+    </svg>
+  </div>
+  <h1>Rozeznawanie<br>duszy</h1>
+  <h2>Jak rozpoznać prawdziwy stan swojej duszy<br>i wiedzieć, co dzieje się w Tobie naprawdę</h2>
+  <div class="cover-sub">Pięć stanów · Siedem znaków · Auto-diagnoza</div>
+</div>
+
+<main>
+
+<!-- OPENING -->
+<div class="opening">
+  <h2>Dlaczego życie nie płynie?</h2>
+  <div class="subtitle">Słowo na początek</div>
+
+  <p>Modlisz się. Chodzisz na Mszę. Starasz się żyć dobrze. A mimo to coś nie pasuje. Czasem czujesz pokój, czasem nagły niepokój, którego nie umiesz nazwać. Czasem wszystko płynie, a nazajutrz ten sam dom wydaje się ciężki. Pytasz się w głębi: <i>„Czy to ja? Czy to Bóg? Czy to coś innego?”</i></p>
+
+  <p>Większość kobiet wiary nigdy nie nauczyła się odpowiadać na to pytanie. Uczono nas modlitw, sakramentów, dziesięciorga przykazań. Ale rzadko uczono nas <b>rozeznawać</b> — patrzeć na własne serce z taką jasnością, by wiedzieć, skąd pochodzi to, co czujesz w danej godzinie.</p>
+
+  <div class="highlight">
+    Rozeznawanie nie jest wiedzą tajemną zarezerwowaną dla świętych w klasztorach. To narzędzie, którego święty Ignacy dał całemu Kościołowi i które każda kobieta wiary może opanować w prostych krokach.
+  </div>
+
+  <p>W tej książce nauczysz się rozróżniać <b>pięć podstawowych stanów duszy</b> — i wiedzieć, co Bóg robi w każdym z nich, i co Ty masz robić. Nauczysz się rozpoznawać <b>siedem znaków, że coś negatywnego wpływa na Twoje serce</b>, oraz <b>jak to natychmiast oddalić</b>. Na końcu przejdziesz przez krótką auto-diagnozę, by ocenić, gdzie jesteś teraz.</p>
+
+  <p style="text-align: center; margin-top: 26px; font-style: italic; color: var(--gold-dark); font-size: 16px;">— Z ufnością, że Pan, który zaczął w Tobie dobre dzieło, doprowadzi je do końca.</p>
+</div>
+
+<div class="ornament">
+  <svg viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 5 15 Q 30 5 60 15 Q 90 25 115 15" stroke="currentColor" stroke-width="0.8" fill="none"/>
+    <circle cx="60" cy="15" r="3" fill="currentColor"/>
+    <circle cx="20" cy="15" r="1.5" fill="currentColor" opacity="0.6"/>
+    <circle cx="100" cy="15" r="1.5" fill="currentColor" opacity="0.6"/>
+  </svg>
+</div>
+
+<!-- PART I -->
+<div class="part-divider">
+  <div class="part-label">Część pierwsza</div>
+  <h2>Pięć stanów duszy</h2>
+  <p style="font-style: italic; color: var(--gold-dark); font-size: 16px;">Co naprawdę dzieje się w Tobie?</p>
+  <div class="part-line"></div>
+</div>
+
+<!-- ESTADO 1 -->
+<div class="state-card good">
+  <div class="state-num">1</div>
+  <span class="state-tag good">✓ Stan dobry</span>
+  <h3>Konsolacja prawdziwa</h3>
+  <div class="subtitle">Bóg mówi do Ciebie czule</div>
+
+  <p>To stan, w którym Twoje serce jest spokojne, ciche, łagodne. Modlitwa płynie. Czujesz się zachęcona — nie egzaltowana, ale wzmocniona. Świat wewnętrzny jest jasny, choć świat zewnętrzny może być wciąż trudny.</p>
+
+  <div class="signs">
+    <div class="signs-title">Znaki rozpoznawcze</div>
+    <ul>
+      <li>Pokój, który nie zależy od okoliczności</li>
+      <li>Łagodne łzy bez przyczyny — nie z bólu, lecz z głębi</li>
+      <li>Pragnienie modlitwy, sakramentów, dobrego słowa</li>
+      <li>Wzrost miłości do bliskich, nawet trudnych</li>
+      <li>Lekkość duszy, choć ciało zmęczone</li>
+    </ul>
+  </div>
+
+  <div class="action">
+    <div class="action-title">Co robić</div>
+    Przyjmuj z wdzięcznością, ale nie polegaj na uczuciu. Konsolacja jest darem, nie nagrodą. Wykorzystaj tę godzinę, by zapamiętać Bożą obecność — w trudnych dniach wrócisz do tego wspomnienia jak do studni.
+  </div>
+</div>
+
+<!-- ESTADO 2 -->
+<div class="state-card warning">
+  <div class="state-num">2</div>
+  <span class="state-tag warning">⚠ Uwaga</span>
+  <h3>Konsolacja fałszywa</h3>
+  <div class="subtitle">To, co wydaje się od Boga, a nie jest</div>
+
+  <p>Najtrudniejsza do rozpoznania. Wszystko zaczyna się dobrze — modlisz się, czujesz coś, podejmujesz decyzję. Ale po jakimś czasie owoc tej decyzji okazuje się gorzki: niepokój w rodzinie, oddalenie od bliskich, gorycz, dziwna duma duchowa.</p>
+
+  <div class="signs">
+    <div class="signs-title">Znaki rozpoznawcze</div>
+    <ul>
+      <li>Decyzja podjęta w pośpiechu, w „natchnieniu”</li>
+      <li>Wrażenie wyższości duchowej nad innymi</li>
+      <li>Oddalenie od rodziny w imię „świętości”</li>
+      <li>Egzaltowane uczucia, które potem opadają w ciemność</li>
+      <li>Pociąg do nowości duchowych, niezatwierdzonych przez Kościół</li>
+    </ul>
+  </div>
+
+  <div class="action">
+    <div class="action-title">Co robić</div>
+    Nie podejmuj żadnej ważnej decyzji w stanie egzaltacji. Czekaj kilka dni. Sprawdź owoc — jeśli prowadzi do pokory, posłuszeństwa, miłości codziennej, jest dobry. Jeśli prowadzi do dumy, oddalenia, niezgody — to nie był Bóg. Porozmawiaj z dobrym kapłanem.
+  </div>
+</div>
+
+<!-- ESTADO 3 -->
+<div class="state-card neutral">
+  <div class="state-num">3</div>
+  <span class="state-tag neutral">~ Próba</span>
+  <h3>Desolacja oczyszczająca</h3>
+  <div class="subtitle">Bóg ucisza zmysły, by się ujawnić w głębi</div>
+
+  <p>Modlitwa jest sucha. Nic nie czujesz. Msza wydaje się pusta. Ale, co istotne — <b>nie chcesz przestać się modlić</b>. Idziesz dalej. To znak, że Bóg sam Cię prowadzi, ucząc kochać Go ponad uczucia. Wiele kobiet nazywa to „końcem wiary” — a to początek głębszej wiary.</p>
+
+  <div class="signs">
+    <div class="signs-title">Znaki rozpoznawcze</div>
+    <ul>
+      <li>Sucha modlitwa, ale wytrwała wola dalej się modlić</li>
+      <li>Brak emocji, ale głęboka cisza</li>
+      <li>Pragnienie dobra, choć bez „pociągu”</li>
+      <li>Pokora — czujesz się malutka</li>
+      <li>Trwanie w sakramentach mimo „braku czucia”</li>
+    </ul>
+  </div>
+
+  <div class="action">
+    <div class="action-title">Co robić</div>
+    Nie zmieniaj rytmu modlitwy. Nie szukaj nowych emocjonalnych nabożeństw, by „odzyskać czucie”. Zostań wierna. Powiedz Bogu: <i>„Wierzę, choć nie czuję.”</i> Czas oczyszczenia kończy się, gdy Bóg uzna, że dusza dojrzała.
+  </div>
+</div>
+
+<!-- ESTADO 4 -->
+<div class="state-card warning">
+  <div class="state-num">4</div>
+  <span class="state-tag warning">⚠ Atak</span>
+  <h3>Desolacja od złego</h3>
+  <div class="subtitle">Wróg chce, byś się oddaliła</div>
+
+  <p>Inaczej niż desolacja oczyszczająca, ten stan towarzyszy <b>silnym myślom przeciwko wierze</b> — chcesz przestać się modlić, czujesz, że to bezsensowne, narasta złość albo rozpacz. Może przyjść po sakramencie, po dobrej decyzji duchowej, po momencie łaski — bo wróg atakuje właśnie wtedy, gdy zbliżasz się do Boga.</p>
+
+  <div class="signs">
+    <div class="signs-title">Znaki rozpoznawcze</div>
+    <ul>
+      <li>Nagła pokusa, by zostawić modlitwę „bo nic nie daje”</li>
+      <li>Myśli przeciwko Kościołowi, kapłanom, Maryi</li>
+      <li>Wrażenie, że Bóg już Cię nie kocha</li>
+      <li>Niewytłumaczalna złość na bliskich</li>
+      <li>Pojawia się po dobru — po Mszy, spowiedzi, dobrym uczynku</li>
+    </ul>
+  </div>
+
+  <div class="action">
+    <div class="action-title">Co robić</div>
+    <b>Nigdy nie zmieniaj postanowienia podjętego w czasie konsolacji.</b> Trzymaj się rytmu modlitwy. Wezwij imię Jezusa, Maryi. Pokrop dom wodą święconą. Odmów Modlitwę św. Michała Archanioła. Idź na spowiedź, nawet jeśli wydaje się, że nie ma o czym mówić — wróg najbardziej boi się sakramentów.
+  </div>
+</div>
+
+<!-- ESTADO 5 -->
+<div class="state-card neutral">
+  <div class="state-num">5</div>
+  <span class="state-tag neutral">~ Pożytek</span>
+  <h3>Susza przyrodzona</h3>
+  <div class="subtitle">Zmęczenie ciała, które nie jest grzechem</div>
+
+  <p>Nie jest to ani Bóg, ani wróg — to po prostu zmęczenie ciała, choroba, brak snu, ciężki wiek, hormony, zima bez słońca. Modlitwa jest trudna, bo Twoje ciało jest wyczerpane. Bóg to widzi i nie żąda od Ciebie wydajności.</p>
+
+  <div class="signs">
+    <div class="signs-title">Znaki rozpoznawcze</div>
+    <ul>
+      <li>Zmęczenie modlitwy idzie w parze ze zmęczeniem fizycznym</li>
+      <li>Trudność jest wszędzie — w domu, w pracy, w sakramentach</li>
+      <li>Sen, dobre jedzenie, świeże powietrze pomagają</li>
+      <li>Brak ataku ani egzaltacji — tylko szarość</li>
+    </ul>
+  </div>
+
+  <div class="action">
+    <div class="action-title">Co robić</div>
+    Zatroszcz się o ciało, jak Eliasz pod jałowcem — Bóg posłał anioła z chlebem, zanim posłał słowo. Zjedz dobrze. Prześpij się. Wyjdź na spacer. Skróć modlitwę, nie kasuj jej. Wystarczy 5 minut z sercem niż godzina z umysłem gdzie indziej.
+  </div>
+</div>
+
+<div class="ornament">
+  <svg viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 5 15 Q 30 5 60 15 Q 90 25 115 15" stroke="currentColor" stroke-width="0.8" fill="none"/>
+    <circle cx="60" cy="15" r="3" fill="currentColor"/>
+    <circle cx="20" cy="15" r="1.5" fill="currentColor" opacity="0.6"/>
+    <circle cx="100" cy="15" r="1.5" fill="currentColor" opacity="0.6"/>
+  </svg>
+</div>
+
+<!-- PART II -->
+<div class="part-divider">
+  <div class="part-label">Część druga</div>
+  <h2>Siedem znaków negatywnego wpływu</h2>
+  <p style="font-style: italic; color: var(--gold-dark); font-size: 16px;">Gdy coś jest „nie tak” w Twoim domu lub w Tobie</p>
+  <div class="part-line"></div>
+</div>
+
+<p style="font-size: 17px; margin-bottom: 30px; padding: 0 8px;">
+Nie wszystko, co przychodzi do Twojej duszy, pochodzi od Ciebie. Czasem wpływ jest subtelny, codzienny, niezauważalny. Poniżej siedem konkretnych znaków, że coś negatywnego — emocjonalne obciążenie, atak duchowy, zła energia z miejsca lub osoby — wpływa na Ciebie. Nie panikuj, gdy rozpoznasz. <b>Wszystkie mają konkretną odpowiedź</b>, którą znajdziesz dalej.
+</p>
+
+<div class="signs-grid">
+
+  <div class="sign-item">
+    <div class="sign-icon">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M12 2v6m0 8v6m-10-10h6m8 0h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="sign-content">
+      <h4>1. Nagłe zmiany nastroju bez powodu</h4>
+      <p>Wstajesz dobrze, a w ciągu godziny czujesz głęboką ciemność. Bez wiadomości, bez kłótni, bez powodu. Wraca regularnie. Nie myl tego z hormonami — sprawdź, czy zachodzi w domu po wizycie konkretnej osoby lub po obejrzeniu pewnego programu.</p>
+    </div>
+  </div>
+
+  <div class="sign-item">
+    <div class="sign-icon">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2v16z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="8" y1="11" x2="16" y2="11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="sign-content">
+      <h4>2. Nagła awersja do modlitwy lub Mszy</h4>
+      <p>Lubiłaś chodzić do kościoła. Nagle wymyślasz wymówki. Różaniec ciąży w ręku jak ołów. Nie chcesz spowiedzi. To nie zwykłe lenistwo — to uczucie obrzydzenia wobec rzeczy świętych. Klasyczny znak ataku.</p>
+    </div>
+  </div>
+
+  <div class="sign-item">
+    <div class="sign-icon">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="sign-content">
+      <h4>3. Powtarzające się dręczące sny</h4>
+      <p>Sny o cieniach, atakach, zmarłych, którzy nie wyglądają na pojednanych, dziwne istoty. Budzisz się przerażona, z poczuciem że to było „realne”. Nie każde takie sen to atak, ale powtarzające się przez tygodnie — tak.</p>
+    </div>
+  </div>
+
+  <div class="sign-item">
+    <div class="sign-icon">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline points="9 22 9 12 15 12 15 22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="sign-content">
+      <h4>4. Niezgoda i kłótnie bez wyraźnej przyczyny</h4>
+      <p>Dom, który był spokojny, nagle „kipie”. Małe sprawy stają się wielkie. Wszyscy się denerwują, choć nikt nie wie dlaczego. Dzieci stają się nieposłuszne. Małżonek staje się odległy. Energia w domu jest „ciężka”.</p>
+    </div>
+  </div>
+
+  <div class="sign-item">
+    <div class="sign-icon">
+      <svg viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+        <path d="M9 9h.01M15 9h.01M9.5 15a3.5 3.5 0 015 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="sign-content">
+      <h4>5. Myśli przeciwko wierze</h4>
+      <p>Pojawiają się natrętnie myśli typu: <i>„może Bóg nie istnieje”</i>, <i>„Maryja to wymysł”</i>, <i>„Kościół to oszustwo”</i>, <i>„twoje życie to żart”</i>. Nie szukasz tych myśli — one same przychodzą. Kluczowy znak: <b>te myśli mają w sobie nienawiść</b>, a nie szukanie.</p>
+    </div>
+  </div>
+
+  <div class="sign-item">
+    <div class="sign-icon">
+      <svg viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+        <polyline points="12 6 12 12 16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="sign-content">
+      <h4>6. Zmęczenie duchowe nieproporcjonalne</h4>
+      <p>Dobrze przespałaś noc, dobrze zjadłaś, ale dusza ciężka jak z ołowiu. Modlitwa wyczerpuje. Pójście do kościoła wymaga heroicznego wysiłku. To nie tylko zmęczenie ciała — to obciążenie duchowe.</p>
+    </div>
+  </div>
+
+  <div class="sign-item">
+    <div class="sign-icon">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline points="2 17 12 22 22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="sign-content">
+      <h4>7. Pociąg do dwuznacznych źródeł</h4>
+      <p>Nagle interesujesz się kartami tarota, horoskopem, „bioenergetyką”, medytacjami z dalekiego wschodu. Mówisz sobie, że to „tylko zabawa”. Ale to nie zabawa — to drzwi. Każdy zmarły święty ostrzegał przed tymi „małymi otwarciami”.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="ornament">
+  <svg viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 5 15 Q 30 5 60 15 Q 90 25 115 15" stroke="currentColor" stroke-width="0.8" fill="none"/>
+    <circle cx="60" cy="15" r="3" fill="currentColor"/>
+    <circle cx="20" cy="15" r="1.5" fill="currentColor" opacity="0.6"/>
+    <circle cx="100" cy="15" r="1.5" fill="currentColor" opacity="0.6"/>
+  </svg>
+</div>
+
+<!-- PART III - REMÉDIO -->
+<div class="part-divider">
+  <div class="part-label">Część trzecia</div>
+  <h2>Co robić, gdy rozpoznasz</h2>
+  <p style="font-style: italic; color: var(--gold-dark); font-size: 16px;">Konkretne kroki, działają natychmiast</p>
+  <div class="part-line"></div>
+</div>
+
+<div class="state-card good" style="border-left-color: var(--gold);">
+  <h3 style="padding-right: 0;">Pierwsza pomoc duchowa</h3>
+  <div class="subtitle">Pięć kroków, gdy czujesz, że coś nie jest dobrze</div>
+
+  <div style="margin-top: 20px;">
+
+    <div style="margin-bottom: 22px; padding-left: 50px; position: relative;">
+      <div style="position: absolute; left: 0; top: 0; width: 36px; height: 36px; background: var(--gold); color: var(--navy-deep); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 16px;">1</div>
+      <h4 style="font-size: 19px; color: var(--brown-deep); margin-bottom: 6px;">Przeżegnaj siebie i miejsce</h4>
+      <p style="margin: 0; font-size: 16.5px; line-height: 1.7;">Powolny znak krzyża z imieniem każdej Osoby Trójcy. Powiedz na głos: <i>„W imię Jezusa Chrystusa odrzucam wszystko, co nie jest od Boga.”</i></p>
+    </div>
+
+    <div style="margin-bottom: 22px; padding-left: 50px; position: relative;">
+      <div style="position: absolute; left: 0; top: 0; width: 36px; height: 36px; background: var(--gold); color: var(--navy-deep); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 16px;">2</div>
+      <h4 style="font-size: 19px; color: var(--brown-deep); margin-bottom: 6px;">Pokrop dom wodą święconą</h4>
+      <p style="margin: 0; font-size: 16.5px; line-height: 1.7;">Każdy pokój, każde łóżko, każde wejście. Trzymaj zawsze butelkę pod ręką — kupuje się ją w parafii albo poświęca u kapłana.</p>
+    </div>
+
+    <div style="margin-bottom: 22px; padding-left: 50px; position: relative;">
+      <div style="position: absolute; left: 0; top: 0; width: 36px; height: 36px; background: var(--gold); color: var(--navy-deep); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 16px;">3</div>
+      <h4 style="font-size: 19px; color: var(--brown-deep); margin-bottom: 6px;">Odmów Modlitwę św. Michała Archanioła</h4>
+      <p style="margin: 0; font-size: 16.5px; line-height: 1.7;"><i>„Święty Michale Archaniele, broń nas w walce. Przeciw zasadzkom i niegodziwości złego ducha bądź naszą obroną...”</i> — pełną wersję wydrukuj i trzymaj w widocznym miejscu.</p>
+    </div>
+
+    <div style="margin-bottom: 22px; padding-left: 50px; position: relative;">
+      <div style="position: absolute; left: 0; top: 0; width: 36px; height: 36px; background: var(--gold); color: var(--navy-deep); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 16px;">4</div>
+      <h4 style="font-size: 19px; color: var(--brown-deep); margin-bottom: 6px;">Odmów dziesiątkę Różańca</h4>
+      <p style="margin: 0; font-size: 16.5px; line-height: 1.7;">Maryja jest Niewiastą zwycięstwa nad wężem. Dziesiątka odmówiona z wiarą rozprasza więcej niż jakakolwiek emocja. Nie musi być cały Różaniec — wystarczy dziesiątka.</p>
+    </div>
+
+    <div style="padding-left: 50px; position: relative;">
+      <div style="position: absolute; left: 0; top: 0; width: 36px; height: 36px; background: var(--gold); color: var(--navy-deep); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 16px;">5</div>
+      <h4 style="font-size: 19px; color: var(--brown-deep); margin-bottom: 6px;">Idź do spowiedzi w ciągu tygodnia</h4>
+      <p style="margin: 0; font-size: 16.5px; line-height: 1.7;">Nawet jeśli nie masz „wielkich grzechów” — sakrament jest najsilniejszą bronią Kościoła. Wróg najbardziej boi się duszy w stanie łaski.</p>
+    </div>
+
+  </div>
+</div>
+
+<div class="ornament">
+  <svg viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 5 15 Q 30 5 60 15 Q 90 25 115 15" stroke="currentColor" stroke-width="0.8" fill="none"/>
+    <circle cx="60" cy="15" r="3" fill="currentColor"/>
+    <circle cx="20" cy="15" r="1.5" fill="currentColor" opacity="0.6"/>
+    <circle cx="100" cy="15" r="1.5" fill="currentColor" opacity="0.6"/>
+  </svg>
+</div>
+
+<!-- AUTODIAGNÓSTICO -->
+<div class="part-divider">
+  <div class="part-label">Część czwarta</div>
+  <h2>Auto-diagnoza</h2>
+  <p style="font-style: italic; color: var(--gold-dark); font-size: 16px;">Gdzie jesteś teraz?</p>
+  <div class="part-line"></div>
+</div>
+
+<div class="quiz" id="quizBlock">
+  <h3>Odpowiedz szczerze</h3>
+  <div class="quiz-sub">Pomyśl o ostatnich dwóch tygodniach. Wybierz opcję, która najlepiej Cię opisuje.</div>
+
+  <form id="quizForm" onsubmit="return false;">
+    <div id="quizQuestions"></div>
+
+    <div class="quiz-submit-wrap">
+      <button type="button" class="quiz-submit" id="quizSubmitBtn" onclick="calculateQuizResult()" disabled>Zobacz wynik</button>
+    </div>
+  </form>
+
+  <div class="quiz-result" id="quizResult" aria-live="polite">
+    <div class="quiz-result-card">
+      <div class="result-label">Twój stan dominujący</div>
+      <h3 id="resultStateName"></h3>
+      <div class="result-sub" id="resultStateSubtitle"></div>
+
+      <div class="quiz-bars" id="quizBars"></div>
+
+      <div id="resultGuidance"></div>
+
+      <div class="quiz-second" id="quizSecondState"></div>
+    </div>
+
+    <div class="quiz-restart-wrap">
+      <button type="button" class="quiz-restart" onclick="restartQuiz()">Wykonaj test ponownie</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const QUIZ_STATES = {
+    konsolacja: {
+      name: "Konsolacja prawdziwa",
+      subtitle: "Bóg mówi do Ciebie czule — trwaj w tym darze",
+      meaning: "Doświadczasz delikatnej obecności Boga w głębi serca. Modlitwa ma smak, choć nie zawsze emocjonalny. W codzienności pojawia się pokój nieproporcjonalny do okoliczności, łagodność wobec bliskich, pragnienie sakramentów. To nie nastrój — to dar Ducha Świętego, który zachęca i umacnia. Nie zasłużyłaś na ten stan i nie utrzymasz go siłą; przyjmij go z wdzięcznością i zapamiętaj, by w godzinie ciemności wrócić do tego wspomnienia jak do studni żywej wody.",
+      avoid: [
+        "Nie myl pociechy z wynagrodzeniem — Bóg nie daje jej za zasługi, nie odbierze jej za niedoskonałości",
+        "Nie ogłaszaj wszystkim, że „w końcu coś czujesz” — pokora chroni dar",
+        "Nie podejmuj żadnych radykalnych decyzji życiowych z samego entuzjazmu — sprawdź je w spowiedzi i czasie",
+        "Nie szukaj coraz mocniejszych przeżyć duchowych — to droga do złudzeń"
+      ],
+      doToday: [
+        "Dziś wieczorem zapisz w zeszycie trzy konkretne łaski tego dnia — to będzie kotwica na trudne dni",
+        "Złóż jedno postanowienie na piśmie (jedna wada do oddania, jedna cnota do pielęgnowania) i podpisz datą",
+        "W ciągu 48 godzin idź do spowiedzi, żeby utrwalić owoc łaski w sakramencie",
+        "Jutro rano poświęć pierwsze 10 minut po przebudzeniu na cichą adorację — bez słów, tylko obecność"
+      ],
+      verse: "„Jak miłe są przybytki Twoje, Panie Zastępów. Dusza moja stęskniona pragnie przedsionków Pańskich.” — Ps 84,2-3",
+      wait: "Nie podejmuj wielkich decyzji życiowych przez 7 dni. Konsolacja jest do trwania, nie do biegania. Jeśli postanowienie przetrwa tydzień w pokoju — pochodzi z Boga."
+    },
+    desolacja_oczyszczajaca: {
+      name: "Desolacja oczyszczająca",
+      subtitle: "Bóg ucisza zmysły, by ujawnić się w głębi",
+      meaning: "Modlitwa jest sucha, Msza wydaje się pusta, sakramenty „nie smakują”. A jednak nie chcesz przestać — wstajesz, klęczasz, trwasz. To nie utrata wiary, lecz jej pogłębienie. Bóg odbiera wsparcie zmysłów, by nauczyć Cię kochać Go ponad uczucia. Wiele dusz na tym etapie myśli, że oddaliły się od Boga — w rzeczywistości to On podchodzi bliżej, tylko ciszej. Owocem tej próby jest pokora, wytrwałość i wiara, która nie zależy od pogody serca.",
+      avoid: [
+        "Nie zmieniaj rytmu modlitwy ustalonego w czasie pociechy — to klasyczna zasada św. Ignacego",
+        "Nie szukaj nowych emocjonalnych nabożeństw, byle „coś poczuć” — to ucieczka",
+        "Nie wyciągaj wniosku, że jesteś w grzechu, jeśli sumienie Cię nie oskarża o konkret",
+        "Nie izoluj się od Mszy ani od spowiedzi — sucha wierność jest cenniejsza niż słodkie uczucie"
+      ],
+      doToday: [
+        "Dziś, o tej samej porze co zwykle, odmów dokładnie tę samą modlitwę — nawet jeśli zajmie pięć minut zamiast piętnastu",
+        "Powiedz na głos: „Wierzę, choć nie czuję. Kocham, choć nie smakuję” — i wróć do swoich obowiązków",
+        "Otwórz Psalm 42 wieczorem przed snem i przeczytaj go powoli, w całości, bez analizy",
+        "Zapisz w zeszycie jedną rzecz, którą Bóg dał Ci wczoraj, choć dziś tego nie czujesz"
+      ],
+      verse: "„Czemu jesteś zgnębiona, moja duszo, i czemu jęczysz we mnie? Ufaj Bogu, bo jeszcze Go będę wysławiać.” — Ps 42,6",
+      wait: "Nie zmieniaj nic w swoim życiu duchowym przez minimum 21 dni. Św. Ignacy: w czasie strapienia nigdy nie zmieniaj postanowień podjętych w pociechy."
+    },
+    pokusa_pod_pozorem_dobra: {
+      name: "Pokusa pod pozorem dobra",
+      subtitle: "Coś prowadzi Cię „duchowo” w stronę niezgody",
+      meaning: "Najtrudniejsza do rozpoznania ze wszystkich. Wszystko zaczyna się dobrze: modlitwa, „natchnienie”, decyzja. Ale po jakimś czasie owoc okazuje się gorzki — niepokój w rodzinie, oddalenie od bliskich, subtelna duma duchowa, poczucie wyższości nad „letnimi” katolikami. Wróg nie zwalcza Cię frontalnie, gdy szczerze szukasz Boga; przebiera się za anioła światłości i kieruje Twoją gorliwość w stronę, która kruszy miłość. Klucz: nie sprawdzaj samego natchnienia — sprawdzaj jego owoce po tygodniach.",
+      avoid: [
+        "Nie podejmuj żadnej ważnej decyzji w stanie egzaltacji — odłóż ją minimum o dwa tygodnie",
+        "Nie zaczynaj nowych „głębokich” praktyk duchowych poza tymi, które zatwierdza Twój kapłan",
+        "Nie oddalaj się od rodziny w imię „świętości” — to jeden z najczęstszych chwytów wroga",
+        "Nie ufaj prywatnym objawieniom ani prorokom z internetu, którzy nie mają zatwierdzenia Kościoła"
+      ],
+      doToday: [
+        "Dziś przed snem zapisz na kartce decyzję, która Cię pociąga, i schowaj ją do szuflady na 14 dni",
+        "W tym tygodniu umów się na rozmowę z dobrym, sprawdzonym kapłanem — opowiedz mu konkretnie, krok po kroku",
+        "Zadzwoń dziś do osoby, od której się ostatnio oddaliłaś „w imię Boga”, i zapytaj zwyczajnie: jak się masz",
+        "Odmów Litanię do Matki Bożej, prosząc o dar prawdziwej pokory zamiast pozornej żarliwości"
+      ],
+      verse: "„Po ich owocach poznacie ich. Czy zbiera się winogrona z cierni albo z ostu figi?” — Mt 7,16",
+      wait: "Nie tom żadnej decyzji życiowej (zmiana parafii, kierownika, stanu, zobowiązań) przez minimum 30 dni. Owoc sprawdza się w czasie, nie w intensywności."
+    },
+    cisza_boga: {
+      name: "Cisza Boga lub atak strapienia",
+      subtitle: "Niepokój, awersja do modlitwy, ciemność",
+      meaning: "Czujesz nagłą awersję do sakramentów, dręczące myśli przeciwko wierze, niewytłumaczalną złość lub rozpacz. Może pojawić się tuż po dobru — po Mszy, spowiedzi, dobrej decyzji — bo wróg atakuje wtedy, gdy zbliżasz się do Boga. To nie znaczy, że jesteś opętana ani że Bóg Cię opuścił. To strapienie, próba lub zewnętrzne obciążenie, które przejdzie. Nie podejmuj wtedy żadnych decyzji — to grunt, na którym wróg sieje fałszywe sądy. Trzymaj się rytmu i sakramentów, nawet bez czucia.",
+      avoid: [
+        "Nie zmieniaj postanowień podjętych w czasie pociechy — to absolutna zasada",
+        "Nie zostawaj sama z myślami przez całe popołudnie — wyjdź, zadzwoń do kogoś, idź do kościoła",
+        "Nie czytaj w tym czasie treści budzących lęk (wiadomości, opisy ataków duchowych w internecie)",
+        "Nie wyciągaj wniosków o swoim życiu, małżeństwie ani powołaniu — sąd w strapieniu jest zafałszowany"
+      ],
+      doToday: [
+        "Dziś, jak najszybciej, pokrop dom wodą święconą i odmów na głos Modlitwę św. Michała Archanioła",
+        "W ciągu 7 dni idź do spowiedzi — nawet jeśli nie czujesz „o czym mówić”, sakrament jest najsilniejszą bronią",
+        "Wieczorem odmów dziesiątkę różańca powoli, klęcząc, koncentrując się tylko na pierwszych słowach Zdrowaś",
+        "Wydrukuj Psalm 91 i powieś go w sypialni — czytaj wieczorem przed snem przez 14 kolejnych dni"
+      ],
+      verse: "„Pan jest moim światłem i zbawieniem moim: kogóż mam się lękać? Pan obroną mojego życia: przed kim mam się trwożyć?” — Ps 27,1",
+      wait: "Nie podejmuj absolutnie żadnej decyzji życiowej, dopóki strapienie nie minie i nie wróci pokój. Czekaj minimum 14 dni od ustąpienia objawów."
+    },
+    wzrost: {
+      name: "Wzrost duchowy w codzienności",
+      subtitle: "Zmęczenie ciała lub spokojne dojrzewanie wiary",
+      meaning: "Nie jesteś ani w wielkiej pociechy, ani w ostrym ataku. Życie duchowe płynie spokojnie, bez fajerwerków. Czasem modlitwa jest trudna, bo ciało zmęczone, ale to nie atak — to człowieczeństwo. Tu rośnie się najbardziej: w wierności małym rzeczom, w obowiązkach matki, żony, pracownicy. Bóg nie żąda od Ciebie wydajności, lecz obecności. To etap, który Bóg najczęściej daje na lata — i właśnie w nim formuje świętych, którzy potem dają radę w wielkich próbach.",
+      avoid: [
+        "Nie myl tego stanu z letniością — wierność w szarości to nie letniość",
+        "Nie próbuj sztucznie podkręcać emocji duchowych — ryzykujesz złudzenia",
+        "Nie porównuj się z kobietami, które „mają silne przeżycia” — Bóg prowadzi każdą inaczej",
+        "Nie zaniedbuj ciała: braku snu, posiłków, świeżego powietrza — łaska buduje na naturze"
+      ],
+      doToday: [
+        "Dziś zatroszcz się o ciało jak Eliasz pod jałowcem: zjedz porządny posiłek, prześpij się jeśli możesz, wyjdź na 20 minut na świeże powietrze",
+        "Skróć modlitwę, jeśli trzeba, ale jej nie kasuj — pięć minut z sercem przewyższa godzinę roztargnienia",
+        "Wieczorem zrób krótki rachunek sumienia (3 pytania: za co dziś dziękuję / kogo zraniłam / co jutro robię lepiej)",
+        "W tym tygodniu zaplanuj jeden konkretny gest miłości wobec bliskiej osoby — bez ogłaszania"
+      ],
+      verse: "„Wszystko mogę w Tym, który mnie umacnia.” — Flp 4,13",
+      wait: "To dobry stan, by powoli rozeznawać wieksze decyzje. Daj sobie 30 dni modlitwy nad każdą ważną sprawą i konsultuj ją z mądrym kapłanem."
+    }
+  };
+
+  const QUIZ_QUESTIONS = [
+    {
+      q: "Jak wygląda Twoja modlitwa w ostatnich dwóch tygodniach?",
+      options: [
+        { t: "Płynie spokojnie, czuję cichą głębię, choć życie jest trudne", state: "konsolacja", p: 3 },
+        { t: "Jest sucha, ale mimo to wytrwale wracam do niej każdego dnia", state: "desolacja_oczyszczajaca", p: 3 },
+        { t: "Czuję awersję, opór, ciężar — wymyślam wymówki, by jej uniknąć", state: "cisza_boga", p: 3 },
+        { t: "Jest zwyczajna, czasem trudna z powodu zmęczenia, ale nie chodzi o atak", state: "wzrost", p: 3 }
+      ]
+    },
+    {
+      q: "Co czujesz w sercu, gdy myślisz o Bogu?",
+      options: [
+        { t: "Cichą czułość i wdzięczność, łagodne łzy bez powodu", state: "konsolacja", p: 3 },
+        { t: "Nic szczególnego — pustkę, ale wciąż chcę Mu być wierna", state: "desolacja_oczyszczajaca", p: 3 },
+        { t: "Niepokój, czasem złość, czasem pokusę „a może Go nie ma”", state: "cisza_boga", p: 3 },
+        { t: "Spokojną pewność, jakby był przy mnie w codzienności", state: "wzrost", p: 2 },
+        { t: "Pociąg do nadzwyczajnych przeżyć, „misji”, prywatnych objawień", state: "pokusa_pod_pozorem_dobra", p: 3 }
+      ]
+    },
+    {
+      q: "Jak reagujesz na sakramenty (Msza, spowiedź, Komunia)?",
+      options: [
+        { t: "Pragnę ich, są dla mnie spotkaniem", state: "konsolacja", p: 2 },
+        { t: "Idę z obowiązku, „nic nie czuję”, ale jestem wierna", state: "desolacja_oczyszczajaca", p: 3 },
+        { t: "Mam nagłą awersję, której wcześniej nie miałam", state: "cisza_boga", p: 3 },
+        { t: "Idę regularnie, bez wielkich emocji, ale z pokojem", state: "wzrost", p: 2 }
+      ]
+    },
+    {
+      q: "Czy w ostatnich tygodniach pojawiały się myśli, których nie szukałaś?",
+      options: [
+        { t: "Tak — wątpienie w Boga, w Kościół, że to wszystko bezsens", state: "cisza_boga", p: 3 },
+        { t: "Tak — pociąg do tarota, horoskopu, „energii”, medytacji wschodnich", state: "cisza_boga", p: 3 },
+        { t: "Nie, raczej spokój i zwykła codzienność", state: "wzrost", p: 2 },
+        { t: "Tak — wrażenie, że jestem „bardziej duchowa” niż inni katolicy", state: "pokusa_pod_pozorem_dobra", p: 3 }
+      ]
+    },
+    {
+      q: "Jak wygląda atmosfera w Twoim domu?",
+      options: [
+        { t: "Jest pokój, łagodność, nawet w trudnych dniach", state: "konsolacja", p: 2 },
+        { t: "Zwyczajnie — czasem napięcia, czasem spokój, normalne życie", state: "wzrost", p: 2 },
+        { t: "„Kipi” bez wyraźnej przyczyny, małe sprawy stają się wielkie", state: "cisza_boga", p: 3 },
+        { t: "Zauważam dystans, jakby coś mnie oddalało od bliskich „dla Boga”", state: "pokusa_pod_pozorem_dobra", p: 3 }
+      ]
+    },
+    {
+      q: "Jak się czujesz fizycznie i emocjonalnie?",
+      options: [
+        { t: "Lekko, choć ciało zmęczone — duch jest pełen", state: "konsolacja", p: 2 },
+        { t: "Zmęczenie modlitwy idzie w parze ze zmęczeniem ciała — sen, jedzenie pomagają", state: "wzrost", p: 3 },
+        { t: "Mam dziwne, nieproporcjonalne zmęczenie duchowe, choć śpię i jem dobrze", state: "cisza_boga", p: 3 },
+        { t: "Egzaltacja na przemian z głęboką ciemnością", state: "pokusa_pod_pozorem_dobra", p: 3 },
+        { t: "Szarość, brak emocji, ale spokój wewnętrzny mimo wszystko", state: "desolacja_oczyszczajaca", p: 2 }
+      ]
+    },
+    {
+      q: "Czy podejmujesz ostatnio jakieś ważne decyzje życiowe?",
+      options: [
+        { t: "Nie, trwam spokojnie w tym, co mam", state: "konsolacja", p: 2 },
+        { t: "Pojawiło się nagłe „natchnienie” do dużej zmiany — od razu", state: "pokusa_pod_pozorem_dobra", p: 3 },
+        { t: "Trwam w postanowieniach z czasu pociechy, choć teraz jest sucho", state: "desolacja_oczyszczajaca", p: 3 },
+        { t: "Rozważam coś od miesięcy, w pokoju i w rozmowie z kapłanem", state: "wzrost", p: 2 }
+      ]
+    },
+    {
+      q: "Jak Twoja dusza reaguje na Słowo Boże (Pismo, czytania mszalne)?",
+      options: [
+        { t: "Słowa „przemawiają” do mnie, czuję poruszenie i światło", state: "konsolacja", p: 3 },
+        { t: "Czytam, ale „nic do mnie nie dochodzi” — i tak czytam dalej", state: "desolacja_oczyszczajaca", p: 3 },
+        { t: "Mam opór, by w ogóle otworzyć Pismo Święte", state: "cisza_boga", p: 3 },
+        { t: "Czytam regularnie, spokojnie, bez wielkich poruszeń", state: "wzrost", p: 2 }
+      ]
+    },
+    {
+      q: "Czy masz powtarzające się dręczące sny, lęki nocne lub niepokój o świcie?",
+      options: [
+        { t: "Tak, regularnie od kilku tygodni", state: "cisza_boga", p: 3 },
+        { t: "Czasem, ale to raczej skutek zmęczenia i stresu", state: "wzrost", p: 2 },
+        { t: "Nie, śpię spokojnie", state: "konsolacja", p: 1 },
+        { t: "Nie pamiętam snów, ale rano czuję ciężar", state: "desolacja_oczyszczajaca", p: 1 }
+      ]
+    },
+    {
+      q: "Co czujesz wobec rodziny i bliskich?",
+      options: [
+        { t: "Wzrost miłości, łagodność, cierpliwość", state: "konsolacja", p: 3 },
+        { t: "Niewytłumaczalną złość lub dystans, choć ich kocham", state: "cisza_boga", p: 3 },
+        { t: "Wrażenie, że oddalam się od nich „dla wyższych spraw”", state: "pokusa_pod_pozorem_dobra", p: 3 },
+        { t: "Zwyczajnie — kocham ich, czasem irytuję się, codzienność", state: "wzrost", p: 2 }
+      ]
+    },
+    {
+      q: "Jak reagujesz, gdy bliska osoba zwraca Ci uwagę w sprawach duchowych?",
+      options: [
+        { t: "Z pokorą rozważam, bo wiem, że mogę się mylić", state: "konsolacja", p: 2 },
+        { t: "Przyjmuję zwyczajnie i konfrontuję z kierownikiem duchowym", state: "wzrost", p: 3 },
+        { t: "Czuję wewnętrzny opór, „oni nie rozumieją Bożej drogi”", state: "pokusa_pod_pozorem_dobra", p: 3 },
+        { t: "Nawet nie mam siły rozważać — wszystko mnie męczy", state: "desolacja_oczyszczajaca", p: 2 }
+      ]
+    },
+    {
+      q: "Jakie owoce widzisz w sobie po ostatnich tygodniach modlitwy?",
+      options: [
+        { t: "Pokora, cierpliwość, miłość do trudnych ludzi", state: "konsolacja", p: 3 },
+        { t: "Gorycz, duma duchowa, poczucie wyższości", state: "pokusa_pod_pozorem_dobra", p: 3 },
+        { t: "Zwykłą wierność, bez wielkich owoców, ale i bez upadków", state: "wzrost", p: 3 },
+        { t: "Trudno powiedzieć — wszystko jest matowe", state: "desolacja_oczyszczajaca", p: 2 }
+      ]
+    },
+    {
+      q: "Czy w ciągu dnia wracasz do Boga myślą, jakby „samoczynnie”?",
+      options: [
+        { t: "Tak, kilka razy dziennie, w pokoju serca", state: "konsolacja", p: 3 },
+        { t: "Bardzo rzadko, jakbym Go zapomniała, choć tęsknię", state: "desolacja_oczyszczajaca", p: 2 },
+        { t: "Wręcz przeciwnie — uciekam od myśli o Nim", state: "cisza_boga", p: 3 },
+        { t: "Tak, w prostych, krótkich strzałach modlitewnych", state: "wzrost", p: 3 }
+      ]
+    },
+    {
+      q: "Czy zauważasz w sobie niezwykłą gorliwość, która zaczyna ranić bliskich?",
+      options: [
+        { t: "Nie, moja gorliwość jest cicha i nie izoluje mnie od ludzi", state: "konsolacja", p: 2 },
+        { t: "Tak, wszystko inne wydaje mi się „za mało święte”", state: "pokusa_pod_pozorem_dobra", p: 3 },
+        { t: "Nie, raczej brakuje mi gorliwości, idę z trudem", state: "desolacja_oczyszczajaca", p: 2 },
+        { t: "Nie zauważam takiego wzorca", state: "wzrost", p: 2 }
+      ]
+    },
+    {
+      q: "Jak reagujesz na propozycję pójścia do spowiedzi w tym tygodniu?",
+      options: [
+        { t: "Cieszę się i już planuję, kiedy iść", state: "konsolacja", p: 3 },
+        { t: "Pójdę, choć nie czuję potrzeby — to wierność", state: "desolacja_oczyszczajaca", p: 3 },
+        { t: "Mam wewnętrzny opór, „nie mam o czym mówić”, „później”", state: "cisza_boga", p: 3 },
+        { t: "Pójdę spokojnie, jak co miesiąc", state: "wzrost", p: 2 }
+      ]
+    },
+    {
+      q: "Co czujesz, gdy myślisz o Maryi i Różańcu?",
+      options: [
+        { t: "Bliskość, czułość, chęć modlitwy", state: "konsolacja", p: 3 },
+        { t: "Nic szczególnego, ale modlę się dalej", state: "desolacja_oczyszczajaca", p: 2 },
+        { t: "Dziwne myśli przeciwko Maryi, których wcześniej nie miałam", state: "cisza_boga", p: 3 },
+        { t: "Spokój, modlę się Różańcem regularnie i bez emocji", state: "wzrost", p: 3 }
+      ]
+    }
+  ];
+
+  const STATE_ORDER = ["konsolacja", "desolacja_oczyszczajaca", "pokusa_pod_pozorem_dobra", "cisza_boga", "wzrost"];
+
+  function renderQuiz() {
+    const wrap = document.getElementById("quizQuestions");
+    wrap.innerHTML = QUIZ_QUESTIONS.map((q, qi) => {
+      const opts = q.options.map((o, oi) => `
+        <label>
+          <input type="radio" name="q${qi}" value="${oi}" onchange="checkQuizComplete()">
+          <span>${o.t}</span>
+        </label>
+      `).join("");
+      return `
+        <div class="quiz-question">
+          <div class="q-num">Pytanie ${qi + 1} z ${QUIZ_QUESTIONS.length}</div>
+          <div class="q-text">${q.q}</div>
+          <div class="quiz-options-list">${opts}</div>
+        </div>
+      `;
+    }).join("");
+    document.getElementById("quizSubmitBtn").disabled = true;
+    document.getElementById("quizResult").classList.remove("visible");
+  }
+
+  function checkQuizComplete() {
+    const allAnswered = QUIZ_QUESTIONS.every((_, qi) => {
+      return document.querySelector(`input[name="q${qi}"]:checked`);
+    });
+    document.getElementById("quizSubmitBtn").disabled = !allAnswered;
+  }
+
+  function calculateQuizResult() {
+    const scores = { konsolacja: 0, desolacja_oczyszczajaca: 0, pokusa_pod_pozorem_dobra: 0, cisza_boga: 0, wzrost: 0 };
+
+    QUIZ_QUESTIONS.forEach((q, qi) => {
+      const sel = document.querySelector(`input[name="q${qi}"]:checked`);
+      if (!sel) return;
+      const opt = q.options[parseInt(sel.value, 10)];
+      scores[opt.state] = (scores[opt.state] || 0) + opt.p;
+    });
+
+    const ranked = STATE_ORDER.map(s => ({ key: s, value: scores[s] || 0 }))
+                              .sort((a, b) => b.value - a.value);
+    const top = ranked[0];
+    const second = ranked[1];
+    const total = ranked.reduce((sum, r) => sum + r.value, 0) || 1;
+    const maxValue = Math.max(...ranked.map(r => r.value), 1);
+
+    const topState = QUIZ_STATES[top.key];
+    document.getElementById("resultStateName").textContent = topState.name;
+    document.getElementById("resultStateSubtitle").textContent = topState.subtitle;
+
+    const barsHtml = ranked.map((r, i) => {
+      const st = QUIZ_STATES[r.key];
+      const pct = Math.round((r.value / maxValue) * 100);
+      const pctOfTotal = Math.round((r.value / total) * 100);
+      return `
+        <div class="quiz-bar-row">
+          <div class="quiz-bar-label">
+            <span>${st.name}</span>
+            <span>${pctOfTotal}%</span>
+          </div>
+          <div class="quiz-bar-track">
+            <div class="quiz-bar-fill ${i === 0 ? 'top' : ''}" style="width: ${pct}%"></div>
+          </div>
+        </div>
+      `;
+    }).join("");
+    document.getElementById("quizBars").innerHTML = barsHtml;
+
+    const guidanceHtml = `
+      <div class="guidance-block">
+        <h4>Co znaczy, że jesteś w tym stanie</h4>
+        <p>${topState.meaning}</p>
+      </div>
+      <div class="guidance-block">
+        <h4>Czego unikać</h4>
+        <ul>${topState.avoid.map(a => `<li>${a}</li>`).join("")}</ul>
+      </div>
+      <div class="guidance-block">
+        <h4>Co zrobić dziś</h4>
+        <ul>${topState.doToday.map(a => `<li>${a}</li>`).join("")}</ul>
+      </div>
+      <div class="guidance-block">
+        <h4>Werset na ten tydzień</h4>
+        <p class="guidance-verse">${topState.verse}</p>
+      </div>
+      <div class="guidance-block">
+        <h4>Ile czekać przed ważnymi decyzjami</h4>
+        <p class="guidance-wait">${topState.wait}</p>
+      </div>
+    `;
+    document.getElementById("resultGuidance").innerHTML = guidanceHtml;
+
+    if (second && second.value > 0 && (top.value - second.value) <= 4) {
+      const secondState = QUIZ_STATES[second.key];
+      document.getElementById("quizSecondState").innerHTML = `
+        <b>Stan przejściowy:</b> Twoje serce dotyka też stanu „${secondState.name}”.
+        To znak, że jesteś na granicy między dwoma poruszeniami — potraktuj wskazania głównego stanu jako priorytet,
+        a wskazania drugiego jako ostrzeżenie, czego pilnować w najbliższych dniach.
+      `;
+      document.getElementById("quizSecondState").style.display = "block";
+    } else {
+      document.getElementById("quizSecondState").style.display = "none";
+    }
+
+    document.getElementById("quizResult").classList.add("visible");
+    document.getElementById("quizResult").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function restartQuiz() {
+    document.querySelectorAll('#quizForm input[type="radio"]').forEach(r => { r.checked = false; });
+    document.getElementById("quizSubmitBtn").disabled = true;
+    document.getElementById("quizResult").classList.remove("visible");
+    document.getElementById("quizBlock").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  document.addEventListener("DOMContentLoaded", renderQuiz);
+</script>
+
+<!-- CLOSING -->
+<div class="closing-page">
+  <h2>Pamiętaj</h2>
+  <p>Rozeznawanie nie jest darem geniuszy. Jest umiejętnością, która rośnie z praktyką.</p>
+  <p>Każdego wieczoru, przed snem, zatrzymaj się na minutę. Zapytaj siebie: <i>„Co dziś czułam? Co Bóg robił we mnie? Co próbowało mnie oddalić?”</i></p>
+  <p>Z czasem rozpoznasz głos Pana wśród tysiąca innych głosów. I już nie będziesz pytać <i>„dlaczego życie nie płynie?”</i> — będziesz wiedziała, kiedy Bóg ucisza, kiedy wróg atakuje, a kiedy Twoje ciało po prostu prosi o odpoczynek.</p>
+  <div class="closing-verse">„Wszystko badajcie, a co szlachetne — zachowujcie.”<br>— 1 Tes 5,21</div>
+</div>
+
+</main>
+
+</body>
+</html>
