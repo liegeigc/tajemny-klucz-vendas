@@ -30,29 +30,41 @@
   }
 
   .toolbar {
-    position: fixed;
-    top: 14px;
-    right: 14px;
     background: var(--navy-deep);
     color: var(--gold);
-    padding: 12px 18px;
-    border-radius: 10px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
-    font-size: 13px;
-    z-index: 100;
-    border: 1px solid var(--gold);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-family: Georgia, serif;
+    font-size: 14px;
+    border-bottom: 1px solid var(--gold);
+  }
+  .toolbar-title {
+    flex: 1;
+    text-align: center;
+    min-width: 120px;
+    color: var(--gold-soft);
+    letter-spacing: 1px;
   }
   .toolbar button {
     background: var(--gold);
     color: var(--navy-deep);
     border: none;
-    padding: 9px 16px;
+    padding: 10px 16px;
     border-radius: 6px;
     font-family: inherit;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: bold;
     cursor: pointer;
-    margin-left: 10px;
+  }
+  .toolbar button:hover, .toolbar button:active { background: var(--gold-soft); }
+  @media (max-width: 600px) {
+    .toolbar { padding: 10px 12px; font-size: 12px; gap: 8px; }
+    .toolbar button { padding: 9px 12px; font-size: 12.5px; }
+    .toolbar-title { font-size: 12px; }
   }
 
   /* COVER (verde-floresta/bronze) */
@@ -714,20 +726,26 @@
 <body>
 
 <div class="toolbar">
-  <button onclick="goBack()" style="margin-right:8px;">← Wróć</button>
-  <button onclick="window.print()">Drukuj / PDF</button>
+  <button onclick="goBack()">← Wróć</button>
+  <span class="toolbar-title">Tarcza Maryi</span>
+  <button onclick="doPrint()">Drukuj / PDF</button>
 </div>
 <script>
 function goBack() {
   try {
     if (window.parent && window.parent !== window) {
       window.parent.postMessage({ type: 'flowlink:close' }, '*');
+      window.parent.postMessage({ type: 'close' }, '*');
     }
   } catch (e) {}
-  if (document.referrer && document.referrer !== window.location.href) {
-    history.back();
-  } else {
-    window.location.href = 'https://tajemny-klucz-maryi.flowlink-app.online';
+  try { if (window.history.length > 1) { window.history.back(); return; } } catch (e) {}
+  window.location.href = 'https://tajemny-klucz-maryi.flowlink-app.online';
+}
+function doPrint() {
+  try { window.print(); } catch (e) {
+    try { window.parent.print(); } catch (e2) {
+      alert('Aby wydrukować lub zapisać jako PDF, użyj menu przeglądarki (... lub Plik → Drukuj).');
+    }
   }
 }
 </script>
@@ -754,10 +772,10 @@ function goBack() {
   <h1>Tarcza Maryi</h1>
   <h2>Sacramentalia, modlitwy ochronne, spiżarnia chrześcijanki<br>i apteczka maryjna na trudne czasy</h2>
   <div class="cover-parts">
-    <div class="cover-part">I · Dom-sanktuarium</div>
-    <div class="cover-part">II · Spiżarnia</div>
-    <div class="cover-part">III · Apteczka</div>
-    <div class="cover-part">IV · Modlitwy</div>
+    <a href="#czesc-1" class="cover-part">I · Dom-sanktuarium</a>
+    <a href="#czesc-2" class="cover-part">II · Spiżarnia</a>
+    <a href="#czesc-3" class="cover-part">III · Apteczka</a>
+    <a href="#czesc-4" class="cover-part">IV · Modlitwy</a>
   </div>
   <div class="cover-sub">Praktyczny przewodnik dla wybranej</div>
 </div>
@@ -800,7 +818,7 @@ function goBack() {
 </div>
 
 <!-- ============== CZĘŚĆ I ============== -->
-<div class="part-divider">
+<div class="part-divider" id="czesc-1">
   <div class="part-icon">
     <svg viewBox="0 0 60 60" fill="none">
       <path d="M30 5L10 15v15c0 12 8 22 20 25 12-3 20-13 20-25V15L30 5z" stroke="currentColor" stroke-width="2"/>
@@ -1298,7 +1316,7 @@ function goBack() {
 </div>
 
 <!-- ============== CZĘŚĆ II ============== -->
-<div class="part-divider">
+<div class="part-divider" id="czesc-2">
   <div class="part-icon">
     <svg viewBox="0 0 60 60" fill="none">
       <path d="M10 20l5-10h30l5 10v30H10V20z" stroke="currentColor" stroke-width="2"/>
@@ -2233,7 +2251,7 @@ function goBack() {
 </div>
 
 <!-- ============== CZĘŚĆ III ============== -->
-<div class="part-divider">
+<div class="part-divider" id="czesc-3">
   <div class="part-icon">
     <svg viewBox="0 0 60 60" fill="none">
       <rect x="14" y="14" width="32" height="38" rx="3" stroke="currentColor" stroke-width="2"/>
@@ -3056,7 +3074,7 @@ function goBack() {
 </div>
 
 <!-- ============== CZĘŚĆ IV ============== -->
-<div class="part-divider">
+<div class="part-divider" id="czesc-4">
   <div class="part-icon">
     <svg viewBox="0 0 60 60" fill="none">
       <path d="M30 5L8 18v18c0 11 9 19 22 22 13-3 22-11 22-22V18L30 5z" stroke="currentColor" stroke-width="2"/>

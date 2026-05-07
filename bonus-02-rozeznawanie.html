@@ -97,33 +97,44 @@
   /* ===== MAIN ===== */
   main { max-width: 760px; margin: 0 auto; padding: 50px 28px 60px; }
 
-  /* Toolbar de print */
+  /* Toolbar (inline no topo, nao fixed) */
   .toolbar {
-    position: fixed;
-    top: 14px;
-    right: 14px;
     background: var(--navy-deep);
     color: var(--gold);
-    padding: 12px 18px;
-    border-radius: 10px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
-    font-size: 13px;
-    z-index: 100;
-    border: 1px solid var(--gold);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-family: Georgia, serif;
+    font-size: 14px;
+    border-bottom: 1px solid var(--gold);
+  }
+  .toolbar-title {
+    flex: 1;
+    text-align: center;
+    min-width: 120px;
+    color: var(--gold-soft);
+    letter-spacing: 1px;
   }
   .toolbar button {
     background: var(--gold);
     color: var(--navy-deep);
     border: none;
-    padding: 9px 16px;
+    padding: 10px 16px;
     border-radius: 6px;
     font-family: inherit;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: bold;
     cursor: pointer;
-    margin-left: 10px;
   }
-  .toolbar button:hover { background: var(--gold-soft); }
+  .toolbar button:hover, .toolbar button:active { background: var(--gold-soft); }
+  @media (max-width: 600px) {
+    .toolbar { padding: 10px 12px; font-size: 12px; gap: 8px; }
+    .toolbar button { padding: 9px 12px; font-size: 12.5px; }
+    .toolbar-title { font-size: 12px; }
+  }
 
   /* Ornamento divisor */
   .ornament {
@@ -767,20 +778,26 @@
 <body>
 
 <div class="toolbar">
-  <button onclick="goBack()" style="margin-right:8px;">← Wróć</button>
-  <button onclick="window.print()">📄 Drukuj / PDF</button>
+  <button onclick="goBack()">← Wróć</button>
+  <span class="toolbar-title">Rozeznawanie duszy</span>
+  <button onclick="doPrint()">Drukuj / PDF</button>
 </div>
 <script>
 function goBack() {
   try {
     if (window.parent && window.parent !== window) {
       window.parent.postMessage({ type: 'flowlink:close' }, '*');
+      window.parent.postMessage({ type: 'close' }, '*');
     }
   } catch (e) {}
-  if (document.referrer && document.referrer !== window.location.href) {
-    history.back();
-  } else {
-    window.location.href = 'https://tajemny-klucz-maryi.flowlink-app.online';
+  try { if (window.history.length > 1) { window.history.back(); return; } } catch (e) {}
+  window.location.href = 'https://tajemny-klucz-maryi.flowlink-app.online';
+}
+function doPrint() {
+  try { window.print(); } catch (e) {
+    try { window.parent.print(); } catch (e2) {
+      alert('Aby wydrukować lub zapisać jako PDF, użyj menu przeglądarki (... lub Plik → Drukuj).');
+    }
   }
 }
 </script>
