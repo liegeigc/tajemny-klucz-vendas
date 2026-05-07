@@ -1,6 +1,7 @@
 // Vercel Edge Function — proxy GitHub Releases audios with proper headers
-// iOS Safari requires Content-Type audio/mpeg + no attachment disposition.
-// Streams response (no 4.5MB body limit) and supports Range requests.
+// Buffers the file once, then serves with explicit Content-Length and proper
+// Range support so iOS Safari plays it inline instead of treating it as a live
+// stream.
 //
 // Usage from FlowLink:  https://wybrana.online/audio/day-01.mp3
 
@@ -20,36 +21,68 @@ export default async function handler(req) {
   }
 
   const upstreamUrl = `${RELEASE_BASE}/${filename}`;
-  const fwdHeaders = {};
-  const range = req.headers.get('range');
-  if (range) fwdHeaders['range'] = range;
 
   let upstream;
   try {
-    upstream = await fetch(upstreamUrl, {
-      headers: fwdHeaders,
-      redirect: 'follow',
-    });
+    upstream = await fetch(upstreamUrl, { redirect: 'follow' });
   } catch (err) {
     return new Response(`Upstream fetch failed: ${err.message}`, { status: 502 });
   }
 
-  const responseHeaders = new Headers();
-  responseHeaders.set('Content-Type', 'audio/mpeg');
-  responseHeaders.set('Accept-Ranges', 'bytes');
-  responseHeaders.set('Cache-Control', 'public, max-age=31536000, immutable');
-  responseHeaders.set('Access-Control-Allow-Origin', '*');
-  responseHeaders.set('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS');
-  responseHeaders.set('Access-Control-Allow-Headers', 'Range, Content-Type');
-  responseHeaders.set('Content-Disposition', `inline; filename="${filename}"`);
+  if (!upstream.ok) {
+    return new Response(`Upstream error: ${upstream.status}`, {
+      status: upstream.status,
+    });
+  }
 
-  const cl = upstream.headers.get('content-length');
-  if (cl) responseHeaders.set('Content-Length', cl);
-  const cr = upstream.headers.get('content-range');
-  if (cr) responseHeaders.set('Content-Range', cr);
+  const buffer = await upstream.arrayBuffer();
+  const totalSize = buffer.byteLength;
 
-  return new Response(upstream.body, {
-    status: upstream.status,
-    headers: responseHeaders,
+  const baseHeaders = {
+    'Content-Type': 'audio/mpeg',
+    'Accept-Ranges': 'bytes',
+    'Cache-Control': 'public, max-age=31536000, immutable',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, HEAD, OPTIONS',
+    'Access-Control-Allow-Headers': 'Range, Content-Type',
+    'Content-Disposition': `inline; filename="${filename}"`,
+  };
+
+  if (req.method === 'OPTIONS') {
+    return new Response(null, { status: 204, headers: baseHeaders });
+  }
+
+  const rangeHeader = req.headers.get('range');
+  if (rangeHeader) {
+    const match = rangeHeader.match(/^bytes=(\d+)-(\d*)$/);
+    if (match) {
+      const start = parseInt(match[1], 10);
+      const end = match[2] ? parseInt(match[2], 10) : totalSize - 1;
+
+      if (start >= totalSize || end >= totalSize || start > end) {
+        return new Response('Requested range not satisfiable', {
+          status: 416,
+          headers: { ...baseHeaders, 'Content-Range': `bytes */${totalSize}` },
+        });
+      }
+
+      const slice = buffer.slice(start, end + 1);
+      return new Response(req.method === 'HEAD' ? null : slice, {
+        status: 206,
+        headers: {
+          ...baseHeaders,
+          'Content-Range': `bytes ${start}-${end}/${totalSize}`,
+          'Content-Length': String(slice.byteLength),
+        },
+      });
+    }
+  }
+
+  return new Response(req.method === 'HEAD' ? null : buffer, {
+    status: 200,
+    headers: {
+      ...baseHeaders,
+      'Content-Length': String(totalSize),
+    },
   });
 }
