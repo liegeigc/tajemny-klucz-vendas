@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dziękujemy — Tajemny Klucz Maryi</title>
-<meta name="description" content="Dziękujemy. Twój Wieczernik czeka na Ciebie.">
+<title>Oczekujemy na potwierdzenie — Tajemny Klucz Maryi</title>
+<meta name="description" content="Twoje zamówienie czeka na potwierdzenie płatności.">
 <meta name="robots" content="noindex">
 
 <!-- ============================================================== -->
-<!-- GOOGLE ANALYTICS 4 — pagina de obrigada (Purchase confirmed)   -->
+<!-- GOOGLE ANALYTICS 4 — pagina de aguardando pagamento            -->
 <!-- ============================================================== -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
@@ -16,34 +16,23 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-XXXXXXXXXX', {
-    page_title: 'Tajemny Klucz — Dziękujemy',
-    page_path: '/dziekuje.html'
+    page_title: 'Tajemny Klucz — Oczekiwanie',
+    page_path: '/oczekiwanie.html'
   });
 
-  // Tenta extrair valor real da venda dos query params enviados pela Hotmart
-  // (Hotmart envia ?transaction=XXX&prod=YYY&offer=ZZZ na URL da página de obrigado)
   var urlParams = new URLSearchParams(window.location.search);
   var transactionId = urlParams.get('transaction') || urlParams.get('hottok') || '';
-  var offerCode = urlParams.get('offer') || urlParams.get('off') || '';
 
-  // GA4 Purchase event (padrão Enhanced Ecommerce)
-  gtag('event', 'purchase', {
+  // Evento custom de pagamento pendente (ainda não conta como Purchase)
+  gtag('event', 'payment_pending', {
     transaction_id: transactionId || ('TKM-' + Date.now()),
     value: 77,
-    currency: 'PLN',
-    items: [{
-      item_id: 'tajemny-klucz-maryi',
-      item_name: 'Tajemny Klucz Maryi — 60 dni z Maryją',
-      price: 77,
-      quantity: 1,
-      affiliation: 'Hotmart',
-      coupon: offerCode
-    }]
+    currency: 'PLN'
   });
 </script>
 
 <!-- ============================================================== -->
-<!-- HOTMART SALES PIXEL — Purchase                                 -->
+<!-- HOTMART SALES PIXEL — InitiateCheckout (pendente)              -->
 <!-- ============================================================== -->
 <script>
 (function(h,o,t,m,a,r,t){
@@ -52,7 +41,7 @@
   a.async = 1; a.src = m; r.parentNode.insertBefore(a, r);
 })(window, document, 'script', 'https://pixel.hotmart.com/pixel.min.js');
 hotmartPixel('init', 'HOTMART_PIXEL_ID');
-hotmartPixel('track', 'Purchase', { currency: 'PLN', value: 77 });
+hotmartPixel('track', 'InitiateCheckout', { currency: 'PLN', value: 77 });
 </script>
 
 <style>
@@ -81,7 +70,7 @@ hotmartPixel('track', 'Purchase', { currency: 'PLN', value: 77 });
     padding: 24px 16px;
   }
   .ty-card {
-    max-width: 560px;
+    max-width: 580px;
     width: 100%;
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(201,169,97,0.30);
@@ -96,6 +85,11 @@ hotmartPixel('track', 'Purchase', { currency: 'PLN', value: 77 });
     margin: 0 auto 16px;
     color: var(--gold);
     filter: drop-shadow(0 0 16px rgba(201,169,97,0.45));
+    animation: pulseGold 2.6s ease-in-out infinite;
+  }
+  @keyframes pulseGold {
+    0%, 100% { filter: drop-shadow(0 0 12px rgba(201,169,97,0.35)); opacity: 0.95; }
+    50% { filter: drop-shadow(0 0 22px rgba(201,169,97,0.65)); opacity: 1; }
   }
   .ty-mark svg { width: 100%; height: 100%; display: block; }
   .ty-tagline {
@@ -107,13 +101,13 @@ hotmartPixel('track', 'Purchase', { currency: 'PLN', value: 77 });
     margin-bottom: 14px;
   }
   h1 {
-    font-size: 28px;
+    font-size: 26px;
     font-weight: normal;
     letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--gold);
-    line-height: 1.15;
-    margin-bottom: 12px;
+    line-height: 1.2;
+    margin-bottom: 14px;
   }
   .sub {
     font-style: italic;
@@ -126,39 +120,56 @@ hotmartPixel('track', 'Purchase', { currency: 'PLN', value: 77 });
   .lead {
     font-size: 15.5px;
     line-height: 1.7;
-    margin-bottom: 22px;
+    margin-bottom: 20px;
     opacity: 0.96;
+    text-align: left;
   }
   .lead b { color: var(--gold-soft); font-weight: normal; }
 
-  .big-cta {
-    display: block;
-    width: 100%;
-    background: linear-gradient(180deg, #f5efe6 0%, #e9dcc0 100%);
-    color: #0a1322;
-    padding: 26px 20px;
+  .steps {
+    text-align: left;
+    margin: 24px 0;
+    background: rgba(201,169,97,0.05);
+    border: 1px solid rgba(201,169,97,0.20);
     border-radius: 10px;
-    font-weight: bold;
-    font-size: 18px;
-    letter-spacing: 2px;
+    padding: 18px 20px;
+  }
+  .steps-title {
+    font-size: 12px;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    text-decoration: none;
-    margin: 18px 0 14px;
+    color: var(--gold);
+    margin-bottom: 14px;
+    text-align: center;
+    opacity: 0.95;
+  }
+  .step {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(201,169,97,0.10);
+    font-size: 14.5px;
+    line-height: 1.55;
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    flex: 0 0 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: rgba(201,169,97,0.20);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: bold;
     font-family: Georgia, serif;
-    box-shadow: 0 10px 30px rgba(201,169,97,0.35);
-    border: 2px solid var(--gold);
-    transition: transform 0.15s ease;
   }
-  .big-cta:hover { transform: translateY(-2px); }
-  .big-cta:active { background: #e9dcc0; transform: translateY(0); }
+  .step-text { flex: 1; }
+  .step-text b { color: var(--gold-soft); font-weight: normal; }
 
-  .countdown {
-    font-size: 12.5px;
-    color: var(--gold-soft);
-    opacity: 0.75;
-    margin-bottom: 18px;
-    letter-spacing: 1px;
-  }
   .note {
     font-size: 13.5px;
     line-height: 1.6;
@@ -166,14 +177,14 @@ hotmartPixel('track', 'Purchase', { currency: 'PLN', value: 77 });
     background: rgba(201,169,97,0.06);
     border-left: 3px solid var(--gold);
     padding: 14px 16px;
-    margin: 20px 0 14px;
+    margin: 22px 0 14px;
     text-align: left;
     border-radius: 0 8px 8px 0;
   }
   .ty-help {
-    margin-top: 18px;
+    margin-top: 22px;
     font-size: 13px;
-    opacity: 0.85;
+    opacity: 0.88;
   }
   .ty-help a { color: var(--gold-soft); text-decoration: none; }
   .copyright {
@@ -186,9 +197,8 @@ hotmartPixel('track', 'Purchase', { currency: 'PLN', value: 77 });
   }
 
   @media (min-width: 720px) {
-    .ty-card { padding: 48px 40px; max-width: 600px; }
-    h1 { font-size: 34px; }
-    .big-cta { padding: 24px 28px; font-size: 17px; }
+    .ty-card { padding: 48px 40px; max-width: 620px; }
+    h1 { font-size: 32px; }
   }
 </style>
 </head>
@@ -196,58 +206,47 @@ hotmartPixel('track', 'Purchase', { currency: 'PLN', value: 77 });
 <div class="ty-card">
   <div class="ty-mark" aria-hidden="true">
     <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
-      <g fill="currentColor">
-        <circle cx="50" cy="10" r="2"/>
-        <circle cx="68" cy="14" r="1.6"/>
-        <circle cx="82" cy="28" r="1.6"/>
-        <circle cx="86" cy="46" r="1.6"/>
-        <circle cx="82" cy="64" r="1.6"/>
-        <circle cx="68" cy="78" r="1.6"/>
-        <circle cx="50" cy="82" r="2"/>
-        <circle cx="32" cy="78" r="1.6"/>
-        <circle cx="18" cy="64" r="1.6"/>
-        <circle cx="14" cy="46" r="1.6"/>
-        <circle cx="18" cy="28" r="1.6"/>
-        <circle cx="32" cy="14" r="1.6"/>
-      </g>
-      <path d="M 50 22 L 50 36 M 44 27 L 56 27" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-      <text x="50" y="72" font-family="Georgia, serif" font-size="48" text-anchor="middle" fill="currentColor" font-weight="400" letter-spacing="-2">M</text>
+      <circle cx="50" cy="50" r="38" stroke="currentColor" stroke-width="2.5" opacity="0.55"/>
+      <path d="M 50 28 L 50 50 L 64 60" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="50" cy="50" r="2.5" fill="currentColor"/>
     </svg>
   </div>
 
-  <div class="ty-tagline">Drzwi otwarte</div>
-  <h1>Witaj, Wybrana</h1>
-  <div class="sub">Twoja droga z Maryją właśnie się zaczęła.</div>
+  <div class="ty-tagline">Oczekujemy na potwierdzenie</div>
+  <h1>Twoje zamówienie<br>zostało odebrane</h1>
+  <div class="sub">Niebo już wie. Czekamy tylko na potwierdzenie Twojej płatności.</div>
 
-  <p class="lead">Twój Wieczernik został aktywowany. <b>Maryja czeka.</b></p>
+  <p class="lead">Twoje zamówienie <b>Tajemnego Klucza Maryi</b> dotarło do nas i jest <b>w trakcie weryfikacji płatności</b>. Gdy tylko płatność zostanie potwierdzona, otrzymasz natychmiastowy dostęp do całej drogi 60 dni z Maryją oraz do czterech prezentów.</p>
 
-  <a href="https://tajemny-klucz-maryi.flowlink-app.online" class="big-cta" id="appLink">Otwórz aplikację →</a>
+  <div class="steps">
+    <div class="steps-title">Co dzieje się teraz</div>
 
-  <div class="countdown" id="countdown">Automatyczne przekierowanie za <span id="seconds">20</span> sekund...</div>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-text"><b>Płatność jest weryfikowana.</b> Czas zależy od wybranej formy płatności — BLIK i karta zwykle potwierdzają się w kilka minut. Przelew tradycyjny może potrwać do 2 dni roboczych.</div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-text"><b>Otrzymasz e-mail z Hotmart</b> z potwierdzeniem zakupu — sprawdzaj również folder „spam" i „oferty".</div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-text"><b>Po potwierdzeniu</b> otrzymasz drugi e-mail z linkiem dostępu do aplikacji. Klikasz link, otwierasz Wieczernik — bez instalowania, bez konta, bez haseł.</div>
+    </div>
+  </div>
 
   <div class="note">
-    Otrzymasz też e-mail z Hotmart z potwierdzeniem zakupu — możesz go zignorować. Cały Twój dostęp znajduje się <b>tutaj, w aplikacji powyżej</b>.
+    Nie musisz nic robić — wszystko dzieje się automatycznie. Zachowaj tę stronę otwartą lub spokojnie zamknij i poczekaj na e-mail. Maryja nie biegnie. Twoje miejsce na drodze jest już zarezerwowane.
   </div>
 
   <div class="ty-help">
-    Pytania? <a href="mailto:tajemnykluczmaryi@gmail.com">tajemnykluczmaryi@gmail.com</a>
+    Pytania lub problem z płatnością?<br>
+    <a href="mailto:tajemnykluczmaryi@gmail.com">tajemnykluczmaryi@gmail.com</a> · odpowiadamy w ciągu 24 godzin
   </div>
 
   <div class="copyright">Autor · L.I.G.C. · © 2026</div>
 </div>
-
-<script>
-  // Auto-redirect to FlowLink after 20 seconds
-  var seconds = 20;
-  var el = document.getElementById('seconds');
-  var iv = setInterval(function () {
-    seconds--;
-    if (el) el.textContent = seconds;
-    if (seconds <= 0) {
-      clearInterval(iv);
-      window.location.href = 'https://tajemny-klucz-maryi.flowlink-app.online';
-    }
-  }, 1000);
-</script>
 </body>
 </html>

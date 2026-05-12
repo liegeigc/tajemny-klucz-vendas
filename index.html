@@ -8,6 +8,58 @@
 <meta property="og:title" content="Tajemny Klucz Maryi">
 <meta property="og:description" content="Klucz, który Niebo trzymało w ukryciu — dziś dla Ciebie">
 <meta property="og:type" content="website">
+
+<!-- ============================================================== -->
+<!-- GOOGLE ANALYTICS 4 (gtag.js)                                   -->
+<!-- Trocar G-XXXXXXXXXX pelo Measurement ID do GA4                 -->
+<!-- ============================================================== -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX', {
+    page_title: 'Tajemny Klucz Maryi — Landing',
+    page_path: '/'
+  });
+</script>
+
+<!-- ============================================================== -->
+<!-- HOTMART SALES PIXEL                                            -->
+<!-- Trocar HOTMART_PIXEL_ID pelo Pixel ID do Hotmart               -->
+<!-- (Hotmart > Ferramentas > Pixel de Vendas)                      -->
+<!-- ============================================================== -->
+<script>
+(function(h,o,t,m,a,r,t){
+  h.hotmartPixel = h.hotmartPixel || function(){(h.hotmartPixel.q = h.hotmartPixel.q || []).push(arguments)};
+  a = o.createElement(t); r = o.getElementsByTagName(t)[0];
+  a.async = 1; a.src = m; r.parentNode.insertBefore(a, r);
+})(window, document, 'script', 'https://pixel.hotmart.com/pixel.min.js');
+hotmartPixel('init', 'HOTMART_PIXEL_ID');
+hotmartPixel('track', 'PageView');
+</script>
+
+<!-- ============================================================== -->
+<!-- HELPER DE TRACKING (dispara em GA4 + Hotmart Pixel + dataLayer)-->
+<!-- ============================================================== -->
+<script>
+window.trackEvent = function(eventName, params) {
+  params = params || {};
+  // Google Analytics 4
+  if (typeof gtag === 'function') {
+    gtag('event', eventName, params);
+  }
+  // Hotmart Pixel
+  if (typeof hotmartPixel === 'function') {
+    hotmartPixel('track', eventName, params);
+  }
+  // Console (debug — pode remover depois de validar em produção)
+  if (window.console && console.log) {
+    console.log('[track]', eventName, params);
+  }
+};
+</script>
+
 <style>
   :root {
     --cream: #f5efe6;
@@ -846,7 +898,7 @@
 
   <div class="hero-sub">Jest klucz, który Niebo trzymało w ukryciu — przekazywany cicho z pokolenia na pokolenie tych, którzy modlili się wytrwale. Dziś, w czasach, gdy świat staje się coraz ciemniejszy, Maryja chce wreszcie złożyć go w Twoich rękach.</div>
 
-  <a href="#poznaj" class="scroll-hint">Odkryj, co Niebo dla Ciebie chowało <span class="arrow-down">↓</span></a>
+  <a href="#mechanizm" class="scroll-hint" data-cta-id="hero_scroll_to_mechanism">Odkryj, co Niebo dla Ciebie chowało <span class="arrow-down">↓</span></a>
 </section>
 
 <!-- ===== PAIN BLOCK ===== -->
@@ -879,7 +931,7 @@
 <!-- 2ª QUEBRA: ROZWIĄZANIE (NIE TYLKO MODLITWA)                        -->
 <!-- =================================================================== -->
 
-<section class="dark">
+<section class="dark" id="mechanizm">
   <div class="wrap">
     <div class="maria-img">
       <img src="maria-blessing.jpg" alt="Maryja z Tajemnym Kluczem nad polską wsią">
@@ -949,7 +1001,7 @@
     </div>
 
     <div style="text-align:center; margin-top:50px;">
-      <a href="#bonusy" class="scroll-hint scroll-hint-dark">Idę dalej tą drogą <span class="arrow-down">↓</span></a>
+      <a href="#oferta" class="scroll-hint scroll-hint-dark" data-cta-id="after_solution_to_offer">Idę dalej tą drogą <span class="arrow-down">↓</span></a>
     </div>
   </div>
 </section>
@@ -1025,9 +1077,6 @@
       </div>
     </div>
 
-    <div style="text-align:center; margin-top:50px;">
-      <a href="#oferta" class="scroll-hint scroll-hint-dark">Pokaż mi pełną drogę <span class="arrow-down">↓</span></a>
-    </div>
   </div>
 </section>
 
@@ -1059,7 +1108,7 @@
     </div>
 
     <div style="text-align:center; margin-top:40px;">
-      <a href="https://pay.hotmart.com/E105704172B" class="cta cta-large">Tak, biorę całą drogę za 77 zł <span class="cta-arrow">→</span></a>
+      <a href="https://pay.hotmart.com/E105704172B?off=htnd734c&checkoutMode=10" class="cta cta-large" data-cta-id="offer_main_cta">Tak, biorę całą drogę za 77 zł <span class="cta-arrow">→</span></a>
       <div style="font-size:13px; letter-spacing:2px; color:var(--gold-soft); margin-top:18px; opacity:0.9; text-transform:uppercase;">
         14 dni gwarancji &nbsp;·&nbsp; Bezpieczna płatność Hotmart &nbsp;·&nbsp; Dostęp natychmiastowy
       </div>
@@ -1149,7 +1198,7 @@
     </div>
 
     <div style="text-align:center; margin-top:50px;">
-      <a href="https://pay.hotmart.com/E105704172B" class="cta cta-large">Tak, chcę otworzyć drzwi <span class="cta-arrow">→</span></a>
+      <a href="https://pay.hotmart.com/E105704172B?off=htnd734c&checkoutMode=10" class="cta cta-large" data-cta-id="testimonial_cta">Tak, chcę otworzyć drzwi <span class="cta-arrow">→</span></a>
       <div class="cta-line">14 dni gwarancji · 77 zł raz na zawsze</div>
     </div>
   </div>
@@ -1269,7 +1318,7 @@
   <div class="wrap">
     <h2>Maryja czeka.<br>Otwórz drzwi.</h2>
     <p>60 dni minie i tak, w taki czy inny sposób. Pytanie brzmi: czy spędzisz je dalej w tym samym miejscu — czy na drodze, która prowadzi Cię z powrotem do serca Boga, do siły wstawiennictwa, do domu, który znów dzwoni modlitwą?</p>
-    <a href="https://pay.hotmart.com/E105704172B" class="cta cta-large">Tak, otwieram drzwi z Maryją <span class="cta-arrow">→</span></a>
+    <a href="https://pay.hotmart.com/E105704172B?off=htnd734c&checkoutMode=10" class="cta cta-large" data-cta-id="final_cta">Tak, otwieram drzwi z Maryją <span class="cta-arrow">→</span></a>
     <div style="font-size:14px; letter-spacing:2px; color:var(--gold-soft); margin-top:24px; opacity:0.92; text-transform:uppercase;">
       77 zł raz na zawsze · Gwarancja 14 dni · Dostęp natychmiastowy
     </div>
@@ -1299,11 +1348,11 @@
     <p>Z miliarda stron Internetu trafiłaś tutaj. To nie był przypadek. Maryja czeka — a my chcemy Ci pomóc otworzyć drzwi <b>jeszcze dziś</b>.</p>
     <div class="exit-popup-pricing">
       <div class="strike">77 zł</div>
-      <div class="new-price"><span class="new-price-curr">zł</span>67</div>
-      <div class="save-badge">Oszczędzasz 10 zł · Tylko teraz</div>
+      <div class="new-price"><span class="new-price-curr">zł</span>60</div>
+      <div class="save-badge">Oszczędzasz 17 zł · Tylko teraz</div>
     </div>
     <p style="font-size:15px; opacity:0.88; margin-bottom:22px;">Ta oferta znika, gdy zamkniesz to okno. Bez wyjątków.</p>
-    <a href="https://pay.hotmart.com/E105704172B?off=a5cvks40" class="exit-cta" onclick="trackExitClick()">Tak, biorę za 67 zł &rarr;</a>
+    <a href="https://pay.hotmart.com/E105704172B?off=qnv2adco&checkoutMode=10" class="exit-cta" data-cta-id="exit_popup_cta" onclick="trackExitClick()">Tak, biorę za 60 zł &rarr;</a>
     <div class="small">Gwarancja 14 dni · Dostęp natychmiastowy</div>
   </div>
 </div>
@@ -1354,6 +1403,7 @@
       p.classList.add('open');
       shown = true;
       document.body.style.overflow = 'hidden';
+      if (window.trackEvent) trackEvent('exit_popup_show', { popup_type: 'discount_offer' });
     }
   }
   window.closeExitPopup = function() {
@@ -1361,9 +1411,11 @@
     if (p) p.classList.remove('open');
     document.body.style.overflow = '';
     sessionStorage.setItem('exit_popup_dismissed', '1');
+    if (window.trackEvent) trackEvent('exit_popup_dismiss', { popup_type: 'discount_offer' });
   };
   window.trackExitClick = function() {
     sessionStorage.setItem('exit_popup_clicked', '1');
+    if (window.trackEvent) trackEvent('exit_popup_click', { popup_type: 'discount_offer', offer_value_zl: 60 });
   };
 
   // Desktop: detect mouse leaving top of viewport
@@ -1388,6 +1440,52 @@
       sessionStorage.setItem('exit_popup_dismissed', '1');
     });
   });
+})();
+
+/* ===== Tracking de cliques em todos os CTAs e links de checkout ===== */
+(function() {
+  // Captura clique em qualquer elemento com data-cta-id
+  document.querySelectorAll('[data-cta-id]').forEach(function(el){
+    el.addEventListener('click', function(e){
+      var ctaId = el.getAttribute('data-cta-id');
+      var href = el.getAttribute('href') || '';
+      var isCheckout = href.indexOf('pay.hotmart.com') !== -1;
+      var label = (el.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 80);
+
+      if (window.trackEvent) {
+        trackEvent('cta_click', {
+          cta_id: ctaId,
+          cta_label: label,
+          destination: isCheckout ? 'checkout' : 'internal_anchor',
+          href: href
+        });
+
+        // Evento especial para cliques que vão pro checkout (mais valioso pra GA4)
+        if (isCheckout) {
+          trackEvent('begin_checkout', {
+            cta_id: ctaId,
+            currency: 'PLN',
+            value: ctaId === 'exit_popup_cta' ? 60 : 77
+          });
+        }
+      }
+    });
+  });
+
+  // Tracking de profundidade de scroll (25%, 50%, 75%, 100%)
+  var scrollMarks = { 25: false, 50: false, 75: false, 100: false };
+  function checkScroll() {
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if (docHeight <= 0) return;
+    var pct = Math.round((window.scrollY / docHeight) * 100);
+    [25, 50, 75, 100].forEach(function(mark){
+      if (pct >= mark && !scrollMarks[mark]) {
+        scrollMarks[mark] = true;
+        if (window.trackEvent) trackEvent('scroll_depth', { depth_percent: mark });
+      }
+    });
+  }
+  window.addEventListener('scroll', checkScroll, { passive: true });
 })();
 </script>
 

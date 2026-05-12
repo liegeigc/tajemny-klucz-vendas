@@ -2,17 +2,17 @@
   "redirects": [
     {
       "source": "/tajemnykluczmaryi",
-      "destination": "https://pay.hotmart.com/E105704172B",
+      "destination": "https://pay.hotmart.com/E105704172B?off=htnd734c&checkoutMode=10",
       "permanent": false
     },
     {
       "source": "/tajemnyklucz",
-      "destination": "https://pay.hotmart.com/E105704172B",
+      "destination": "https://pay.hotmart.com/E105704172B?off=htnd734c&checkoutMode=10",
       "permanent": false
     },
     {
       "source": "/promocja",
-      "destination": "https://pay.hotmart.com/E105704172B?off=a5cvks40",
+      "destination": "https://pay.hotmart.com/E105704172B?off=qnv2adco&checkoutMode=10",
       "permanent": false
     }
   ]
