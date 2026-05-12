@@ -11,49 +11,28 @@
 
 <!-- ============================================================== -->
 <!-- GOOGLE ANALYTICS 4 (gtag.js)                                   -->
-<!-- Trocar G-XXXXXXXXXX pelo Measurement ID do GA4                 -->
+<!-- Trocar G-EN2XE62ERE pelo Measurement ID do GA4                 -->
 <!-- ============================================================== -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EN2XE62ERE"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX', {
+  gtag('config', 'G-EN2XE62ERE', {
     page_title: 'Tajemny Klucz Maryi — Landing',
     page_path: '/'
   });
 </script>
 
 <!-- ============================================================== -->
-<!-- HOTMART SALES PIXEL                                            -->
-<!-- Trocar HOTMART_PIXEL_ID pelo Pixel ID do Hotmart               -->
-<!-- (Hotmart > Ferramentas > Pixel de Vendas)                      -->
-<!-- ============================================================== -->
-<script>
-(function(h,o,t,m,a,r,t){
-  h.hotmartPixel = h.hotmartPixel || function(){(h.hotmartPixel.q = h.hotmartPixel.q || []).push(arguments)};
-  a = o.createElement(t); r = o.getElementsByTagName(t)[0];
-  a.async = 1; a.src = m; r.parentNode.insertBefore(a, r);
-})(window, document, 'script', 'https://pixel.hotmart.com/pixel.min.js');
-hotmartPixel('init', 'HOTMART_PIXEL_ID');
-hotmartPixel('track', 'PageView');
-</script>
-
-<!-- ============================================================== -->
-<!-- HELPER DE TRACKING (dispara em GA4 + Hotmart Pixel + dataLayer)-->
+<!-- HELPER DE TRACKING (dispara em GA4 + console pra debug)        -->
 <!-- ============================================================== -->
 <script>
 window.trackEvent = function(eventName, params) {
   params = params || {};
-  // Google Analytics 4
   if (typeof gtag === 'function') {
     gtag('event', eventName, params);
   }
-  // Hotmart Pixel
-  if (typeof hotmartPixel === 'function') {
-    hotmartPixel('track', eventName, params);
-  }
-  // Console (debug — pode remover depois de validar em produção)
   if (window.console && console.log) {
     console.log('[track]', eventName, params);
   }

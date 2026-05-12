@@ -10,49 +10,17 @@
 <!-- ============================================================== -->
 <!-- GOOGLE ANALYTICS 4 — pagina de obrigada (Purchase confirmed)   -->
 <!-- ============================================================== -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EN2XE62ERE"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX', {
+  gtag('config', 'G-EN2XE62ERE', {
     page_title: 'Tajemny Klucz — Dziękujemy',
     page_path: '/dziekuje.html'
   });
-
-  // Tenta extrair valor real da venda dos query params enviados pela Hotmart
-  // (Hotmart envia ?transaction=XXX&prod=YYY&offer=ZZZ na URL da página de obrigado)
-  var urlParams = new URLSearchParams(window.location.search);
-  var transactionId = urlParams.get('transaction') || urlParams.get('hottok') || '';
-  var offerCode = urlParams.get('offer') || urlParams.get('off') || '';
-
-  // GA4 Purchase event (padrão Enhanced Ecommerce)
-  gtag('event', 'purchase', {
-    transaction_id: transactionId || ('TKM-' + Date.now()),
-    value: 77,
-    currency: 'PLN',
-    items: [{
-      item_id: 'tajemny-klucz-maryi',
-      item_name: 'Tajemny Klucz Maryi — 60 dni z Maryją',
-      price: 77,
-      quantity: 1,
-      affiliation: 'Hotmart',
-      coupon: offerCode
-    }]
-  });
-</script>
-
-<!-- ============================================================== -->
-<!-- HOTMART SALES PIXEL — Purchase                                 -->
-<!-- ============================================================== -->
-<script>
-(function(h,o,t,m,a,r,t){
-  h.hotmartPixel = h.hotmartPixel || function(){(h.hotmartPixel.q = h.hotmartPixel.q || []).push(arguments)};
-  a = o.createElement(t); r = o.getElementsByTagName(t)[0];
-  a.async = 1; a.src = m; r.parentNode.insertBefore(a, r);
-})(window, document, 'script', 'https://pixel.hotmart.com/pixel.min.js');
-hotmartPixel('init', 'HOTMART_PIXEL_ID');
-hotmartPixel('track', 'Purchase', { currency: 'PLN', value: 77 });
+  // Purchase event será disparado automaticamente pelo Hotmart Pixel
+  // (configurado em Hotmart > Ferramentas > Pixel) — não duplicar aqui.
 </script>
 
 <style>
